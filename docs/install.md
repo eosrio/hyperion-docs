@@ -6,7 +6,7 @@
 
 This setup has only been tested with Ubuntu 18.04, but should work with other OS versions too
 
- - [Elasticsearch 7.4.X](https://www.elastic.co/downloads/elasticsearch)
+ - [Elasticsearch 7.6.X](https://www.elastic.co/downloads/elasticsearch)
  - [RabbitMQ](https://www.rabbitmq.com/install-debian.html)
  - [Redis](https://redis.io/topics/quickstart)
  - [Node.js v13](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)
@@ -29,8 +29,9 @@ bootstrap.memory_lock: true
 ```
 
 !!! warning  
-    Setting `bootstrap.memory_lock: true` will use all your RAM on startup. This is optional.
-    This also might cause the JVM or shell session to exit if it tries to allocate more memory than is available!
+    Setting `bootstrap.memory_lock: true` will try to use all the RAM configured for JVM (check next step) on startup.
+    This could crash if you allocate more RAM tham available on the system. 
+    Setting mem_lock as `false`, might cause the JVM or shell session to exit if elasticsearch tries to allocate more memory than is available!
     
 After starting Elasticsearch, you can see whether this setting was applied successfully by checking the value of mlockall in the output from this request:
 
@@ -330,6 +331,6 @@ pm2 logs chain-api
 
 ### API Reference
 
-API Reference: [API section](v2.md)
+API Reference: [API section: v2](v2.md)
 
-Example: [OpenAPI Docs](https://wax.hyperion.eosrio.io/v2/docs)
+Example: [OpenAPI Docs](https://eos.hyperion.eosrio.io/v2/docs)

@@ -47,6 +47,8 @@ Nodeos plugin used to collect action traces and state deltas. Provides data via 
 
 ### 3. How to use
 
-#### 3.1 [For Providers](install.md)
+#### 3.1 For Providers
+For providers, click [here](install.md)
 
-#### 3.2 [For Developers](howtouse.md)
+#### 3.2 For Developers
+For developers, click [here](howtouse.md)

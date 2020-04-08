@@ -1,10 +1,11 @@
-site_name: Hyperion History Docs
+site_name: Hyperion
 
 markdown_extensions:
   - admonition
 
-repo_name: 'eosrio/hyperion-docs'
-repo_url: 'https://github.com/eosrio/hyperion-docs'
+# Repository
+repo_name: 'felipeasf/hyperion-docs'
+repo_url: 'https://github.com/felipeasf/hyperion-docs'
 
 nav:
     - Home: index.md
@@ -27,19 +28,21 @@ nav:
       - RabbitMQ: rabbit.md
       - FAQ: faq.md
 
+#theme: readthedocs
 theme:
   name: 'material'
   palette:
     primary: 'Blue Grey'
     accent: 'Blue Grey'
-  logo: 'img/logo.png'
+  logo:
+    icon: "home"
   favicon: 'img/logo.png'
 
-#extra:
-#  social:
-#    - type: 'github'
-#      link: 'https://github.com/eosrio'
-#    - type: 'twitter'
-#      link: 'https://twitter.com/eosriobrazil'
-#    - type: 'telegram'
-#      link: 'https://t.me/eosrio'
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/eosrio'
+    - type: 'twitter'
+      link: 'https://twitter.com/eosriobrazil'
+    - type: 'telegram'
+      link: 'https://t.me/eosrio'

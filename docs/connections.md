@@ -27,7 +27,8 @@
          "chain_id":"aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906",
          "http":"http://127.0.0.1:8888",
          "ship":"ws://127.0.0.1:8080",
-         "WS_ROUTER_PORT":7001
+         "WS_ROUTER_HOST": "127.0.0.1", --> Endpoint used by indexer to connect to the API. This is important when Indexer and API aren't on the same machine / instance.
+         "WS_ROUTER_PORT":7001          --> Port used by indexer to connect to API**
       }
    }
 }
