@@ -13,10 +13,10 @@ This is the query:
 "https://wax.hyperion.eosrio.io/v2/history/get_transaction?id=14b36232e919307090c7e9a7a2b17915f40bf0ce72734647c9f8c145c110dda0"
 ````
 
-Now, we have have to create a Promise function that will make the request, and save it in a variable:
+Now, let's create a Promise function that will receive the tx id as parameter and save it into a variable called `getTransaction`:
 ````javascript
-let getActions = function () {
-    let url = "https://wax.hyperion.eosrio.io/v2/history/get_transaction?id=14b36232e919307090c7e9a7a2b17915f40bf0ce72734647c9f8c145c110dda0";
+let getTransaction = function (args) {
+    let url = "https://wax.hyperion.eosrio.io/v2/history/get_transaction?id=" + args;
     return new Promise(function (resolve) {
         https.get(url, (resp) => {
             let data = '';
@@ -36,10 +36,11 @@ let getActions = function () {
 };
 ````
 
-Anf finally, let's call the function:
+Anf finally, let's call the function passing the tx id as parameter:
 ````javascript
 (async() =>{
-   getActions().then(data => {
+  let id = "14b36232e919307090c7e9a7a2b17915f40bf0ce72734647c9f8c145c110dda0"
+   getTransaction(id).then(data => {
       console.log(data);
   });
 })();
