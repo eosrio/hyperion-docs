@@ -1,7 +1,7 @@
 # How to use
 
 ## JavaScript client using https
-To fetch data from Hyperion using JavaScript is quite simple. To do that we're going to use https library to do the requests.
+Fetching data from Hyperion using JavaScript is quite simple. To do that we're going to use https library to make the requests.
 So, the first step is to include the https lib:
 ````javascript
 const https = require('https');
