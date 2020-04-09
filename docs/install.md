@@ -1,6 +1,4 @@
-# Getting Started
-
-## Installation
+# Manual Installation
 
 ### Dependencies
 
@@ -192,3 +190,5 @@ chain-state-history = true
 state-history-endpoint = 127.0.0.1:8080
 plugin = eosio::state_history_plugin
 ```
+
+If everything runs well, now it's time to install [hyperion](hyperion.md).

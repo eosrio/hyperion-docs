@@ -11,8 +11,8 @@ nav:
     - Home: index.md
     - Providers:
       - Enviroment Setup:
-        - Quick Start: quickstart.md
-        - Install: install.md
+        - Script: quickstart.md
+        - Manual: install.md
       - Hyperion: hyperion.md
       - Docker: docker.md
       - Connections: connections.md

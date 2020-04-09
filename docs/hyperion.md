@@ -65,9 +65,15 @@ For more details, refer to the [ecosystem section](ecosystem.md)
 
 ### Setup
 
-Explicar as configurações iniciais.
+```
+cp chains/example.config.json chains/CHAIN_NAME.config.json
 
-Modificar os example.ecosystems...etc
+Example:
+cp chains/example.config.json chains/eos.config.json
+``` 
+The default config.json file is ready to run. The parameter `abi_scan_mode` is `true` to perform an abi scan on the first run.
+
+For more details, refer to the [chain section](chain.md)
 
 ### Start and Stop
 

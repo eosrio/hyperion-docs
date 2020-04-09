@@ -33,4 +33,4 @@ Now, the script will do the work, this can take a while. Get a cup of coffee and
 !!! info
     The install script may ask you for the admin password. This is needed to install the dependencies, please, provide it.
    
- 
+If everything runs well, now it's time to install [hyperion](hyperion.md).
