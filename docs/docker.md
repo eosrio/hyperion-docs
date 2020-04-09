@@ -34,4 +34,5 @@ on the docker-compose.yml setting it to false:
 xpack.security.enabled=false
 ```
 
-#Não incentivar a usar docker em produção, só para desenvolvedor usar e fazer testes no ambiente local
+!!! warning
+    Using docker is not recommended for production environments, only for testing and debugging and local networks.
