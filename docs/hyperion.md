@@ -140,6 +140,30 @@ pm2 start --only chain-api --update-env
 pm2 logs chain-api
 ```
 
+### Indexer
+As mentioned before on [Setup](#setup), the Hyperion Indexer is configured to perform an abi scan `("abi_scan_mode": true)` as default.
+So, on your first run, you'll probably see something like this:
+
+ [![indexer](img/indexer.png)](img/indexer.png)
+ 
+This an example of an ABI SCAN on the WAX chain.
+
+Where: 
+    
+  - W (Workers): Number of workers.
+  - R (Read): Blocks read from state history and pushing into the blocks queue.
+  - C (Consumed): Blocks consumed from blocks queue.
+  - A (Actions): Actions being read out of processed blocks.
+  - D (Deserialized): Deserializations of the actions.
+  - I (Indexed): Indexing of all of the docs.
+  
+### API
+After running the api, you should see a log like this:
+
+ [![api](img/api.png)](img/api.png)
+
+Now, it's time to play around making some queries =).
+
 ### API Reference
 
 API Reference: [API section: v2](v2.md)

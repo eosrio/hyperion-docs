@@ -178,6 +178,7 @@ sudo pm2 startup
 ```
 
 #### Kibana Installation
+
 !!! info
     Follow the detailed installation instructions on the [official documentation](https://www.elastic.co/downloads/kibana)
 
