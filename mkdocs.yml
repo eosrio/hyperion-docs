@@ -10,8 +10,10 @@ repo_url: 'https://github.com/eosrio/hyperion-docs'
 nav:
     - Home: index.md
     - Providers:
-      - Quick Start: quickstart.md
-      - Install: install.md
+      - Enviroment Setup:
+        - Quick Start: quickstart.md
+        - Install: install.md
+      - Hyperion: hyperion.md
       - Docker: docker.md
       - Connections: connections.md
       - Chain Configuration: chain.md
