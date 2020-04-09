@@ -253,6 +253,27 @@
           
           
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Enviroment Setup
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Enviroment Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
 
   <li class="md-nav__item">
     <a href="../quickstart/" title="Quick Start" class="md-nav__link">
@@ -507,76 +528,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#hyperion" class="md-nav__link">
-    Hyperion
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-clone-install-packages" class="md-nav__link">
-    1. Clone &amp; Install packages
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-edit-configs" class="md-nav__link">
-    2. Edit configs
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#start-and-stop" class="md-nav__link">
-    Start and Stop
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-run-stop-script" class="md-nav__link">
-    Using run / stop script
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#api-reference" class="md-nav__link">
-    API Reference
-  </a>
   
 </li>
         
@@ -593,6 +546,23 @@
   
 </nav>
     
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hyperion/" title="Hyperion" class="md-nav__link">
+      Hyperion
+    </a>
   </li>
 
         
@@ -1051,76 +1021,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#hyperion" class="md-nav__link">
-    Hyperion
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-clone-install-packages" class="md-nav__link">
-    1. Clone &amp; Install packages
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-edit-configs" class="md-nav__link">
-    2. Edit configs
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#start-and-stop" class="md-nav__link">
-    Start and Stop
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-run-stop-script" class="md-nav__link">
-    Using run / stop script
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#api-reference" class="md-nav__link">
-    API Reference
-  </a>
   
 </li>
         
@@ -1308,129 +1210,6 @@ chain-state-history = true
 state-history-endpoint = 127.0.0.1:8080
 plugin = eosio::state_history_plugin
 </code></pre>
-
-<h4 id="hyperion">Hyperion</h4>
-<h5 id="1-clone-install-packages">1. Clone &amp; Install packages</h5>
-<pre><code class="bash">git clone https://github.com/eosrio/Hyperion-History-API.git
-cd Hyperion-History-API
-npm install
-</code></pre>
-
-<h5 id="2-edit-configs">2. Edit configs</h5>
-<pre><code>cp example-ecosystem.config.js ecosystem.config.js
-nano ecosystem.config.js
-
-# Enter connection details here (chain name must match on the ecosystem file)
-cp example-connections.json connections.json
-nano connections.json
-</code></pre>
-
-<p>connections.json Reference</p>
-<pre><code class="json">{
-   &quot;amqp&quot;:{
-      &quot;host&quot;:&quot;127.0.0.1:5672&quot;,
-      &quot;api&quot;:&quot;127.0.0.1:15672&quot;,
-      &quot;user&quot;:&quot;my_user&quot;,
-      &quot;pass&quot;:&quot;my_password&quot;,
-      &quot;vhost&quot;:&quot;hyperion&quot;
-   },
-   &quot;elasticsearch&quot;:{
-      &quot;host&quot;:&quot;127.0.0.1:9200&quot;,
-      &quot;ingest_nodes&quot;:[
-         &quot;127.0.0.1:9200&quot;
-      ],
-      &quot;user&quot;:&quot;&quot;,
-      &quot;pass&quot;:&quot;&quot;
-   },
-   &quot;redis&quot;:{
-      &quot;host&quot;:&quot;127.0.0.1&quot;,
-      &quot;port&quot;:&quot;6379&quot;
-   },
-   &quot;chains&quot;:{
-      &quot;eos&quot;:{
-         &quot;name&quot;:&quot;EOS Mainnet&quot;,
-         &quot;chain_id&quot;:&quot;aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906&quot;,
-         &quot;http&quot;:&quot;http://127.0.0.1:8888&quot;,
-         &quot;ship&quot;:&quot;ws://127.0.0.1:8080&quot;,
-         &quot;WS_ROUTER_PORT&quot;:7001
-      }
-   }
-}
-</code></pre>
-
-<p>For more details, refer to the <a href="../connections/">connections section</a></p>
-<p>ecosystem.config.js Reference</p>
-<pre><code class="javascript">module.exports = {
-    apps: [
-        addIndexer('eos'),
-        addApiServer('eos', 1)
-    ]
-};
-</code></pre>
-
-<p>For more details, refer to the <a href="../ecosystem/">ecosystem section</a></p>
-<h3 id="setup">Setup</h3>
-<p>Explicar as configurações iniciais.</p>
-<p>Modificar os example.ecosystems...etc</p>
-<h3 id="start-and-stop">Start and Stop</h3>
-<p>We provide scripts to make simple the process of start and stop you Hyperion Indexer or API instance.
-But, you can also do it manually if you prefer. This section will cover both ways.</p>
-<h4 id="using-run-stop-script">Using run / stop script</h4>
-<p>You can use <code>run</code> script to start the Indexer or the API.</p>
-<pre><code>./run.sh chain-indexer
-
-./run.sh chain-api
-</code></pre>
-
-<p>Examples:
-Start indexing EOS mainnet</p>
-<pre><code>./run.sh eos-indexer
-</code></pre>
-
-<p>Start EOS API</p>
-<pre><code>./run.sh eos-api
-</code></pre>
-
-<p>Remember that the chain name was previously defined on the <a href="#hyperion">Hyperion section</a>.</p>
-<p>The <code>stop</code> script follows the same pattern of the <code>run</code> script:</p>
-<pre><code>./stop.sh chain-indexer
-
-./stop.sh chain-api
-</code></pre>
-
-<p>Example:
-Stop the EOS mainnet indexer</p>
-<pre><code>./stop.sh eos-indexer
-</code></pre>
-
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Stop script wont stop Hyperion Indexer immediately, it will first flush the queues.
-This operation could take some time.
-If you want to stop immediately, you need to run the "Force stop command"</p>
-</div>
-<h4 id="commands">Commands</h4>
-<p>Start indexing</p>
-<pre><code>pm2 start --only chain-indexer --update-env
-pm2 logs chain-indexer
-</code></pre>
-
-<p>Stop reading and wait for queues to flush</p>
-<pre><code>pm2 trigger chain-indexer stop
-</code></pre>
-
-<p>Force stop</p>
-<pre><code>pm2 stop chain-indexer
-</code></pre>
-
-<p>Starting the API node</p>
-<pre><code>pm2 start --only chain-api --update-env
-pm2 logs chain-api
-</code></pre>
-
-<h3 id="api-reference">API Reference</h3>
-<p>API Reference: <a href="../v2/">API section: v2</a></p>
-<p>Example: <a href="https://eos.hyperion.eosrio.io/v2/docs">OpenAPI Docs</a></p>
                 
                   
                 
@@ -1466,13 +1245,13 @@ pm2 logs chain-api
           </a>
         
         
-          <a href="../docker/" title="Docker" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../hyperion/" title="Hyperion" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Docker
+                Hyperion
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
