@@ -25,10 +25,10 @@ nav:
     - API Reference:
         - v2: v2.md
         - v1 compatible: v1.md
-    - Troubleshooting:
-      - Kibana: kibana.md
-      - RabbitMQ: rabbit.md
-      - FAQ: faq.md
+    #- Troubleshooting:
+    #  - Kibana: kibana.md
+    #  - RabbitMQ: rabbit.md
+    #  - FAQ: faq.md
 
 #theme: readthedocs
 theme:
@@ -37,8 +37,8 @@ theme:
     primary: 'Blue Grey'
     accent: 'Blue Grey'
   logo:
-    icon: "home"
-  favicon: 'img/logo.png'
+   icon: "home"
+  favicon: 'img/favicon.png'
 
 extra:
   social:
