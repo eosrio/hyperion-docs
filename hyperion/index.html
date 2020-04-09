@@ -764,8 +764,14 @@ nano connections.json
 
 <p>For more details, refer to the <a href="../ecosystem/">ecosystem section</a></p>
 <h3 id="setup">Setup</h3>
-<p>Explicar as configurações iniciais.</p>
-<p>Modificar os example.ecosystems...etc</p>
+<pre><code>cp chains/example.config.json chains/CHAIN_NAME.config.json
+
+Example:
+cp chains/example.config.json chains/eos.config.json
+</code></pre>
+
+<p>The default config.json file is ready to run. The parameter <code>abi_scan_mode</code> is <code>true</code> to perform an abi scan on the first run.</p>
+<p>For more details, refer to the <a href="../chain/">chain section</a></p>
 <h3 id="start-and-stop">Start and Stop</h3>
 <p>We provide scripts to make simple the process of start and stop you Hyperion Indexer or API instance.
 But, you can also do it manually if you prefer. This section will cover both ways.</p>
