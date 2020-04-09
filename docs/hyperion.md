@@ -1,4 +1,4 @@
-# Hyperion
+# Hyperion Setup
 
 ### Clone & Install packages
 ```bash

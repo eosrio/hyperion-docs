@@ -13,7 +13,7 @@ nav:
       - Enviroment Setup:
         - Script: quickstart.md
         - Manual: install.md
-      - Hyperion: hyperion.md
+      - Hyperion Setup: hyperion.md
       - Docker: docker.md
       - Connections: connections.md
       - Chain Configuration: chain.md
