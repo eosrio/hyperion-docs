@@ -371,6 +371,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#indexer" class="md-nav__link">
+    Indexer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api-reference" class="md-nav__link">
     API Reference
   </a>
@@ -618,6 +632,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#indexer" class="md-nav__link">
+    Indexer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api-reference" class="md-nav__link">
     API Reference
   </a>
@@ -768,6 +796,24 @@ pm2 logs chain-indexer
 pm2 logs chain-api
 </code></pre>
 
+<h3 id="indexer">Indexer</h3>
+<p>As mentioned before on <a href="#setup">Setup</a>, the Hyperion Indexer is configured to perform an abi scan <code>("abi_scan_mode": true)</code> as default.
+So, on your first run, you'll probably see something like this:</p>
+<p><a href="../img/indexer.png"><img alt="indexer" src="../img/indexer.png" /></a></p>
+<p>This an example of an ABI SCAN on the WAX chain.</p>
+<p>Where: </p>
+<ul>
+<li>W (Workers): Number of workers.</li>
+<li>R (Read): Blocks read from state history and pushing into the blocks queue.</li>
+<li>C (Consumed): Blocks consumed from blocks queue.</li>
+<li>A (Actions): Actions being read out of processed blocks.</li>
+<li>D (Deserialized): Deserializations of the actions.</li>
+<li>I (Indexed): Indexing of all of the docs.</li>
+</ul>
+<h3 id="api">API</h3>
+<p>After running the api, you should see a log like this:</p>
+<p><a href="../img/api.png"><img alt="api" src="../img/api.png" /></a></p>
+<p>Now, it's time to play around making some queries =).</p>
 <h3 id="api-reference">API Reference</h3>
 <p>API Reference: <a href="../v2/">API section: v2</a></p>
 <p>Example: <a href="https://eos.hyperion.eosrio.io/v2/docs">OpenAPI Docs</a></p>
