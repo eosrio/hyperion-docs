@@ -2,17 +2,17 @@
 
 ### Dependencies
 
-This setup has only been tested with Ubuntu 18.04, but should work with other OS versions too
+Recommended OS: Ubuntu 18.04
 
  - [Elasticsearch 7.6.X](https://www.elastic.co/downloads/elasticsearch)
  - [RabbitMQ](https://www.rabbitmq.com/install-debian.html)
- - [Redis](https://redis.io/topics/quickstart)
  - [Node.js v13](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)
  - [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/)
  - Nodeos 1.8+ w/ state_history_plugin and chain_api_plugin
+ - [Redis](https://redis.io/topics/quickstart) (only for the API caching layer)
 
 !!! note  
-    The indexer requires redis, pm2 and node.js to be on the same machine. Other dependencies might be installed on other machines, preferably over a very high speed and low latency network. Indexing speed will vary greatly depending on this configuration.
+    The indexer requires pm2 and node.js to be on the same machine. The other dependencies (Elasticsearch, RabbitMQ and Nodeos) can be installed on other machines, preferably on a high speed and low latency network. Indexing speed will vary greatly depending on this configuration.
 
 #### Elasticsearch Installation
 
@@ -27,11 +27,11 @@ bootstrap.memory_lock: true
 ```
 
 !!! warning  
-    Setting `bootstrap.memory_lock: true` will try to use all the RAM configured for JVM (check next step) on startup.
-    This could crash if you allocate more RAM tham available on the system. 
-    Setting mem_lock as `false`, might cause the JVM or shell session to exit if elasticsearch tries to allocate more memory than is available!
+    Setting `bootstrap.memory_lock: true` will make elasticsearch try to use all the RAM configured for JVM on startup  (check next step).
+    This could crash if you allocate more RAM than available on the system. 
+    Setting mem_lock as `false` with swap disabled might cause the JVM or shell session to exit if elasticsearch tries to allocate more memory than is available!
     
-After starting Elasticsearch, you can see whether this setting was applied successfully by checking the value of mlockall in the output from this request:
+After starting Elasticsearch, you can see whether this setting was applied successfully by checking the value of `mlockall` in the output from this request:
 
 ````
 GET _nodes?filter_path=**.mlockall
@@ -39,16 +39,22 @@ GET _nodes?filter_path=**.mlockall
 
 ##### 2. Edit `/etc/elasticsearch/jvm.options`
 
+Avoid allocating more than 31GB when setting your heap size, even if you have enough RAM.
+
+You can test on your system by running the following command with the desired size (change `-Xmx32g`):
+
+`java -Xmx32g -XX:+UseCompressedOops -XX:+PrintFlagsFinal Oops | grep Oops`
+
+Check if `UseCompressedOops` is true on the results for a valid optimized heap size. 
+
+After that, edit the following lines on `jvm.options`, note that Xms and Xmx must have the same value.
 ```
-# Set your heap size, avoid allocating more than 31GB, even if you have enought RAM.
-# Test on your specific machine by changing -Xmx32g in the following command:
-# java -Xmx32g -XX:+UseCompressedOops -XX:+PrintFlagsFinal Oops | grep Oops
 -Xms16g
 -Xmx16g
 ```
 
 ##### 3. Allow memlock
-run `sudo systemctl edit elasticsearch` and add the following lines
+run `sudo systemctl edit elasticsearch` and add the following lines:
 
 ```
 [Service]
@@ -66,6 +72,8 @@ sudo systemctl enable elasticsearch
 ##### 5. Test the REST API
 
 `curl http://localhost:9200`
+
+The expeted result should be something like this:
 
 ```json
 {
@@ -101,6 +109,8 @@ curl -X POST "localhost:9200/_security/user/elastic/_password?pretty" -H 'Conten
 }'
 ```
 
+<br>
+
 #### RabbitMQ Installation
 
 !!! info
@@ -121,6 +131,7 @@ sudo rabbitmqctl add_vhost /hyperion
 ```bash
 sudo rabbitmqctl add_user {my_user} {my_password}
 ```
+
 ##### 3. Set the user as administrator
 ```bash
 sudo rabbitmqctl set_user_tags {my_user} administrator
@@ -135,6 +146,8 @@ sudo rabbitmqctl set_permissions -p /hyperion {my_user} ".*" ".*" ".*"
 
 [http://localhost:15672](http://localhost:15672)
 
+<br>
+
 #### Redis Installation
 
 ##### 1. Install
@@ -144,26 +157,33 @@ sudo apt install redis-server
 
 ##### 2. Edit `/etc/redis/redis.conf`
 
+Change `supervised` to `systemd`
+
 !!! note
-    By default, redis binds to the localhost address. You need to edit
+    By default, redis binds to the localhost address. You need to edit `bind` in
     the config file if you want to listen to other network.
 
-##### 3. Change supervised to `systemd`
+
+##### 3. Restart redis
 ```bash
 sudo systemctl restart redis.service
 ```
 
+<br>
+
 #### NodeJS
 
-##### 1. Install the nodejs source
+##### 1. Add the nodejs source
 ```bash
 curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
 ```
 
-##### 2. Install
+##### 2. Install nodejs
 ```bash
 sudo apt-get install -y nodejs
 ```
+
+<br>
 
 #### PM2
 
@@ -172,18 +192,21 @@ sudo apt-get install -y nodejs
 sudo npm install pm2@latest -g
 ```
 
-##### 2. Run
+##### 2. Configure for system startup
 ```bash
 sudo pm2 startup
 ```
+
+<br>
 
 #### Kibana Installation
 
 !!! info
     Follow the detailed installation instructions on the [official documentation](https://www.elastic.co/downloads/kibana)
 
+<br>
 
-#### nodeos config.ini
+#### nodeos config.ini parameters for the state history plugin
 ```
 state-history-dir = "state-history"
 trace-history = true
@@ -196,4 +219,4 @@ plugin = eosio::state_history_plugin
     If you have the EOSIO version higher or equal to 2.0.x, use wasm-runtime = eos-vm-jit to improve
     performance.
 
-If everything runs well, now it's time to install [hyperion](hyperion.md).
+If everything runs smoothly, now it's time to install [hyperion](hyperion.md)!
