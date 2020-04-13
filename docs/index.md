@@ -17,10 +17,10 @@ Focused on delivering faster search times, lower bandwidth overhead and easier u
    - a parent field is added to the inline actions to point to the parent global sequence
    - if the inline action data is identical to the parent, it is considered a notification and thus removed from the database.
  
-No blocks or transaction data is stored, all information can be reconstructed from actions.
+No blocks or transaction data are stored; all information can be reconstructed from actions.
 
 ### 2. Architecture
-The following components are required in order to have a fully functional Hyperion API deployment.
+The following components are required to have a fully functional Hyperion API deployment.
 For small use cases, it is fine to run all components on a single machine. But for larger chains and production environments, 
 we recommend setting them up into different servers under a high-speed local network.
 
@@ -42,7 +42,7 @@ It requires direct access to at least one ES node for the queries and all other 
 Use as messaging queue and data transport between the indexer stages.
 
 #### 2.5 - EOSIO State History
-Nodeos plugin used to collect action traces and state deltas. Provides data via websocket to the indexer.
+Nodeos plugin used to collect action traces and state deltas. It provides data via websocket to the indexer.
 
 ### 3. How to use
 
