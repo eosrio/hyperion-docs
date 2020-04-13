@@ -1,7 +1,7 @@
 ## Detailed description of the chains/example.config.json
 
 This section is a quick guide of config.json file. Here you gonna find a brief explanation of each parameter
-with its default value and a example of real usage.
+with its default value and an example of real usage.
 
 ### API Configuration
 
@@ -22,8 +22,7 @@ with its default value and a example of real usage.
   - `"access_log": false`
   - `"enable_explorer": false`
     
-    
-### settings
+### Settings
 
    - `"preview": false` -> Preview mode - prints worker map and exit
    - `"chain": "eos"` --> Chain named (The same used on ecosystem.config.js)
@@ -38,13 +37,13 @@ with its default value and a example of real usage.
    - `"ipc_debug_rate": 60000`
    - `"allow_custom_abi": false`
 
-### blacklists
+### Blacklists
  Blacklist for actions and deltas
  
    - "actions": [],
    - "deltas": []
 
-### whitelists
+### Whitelists
  Whitelist for actions and deltas
  
    - actions": []
@@ -75,25 +74,25 @@ with its default value and a example of real usage.
    - `"fetch_block": true` --> Request full blocks from the state history plugin
    - `"fetch_traces": true` --> Request traces from the state history plugin
    - `"disable_reading": false` --> Completely disable block reading, for lagged queue processing
-   - `"disable_indexing": false`
+   - `"disable_indexing": false` --> Disable indexing
    - `"process_deltas": true` --> Read table deltas
    - `"repair_mode": false`
-   - `"max_inline": 20`
+   - `"max_inline": 20` --> Max inline actions depth to index
 
-### features
+### Features
 
    - `"index_deltas": true` --> Index common table deltas (see delta on definitions/mappings)
    - `"index_transfer_memo": true` --> Index transfers memo
    - `"index_all_deltas": true` --> Index all table deltas
    
-#### 1 - streaming
+#### 1 - Streaming
 Enable live streaming
 
    - `"enable": false`
    - `"traces": false`
    - `"deltas": false`
 
-#### 2 - tables
+#### 2 - Tables
 Tables to fetch
 
    - `"proposals": true`
@@ -102,7 +101,7 @@ Tables to fetch
    - `"userres": false`
    - `"delband": false`
  
-### prefetch
+### Prefetch
 
    - `"read": 50` --> Stage 1 prefecth size
    - `"block": 100` --> Stage 2 prefecth size

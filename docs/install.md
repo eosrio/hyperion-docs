@@ -192,4 +192,8 @@ state-history-endpoint = 127.0.0.1:8080
 plugin = eosio::state_history_plugin
 ```
 
+!!!tip
+    If you have the EOSIO version higher or equal to 2.0.x, use wasm-runtime = eos-vm-jit to improve
+    performance.
+
 If everything runs well, now it's time to install [hyperion](hyperion.md).

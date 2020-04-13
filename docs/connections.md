@@ -1,28 +1,26 @@
-#### Detailed description of the connections.json
+## Detailed description of the connections.json
+
+### RabbitMQ parameters
+   - `"host":"127.0.0.1:5672"`
+   - `"api":"127.0.0.1:15672"`
+   - `"user":"my_user"`
+   - `"pass":"my_password"`
+   - `"vhost":"hyperion"`
+  
+### Elasticsearch parameters
+   - `"host":"127.0.0.1:9200"`
+   - `"ingest_nodes": [ "127.0.0.1:9200"]` 
+   - `"user":""`
+   - `"pass":""`
+   
+### Redis parameters
+   - `"host":"127.0.0.1"`
+   - `"port":"6379"`
+
+### Chain Parameters
 
 ````json
-{
-   "amqp":{ --> RabbitMQ parameters
-      "host":"127.0.0.1:5672",
-      "api":"127.0.0.1:15672",
-      "user":"my_user",
-      "pass":"my_password",
-      "vhost":"hyperion"
-   },
-   "elasticsearch":{ --> Elasticsearch parameters
-      "host":"127.0.0.1:9200",
-      "ingest_nodes":[
-         "127.0.0.1:9200"
-      ],
-      "user":"",
-      "pass":""
-   },
-   "redis":{ --> Redis parameters
-      "host":"127.0.0.1",
-      "port":"6379"
-   },
-   "chains":{ --> Chain Parameters
-      "eos":{
+"eos":{
          "name":"EOS Mainnet",
          "chain_id":"aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906",
          "http":"http://127.0.0.1:8888",
@@ -30,10 +28,9 @@
          "WS_ROUTER_HOST": "127.0.0.1", --> Endpoint used by indexer to connect to the API. This is important when Indexer and API aren't on the same machine / instance.
          "WS_ROUTER_PORT":7001          --> Port used by indexer to connect to API**
       }
-   }
-}
 ````
-#### Example:
+   
+## Example:
 In this example we have an connection.json file with:
 
   - Local RabbitMQ
