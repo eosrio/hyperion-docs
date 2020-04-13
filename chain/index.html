@@ -445,13 +445,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#experimental" class="md-nav__link">
-    experimental
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -702,13 +695,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#experimental" class="md-nav__link">
-    experimental
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -826,7 +812,7 @@ with its default value and a example of real usage.</p>
 <h3 id="features">features</h3>
 <ul>
 <li><code>"index_deltas": true</code> --&gt; Index common table deltas (see delta on definitions/mappings)</li>
-<li><code>index_transfer_memo": true</code> --&gt; Index transfers memo</li>
+<li><code>"index_transfer_memo": true</code> --&gt; Index transfers memo</li>
 <li><code>"index_all_deltas": true</code> --&gt; Index all table deltas</li>
 </ul>
 <h4 id="1-streaming">1 - streaming</h4>
@@ -851,10 +837,6 @@ with its default value and a example of real usage.</p>
 <li><code>"block": 100</code> --&gt; Stage 2 prefecth size</li>
 <li><code>"index": 500</code> --&gt; Stage 3 prefecth size</li>
 </ul>
-<h3 id="experimental">experimental</h3>
-<ul>
-<li><code>"PATCHED_SHIP":false</code></li>
-</ul>
 <h2 id="example">Example</h2>
 <p>Let's suppose that we gonna start Indexing the EOS Mainnet with:</p>
 <ul>
@@ -871,7 +853,7 @@ The next step is to edit the file as the following:</p>
     &quot;chain_name&quot;: &quot;eos&quot;,
     &quot;server_addr&quot;: &quot;127.0.0.1&quot;,
     &quot;server_port&quot;: 7000,
-    &quot;server_name&quot;: &quot;EOS MainNet&quot;,
+    &quot;server_name&quot;: &quot;127.0.0.1:7000&quot;,
     &quot;provider_name&quot;: &quot;Example Provider&quot;,
     &quot;provider_url&quot;: &quot;https://example.com&quot;,
     &quot;chain_logo_url&quot;: &quot;&quot;,
@@ -879,20 +861,26 @@ The next step is to edit the file as the following:</p>
     &quot;cache_life&quot;: 1,
     &quot;limits&quot;: {
       &quot;get_actions&quot;: 1000,
-      &quot;get_voters&quot;: 100
-    }
+      &quot;get_voters&quot;: 100,
+      &quot;get_links&quot;: 1000,
+      &quot;get_deltas&quot;: 1000
+    },
+    &quot;access_log&quot;: false,
+    &quot;enable_explorer&quot;: false
   },
   &quot;settings&quot;: {
     &quot;preview&quot;: false,
     &quot;chain&quot;: &quot;eos&quot;,
     &quot;eosio_alias&quot;: &quot;eosio&quot;,
     &quot;parser&quot;: &quot;1.8&quot;,
-    &quot;auto_stop&quot;: 30,
+    &quot;auto_stop&quot;: 300,
     &quot;index_version&quot;: &quot;v1&quot;,
     &quot;debug&quot;: false,
     &quot;rate_monitoring&quot;: true,
     &quot;bp_logs&quot;: false,
-    &quot;bp_monitoring&quot;: false
+    &quot;bp_monitoring&quot;: false,
+    &quot;ipc_debug_rate&quot;: 60000,
+    &quot;allow_custom_abi&quot;: false
   },
   &quot;blacklists&quot;: {
     &quot;actions&quot;: [],
@@ -903,23 +891,23 @@ The next step is to edit the file as the following:</p>
     &quot;deltas&quot;: []
   },
   &quot;scaling&quot;: {
-    &quot;batch_size&quot;: 5000,
-    &quot;queue_limit&quot;: 10000,
+    &quot;batch_size&quot;: 10000,
+    &quot;queue_limit&quot;: 50000,
     &quot;readers&quot;: 2,
     &quot;ds_queues&quot;: 2,
     &quot;ds_threads&quot;: 1,
     &quot;ds_pool_size&quot;: 1,
     &quot;indexing_queues&quot;: 1,
     &quot;ad_idx_queues&quot;: 1,
-    &quot;max_autoscale&quot;:4,
-    &quot;auto_scale_trigger&quot;:20000
+    &quot;max_autoscale&quot;: 4,
+    &quot;auto_scale_trigger&quot;: 20000
   },
   &quot;indexer&quot;: {
     &quot;start_on&quot;: 1,
     &quot;stop_on&quot;: 0,
     &quot;rewrite&quot;: false,
     &quot;purge_queues&quot;: true,
-    &quot;live_reader&quot;: true,
+    &quot;live_reader&quot;: false,
     &quot;live_only_mode&quot;: false,
     &quot;abi_scan_mode&quot;: false,
     &quot;fetch_block&quot;: true,
@@ -927,7 +915,8 @@ The next step is to edit the file as the following:</p>
     &quot;disable_reading&quot;: false,
     &quot;disable_indexing&quot;: false,
     &quot;process_deltas&quot;: true,
-    &quot;repair_mode&quot;: false
+    &quot;repair_mode&quot;: false,
+    &quot;max_inline&quot;: 20
   },
   &quot;features&quot;: {
     &quot;streaming&quot;: {
@@ -950,9 +939,6 @@ The next step is to edit the file as the following:</p>
     &quot;read&quot;: 50,
     &quot;block&quot;: 100,
     &quot;index&quot;: 500
-  },
-  &quot;experimental&quot;: {
-    &quot;PATCHED_SHIP&quot;: false
   }
 }
 </code></pre>
