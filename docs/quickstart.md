@@ -17,12 +17,12 @@ Enter rabbitmq user [hyperion]:
 Enter the desired rabbitmq user and hit enter. If you leave it blank, the default user
 `hyperion` will be set.
 
-Then, the same for rabbitmq password:
+Then, do the same for the rabbitmq password:
 ```
 Enter rabbitmq password [123456]:
 ```
 
-And finally, it will ask if you want to create npm global folder:
+And finally, it will ask if you want to create the npm global folder:
 ````
 Do you want to create a directory for npm global installations [Y/n] :
 ````
@@ -33,4 +33,4 @@ Now, the script will do the work, this can take a while. Get a cup of coffee and
 !!! info
     The installation script may ask you for the admin password. This is needed to install the dependencies, please, provide it.
    
-If everything runs smoothly, now it's time to install [hyperion](hyperion.md).
+If everything runs smoothly, now it's time to install [hyperion](hyperion.md)!
