@@ -19,7 +19,7 @@ with its default value and an example of real usage.
     - `"get_voters": 100`
     - `"get_links": 1000`
     - `"get_deltas": 1000`
-  - `"access_log": false`
+  - `"access_log": false` --> Enable log API access.
   - `"enable_explorer": false`
     
 ### Settings
@@ -31,11 +31,13 @@ with its default value and an example of real usage.
    - `"auto_stop": 300` --> Automatically stop Indexer after X seconds if no more blocks are being processed (0=disable)
    - `"index_version": "v1"` --> Set the index version
    - `"debug": false` --> Enable debug mode
-   - `"rate_monitoring": true`
+   - `"rate_monitoring": true` --> Print data rates for each phase every 5s
    - `"bp_logs": false` --> Enable logs
-   - `"bp_monitoring": false`
-   - `"ipc_debug_rate": 60000`
-   - `"allow_custom_abi": false`
+   - `"bp_monitoring": false` --> Allow monitoring and logging of missed blocks and rounds
+   - `"ipc_debug_rate": 60000` --> interval between IPC messaging rate debug messages, setting it to false or 0 will disable the logging
+   - `"allow_custom_abi": false` --> allow using custom ABIs from the custom-abi/<CHAIN_NAME> folder, they must match the pattern <contract>-<start_block>-<end_block>.json. 
+   Those ABIs will overwrite on-chain data for the given range.
+
 
 ### Blacklists
  Blacklist for actions and deltas
@@ -76,7 +78,6 @@ with its default value and an example of real usage.
    - `"disable_reading": false` --> Completely disable block reading, for lagged queue processing
    - `"disable_indexing": false` --> Disable indexing
    - `"process_deltas": true` --> Read table deltas
-   - `"repair_mode": false`
    - `"max_inline": 20` --> Max inline actions depth to index
 
 ### Features
@@ -188,7 +189,6 @@ The next step is to edit the file as the following:
     "disable_reading": false,
     "disable_indexing": false,
     "process_deltas": true,
-    "repair_mode": false,
     "max_inline": 20
   },
   "features": {

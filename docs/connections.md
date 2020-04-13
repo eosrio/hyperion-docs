@@ -10,8 +10,8 @@
 ### Elasticsearch parameters
    - `"host":"127.0.0.1:9200"`
    - `"ingest_nodes": [ "127.0.0.1:9200"]` 
-   - `"user":""`
-   - `"pass":""`
+   - `"user":""` --> User defined on elasticsearch configuration.
+   - `"pass":""` --> Password defined on elasticsearch configuration.
    
 ### Redis parameters
    - `"host":"127.0.0.1"`

@@ -95,21 +95,20 @@ The expeted result should be something like this:
 }
 ```
 
-The Default user and password is:
-```
-user: elastic
-password: changeme
-```
+##### 6. Security
+By default, elasticsearch comes withou password configured. To avoid security problems, we recommend to
+enable the security pack on elasticsearch. 
 
-You can change the password via the API, like this:
-```
-curl -X POST "localhost:9200/_security/user/elastic/_password?pretty" -H 'Content-Type: application/json' -d'
-{
-  "password" : "new_password"
-}'
-```
+To do that, add `xpack.security.enabled: true` to the end of `/etc/elasticsearch/elasticsearch.yml` file.
 
-<br>
+Now it’s time to set the passwords for the cluster:
+
+`````bash
+sudo /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto
+`````
+
+You can alternatively skip the auto parameter to manually define your passwords using the interactive parameter. 
+Keep track of these passwords, we’ll need them again soon.
 
 #### RabbitMQ Installation
 
@@ -204,9 +203,19 @@ sudo pm2 startup
 !!! info
     Follow the detailed installation instructions on the [official documentation](https://www.elastic.co/downloads/kibana)
 
-<br>
+If you have enabled the security pack on elastic, you'll need to setup the password on Kibana:
+Edit the `/etc/kibana/kibana.yml` file, Find the lines that look like this:
 
-#### nodeos config.ini parameters for the state history plugin
+`````bash 
+#elasticsearch.username: "user"
+#elasticsearch.password: "pass"
+`````                        
+                
+Uncomment the username and password fields by removing the # character at the beginning of the line. Change "user" to "kibana" 
+and then change "pass" to whatever the setup-passwords command tells us the Kibana password is. 
+Save the file then we can restart Kibana.
+
+#### nodeos config.ini
 ```
 state-history-dir = "state-history"
 trace-history = true
