@@ -110,6 +110,8 @@ sudo /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto
 You can alternatively skip the auto parameter to manually define your passwords using the interactive parameter. 
 Keep track of these passwords, we’ll need them again soon.
 
+<br>
+
 #### RabbitMQ Installation
 
 !!! info
@@ -214,6 +216,8 @@ Edit the `/etc/kibana/kibana.yml` file, Find the lines that look like this:
 Uncomment the username and password fields by removing the # character at the beginning of the line. Change "user" to "kibana" 
 and then change "pass" to whatever the setup-passwords command tells us the Kibana password is. 
 Save the file then we can restart Kibana.
+
+<br>
 
 #### nodeos config.ini
 ```
