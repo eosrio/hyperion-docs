@@ -366,12 +366,101 @@
     Detailed description of the chains/example.config.json
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-configuration" class="md-nav__link">
+    API Configuration
+  </a>
+  
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
+  <a href="#settings" class="md-nav__link">
+    settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blacklists" class="md-nav__link">
+    blacklists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whitelists" class="md-nav__link">
+    whitelists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalling-options" class="md-nav__link">
+    Scalling options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexer-configuration" class="md-nav__link">
+    Indexer configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    features
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-streaming" class="md-nav__link">
+    1 - streaming
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tables" class="md-nav__link">
+    2 - tables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefetch" class="md-nav__link">
+    prefetch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimental" class="md-nav__link">
+    experimental
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
     Example
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -534,12 +623,101 @@
     Detailed description of the chains/example.config.json
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-configuration" class="md-nav__link">
+    API Configuration
+  </a>
+  
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
+  <a href="#settings" class="md-nav__link">
+    settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blacklists" class="md-nav__link">
+    blacklists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whitelists" class="md-nav__link">
+    whitelists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalling-options" class="md-nav__link">
+    Scalling options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexer-configuration" class="md-nav__link">
+    Indexer configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    features
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-streaming" class="md-nav__link">
+    1 - streaming
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-tables" class="md-nav__link">
+    2 - tables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefetch" class="md-nav__link">
+    prefetch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimental" class="md-nav__link">
+    experimental
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
     Example
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -564,111 +742,119 @@
                 
                   <h1>Chain Configuration</h1>
                 
-                <h4 id="detailed-description-of-the-chainsexampleconfigjson">Detailed description of the chains/example.config.json</h4>
-<pre><code class="json">{
-   &quot;api&quot;:{ --&gt; API configuration
-      &quot;chain_name&quot;:&quot;EXAMPLE Chain&quot;,
-      &quot;server_addr&quot;:&quot;127.0.0.1&quot;,
-      &quot;server_port&quot;:7000,
-      &quot;server_name&quot;:&quot;127.0.0.1:7000&quot;,
-      &quot;provider_name&quot;:&quot;Example Provider&quot;,
-      &quot;provider_url&quot;:&quot;https://example.com&quot;,
-      &quot;chain_logo_url&quot;:&quot;&quot;,
-      &quot;enable_caching&quot;:true, --&gt; Set API cache
-      &quot;cache_life&quot;:1, --&gt; Define the cache life
-      &quot;limits&quot;:{ --&gt; Setting API response limits
-         &quot;get_actions&quot;:1000,
-         &quot;get_voters&quot;:100,
-         &quot;get_links&quot;:1000,
-         &quot;get_deltas&quot;:1000
-      },
-      &quot;access_log&quot;:false,
-      &quot;enable_explorer&quot;:false
-   },
-   &quot;settings&quot;:{
-      &quot;preview&quot;:false, -&gt; Preview mode - prints worker map and exit
-      &quot;chain&quot;:&quot;eos&quot;, --&gt; Chain named (The same used on ecosystem.config.js)
-      &quot;eosio_alias&quot;:&quot;eosio&quot;,
-      &quot;parser&quot;:&quot;1.8&quot;, --&gt; Version of the parser to be used
-      &quot;auto_stop&quot;:300, --&gt; Automatically stop Indexer after X seconds if no more blocks are being processed (0=disable)
-      &quot;index_version&quot;:&quot;v1&quot;, --&gt; Set the index version
-      &quot;debug&quot;:false, --&gt; Set the debug mode
-      &quot;rate_monitoring&quot;:true,
-      &quot;bp_logs&quot;:false, --&gt; Enable logs
-      &quot;bp_monitoring&quot;:false,
-      &quot;ipc_debug_rate&quot;:2000
-   },
-   &quot;blacklists&quot;:{ --&gt; blacklist for actions and deltas
-      &quot;actions&quot;:[
-
-      ],
-      &quot;deltas&quot;:[
-
-      ]
-   },
-   &quot;whitelists&quot;:{ --&gt; whitelist for actions and deltas
-      &quot;actions&quot;:[
-
-      ],
-      &quot;deltas&quot;:[
-
-      ]
-   },
-   &quot;scaling&quot;:{ --&gt; Scalling options:
-      &quot;batch_size&quot;:10000, --&gt; Parallel reader batch size in blocks
-      &quot;queue_limit&quot;:50000, --&gt; Queue size limit on rabbitmq
-      &quot;readers&quot;:1, --&gt; Number of readers
-      &quot;ds_queues&quot;:1, --&gt; Number of deserializer queues
-      &quot;ds_threads&quot;:1, --&gt; Number of deserializer threads
-      &quot;ds_pool_size&quot;:1, --&gt; Deserializer pool size
-      &quot;indexing_queues&quot;:1, --&gt; Number of indexing queues
-      &quot;ad_idx_queues&quot;:1, --&gt; Multiplier for action indexing queues
-      &quot;max_autoscale&quot;:4, --&gt; Max number of readers to autoscale
-      &quot;auto_scale_trigger&quot;:20000 --&gt; Number of itens on queue to trigger autoscale
-   },
-   &quot;indexer&quot;:{ --&gt; Indexer configuration
-      &quot;start_on&quot;:0, --&gt; Start indexing on block (0=disable)
-      &quot;stop_on&quot;:0,  --&gt; Stop indexing on block  (0=disable)
-      &quot;rewrite&quot;:false, --&gt;Force rewrite the target replay range
-      &quot;purge_queues&quot;:true, --&gt; Clear rabbitmq queues before starting the indexer
-      &quot;live_reader&quot;:false, --&gt; Enable live reader
-      &quot;live_only_mode&quot;:false, --&gt; Only reads realtime data serially
-      &quot;abi_scan_mode&quot;:true,
-      &quot;fetch_block&quot;:true, --&gt; Request full blocks from the state history plugin
-      &quot;fetch_traces&quot;:true, --&gt; Request traces from the state history plugin
-      &quot;disable_reading&quot;:false, --&gt; Completely disable block reading, for lagged queue processing
-      &quot;disable_indexing&quot;:false,
-      &quot;process_deltas&quot;:true, --&gt; Read table deltas
-      &quot;repair_mode&quot;:false
-   },
-   &quot;features&quot;:{
-      &quot;streaming&quot;:{ --&gt; Enable live streaming
-         &quot;enable&quot;:false,  
-         &quot;traces&quot;:false,
-         &quot;deltas&quot;:false
-      },
-      &quot;tables&quot;:{ --&gt; Tables to fetch
-         &quot;proposals&quot;:true,
-         &quot;accounts&quot;:true,
-         &quot;voters&quot;:true,
-         &quot;userres&quot;:false,
-         &quot;delband&quot;:false
-      },
-      &quot;index_deltas&quot;:true, --&gt; Index common table deltas (see delta on definitions/mappings)
-      &quot;index_transfer_memo&quot;:true, --&gt; Index transfers memo
-      &quot;index_all_deltas&quot;:true --&gt; Index all table deltas
-   },
-   &quot;prefetch&quot;:{
-      &quot;read&quot;:50, --&gt; Stage 1 prefecth size
-      &quot;block&quot;:100, --&gt; Stage 2 prefecth size
-      &quot;index&quot;:500 --&gt; Stage 3 prefecth size
-   },
-   &quot;experimental&quot;:{
-      &quot;PATCHED_SHIP&quot;:false
-   }
-}
-</code></pre>
-
+                <h3 id="detailed-description-of-the-chainsexampleconfigjson">Detailed description of the chains/example.config.json</h3>
+<p>This section is a quick guide of config.json file. Here you gonna find a brief explanation of each parameter
+with its default value and a example of real usage.</p>
+<h4 id="api-configuration">API Configuration</h4>
+<ul>
+<li><code>"chain_name": "EXAMPLE Chain"</code></li>
+<li><code>"server_addr": "127.0.0.1"</code></li>
+<li><code>"server_port": 7000</code></li>
+<li><code>"server_name": "127.0.0.1:7000"</code></li>
+<li><code>"provider_name": "Example Provider"</code></li>
+<li><code>"provider_url": "https://example.com"</code></li>
+<li><code>"chain_logo_url": ""</code></li>
+<li><code>"enable_caching": true</code> --&gt; Set API cache</li>
+<li><code>"cache_life": 1</code> --&gt; Define the cache life</li>
+<li><code>"limits"</code> --&gt; Setting API response limits<ul>
+<li><code>"get_actions": 1000</code></li>
+<li><code>"get_voters": 100</code></li>
+<li><code>"get_links": 1000</code></li>
+<li><code>"get_deltas": 1000</code></li>
+</ul>
+</li>
+<li><code>"access_log": false</code></li>
+<li><code>"enable_explorer": false</code></li>
+</ul>
+<h4 id="settings">settings</h4>
+<ul>
+<li><code>"preview": false</code> -&gt; Preview mode - prints worker map and exit</li>
+<li><code>"chain": "eos"</code> --&gt; Chain named (The same used on ecosystem.config.js)</li>
+<li><code>"eosio_alias": "eosio"</code></li>
+<li><code>"parser": "1.8"</code> --&gt; Version of the parser to be used</li>
+<li><code>"auto_stop": 300</code> --&gt; Automatically stop Indexer after X seconds if no more blocks are being processed (0=disable)</li>
+<li><code>"index_version": "v1"</code> --&gt; Set the index version</li>
+<li><code>"debug": false</code> --&gt; Enable debug mode</li>
+<li><code>"rate_monitoring": true</code></li>
+<li><code>"bp_logs": false</code> --&gt; Enable logs</li>
+<li><code>"bp_monitoring": false</code></li>
+<li><code>"ipc_debug_rate": 60000</code></li>
+<li><code>"allow_custom_abi": false</code></li>
+</ul>
+<h4 id="blacklists">blacklists</h4>
+<p>Blacklist for actions and deltas</p>
+<ul>
+<li>"actions": [],</li>
+<li>"deltas": []</li>
+</ul>
+<h4 id="whitelists">whitelists</h4>
+<p>Whitelist for actions and deltas</p>
+<ul>
+<li>actions": []</li>
+<li>"deltas": []</li>
+</ul>
+<h4 id="scalling-options">Scalling options</h4>
+<ul>
+<li><code>"batch_size": 10000</code> --&gt; Parallel reader batch size in blocks</li>
+<li><code>"queue_limit": 50000</code> --&gt; Queue size limit on rabbitmq</li>
+<li><code>"readers": 1</code> --&gt; Number of readers</li>
+<li><code>"ds_queues": 1</code> --&gt; Number of deserializer queues</li>
+<li><code>"ds_threads": 1</code> --&gt; Number of deserializer threads</li>
+<li><code>"ds_pool_size": 1</code> --&gt; Deserializer pool size</li>
+<li><code>"indexing_queues": 1</code> --&gt; Number of indexing queues</li>
+<li><code>"ad_idx_queues": 1</code> --&gt; Multiplier for action indexing queues</li>
+<li><code>"max_autoscale": 4</code> --&gt; Max number of readers to autoscale</li>
+<li><code>"auto_scale_trigger": 20000</code> --&gt; Number of itens on queue to trigger autoscale</li>
+</ul>
+<h4 id="indexer-configuration">Indexer configuration</h4>
+<ul>
+<li><code>"start_on": 0</code> --&gt; Start indexing on block (0=disable)</li>
+<li><code>"stop_on": 0</code> --&gt; Stop indexing on block  (0=disable)</li>
+<li><code>"rewrite": false</code> --&gt;Force rewrite the target replay range</li>
+<li><code>"purge_queues": true</code> --&gt; Clear rabbitmq queues before starting the indexer</li>
+<li><code>"live_reader": false</code> --&gt; Enable live reader</li>
+<li><code>"live_only_mode": false</code> --&gt; Only reads realtime data serially</li>
+<li><code>"abi_scan_mode": true</code> --&gt; Enable abi scan mode (<b>Indicated on the first run</b>)</li>
+<li><code>"fetch_block": true</code> --&gt; Request full blocks from the state history plugin</li>
+<li><code>"fetch_traces": true</code> --&gt; Request traces from the state history plugin</li>
+<li><code>"disable_reading": false</code> --&gt; Completely disable block reading, for lagged queue processing</li>
+<li><code>"disable_indexing": false</code></li>
+<li><code>"process_deltas": true</code> --&gt; Read table deltas</li>
+<li><code>"repair_mode": false</code></li>
+<li><code>"max_inline": 20</code></li>
+</ul>
+<h4 id="features">features</h4>
+<ul>
+<li><code>"index_deltas": true</code> --&gt; Index common table deltas (see delta on definitions/mappings)</li>
+<li><code>index_transfer_memo": true</code> --&gt; Index transfers memo</li>
+<li><code>"index_all_deltas": true</code> --&gt; Index all table deltas</li>
+</ul>
+<h5 id="1-streaming">1 - streaming</h5>
+<p>Enable live streaming</p>
+<ul>
+<li><code>"enable": false</code></li>
+<li><code>"traces": false</code></li>
+<li><code>"deltas": false</code></li>
+</ul>
+<h5 id="2-tables">2 - tables</h5>
+<p>Tables to fetch</p>
+<ul>
+<li><code>"proposals": true</code></li>
+<li><code>"accounts": true</code></li>
+<li><code>"voters": true</code></li>
+<li><code>"userres": false</code></li>
+<li><code>"delband": false</code></li>
+</ul>
+<h4 id="prefetch">prefetch</h4>
+<ul>
+<li><code>"read": 50</code> --&gt; Stage 1 prefecth size</li>
+<li><code>"block": 100</code> --&gt; Stage 2 prefecth size</li>
+<li><code>"index": 500</code> --&gt; Stage 3 prefecth size</li>
+</ul>
+<h4 id="experimental">experimental</h4>
+<ul>
+<li><code>"PATCHED_SHIP":false</code></li>
+</ul>
 <h4 id="example">Example</h4>
 <p>Let's suppose that we gonna start Indexing the EOS Mainnet with:</p>
 <ul>
@@ -700,7 +886,7 @@ The next step is to edit the file as the following:</p>
     &quot;preview&quot;: false,
     &quot;chain&quot;: &quot;eos&quot;,
     &quot;eosio_alias&quot;: &quot;eosio&quot;,
-    &quot;parser&quot;: &quot;2.0&quot;,
+    &quot;parser&quot;: &quot;1.8&quot;,
     &quot;auto_stop&quot;: 30,
     &quot;index_version&quot;: &quot;v1&quot;,
     &quot;debug&quot;: false,
