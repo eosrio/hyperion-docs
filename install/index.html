@@ -365,6 +365,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#6-security" class="md-nav__link">
+    6. Security
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -792,6 +799,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#6-security" class="md-nav__link">
+    6. Security
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1054,18 +1068,16 @@ sudo systemctl enable elasticsearch
 }
 </code></pre>
 
-<p>The Default user and password is:</p>
-<pre><code>user: elastic
-password: changeme
+<h5 id="6-security">6. Security</h5>
+<p>By default, elasticsearch comes withou password configured. To avoid security problems, we recommend to
+enable the security pack on elasticsearch. </p>
+<p>To do that, add <code>xpack.security.enabled: true</code> to the end of <code>/etc/elasticsearch/elasticsearch.yml</code> file.</p>
+<p>Now it’s time to set the passwords for the cluster:</p>
+<pre><code class="bash">sudo /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto
 </code></pre>
 
-<p>You can change the password via the API, like this:</p>
-<pre><code>curl -X POST &quot;localhost:9200/_security/user/elastic/_password?pretty&quot; -H 'Content-Type: application/json' -d'
-{
-  &quot;password&quot; : &quot;new_password&quot;
-}'
-</code></pre>
-
+<p>You can alternatively skip the auto parameter to manually define your passwords using the interactive parameter. 
+Keep track of these passwords, we’ll need them again soon.</p>
 <h4 id="rabbitmq-installation">RabbitMQ Installation</h4>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1131,6 +1143,15 @@ the config file if you want to listen to other network.</p>
 <p class="admonition-title">Info</p>
 <p>Follow the detailed installation instructions on the <a href="https://www.elastic.co/downloads/kibana">official documentation</a></p>
 </div>
+<p>If you have enabled the security pack on elastic, you'll need to setup the password on Kibana:
+Edit the <code>/etc/kibana/kibana.yml</code> file, Find the lines that look like this:</p>
+<pre><code class="bash">#elasticsearch.username: &quot;user&quot;
+#elasticsearch.password: &quot;pass&quot;
+</code></pre>
+
+<p>Uncomment the username and password fields by removing the # character at the beginning of the line. Change "user" to "kibana" 
+and then change "pass" to whatever the setup-passwords command tells us the Kibana password is. 
+Save the file then we can restart Kibana.</p>
 <h4 id="nodeos-configini">nodeos config.ini</h4>
 <pre><code>state-history-dir = &quot;state-history&quot;
 trace-history = true
