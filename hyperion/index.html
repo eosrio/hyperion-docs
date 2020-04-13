@@ -738,6 +738,7 @@ nano connections.json
 </code></pre>
 
 <p>For more details, refer to the <a href="../ecosystem/">ecosystem section</a></p>
+<p><br></p>
 <h3 id="setup">Setup</h3>
 <pre><code>cp chains/example.config.json chains/CHAIN_NAME.config.json
 
@@ -747,9 +748,10 @@ cp chains/example.config.json chains/eos.config.json
 
 <p>The default config.json file is ready to run. The parameter <code>abi_scan_mode</code> is <code>true</code> to perform an abi scan on the first run.</p>
 <p>For more details, refer to the <a href="../chain/">chain section</a></p>
+<p><br></p>
 <h3 id="start-and-stop">Start and Stop</h3>
-<p>We provide scripts to make simple the process of start and stop you Hyperion Indexer or API instance.
-But, you can also do it manually if you prefer. This section will cover both ways.</p>
+<p>We provide scripts to simplify the process of starting and stopping your Hyperion Indexer or API instance.
+But, you can also do it manually if you prefer. This section will cover both ways:</p>
 <h4 id="using-run-stop-script">Using run / stop script</h4>
 <p>You can use <code>run</code> script to start the Indexer or the API.</p>
 <pre><code>./run.sh chain-indexer
@@ -780,29 +782,30 @@ Stop the EOS mainnet indexer</p>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Stop script wont stop Hyperion Indexer immediately, it will first flush the queues.
+<p>The stop script won't stop Hyperion Indexer immediately, it will first flush the queues.
 This operation could take some time.
-If you want to stop immediately, you need to run the "Force stop command"</p>
+If you want to stop immediately, you need to run the "force stop command" explained below.</p>
 </div>
 <h4 id="commands">Commands</h4>
-<p>Start indexing</p>
+<p>Start indexing:</p>
 <pre><code>pm2 start --only chain-indexer --update-env
 pm2 logs chain-indexer
 </code></pre>
 
-<p>Stop reading and wait for queues to flush</p>
+<p>Stop reading and wait for queues to flush:</p>
 <pre><code>pm2 trigger chain-indexer stop
 </code></pre>
 
-<p>Force stop</p>
+<p>Force stop:</p>
 <pre><code>pm2 stop chain-indexer
 </code></pre>
 
-<p>Starting the API node</p>
+<p>Starting the API node:</p>
 <pre><code>pm2 start --only chain-api --update-env
 pm2 logs chain-api
 </code></pre>
 
+<p><br></p>
 <h3 id="indexer">Indexer</h3>
 <p>As mentioned before on <a href="#setup">Setup</a>, the Hyperion Indexer is configured to perform an abi scan <code>("abi_scan_mode": true)</code> as default.
 So, on your first run, you'll probably see something like this:</p>

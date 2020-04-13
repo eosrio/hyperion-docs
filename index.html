@@ -717,26 +717,26 @@ Focused on delivering faster search times, lower bandwidth overhead and easier u
 <li>a parent field is added to the inline actions to point to the parent global sequence</li>
 <li>if the inline action data is identical to the parent, it is considered a notification and thus removed from the database.</li>
 </ul>
-<p>No blocks or transaction data is stored, all information can be reconstructed from actions.</p>
+<p>No blocks or transaction data are stored; all information can be reconstructed from actions.</p>
 <h3 id="2-architecture">2. Architecture</h3>
-<p>The following components are required in order to have a fully functional Hyperion API deployment.
-For small use cases, it is fine to run all components on a single machine. But for larger chains and production environments, 
+<p>The following components are required to have a fully functional Hyperion API deployment.</p>
+<p>For small use cases, it is fine to run all components on a single machine. But for larger chains and production environments, 
 we recommend setting them up into different servers under a high-speed local network.</p>
 <h4 id="21-elasticsearch-cluster">2.1 - Elasticsearch Cluster</h4>
-<p>The ES cluster is responsible for storing all indexed data. Direct access to the Hyperion API and Indexer must be provided. 
-We recommend nodes in the cluster to have at least 32GB of RAM and 8 CPU cores. SSD/NVME drives are recommended for maximum indexing throughput. 
-For production environments, a multi-node cluster is highly recommended.</p>
+<p>The ES cluster is responsible for storing all indexed data. Direct access to the Hyperion API and Indexer must be provided. </p>
+<p>We recommend nodes in the cluster to have at least 32GB of RAM and 8 CPU cores. SSD/NVME drives are recommended for maximum indexing throughput.</p>
+<p>For production environments, a multi-node cluster is highly recommended.</p>
 <h4 id="22-hyperion-indexer">2.2 - Hyperion Indexer</h4>
-<p>The indexer is a Node.js based app that processes data from the state history plugin and allows it to be indexed. 
-The PM2 process manager is used to launch and operate the indexer. The configuration flexibility is very extensive, so system recommendations depend on the use case and data load. 
-It requires access to at least one ES node, RabbitMQ, and the state history node.</p>
+<p>The indexer is a Node.js based app that processes data from the state history plugin and allows it to be indexed. </p>
+<p>The PM2 process manager is used to launch and operate the indexer. The configuration flexibility is very extensive, so system recommendations depend on the use case and data load. </p>
+<p>It requires access to at least one ES node, RabbitMQ, and the state history node.</p>
 <h4 id="23-hyperion-api">2.3 - Hyperion API</h4>
-<p>Parallelizable API server that provides the V2 and V1 (legacy history plugin) endpoints. It is launched by PM2 and can also operate in cluster mode. 
-It requires direct access to at least one ES node for the queries and all other services for a full health check.</p>
+<p>Parallelizable API server that provides the V2 and V1 (legacy history plugin) endpoints. It is launched by PM2 and can also operate in cluster mode. </p>
+<p>It requires direct access to at least one ES node for the queries and all other services for a full health check.</p>
 <h4 id="24-rabbitmq">2.4 - RabbitMQ</h4>
 <p>Use as messaging queue and data transport between the indexer stages.</p>
 <h4 id="25-eosio-state-history">2.5 - EOSIO State History</h4>
-<p>Nodeos plugin used to collect action traces and state deltas. Provides data via websocket to the indexer.</p>
+<p>Nodeos plugin used to collect action traces and state deltas. It provides data via websocket to the indexer.</p>
 <h3 id="3-how-to-use">3. How to use</h3>
 <h4 id="31-for-providers">3.1 For Providers</h4>
 <p>For providers, click <a href="install/">here</a></p>

@@ -749,7 +749,7 @@ with its default value and an example of real usage.</p>
 <li><code>"get_deltas": 1000</code></li>
 </ul>
 </li>
-<li><code>"access_log": false</code></li>
+<li><code>"access_log": false</code> --&gt; Enable log API access.</li>
 <li><code>"enable_explorer": false</code></li>
 </ul>
 <h3 id="settings">Settings</h3>
@@ -761,11 +761,12 @@ with its default value and an example of real usage.</p>
 <li><code>"auto_stop": 300</code> --&gt; Automatically stop Indexer after X seconds if no more blocks are being processed (0=disable)</li>
 <li><code>"index_version": "v1"</code> --&gt; Set the index version</li>
 <li><code>"debug": false</code> --&gt; Enable debug mode</li>
-<li><code>"rate_monitoring": true</code></li>
+<li><code>"rate_monitoring": true</code> --&gt; Print data rates for each phase every 5s</li>
 <li><code>"bp_logs": false</code> --&gt; Enable logs</li>
-<li><code>"bp_monitoring": false</code></li>
-<li><code>"ipc_debug_rate": 60000</code></li>
-<li><code>"allow_custom_abi": false</code></li>
+<li><code>"bp_monitoring": false</code> --&gt; Allow monitoring and logging of missed blocks and rounds</li>
+<li><code>"ipc_debug_rate": 60000</code> --&gt; interval between IPC messaging rate debug messages, setting it to false or 0 will disable the logging</li>
+<li><code>"allow_custom_abi": false</code> --&gt; allow using custom ABIs from the custom-abi/<CHAIN_NAME> folder, they must match the pattern <contract>-<start_block>-<end_block>.json. 
+   Those ABIs will overwrite on-chain data for the given range.</li>
 </ul>
 <h3 id="blacklists">Blacklists</h3>
 <p>Blacklist for actions and deltas</p>
@@ -806,7 +807,6 @@ with its default value and an example of real usage.</p>
 <li><code>"disable_reading": false</code> --&gt; Completely disable block reading, for lagged queue processing</li>
 <li><code>"disable_indexing": false</code> --&gt; Disable indexing</li>
 <li><code>"process_deltas": true</code> --&gt; Read table deltas</li>
-<li><code>"repair_mode": false</code></li>
 <li><code>"max_inline": 20</code> --&gt; Max inline actions depth to index</li>
 </ul>
 <h3 id="features">Features</h3>
@@ -915,7 +915,6 @@ The next step is to edit the file as the following:</p>
     &quot;disable_reading&quot;: false,
     &quot;disable_indexing&quot;: false,
     &quot;process_deltas&quot;: true,
-    &quot;repair_mode&quot;: false,
     &quot;max_inline&quot;: 20
   },
   &quot;features&quot;: {

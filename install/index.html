@@ -455,8 +455,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-change-supervised-to-systemd" class="md-nav__link">
-    3. Change supervised to systemd
+  <a href="#3-restart-redis" class="md-nav__link">
+    3. Restart redis
   </a>
   
 </li>
@@ -475,15 +475,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-install-the-nodejs-source" class="md-nav__link">
-    1. Install the nodejs source
+  <a href="#1-add-the-nodejs-source" class="md-nav__link">
+    1. Add the nodejs source
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-install" class="md-nav__link">
-    2. Install
+  <a href="#2-install-nodejs" class="md-nav__link">
+    2. Install nodejs
   </a>
   
 </li>
@@ -509,8 +509,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-run" class="md-nav__link">
-    2. Run
+  <a href="#2-configure-for-system-startup" class="md-nav__link">
+    2. Configure for system startup
   </a>
   
 </li>
@@ -889,8 +889,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-change-supervised-to-systemd" class="md-nav__link">
-    3. Change supervised to systemd
+  <a href="#3-restart-redis" class="md-nav__link">
+    3. Restart redis
   </a>
   
 </li>
@@ -909,15 +909,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-install-the-nodejs-source" class="md-nav__link">
-    1. Install the nodejs source
+  <a href="#1-add-the-nodejs-source" class="md-nav__link">
+    1. Add the nodejs source
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-install" class="md-nav__link">
-    2. Install
+  <a href="#2-install-nodejs" class="md-nav__link">
+    2. Install nodejs
   </a>
   
 </li>
@@ -943,8 +943,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-run" class="md-nav__link">
-    2. Run
+  <a href="#2-configure-for-system-startup" class="md-nav__link">
+    2. Configure for system startup
   </a>
   
 </li>
@@ -994,18 +994,18 @@
                 
                 <h1 id="manual-installation">Manual Installation</h1>
 <h3 id="dependencies">Dependencies</h3>
-<p>This setup has only been tested with Ubuntu 18.04, but should work with other OS versions too</p>
+<p>Recommended OS: Ubuntu 18.04</p>
 <ul>
 <li><a href="https://www.elastic.co/downloads/elasticsearch">Elasticsearch 7.6.X</a></li>
 <li><a href="https://www.rabbitmq.com/install-debian.html">RabbitMQ</a></li>
-<li><a href="https://redis.io/topics/quickstart">Redis</a></li>
 <li><a href="https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions">Node.js v13</a></li>
 <li><a href="http://pm2.keymetrics.io/docs/usage/quick-start/">PM2</a></li>
 <li>Nodeos 1.8+ w/ state_history_plugin and chain_api_plugin</li>
+<li><a href="https://redis.io/topics/quickstart">Redis</a> (only for the API caching layer)</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The indexer requires redis, pm2 and node.js to be on the same machine. Other dependencies might be installed on other machines, preferably over a very high speed and low latency network. Indexing speed will vary greatly depending on this configuration.</p>
+<p>The indexer requires pm2 and node.js to be on the same machine. The other dependencies (Elasticsearch, RabbitMQ and Nodeos) can be installed on other machines, preferably on a high speed and low latency network. Indexing speed will vary greatly depending on this configuration.</p>
 </div>
 <h4 id="elasticsearch-installation">Elasticsearch Installation</h4>
 <div class="admonition info">
@@ -1019,24 +1019,26 @@ bootstrap.memory_lock: true
 
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Setting <code>bootstrap.memory_lock: true</code> will try to use all the RAM configured for JVM (check next step) on startup.
-This could crash if you allocate more RAM tham available on the system. 
-Setting mem_lock as <code>false</code>, might cause the JVM or shell session to exit if elasticsearch tries to allocate more memory than is available!</p>
+<p>Setting <code>bootstrap.memory_lock: true</code> will make elasticsearch try to use all the RAM configured for JVM on startup  (check next step).
+This could crash if you allocate more RAM than available on the system. 
+Setting mem_lock as <code>false</code> with swap disabled might cause the JVM or shell session to exit if elasticsearch tries to allocate more memory than is available!</p>
 </div>
-<p>After starting Elasticsearch, you can see whether this setting was applied successfully by checking the value of mlockall in the output from this request:</p>
+<p>After starting Elasticsearch, you can see whether this setting was applied successfully by checking the value of <code>mlockall</code> in the output from this request:</p>
 <pre><code>GET _nodes?filter_path=**.mlockall
 </code></pre>
 
 <h5 id="2-edit-etcelasticsearchjvmoptions">2. Edit <code>/etc/elasticsearch/jvm.options</code></h5>
-<pre><code># Set your heap size, avoid allocating more than 31GB, even if you have enought RAM.
-# Test on your specific machine by changing -Xmx32g in the following command:
-# java -Xmx32g -XX:+UseCompressedOops -XX:+PrintFlagsFinal Oops | grep Oops
--Xms16g
+<p>Avoid allocating more than 31GB when setting your heap size, even if you have enough RAM.</p>
+<p>You can test on your system by running the following command with the desired size (change <code>-Xmx32g</code>):</p>
+<p><code>java -Xmx32g -XX:+UseCompressedOops -XX:+PrintFlagsFinal Oops | grep Oops</code></p>
+<p>Check if <code>UseCompressedOops</code> is true on the results for a valid optimized heap size. </p>
+<p>After that, edit the following lines on <code>jvm.options</code>, note that Xms and Xmx must have the same value.</p>
+<pre><code>-Xms16g
 -Xmx16g
 </code></pre>
 
 <h5 id="3-allow-memlock">3. Allow memlock</h5>
-<p>run <code>sudo systemctl edit elasticsearch</code> and add the following lines</p>
+<p>run <code>sudo systemctl edit elasticsearch</code> and add the following lines:</p>
 <pre><code>[Service]
 LimitMEMLOCK=infinity
 </code></pre>
@@ -1049,6 +1051,7 @@ sudo systemctl enable elasticsearch
 
 <h5 id="5-test-the-rest-api">5. Test the REST API</h5>
 <p><code>curl http://localhost:9200</code></p>
+<p>The expeted result should be something like this:</p>
 <pre><code class="json">{
   &quot;name&quot; : &quot;ip-172-31-5-121&quot;,
   &quot;cluster_name&quot; : &quot;hyperion&quot;,
@@ -1105,39 +1108,44 @@ Keep track of these passwords, we’ll need them again soon.</p>
 
 <h5 id="5-check-access-to-the-webui">5. Check access to the WebUI</h5>
 <p><a href="http://localhost:15672">http://localhost:15672</a></p>
+<p><br></p>
 <h4 id="redis-installation">Redis Installation</h4>
 <h5 id="1-install">1. Install</h5>
 <pre><code class="bash">sudo apt install redis-server
 </code></pre>
 
 <h5 id="2-edit-etcredisredisconf">2. Edit <code>/etc/redis/redis.conf</code></h5>
+<p>Change <code>supervised</code> to <code>systemd</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>By default, redis binds to the localhost address. You need to edit
+<p>By default, redis binds to the localhost address. You need to edit <code>bind</code> in
 the config file if you want to listen to other network.</p>
 </div>
-<h5 id="3-change-supervised-to-systemd">3. Change supervised to <code>systemd</code></h5>
+<h5 id="3-restart-redis">3. Restart redis</h5>
 <pre><code class="bash">sudo systemctl restart redis.service
 </code></pre>
 
+<p><br></p>
 <h4 id="nodejs">NodeJS</h4>
-<h5 id="1-install-the-nodejs-source">1. Install the nodejs source</h5>
+<h5 id="1-add-the-nodejs-source">1. Add the nodejs source</h5>
 <pre><code class="bash">curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
 </code></pre>
 
-<h5 id="2-install">2. Install</h5>
+<h5 id="2-install-nodejs">2. Install nodejs</h5>
 <pre><code class="bash">sudo apt-get install -y nodejs
 </code></pre>
 
+<p><br></p>
 <h4 id="pm2">PM2</h4>
 <h5 id="1-install_1">1. Install</h5>
 <pre><code class="bash">sudo npm install pm2@latest -g
 </code></pre>
 
-<h5 id="2-run">2. Run</h5>
+<h5 id="2-configure-for-system-startup">2. Configure for system startup</h5>
 <pre><code class="bash">sudo pm2 startup
 </code></pre>
 
+<p><br></p>
 <h4 id="kibana-installation">Kibana Installation</h4>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1165,7 +1173,7 @@ plugin = eosio::state_history_plugin
 <p>If you have the EOSIO version higher or equal to 2.0.x, use wasm-runtime = eos-vm-jit to improve
 performance.</p>
 </div>
-<p>If everything runs well, now it's time to install <a href="../hyperion/">hyperion</a>.</p>
+<p>If everything runs smoothly, now it's time to install <a href="../hyperion/">hyperion</a>!</p>
                 
                   
                 
