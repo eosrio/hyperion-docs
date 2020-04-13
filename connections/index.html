@@ -354,6 +354,40 @@
     Detailed description of the connections.json
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rabbitmq-parameters" class="md-nav__link">
+    RabbitMQ parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elasticsearch-parameters" class="md-nav__link">
+    Elasticsearch parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis-parameters" class="md-nav__link">
+    Redis parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chain-parameters" class="md-nav__link">
+    Chain Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -534,6 +568,40 @@
     Detailed description of the connections.json
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rabbitmq-parameters" class="md-nav__link">
+    RabbitMQ parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elasticsearch-parameters" class="md-nav__link">
+    Elasticsearch parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis-parameters" class="md-nav__link">
+    Redis parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chain-parameters" class="md-nav__link">
+    Chain Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -564,29 +632,29 @@
                 
                   <h1>Connections</h1>
                 
-                <h4 id="detailed-description-of-the-connectionsjson">Detailed description of the connections.json</h4>
-<pre><code class="json">{
-   &quot;amqp&quot;:{ --&gt; RabbitMQ parameters
-      &quot;host&quot;:&quot;127.0.0.1:5672&quot;,
-      &quot;api&quot;:&quot;127.0.0.1:15672&quot;,
-      &quot;user&quot;:&quot;my_user&quot;,
-      &quot;pass&quot;:&quot;my_password&quot;,
-      &quot;vhost&quot;:&quot;hyperion&quot;
-   },
-   &quot;elasticsearch&quot;:{ --&gt; Elasticsearch parameters
-      &quot;host&quot;:&quot;127.0.0.1:9200&quot;,
-      &quot;ingest_nodes&quot;:[
-         &quot;127.0.0.1:9200&quot;
-      ],
-      &quot;user&quot;:&quot;&quot;,
-      &quot;pass&quot;:&quot;&quot;
-   },
-   &quot;redis&quot;:{ --&gt; Redis parameters
-      &quot;host&quot;:&quot;127.0.0.1&quot;,
-      &quot;port&quot;:&quot;6379&quot;
-   },
-   &quot;chains&quot;:{ --&gt; Chain Parameters
-      &quot;eos&quot;:{
+                <h2 id="detailed-description-of-the-connectionsjson">Detailed description of the connections.json</h2>
+<h3 id="rabbitmq-parameters">RabbitMQ parameters</h3>
+<ul>
+<li><code>"host":"127.0.0.1:5672"</code></li>
+<li><code>"api":"127.0.0.1:15672"</code></li>
+<li><code>"user":"my_user"</code></li>
+<li><code>"pass":"my_password"</code></li>
+<li><code>"vhost":"hyperion"</code></li>
+</ul>
+<h3 id="elasticsearch-parameters">Elasticsearch parameters</h3>
+<ul>
+<li><code>"host":"127.0.0.1:9200"</code></li>
+<li><code>"ingest_nodes": [ "127.0.0.1:9200"]</code> </li>
+<li><code>"user":""</code></li>
+<li><code>"pass":""</code></li>
+</ul>
+<h3 id="redis-parameters">Redis parameters</h3>
+<ul>
+<li><code>"host":"127.0.0.1"</code></li>
+<li><code>"port":"6379"</code></li>
+</ul>
+<h3 id="chain-parameters">Chain Parameters</h3>
+<pre><code class="json">&quot;eos&quot;:{
          &quot;name&quot;:&quot;EOS Mainnet&quot;,
          &quot;chain_id&quot;:&quot;aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906&quot;,
          &quot;http&quot;:&quot;http://127.0.0.1:8888&quot;,
@@ -594,11 +662,9 @@
          &quot;WS_ROUTER_HOST&quot;: &quot;127.0.0.1&quot;, --&gt; Endpoint used by indexer to connect to the API. This is important when Indexer and API aren't on the same machine / instance.
          &quot;WS_ROUTER_PORT&quot;:7001          --&gt; Port used by indexer to connect to API**
       }
-   }
-}
 </code></pre>
 
-<h4 id="example">Example:</h4>
+<h2 id="example">Example:</h2>
 <p>In this example we have an connection.json file with:</p>
 <ul>
 <li>Local RabbitMQ<ul>
