@@ -1,5 +1,8 @@
 # Hyperion Docker
 
+!!! warning
+    Using docker is not recommended for production environments, only for testing and debugging and local networks.
+
 ## Dependencies
 - `docker` and `docker-compose`
 
@@ -33,6 +36,3 @@ on the docker-compose.yml setting it to false:
 ```
 xpack.security.enabled=false
 ```
-
-!!! warning
-    Using docker is not recommended for production environments, only for testing and debugging and local networks.
