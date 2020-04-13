@@ -63,6 +63,8 @@ module.exports = {
 ```
 For more details, refer to the [ecosystem section](ecosystem.md)
 
+<br>
+
 ### Setup
 
 ```
@@ -75,10 +77,12 @@ The default config.json file is ready to run. The parameter `abi_scan_mode` is `
 
 For more details, refer to the [chain section](chain.md)
 
+<br>
+
 ### Start and Stop
 
-We provide scripts to make simple the process of start and stop you Hyperion Indexer or API instance.
-But, you can also do it manually if you prefer. This section will cover both ways.
+We provide scripts to simplify the process of starting and stopping your Hyperion Indexer or API instance.
+But, you can also do it manually if you prefer. This section will cover both ways:
 
 #### Using run / stop script
 
@@ -112,33 +116,35 @@ Stop the EOS mainnet indexer
 ./stop.sh eos-indexer
 ```
 !!! note  
-    Stop script wont stop Hyperion Indexer immediately, it will first flush the queues.
+    The stop script won't stop Hyperion Indexer immediately, it will first flush the queues.
     This operation could take some time.
-    If you want to stop immediately, you need to run the "Force stop command"
+    If you want to stop immediately, you need to run the "force stop command" explained below.
 
 #### Commands
 
-Start indexing
+Start indexing:
 ```
 pm2 start --only chain-indexer --update-env
 pm2 logs chain-indexer
 ```
 
-Stop reading and wait for queues to flush
+Stop reading and wait for queues to flush:
 ```
 pm2 trigger chain-indexer stop
 ```
 
-Force stop
+Force stop:
 ```
 pm2 stop chain-indexer
 ```
 
-Starting the API node
+Starting the API node:
 ```
 pm2 start --only chain-api --update-env
 pm2 logs chain-api
 ```
+
+<br>
 
 ### Indexer
 As mentioned before on [Setup](#setup), the Hyperion Indexer is configured to perform an abi scan `("abi_scan_mode": true)` as default.
@@ -156,7 +162,7 @@ Where:
   - A (Actions): Actions being read out of processed blocks.
   - D (Deserialized): Deserializations of the actions.
   - I (Indexed): Indexing of all of the docs.
-  
+
 ### API
 After running the api, you should see a log like this:
 
