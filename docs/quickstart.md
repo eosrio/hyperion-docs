@@ -33,7 +33,7 @@ Now, the script will do the work, this can take a while. Get a cup of coffee and
 !!! info
     The installation script may ask you for the admin password. This is needed to install the dependencies, please, provide it.
    
-If everything runs smoothly, the script will automatically generate elasticsearch passwords and save on the `elastic_pass.txt` file.
+If everything runs smoothly, the script will automatically generate elasticsearch passwords and save on `elastic_pass.txt` file.
 
 To login into Kibana, use the `elastic` user credentials.
 
