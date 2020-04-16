@@ -14,7 +14,7 @@ with its default value and an example of real usage.
   - `"chain_logo_url": ""`
   - `"enable_caching": true` --> Set API cache
   - `"cache_life": 1` --> Define the cache life
-  - `"limits"` --> Setting API response limits
+  - `"limits"` --> Set API response limits
     - `"get_actions": 1000`
     - `"get_voters": 100`
     - `"get_links": 1000`
@@ -42,7 +42,7 @@ with its default value and an example of real usage.
 ### Blacklists
  Blacklist for actions and deltas
  
-   - "actions": [],
+   - "actions": []
    - "deltas": []
 
 ### Whitelists
