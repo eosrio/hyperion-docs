@@ -825,6 +825,74 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#v1trace_apiget_block" class="md-nav__link">
+    /v1/trace_api/get_block
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post_5" class="md-nav__link">
+    POST
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_5" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_5" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-body_2" class="md-nav__link">
+    Request Body
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_5" class="md-nav__link">
+    Schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_5" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -1201,6 +1269,74 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#v1trace_apiget_block" class="md-nav__link">
+    /v1/trace_api/get_block
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#post_5" class="md-nav__link">
+    POST
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_5" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_5" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-body_2" class="md-nav__link">
+    Request Body
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schema_5" class="md-nav__link">
+    Schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_5" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -1501,6 +1637,50 @@
 </table>
 <h5 id="example_4">Example</h5>
 <pre><code>curl -X POST &quot;https://eos.hyperion.eosrio.io/v1/chain/get_block&quot; -d '{&quot;block_num_or_id&quot;: &quot;1000&quot;}'
+</code></pre>
+
+<h3 id="v1trace_apiget_block">/v1/trace_api/get_block</h3>
+<h4 id="post_5">POST</h4>
+<h5 id="summary_5">Summary</h5>
+<p>Get block traces.</p>
+<h5 id="description_5">Description</h5>
+<p>Get block traces.</p>
+<h5 id="request-body_2">Request Body</h5>
+<pre><code>{
+  &quot;block_num&quot;: 0,
+  &quot;block_id&quot;: &quot;string&quot;
+}
+</code></pre>
+
+<h5 id="schema_5">Schema</h5>
+<p>block_num -&gt; integer -&gt; block number
+block_id -&gt; string -&gt; block id</p>
+<h5 id="responses_5">Responses</h5>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Default Response</td>
+</tr>
+</tbody>
+</table>
+<h5 id="examples">Examples</h5>
+<p>Get block 10000:</p>
+<pre><code>curl -X POST --url https://wax.hyperion.eosrio.io/v1/trace_api/get_block --data '{&quot;block_num&quot;: 10000}' --header 'content-type: application/json'
+</code></pre>
+
+<p>Get latest block:</p>
+<pre><code>curl -X POST --url https://wax.hyperion.eosrio.io/v1/trace_api/get_block --data '{&quot;block_num&quot;: -1}' --header 'content-type: application/json'
+</code></pre>
+
+<p>By block_id:</p>
+<pre><code>curl -X POST --url https://wax.hyperion.eosrio.io/v1/trace_api/get_block --data '{&quot;block_id&quot;: &quot;0307e42d3b2328805606929438411aa78dffb1756b2a0bcb2a9f7ce8a7035990&quot;}' --header 'content-type: application/json'
 </code></pre>
                 
                   
