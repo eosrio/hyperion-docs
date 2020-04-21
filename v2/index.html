@@ -571,6 +571,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -626,7 +633,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
+  <a href="#examples_1" class="md-nav__link">
     Examples
   </a>
   
@@ -687,7 +694,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#examples_1" class="md-nav__link">
+  <a href="#examples_2" class="md-nav__link">
     Examples
   </a>
   
@@ -809,7 +816,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#examples_2" class="md-nav__link">
+  <a href="#examples_3" class="md-nav__link">
     Examples
   </a>
   
@@ -1607,6 +1614,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1662,7 +1676,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
+  <a href="#examples_1" class="md-nav__link">
     Examples
   </a>
   
@@ -1723,7 +1737,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#examples_1" class="md-nav__link">
+  <a href="#examples_2" class="md-nav__link">
     Examples
   </a>
   
@@ -1845,7 +1859,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#examples_2" class="md-nav__link">
+  <a href="#examples_3" class="md-nav__link">
     Examples
   </a>
   
@@ -2658,6 +2672,20 @@
 <td>No</td>
 <td>boolean</td>
 </tr>
+<tr>
+<td>noBinary</td>
+<td>query</td>
+<td>exclude large binary data</td>
+<td>No</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>checkLib</td>
+<td>query</td>
+<td>perform reversibility check</td>
+<td>No</td>
+<td>boolean</td>
+</tr>
 </tbody>
 </table>
 <h5 id="responses_1">Responses</h5>
@@ -2675,6 +2703,20 @@
 </tr>
 </tbody>
 </table>
+<h5 id="examples">Examples</h5>
+<p>noBinary - Will suppress large hex payloads to reduce the transmission latency</p>
+<pre><code class="bash">curl -X GET &quot;https://eos.hyperion.eosrio.io/v2/history/get_actions?noBinary=true&quot;
+</code></pre>
+
+<p>checkLib - perform lib test. Default is false, meaning the query will be faster since it won't wait for the get_info to happen.
+If you wish to see the lib value on the results you must request explicitly.</p>
+<pre><code class="bash">curl -X GET &quot;https://eos.hyperion.eosrio.io/v2/history/get_actions?checkLib=true&quot;
+</code></pre>
+
+<p>The simple mode will add the irreversible field (true/false) on each actions</p>
+<pre><code class="bash">curl -X GET &quot;https://eos.hyperion.eosrio.io/v2/history/get_actions?checkLib=true&amp;simple=true&quot;
+</code></pre>
+
 <h3 id="v2historyget_blocks">/v2/history/get_blocks</h3>
 <h4 id="get_2">GET</h4>
 <h5 id="summary_2">Summary</h5>
@@ -2724,7 +2766,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="examples">Examples</h5>
+<h5 id="examples_1">Examples</h5>
 <p>Get all blocks</p>
 <pre><code>curl -X GET &quot;https://eos.hyperion.eosrio.io/v2/history/get_blocks&quot;
 </code></pre>
@@ -2779,7 +2821,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="examples_1">Examples</h5>
+<h5 id="examples_2">Examples</h5>
 <pre><code>curl -X GET &quot;https://eos.hyperion.eosrio.io/v2/history/get_created_accounts?account=eosio&quot;
 </code></pre>
 
@@ -2892,7 +2934,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="examples_2">Examples</h5>
+<h5 id="examples_3">Examples</h5>
 <p>Get all deltas from <code>eosio.token</code> contract </p>
 <pre><code>curl -X GET &quot;https://eos.hyperion.eosrio.io/v2/history/get_deltas?code=eosio.token&quot;
 </code></pre>
