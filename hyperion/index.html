@@ -570,6 +570,54 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Troubleshooting
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Troubleshooting
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../kibana/" title="Kibana" class="md-nav__link">
+      Kibana
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../rabbit/" title="RabbitMQ" class="md-nav__link">
+      RabbitMQ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -680,11 +728,15 @@
                 
                 <h1 id="hyperion-setup">Hyperion Setup</h1>
 <h3 id="clone-install-packages">Clone &amp; Install packages</h3>
-<pre><code class="bash">git clone https://github.com/eosrio/Hyperion-History-API.git
-cd Hyperion-History-API
+<pre><code class="bash">git clone https://github.com/eosrio/hyperion-history-api.git
+cd hyperion-history-api
 npm install
 </code></pre>
 
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>if you came from the script section, you just need to go to Hyperion folder and run <code>npm install</code></p>
+</div>
 <h3 id="edit-configs">Edit configs</h3>
 <pre><code>cp example-ecosystem.config.js ecosystem.config.js
 nano ecosystem.config.js
