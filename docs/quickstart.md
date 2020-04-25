@@ -13,7 +13,7 @@ cd hyperion-history-api
 
 Then, you just need to run the script:
 ````
-./install_infra.sh
+./install_env.sh
 ````
 
 The script will ask you for some information:
