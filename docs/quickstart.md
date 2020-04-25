@@ -4,7 +4,14 @@
     dependencies installed, update them manually before running the script.
 
 We provide an automated shell script that installs all dependencies and then configure Hyperion.
-All you need to do is to run it:
+
+The first step is to clone the Hyperion repository:
+```bash
+git clone https://github.com/eosrio/hyperion-history-api.git
+cd hyperion-history-api
+```
+
+Then, you just need to run the script:
 ````
 ./install_infra.sh
 ````

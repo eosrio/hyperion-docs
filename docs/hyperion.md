@@ -2,10 +2,13 @@
 
 ### Clone & Install packages
 ```bash
-git clone https://github.com/eosrio/Hyperion-History-API.git
-cd Hyperion-History-API
+git clone https://github.com/eosrio/hyperion-history-api.git
+cd hyperion-history-api
 npm install
 ```
+
+!!! tip
+    if you came from the script section, you just need to go to Hyperion folder and run `npm install`
 
 ### Edit configs
 ```

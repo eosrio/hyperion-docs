@@ -25,6 +25,8 @@ If Kibana asks for credentials, the default user and password is:
 user: elastic
 password: changeme
 ```
+
+If you installed Kibana through the `install_infra.sh` script, check your elastic_pass.txt file.
     
 If you can't access, check your credentials on your config file.
 
@@ -57,6 +59,3 @@ If you can't access, check your credentials on your config file.
     
     [![kibana](img/kibana6.png)](img/kibana6.png)
  
-## Index Management
-
-## Discover

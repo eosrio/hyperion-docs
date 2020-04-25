@@ -25,9 +25,9 @@ nav:
     - API Reference:
         - v2: v2.md
         - v1 compatible: v1.md
-    #- Troubleshooting:
-    #  - Kibana: kibana.md
-    #  - RabbitMQ: rabbit.md
+    - Troubleshooting:
+      - Kibana: kibana.md
+      - RabbitMQ: rabbit.md
     #  - FAQ: faq.md
 
 #theme: readthedocs
