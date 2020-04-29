@@ -229,7 +229,7 @@ plugin = eosio::state_history_plugin
 ```
 
 !!!tip
-    If you have the EOSIO version higher or equal to 2.0.x, use wasm-runtime = eos-vm-jit to improve
+    On EOSIO version higher or equal to 2.0.x, use wasm-runtime = eos-vm-jit to improve
     performance.
 
 If everything runs smoothly, now it's time to install [hyperion](hyperion.md)!
