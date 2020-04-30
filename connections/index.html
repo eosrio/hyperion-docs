@@ -702,16 +702,14 @@
 <li><code>"port":"6379"</code></li>
 </ul>
 <h3 id="chain-parameters">Chain Parameters</h3>
-<pre><code class="json">&quot;eos&quot;:{
-         &quot;name&quot;:&quot;EOS Mainnet&quot;,
-         &quot;chain_id&quot;:&quot;aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906&quot;,
-         &quot;http&quot;:&quot;http://127.0.0.1:8888&quot;,
-         &quot;ship&quot;:&quot;ws://127.0.0.1:8080&quot;,
-         &quot;WS_ROUTER_HOST&quot;: &quot;127.0.0.1&quot;, --&gt; Endpoint used by indexer to connect to the API. This is important when Indexer and API aren't on the same machine / instance.
-         &quot;WS_ROUTER_PORT&quot;:7001          --&gt; Port used by indexer to connect to API**
-      }
-</code></pre>
-
+<ul>
+<li><code>"name":"EOS Mainnet"</code></li>
+<li><code>"chain_id":"aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906"</code></li>
+<li><code>"http":"http://127.0.0.1:8888"</code></li>
+<li><code>"ship":"ws://127.0.0.1:8080"</code></li>
+<li><code>"WS_ROUTER_HOST": "127.0.0.1"</code> --&gt; Endpoint used by the Streaming API to connect to the Indexer. This is important when Indexer and API aren't on the same machine/instance.</li>
+<li><code>"WS_ROUTER_PORT":7001</code> --&gt; Port used by the Streaming API to connect to the Indexer.</li>
+</ul>
 <h2 id="example">Example:</h2>
 <p>In this example we have an connection.json file with:</p>
 <ul>

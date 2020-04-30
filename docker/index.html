@@ -349,8 +349,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install" class="md-nav__link">
-    INSTALL
+  <a href="#run" class="md-nav__link">
+    RUN
   </a>
   
 </li>
@@ -364,6 +364,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#eosio-node" class="md-nav__link">
+    EOSIO-NODE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hyperion-api" class="md-nav__link">
+    Hyperion API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#kibana" class="md-nav__link">
     Kibana
   </a>
@@ -373,13 +387,6 @@
           <li class="md-nav__item">
   <a href="#rabbitmq" class="md-nav__link">
     RabbitMQ
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hyperion-api" class="md-nav__link">
-    Hyperion API
   </a>
   
 </li>
@@ -632,8 +639,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install" class="md-nav__link">
-    INSTALL
+  <a href="#run" class="md-nav__link">
+    RUN
   </a>
   
 </li>
@@ -647,6 +654,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#eosio-node" class="md-nav__link">
+    EOSIO-NODE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hyperion-api" class="md-nav__link">
+    Hyperion API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#kibana" class="md-nav__link">
     Kibana
   </a>
@@ -656,13 +677,6 @@
           <li class="md-nav__item">
   <a href="#rabbitmq" class="md-nav__link">
     RabbitMQ
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hyperion-api" class="md-nav__link">
-    Hyperion API
   </a>
   
 </li>
@@ -699,34 +713,40 @@
                 
                 
                 <h1 id="hyperion-docker">Hyperion Docker</h1>
+<p>Hyperion Docker is a multi-container Docker application intended to get Hyperion up and running as fast as possible. It will index data from a development chain where you can set your contracts, push some actions and see what happens when querying the Hyperion API.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Using docker is not recommended for production environments, only for testing and debugging and local networks.</p>
+<p>Using Hyperion Docker is not recommended for production environments, only for testing, debugging and local networks.</p>
 </div>
 <h2 id="dependencies">Dependencies</h2>
 <ul>
 <li><code>docker</code> and <code>docker-compose</code></li>
 </ul>
-<h2 id="install">INSTALL</h2>
+<h2 id="run">RUN</h2>
 <ol>
-<li>Edit connections.json file and change http://host.docker.internal:8888 and ws://host.docker.internal:8080
-for the nodeos address</li>
-<li>Change passwords in docker-compose.yml file</li>
+<li>Make sure you are ok with all the configuration in <code>hyperion/config/connections.json</code> and <code>hyperion/config/chains/eos.config.json</code></li>
+<li>Change passwords in <code>docker-compose.yml</code> file</li>
 <li>Run <code>docker-compose up</code></li>
 </ol>
 <h2 id="usage">Usage</h2>
-<h3 id="kibana">Kibana</h3>
-<p>Access <a href="http://localhost:5601/">http://localhost:5601/</a></p>
-<h3 id="rabbitmq">RabbitMQ</h3>
-<p>Access <a href="http://127.0.0.1:15672/">http://127.0.0.1:15672/</a></p>
+<p>After running <code>docker-compose up</code> you should have a development chain producing blocks on a Docker container (eosio-node) as well as Hyperion Indexer and API on other two Docker containers (hyperion-indexer and hyperion-api).</p>
+<h3 id="eosio-node">EOSIO-NODE</h3>
+<p>The port 8888 of this container is exposed so you can use it to interact with the chain. Example:</p>
+<pre><code>cleos -u http://127.0.0.1:8888 get info
+</code></pre>
+
 <h3 id="hyperion-api">Hyperion API</h3>
-<p>Access <a href="http://127.0.0.1:7000/v2/history/get_actions">http://127.0.0.1:7000/v2/history/get_actions</a></p>
-<p>or</p>
+<p>Make queries to <a href="http://127.0.0.1:7000">http://127.0.0.1:7000/</a>. Example:</p>
 <pre><code>curl http://127.0.0.1:7000/v2/history/get_actions
 </code></pre>
 
+<h3 id="kibana">Kibana</h3>
+<p>Access <a href="http://127.0.0.1:5601/">http://127.0.0.1:5601/</a></p>
+<h3 id="rabbitmq">RabbitMQ</h3>
+<p>Access <a href="http://127.0.0.1:15672/">http://127.0.0.1:15672/</a></p>
+<p>Feel free to change configurations as you like. All configurations files are located in <code>hyperion/config</code> or <code>eosio/config</code>.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
-<p>If you're having problems accesing Kibana or using elasticsearch api, you could disable the xpack security
+<p>If you're having problems accesing Kibana or using Elasticsearch API, you could disable the xpack security
 on the docker-compose.yml setting it to false:</p>
 <pre><code>xpack.security.enabled=false
 </code></pre>
