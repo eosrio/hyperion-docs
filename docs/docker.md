@@ -21,28 +21,38 @@ Now you have three options to run it.
 ### docker-compose up
 This is the simplest way to run Hyperion. Just run `sudo docker-compose up -d` and after some time all necessary docker containers will be running. You can start using it as you like.
 
+!!! warning
+    We recommend using the Script to run Hyperion Docker as the order in which containers are started is important.
+
 To check logs run `sudo docker-compose logs -f` and to bring all containers down run `sudo docker-compose down`.
 
 ### Script
-We created a script to start every container in a specific order to avoid problems like connection errors. From the `docker` folder run the `start.sh` script inside `scripts` folder. With this script you have the option to start the chain form a snapshot. Example:
+We created a script to start every container in a specific order to avoid problems like connection errors. From the `docker` folder run the `start.sh` script located inside `scripts` folder. Example:
 ```
-./scripts/start.sh --snapshot snapshot-file.bin
+./scripts/start.sh --chain eos
+```
+
+With this script you also have the option to start the chain from a snapshot. Example:
+```
+./scripts/start.sh --chain eos --snapshot snapshot-file.bin
 ```
 Don't forget to move the snapshot file to the `eosio/data/snapshots` folder.
 
-You can also use the `stop.sh` script to stop all or a specific service and also to bring all the containers down. Check the script usage for more info.
+You can also use the `stop.sh` script to stop all or a specific service and also to bring all the containers down. Check the script usage for more information.
 
 ### Manual
-If you have some experience with Docker Compose you can probably explore Hyperion Docker a bit more. Feel free to change the `docker-compose.yml` as you like.
+If you have some experience with Docker Compose you can probably explore Hyperion Docker a bit more.
 
-We recomend to start services in the following order: `redis, rabbitmq, elasticsearch, kibana, eosio-node, hyperion-indexer and hyperion-api`. Wait until each of them are listening for connections before you start the next. Bellow you can find a simple example of how to control `hyperion-indexer` service:
+We recomend to start services in the following order: `redis, rabbitmq, elasticsearch, kibana, eosio-node, hyperion-indexer and hyperion-api`. Wait until each of them are listening for connections before you start the next. Feel free to change the `docker-compose.yml` as you like.
+
+Bellow you can find a simple example of how to control `hyperion-indexer` service:
 ```
 sudo docker-compose up --no-start
 sudo docker-compose start hyperion-indexer
 sudo docker-compose stop hyperion-indexer
 sudo docker-compose down
 ```
-It's also possible to start the chain form a snapshot passing a variable to `docker-compose up`.
+It's also possible to start the chain form a snapshot passing a variable named `SNAPSHOT` to `docker-compose up`.
 
 ## Usage
 After running `docker-compose up` you should have a development chain producing blocks on a Docker container (eosio-node) as well as Hyperion Indexer and API on other two Docker containers (hyperion-indexer and hyperion-api).
