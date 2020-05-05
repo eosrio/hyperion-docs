@@ -353,6 +353,33 @@
     RUN
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-up" class="md-nav__link">
+    docker-compose up
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#script" class="md-nav__link">
+    Script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual" class="md-nav__link">
+    Manual
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -643,6 +670,33 @@
     RUN
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-up" class="md-nav__link">
+    docker-compose up
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#script" class="md-nav__link">
+    Script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual" class="md-nav__link">
+    Manual
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -723,11 +777,33 @@
 <li><code>docker</code> and <code>docker-compose</code></li>
 </ul>
 <h2 id="run">RUN</h2>
-<ol>
-<li>Make sure you are ok with all the configuration in <code>hyperion/config/connections.json</code> and <code>hyperion/config/chains/eos.config.json</code></li>
-<li>Change passwords in <code>docker-compose.yml</code> file</li>
-<li>Run <code>docker-compose up</code></li>
-</ol>
+<p>Inside the <code>docker</code> folder you will find everything you need to run Hyperion Docker.</p>
+<p>First of all, you need to generate Hyperion configuration files. To do that, from the <code>docker</code> folder, run <code>generate-config.sh</code> located inside <code>scripts</code> folder. You will have to pass an identificator and a name to the chain you will run. Example:</p>
+<pre><code>./scripts/generate-config.sh --chain eos --chain-name &quot;EOS Testnet&quot;
+</code></pre>
+
+<p>Feel free to change the generated files in <code>hyperion/config</code> folder the way it suits you.</p>
+<p>Now you have three options to run it.</p>
+<h3 id="docker-compose-up">docker-compose up</h3>
+<p>This is the simplest way to run Hyperion. Just run <code>sudo docker-compose up -d</code> and after some time all necessary docker containers will be running. You can start using it as you like.</p>
+<p>To check logs run <code>sudo docker-compose logs -f</code> and to bring all containers down run <code>sudo docker-compose down</code>.</p>
+<h3 id="script">Script</h3>
+<p>We created a script to start every container in a specific order to avoid problems like connection errors. From the <code>docker</code> folder run the <code>start.sh</code> script inside <code>scripts</code> folder. With this script you have the option to start the chain form a snapshot. Example:</p>
+<pre><code>./scripts/start.sh --snapshot snapshot-file.bin
+</code></pre>
+
+<p>Don't forget to move the snapshot file to the <code>eosio/data/snapshots</code> folder.</p>
+<p>You can also use the <code>stop.sh</code> script to stop all or a specific service and also to bring all the containers down. Check the script usage for more info.</p>
+<h3 id="manual">Manual</h3>
+<p>If you have some experience with Docker Compose you can probably explore Hyperion Docker a bit more. Feel free to change the <code>docker-compose.yml</code> as you like.</p>
+<p>We recomend to start services in the following order: <code>redis, rabbitmq, elasticsearch, kibana, eosio-node, hyperion-indexer and hyperion-api</code>. Wait until each of them are listening for connections before you start the next. Bellow you can find a simple example of how to control <code>hyperion-indexer</code> service:</p>
+<pre><code>sudo docker-compose up --no-start
+sudo docker-compose start hyperion-indexer
+sudo docker-compose stop hyperion-indexer
+sudo docker-compose down
+</code></pre>
+
+<p>It's also possible to start the chain form a snapshot passing a variable to <code>docker-compose up</code>.</p>
 <h2 id="usage">Usage</h2>
 <p>After running <code>docker-compose up</code> you should have a development chain producing blocks on a Docker container (eosio-node) as well as Hyperion Indexer and API on other two Docker containers (hyperion-indexer and hyperion-api).</p>
 <h3 id="eosio-node">EOSIO-NODE</h3>
