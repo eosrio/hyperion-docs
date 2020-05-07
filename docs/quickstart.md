@@ -4,7 +4,7 @@
     dependencies installed, update them manually before running the script.
 
 !!! note
-    For Windows installation using Multipass, [click here](windows.md) before continue.
+    For Windows installation using Multipass, refer to [this guide](windows.md) 
     
 We provide an automated shell script that installs all dependencies and then configure Hyperion.
 
