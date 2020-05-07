@@ -36,7 +36,7 @@
     
     
       
-        <title>Script - Hyperion</title>
+        <title>Windows - Hyperion</title>
       
     
     
@@ -85,6 +85,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#windows" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -107,7 +111,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Script
+                Windows
               
             </span>
           
@@ -228,12 +232,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       Providers
@@ -249,12 +251,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
     
     <label class="md-nav__link" for="nav-2-1">
       Enviroment Setup
@@ -270,18 +270,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="Script" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../quickstart/" title="Script" class="md-nav__link">
       Script
     </a>
-    
   </li>
 
         
@@ -530,59 +523,128 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation-instructions-for-multipass-on-windows-10-with-hyper-v" class="md-nav__link">
+    Installation instructions for Multipass on Windows 10 with Hyper-V
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-vm" class="md-nav__link">
+    1. Create VM:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-stop-the-vm" class="md-nav__link">
+    2. Stop the VM:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-enable-dynamic-memory" class="md-nav__link">
+    3. Enable Dynamic Memory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-start-the-vm" class="md-nav__link">
+    4. Start the VM:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-proceed-with-the-automated-install" class="md-nav__link">
+    5. Proceed with the automated install:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-check-if-elasticsearch-memlock-was-successful" class="md-nav__link">
+    6. Check if elasticsearch memlock was successful:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/eosrio/hyperion-docs/edit/master/docs/quickstart.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/eosrio/hyperion-docs/edit/master/docs/windows.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Script</h1>
-                
-                <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The usage of this installation script is highly recommended for fresh installs. If you already have
-dependencies installed, update them manually before running the script.</p>
-</div>
+                <h1 id="windows">Windows</h1>
+<h2 id="installation-instructions-for-multipass-on-windows-10-with-hyper-v">Installation instructions for Multipass on Windows 10 with Hyper-V</h2>
+<h3 id="1-create-vm">1. Create VM:</h3>
+<pre><code class="bash">multipass launch -m 16G -c 4 -d 16G -n hyperion
+*adjust -m/-d/-c according to your needs
+</code></pre>
+
+<h3 id="2-stop-the-vm">2. Stop the VM:</h3>
+<pre><code class="bash">multipass stop hyperion
+</code></pre>
+
+<h3 id="3-enable-dynamic-memory">3. Enable Dynamic Memory</h3>
+<ul>
+<li>Open the Hyper-V Manager</li>
+<li>right click the "hyperion" VM </li>
+<li>go on "Settings..." -&gt; "Memory" -&gt; Uncheck "Enable Dynamic Memory"</li>
+</ul>
+<h3 id="4-start-the-vm">4. Start the VM:</h3>
+<pre><code class="bash">multipass start hyperion
+</code></pre>
+
+<h3 id="5-proceed-with-the-automated-install">5. Proceed with the automated install:</h3>
+<pre><code class="bash">  git clone https://github.com/eosrio/hyperion-history-api.git
+  cd hyperion-history-api
+  ./install_env.sh
+</code></pre>
+
+<h3 id="6-check-if-elasticsearch-memlock-was-successful">6. Check if elasticsearch memlock was successful:</h3>
+<pre><code class="bash">systemctl status elasticsearch.service
+</code></pre>
+
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For Windows installation using Multipass, <a href="../windows/">click here</a> before continue.</p>
+<p>"Dynamic Memory" can be enabled after installation if desired, just stop the vm, update the settings and restart.</p>
 </div>
-<p>We provide an automated shell script that installs all dependencies and then configure Hyperion.</p>
-<p>The first step is to clone the Hyperion repository:</p>
-<pre><code class="bash">git clone https://github.com/eosrio/hyperion-history-api.git
-cd hyperion-history-api
-</code></pre>
-
-<p>Then, you just need to run the script:</p>
-<pre><code>./install_env.sh
-</code></pre>
-
-<p>The script will ask you for some information:</p>
-<pre><code>Enter rabbitmq user [hyperion]:
-</code></pre>
-
-<p>Enter the desired rabbitmq user and hit enter. If you leave it blank, the default user
-<code>hyperion</code> will be set.</p>
-<p>Then, do the same for the rabbitmq password:</p>
-<pre><code>Enter rabbitmq password [123456]:
-</code></pre>
-
-<p>And finally, it will ask if you want to create the npm global folder:</p>
-<pre><code>Do you want to create a directory for npm global installations [Y/n] :
-</code></pre>
-
-<p>This is recommended. If you choose <code>n</code>, npm packages will be installed as root.</p>
-<p>Now, the script will do the work, this can take a while. Get a cup of coffee and relax. =)</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>The installation script may ask you for the admin password. This is needed to install the dependencies, please, provide it.</p>
-</div>
-<p>If everything runs smoothly, the script will automatically generate elasticsearch passwords and save on <code>elastic_pass.txt</code> file.</p>
-<p>To login into Kibana, use the <code>elastic</code> user credentials.</p>
-<p><br></p>
-<p>Now it's time to install <a href="../hyperion/">hyperion</a>!</p>
                 
                   
                 
@@ -599,41 +661,6 @@ cd hyperion-history-api
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Home
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="../install/" title="Manual" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Manual
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
