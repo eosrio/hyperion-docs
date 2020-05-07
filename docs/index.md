@@ -1,7 +1,6 @@
 # Hyperion History API
 
-<img height="64" src="https://eosrio.io/hyperion.png">
-<br/><br/>
+[![Hyperion](img/hype.jpg)](img/hype.jpg)
 Scalable Full History API Solution for EOSIO based blockchains
 
 Made with ♥ by [EOS Rio](https://eosrio.io/)

@@ -3,6 +3,9 @@
     The usage of this installation script is highly recommended for fresh installs. If you already have
     dependencies installed, update them manually before running the script.
 
+!!! note
+    For Windows installation using Multipass, [click here](windows.md) before continue.
+    
 We provide an automated shell script that installs all dependencies and then configure Hyperion.
 
 The first step is to clone the Hyperion repository:
