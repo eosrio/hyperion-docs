@@ -12,7 +12,7 @@ multipass launch -m 16G -c 4 -d 16G -n hyperion
 multipass stop hyperion
 ```` 
 
-### 3. Enable Dynamic Memory
+### 3. Disable Dynamic Memory
    - Open the Hyper-V Manager
    - right click the "hyperion" VM 
    - go on "Settings..." -> "Memory" -> Uncheck "Enable Dynamic Memory"
