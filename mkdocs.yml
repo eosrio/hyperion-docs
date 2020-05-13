@@ -36,15 +36,15 @@ theme:
   palette:
     primary: 'Blue Grey'
     accent: 'Blue Grey'
-  logo:
-   icon: "home"
+  icon:
+    logo: material/home
   favicon: 'img/favicon.png'
 
 extra:
   social:
-    - type: 'github'
+    - icon: fontawesome/brands/github-alt
       link: 'https://github.com/eosrio'
-    - type: 'twitter'
+    - icon: fontawesome/brands/twitter
       link: 'https://twitter.com/eosriobrazil'
-    - type: 'telegram'
+    - icon: fontawesome/brands/telegram
       link: 'https://t.me/eosrio'
