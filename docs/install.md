@@ -216,6 +216,9 @@ Uncomment the username and password fields by removing the # character at the be
 and then change "pass" to whatever the setup-passwords command tells us the Kibana password is. 
 Save the file, then we can restart Kibana.
 
+```
+systemctl restart kibana
+```
 <br>
 
 #### nodeos config.ini
