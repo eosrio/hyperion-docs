@@ -159,9 +159,24 @@ client.onData = async (data, ack) => {
 }
 ```
 
+On every LIB updates, 'client.onLIB' is called
+```javascript
+client.onLIB = async (data) => {
+    console.log(data);  
+}
+```
+
+You can also look for forks, using the "client.onFork" callback 
+```javascript
+client.onFork = async (data) => {
+    console.log(data); // process when a there is a fork
+}
+```
+
 If you set `async: false` on the connection step, the `ack` must not be used:
 ```javascript
 client.onData = async (data) => {
     //code here
 }
 ```
+e 
