@@ -8,7 +8,7 @@ npm install
 ```
 
 !!! tip
-    if you came from the script section, you can skip this section and go directly to the Edit configs section.
+    if you came from the script section, you can skip this section and go directly to the Edit configs section below.
 
 <br>
 
