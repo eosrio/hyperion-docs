@@ -10,7 +10,7 @@ Hyperion Docker is a multi-container Docker application intended to get Hyperion
 ## RUN
 Inside the `docker` folder you will find everything you need to run Hyperion Docker.
 
-First of all, you need to generate Hyperion configuration files. To do that, from the `docker` folder, run `generate-config.sh` located inside the `scripts` folder. You will have to pass an identifier and a name to the chain you will run. Example:
+First of all, you need to generate the Hyperion configuration files. To do that, from the `docker` folder, run `generate-config.sh` located inside the `scripts` folder. You will have to pass an identifier and a name to the chain you will run. Example:
 ```
 ./scripts/generate-config.sh --chain eos --chain-name "EOS Testnet"
 ```
