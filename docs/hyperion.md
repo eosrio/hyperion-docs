@@ -89,7 +89,7 @@ For more details, refer to the [chain section](chain.md)
 We provide scripts to simplify the process of starting and stopping your Hyperion Indexer or API instance.
 But, you can also do it manually if you prefer. This section will cover both ways:
 
-#### Using run / stop script
+#### Option 1: Using run / stop script
 
 You can use `run` script to start the Indexer or the API.
 ```
@@ -127,7 +127,7 @@ Stop the EOS mainnet indexer
 
 <br>
 
-### 5. Commands
+#### Option 2: Commands
 
 ##### Start indexing:
 ```
