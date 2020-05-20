@@ -54,7 +54,7 @@ Nodeos plugin used to collect action traces and state deltas. It provides data v
 #### 3.1 For Providers
 For fresh installs, we recommend using the installation script. To do that, refer to the [script section](quickstart.md).
 
-If you already have a previous version of Hyperion installed or if you want setting up the whole environment manually, please, 
+If you already have a previous version of Hyperion installed or if you want to set up the whole environment manually, please, 
  refer to the [manual installation section](install.md).
 
 And for a light docker version of Hyperion, click [here](docker.md).
