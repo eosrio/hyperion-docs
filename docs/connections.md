@@ -8,6 +8,7 @@
    - `"vhost":"hyperion"`
   
 ### Elasticsearch parameters
+   - `"protocol": "http"` --> Protocol used to connect to Elasticsearch (default: http).
    - `"host":"127.0.0.1:9200"`
    - `"ingest_nodes": [ "127.0.0.1:9200"]` 
    - `"user":""` --> User defined on elasticsearch configuration.
