@@ -104,7 +104,7 @@ Start EOS API
 ```
 ./run.sh eos-api
 ```
-Remember that the chain name was previously defined on the [Hyperion section](#hyperion).
+Remember that the chain name was previously defined in the [Hyperion section](#hyperion).
 
 The `stop` script follows the same pattern of the `run` script:
 ```
