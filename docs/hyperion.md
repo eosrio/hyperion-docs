@@ -1,6 +1,6 @@
 # Hyperion Setup
 
-### Clone & Install packages
+### 1. Clone & Install packages
 ```bash
 git clone https://github.com/eosrio/hyperion-history-api.git
 cd hyperion-history-api
@@ -8,9 +8,11 @@ npm install
 ```
 
 !!! tip
-    if you came from the script section, you just need to go to Hyperion folder and run `npm install`
+    if you came from the script section, you can skip this section and go directly to the Edit configs section.
 
-### Edit configs
+<br>
+
+### 2. Edit configs
 ```
 cp example-ecosystem.config.js ecosystem.config.js
 nano ecosystem.config.js
@@ -68,7 +70,7 @@ For more details, refer to the [ecosystem section](ecosystem.md)
 
 <br>
 
-### Setup
+### 3. Setup
 
 ```
 cp chains/example.config.json chains/CHAIN_NAME.config.json
@@ -82,7 +84,7 @@ For more details, refer to the [chain section](chain.md)
 
 <br>
 
-### Start and Stop
+### 4. Start and Stop
 
 We provide scripts to simplify the process of starting and stopping your Hyperion Indexer or API instance.
 But, you can also do it manually if you prefer. This section will cover both ways:
@@ -123,25 +125,27 @@ Stop the EOS mainnet indexer
     This operation could take some time.
     If you want to stop immediately, you need to run the "force stop command" explained below.
 
-#### Commands
+<br>
 
-Start indexing:
+### 5. Commands
+
+##### Start indexing:
 ```
 pm2 start --only chain-indexer --update-env
 pm2 logs chain-indexer
 ```
 
-Stop reading and wait for queues to flush:
+##### Stop reading and wait for queues to flush:
 ```
 pm2 trigger chain-indexer stop
 ```
 
-Force stop:
+##### Force stop:
 ```
 pm2 stop chain-indexer
 ```
 
-Starting the API node:
+##### Starting the API node:
 ```
 pm2 start --only chain-api --update-env
 pm2 logs chain-api
@@ -149,7 +153,7 @@ pm2 logs chain-api
 
 <br>
 
-### Indexer
+### 6. Indexer
 As mentioned before on [Setup](#setup), the Hyperion Indexer is configured to perform an abi scan `("abi_scan_mode": true)` as default.
 So, on your first run, you'll probably see something like this:
 
@@ -166,7 +170,9 @@ Where:
   - D (Deserialized): Deserializations of the actions.
   - I (Indexed): Indexing of all of the docs.
 
-### API
+<br>
+
+### 7. API
 After running the api, you should see a log like this:
 
  [![api](img/api.png)](img/api.png)
@@ -178,3 +184,5 @@ Now, it's time to play around making some queries =).
 API Reference: [API section: v2](v2.md)
 
 Example: [OpenAPI Docs](https://eos.hyperion.eosrio.io/v2/docs)
+
+<br>
