@@ -8,7 +8,7 @@ npm install
 ```
 
 !!! tip
-    if you came from the script section, you can skip this section and go directly to the Edit configs section below.
+    if you came from the script section, you can skip this step and go directly to the Edit configs step below.
 
 <br>
 
@@ -91,6 +91,7 @@ But, you can also do it manually if you prefer. This section will cover both way
 
 #### Option 1: Using run / stop script
 
+##### run script
 You can use `run` script to start the Indexer or the API.
 ```
 ./run.sh chain-indexer
@@ -98,16 +99,18 @@ You can use `run` script to start the Indexer or the API.
 ./run.sh chain-api
 ```
 Examples:
-Start indexing EOS mainnet
+
+Start indexing EOS mainnet:
 ```
 ./run.sh eos-indexer
 ```
-Start EOS API
+Start EOS API:
 ```
 ./run.sh eos-api
 ```
 Remember that the chain name was previously defined in the [Hyperion section](#hyperion).
 
+##### stop script
 The `stop` script follows the same pattern of the `run` script:
 ```
 ./stop.sh chain-indexer
@@ -116,7 +119,7 @@ The `stop` script follows the same pattern of the `run` script:
 ```
 
 Example:
-Stop the EOS mainnet indexer
+Stop the EOS mainnet indexer:
 ```
 ./stop.sh eos-indexer
 ```
