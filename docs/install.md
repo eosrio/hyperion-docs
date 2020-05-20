@@ -8,7 +8,7 @@ Recommended OS: Ubuntu 18.04
  - [RabbitMQ](https://www.rabbitmq.com/install-debian.html)
  - [Node.js v13](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)
  - [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/)
- - Nodeos 1.8+ w/ state_history_plugin and chain_api_plugin
+ - [Nodeos 1.8+](https://github.com/EOSIO/eos/releases/latest) w/ state_history_plugin and chain_api_plugin
  - [Redis](https://redis.io/topics/quickstart) (only for the API caching layer)
 
 !!! note  
@@ -96,7 +96,7 @@ The expeted result should be something like this:
 ```
 
 ##### 6. Security
-By default, elasticsearch comes withou password configured. To avoid security problems, we recommend to
+By default, elasticsearch comes without a password configured. To avoid security problems, we recommend to
 enable the security pack on elasticsearch. 
 
 To do that, add `xpack.security.enabled: true` to the end of `/etc/elasticsearch/elasticsearch.yml` file.
@@ -205,8 +205,7 @@ sudo pm2 startup
 !!! info
     Follow the detailed installation instructions on the [official documentation](https://www.elastic.co/downloads/kibana)
 
-If you have enabled the security pack on elastic, you'll need to setup the password on Kibana:
-Edit the `/etc/kibana/kibana.yml` file, Find the lines that look like this:
+If you have enabled the security pack on elastic, you'll need to setup the password on Kibana. Edit the `/etc/kibana/kibana.yml` file, find the lines that look like this:
 
 `````bash 
 #elasticsearch.username: "user"
@@ -215,7 +214,7 @@ Edit the `/etc/kibana/kibana.yml` file, Find the lines that look like this:
                 
 Uncomment the username and password fields by removing the # character at the beginning of the line. Change "user" to "kibana" 
 and then change "pass" to whatever the setup-passwords command tells us the Kibana password is. 
-Save the file then we can restart Kibana.
+Save the file, then we can restart Kibana.
 
 <br>
 
@@ -233,3 +232,5 @@ plugin = eosio::state_history_plugin
     performance.
 
 If everything runs smoothly, now it's time to install [hyperion](hyperion.md)!
+
+<br>
