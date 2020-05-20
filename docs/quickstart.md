@@ -36,7 +36,7 @@ And finally, it will ask if you want to create the npm global folder:
 ````
 Do you want to create a directory for npm global installations [Y/n] :
 ````
-This is recommended. If you choose `n`, npm packages will be installed as root.
+This is recommended. If you choose `n`, global npm packages will require root permissions.
 
 Now, the script will do the work, this can take a while. Get a cup of coffee and relax. =)
 
