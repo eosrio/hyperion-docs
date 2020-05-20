@@ -14,6 +14,8 @@ Recommended OS: Ubuntu 18.04
 !!! note  
     The indexer requires pm2 and node.js to be on the same machine. The other dependencies (Elasticsearch, RabbitMQ and Nodeos) can be installed on other machines, preferably on a high speed and low latency network. Indexing speed will vary greatly depending on this configuration.
 
+<br>
+
 #### Elasticsearch Installation
 
 !!! info
