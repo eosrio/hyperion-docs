@@ -124,7 +124,7 @@ client.streamActions({
 To refine even more your stream, you could add more filters. 
 
 !!! attention
-    Remember that adding more filters will result in an AND operation, currently it's not possible to make OR operations with filters.
+    Remember that adding more filters will result in AND operations, currently it's not possible to make OR operations with filters.
 
 
 #### 3.2 Delta Stream - client.streamDeltas
@@ -171,14 +171,15 @@ client.onData = async (data, ack) => {
 }
 ```
 
-On every LIB updates, 'client.onLIB' is called
+On every LIB update, `client.onLIB` is called
+
 ```javascript
 client.onLIB = async (data) => {
     console.log(data);  
 }
 ```
 
-You can also look for forks, using the "client.onFork" callback 
+You can also look for forks, using the `client.onFork` callback 
 ```javascript
 client.onFork = async (data) => {
     console.log(data); // process when a there is a fork
