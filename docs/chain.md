@@ -47,9 +47,9 @@ with its default value and an example of real usage.
  
    - "actions": []
    - "deltas": []
-   
-    <br>
-  
+
+<br>
+
 ### 4. Whitelists
  Whitelist for actions and deltas
  
