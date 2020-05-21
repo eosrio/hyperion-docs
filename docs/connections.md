@@ -27,7 +27,7 @@
    - `"WS_ROUTER_PORT":7001` --> Port used by the Streaming API to connect to the Indexer.
    
 ## Example:
-In this example we have an connection.json file with:
+In this example we have a connection.json file with:
 
   - Local RabbitMQ
       - user: admin
@@ -40,7 +40,7 @@ In this example we have an connection.json file with:
   - Remote WAX state history
 
 The first step is to make a copy of the config file and rename it: `example-connections.json` to `connections.json`.
-The next step is to edit the file as the following:
+The next step is to edit the file as the follows:
 
 ````json
 {
