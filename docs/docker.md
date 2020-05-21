@@ -20,8 +20,7 @@ Feel free to change the generated files in `hyperion/config` folder the way it s
 
 Now you have three options to run it:
 
-<b>Option 1:</b>
-### docker-compose up
+### Option 1: docker-compose up
 This is the simplest way to run Hyperion. Just run `sudo docker-compose up -d` and after some time all necessary docker containers will be running. You can start using it as you like.
 
 !!! warning
@@ -29,8 +28,8 @@ This is the simplest way to run Hyperion. Just run `sudo docker-compose up -d` a
 
 To check logs run `sudo docker-compose logs -f` and to bring all containers down run `sudo docker-compose down`.
 
-<b>Option 2:</b>
-### Script
+
+### Option 2: Script
 We created a script to start every container in a specific order to avoid problems like connection errors. From the `docker` folder run the `start.sh` script located inside the `scripts` folder. Example:
 ```
 ./scripts/start.sh --chain eos
@@ -44,8 +43,7 @@ Don't forget to move the snapshot file to the `eosio/data/snapshots` folder.
 
 You can also use the `stop.sh` script to stop all or a specific service and also to bring all the containers down. Check the script usage for more information.
 
-<b>Option 3:</b>
-### Manual
+### Option 3: Manual
 If you have some experience with Docker Compose you can probably explore Hyperion Docker a bit more.
 
 We recommend starting services in the following order: `redis, rabbitmq, elasticsearch, kibana, eosio-node, hyperion-indexer and hyperion-api`. Wait until each of them is listening for connections before you start the next. Feel free to change the `docker-compose.yml` as you like.
