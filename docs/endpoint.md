@@ -57,7 +57,7 @@
 
 ## 2. Testnets:
 
-### Kylin EOS Testent
+### Kylin EOS Testnet
 - https://kylin.eosusa.news/v2/docs
 - https://kylin.eosn.io/v2/docs
 - https://kylin.eossweden.org/v2/docs
