@@ -3,7 +3,7 @@
 This section is a quick guide of config.json file. Here you gonna find a brief explanation of each parameter
 with its default value and an example of real usage.
 
-### API Configuration
+### 1. API Configuration
 
   - `"chain_name": "EXAMPLE Chain"`
   - `"server_addr": "127.0.0.1"`
@@ -21,8 +21,10 @@ with its default value and an example of real usage.
     - `"get_deltas": 1000`
   - `"access_log": false` --> Enable log API access.
   - `"enable_explorer": false`
-    
-### Settings
+  
+  <br>
+  
+### 2. Settings
 
    - `"preview": false` -> Preview mode - prints worker map and exit
    - `"chain": "eos"` --> Chain named (The same used on ecosystem.config.js)
@@ -38,20 +40,25 @@ with its default value and an example of real usage.
    - `"allow_custom_abi": false` --> allow using custom ABIs from the custom-abi/<CHAIN_NAME> folder, they must match the pattern <contract>-<start_block>-<end_block>.json. 
    Those ABIs will overwrite on-chain data for the given range.
 
-
-### Blacklists
+  <br>
+  
+### 3. Blacklists
  Blacklist for actions and deltas
  
    - "actions": []
    - "deltas": []
-
-### Whitelists
+   
+    <br>
+  
+### 4. Whitelists
  Whitelist for actions and deltas
  
    - actions": []
    - "deltas": []
- 
-### Scalling options
+  
+  <br>
+  
+### 5. Scalling options
 
    - `"batch_size": 10000` --> Parallel reader batch size in blocks
    - `"queue_limit": 50000` --> Queue size limit on rabbitmq
@@ -63,8 +70,10 @@ with its default value and an example of real usage.
    - `"ad_idx_queues": 1` --> Multiplier for action indexing queues
    - `"max_autoscale": 4` --> Max number of readers to autoscale
    - `"auto_scale_trigger": 20000` --> Number of itens on queue to trigger autoscale
-
-### Indexer configuration
+ 
+  <br>
+  
+### 6. Indexer configuration
 
    - `"start_on": 0` --> Start indexing on block (0=disable)
    - `"stop_on": 0` --> Stop indexing on block  (0=disable)
@@ -79,21 +88,23 @@ with its default value and an example of real usage.
    - `"disable_indexing": false` --> Disable indexing
    - `"process_deltas": true` --> Read table deltas
    - `"max_inline": 20` --> Max inline actions depth to index
-
-### Features
+ 
+  <br>
+  
+### 7. Features
 
    - `"index_deltas": true` --> Index common table deltas (see delta on definitions/mappings)
    - `"index_transfer_memo": true` --> Index transfers memo
    - `"index_all_deltas": true` --> Index all table deltas
    
-#### 1 - Streaming
+#### 7.1 Streaming
 Enable live streaming
 
    - `"enable": false`
    - `"traces": false`
    - `"deltas": false`
 
-#### 2 - Tables
+#### 7.2 Tables
 Tables to fetch
 
    - `"proposals": true`
@@ -101,13 +112,17 @@ Tables to fetch
    - `"voters": true`
    - `"userres": false`
    - `"delband": false`
- 
-### Prefetch
+  
+  <br>
+  
+### 8. Prefetch
 
    - `"read": 50` --> Stage 1 prefecth size
    - `"block": 100` --> Stage 2 prefecth size
    - `"index": 500` --> Stage 3 prefecth size
-
+ 
+  <br>
+  
 ## Example
 
 Let's suppose that we gonna start Indexing the EOS Mainnet with:
