@@ -56,6 +56,7 @@ Nodeos plugin used to collect action traces and state deltas. It provides data v
 ### 3. How to use
 
 #### 3.1 For Providers
+
 === "Script"
     For fresh installs, we recommend using the installation script. To do that, refer to the [script section](quickstart.md).
 

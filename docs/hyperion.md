@@ -143,23 +143,23 @@ Remember that the chain name was previously defined in the [setup step](#3-setup
 
 #### Option 2: Commands
 
-##### Start indexing:
+##### Start indexing
 ```
 pm2 start --only chain-indexer --update-env
 pm2 logs chain-indexer
 ```
 
-##### Stop reading and wait for queues to flush:
+##### Stop reading and wait for queues to flush
 ```
 pm2 trigger chain-indexer stop
 ```
 
-##### Force stop:
+##### Force stop
 ```
 pm2 stop chain-indexer
 ```
 
-##### Starting the API node:
+##### Starting the API node
 ```
 pm2 start --only chain-api --update-env
 pm2 logs chain-api

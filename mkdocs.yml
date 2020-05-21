@@ -1,4 +1,4 @@
-site_name: Hyperion
+site_name: Hyperion Docs
 
 markdown_extensions:
   - admonition
@@ -49,9 +49,8 @@ theme:
   palette:
     primary: 'light blue'
     accent: 'orange'
-  icon:
-    logo: material/home
-  favicon: 'img/favicon.png'
+  logo: 'img/simplified_logo.svg'
+  favicon: 'img/icon.png'
 
 extra:
   social:
