@@ -837,6 +837,7 @@ with its default value and an example of real usage.</p>
 <li><code>"ad_idx_queues": 1</code> ⇒ Multiplier for action indexing queues</li>
 <li><code>"max_autoscale": 4</code> ⇒ Max number of readers to autoscale</li>
 <li><code>"auto_scale_trigger": 20000</code> ⇒ Number of itens on queue to trigger autoscale</li>
+<li><code>"routing_mode": "heatmap"</code> ⇒ We recommend using the <code>heatmap</code> routing algorithm since it uses less memory. If you see performance issues on large chains with very unbalanced action distribution (majority of the action on a single contract) you can change it to <code>round_robin</code> to improve throughput. Keep in mind that the <code>round_robin</code> method will use more RAM as it has larger <code>ds_pool_size</code> values</li>
 </ul>
 <p><br></p>
 <h3 id="6-indexer-configuration">6. Indexer configuration<a class="headerlink" href="#6-indexer-configuration" title="Permanent link">&para;</a></h3>
