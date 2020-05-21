@@ -121,8 +121,11 @@ client.streamActions({
 });
 ``` 
 
-To refine even more your stream, you could add more filters. Remember that adding more filters
-will result in an AND operation, currently it's not possible to make OR operations with filters.
+To refine even more your stream, you could add more filters. 
+
+!!!note
+    Remember that adding more filters will result in an AND operation, currently it's not possible to make OR operations with filters.
+
 
 #### 3.2 Delta Stream - client.streamDeltas
 
