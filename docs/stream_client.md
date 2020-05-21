@@ -2,7 +2,7 @@
 
 Streaming Client for Hyperion History API (v3+)
 
-### Usage
+### 1. Usage
 
 We currently provide libraries for nodejs and prebuilt browser bundle
 
@@ -24,7 +24,9 @@ Where `<ENDPOINT>` is the Hyperion API (e.g. `https://wax.hyperion.eosrio.io`)
 
 For other usages the bundle is also available at `dist/bundle.js`
 
-### 1. Connection
+<br>
+
+### 2. Connection
 
 Setup the endpoint that you want to fetch data from and the flow control mode:
 
@@ -44,14 +46,16 @@ Flow control mode:
 - Async: **true** - The transmission will be asynchronous and you need an acknowledge function. Incoming data will be held on a local queue until ack is called.
 - Async: **false** - The transmission will be synchronous. The acknowledge function is not needed.
 
-### 2. Requests
+<br>
+
+### 3. Requests
 
  - `client.streamActions(request: StreamActionsRequest): void` -- Request action stream
  - `client.streamDeltas(request: StreamDeltasRequest): void` -- Request delta stream (contract rows)
  
 to ensure the client is connected, requests should be defined on the `client.onConnect` property, refer to examples below;
 
-#### 2.1 Action Stream - client.streamActions
+#### 3.1 Action Stream - client.streamActions
 
  - `contract` - contract account
  - `action` - action name
@@ -91,8 +95,10 @@ client.connect(() => {
 });
 ```
 
-#### 2.1.1 Act Data Filters
-You can setup filters to refine your stream. Filters should use fields following the Hyperion Action Data Structure, such as:
+#### 3.1.1 Act Data Filters
+You can setup filters to refine your stream.
+
+Filters should use fields following the Hyperion Action Data Structure, such as:
 
  - `act.data.producers` (on eosio::voteproducer)
  - `@transfer.to` (here the @ prefix is required since transfers have special mappings)
@@ -118,7 +124,7 @@ client.streamActions({
 To refine even more your stream, you could add more filters. Remember that adding more filters
 will result in an AND operation, currently it's not possible to make OR operations with filters.
 
-#### 2.2 Delta Stream - client.streamDeltas
+#### 3.2 Delta Stream - client.streamDeltas
 
  - `code` - contract account
  - `table` - table name
@@ -143,7 +149,9 @@ client.streamDeltas({
 
  _Note: Delta filters are planned to be implemented soon._
 
-#### 3. Handling Data
+<br>
+
+### 4. Handling Data
 
 Incoming data is handled via the `client.onData` callback
 
