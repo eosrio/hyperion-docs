@@ -43,7 +43,7 @@ const client = new HyperionSocketClient('https://example.com', {async: false});
 
 Flow control mode:
 
-- Async: **true** - The transmission will be asynchronous and you need an acknowledge function. Incoming data will be held on a local queue until ack is called.
+- Async: **true** - The transmission will be asynchronous and you need an acknowledge function. Incoming data will be held in a local queue until ack is called.
 - Async: **false** - The transmission will be synchronous. The acknowledge function is not needed.
 
 <br>
@@ -96,7 +96,7 @@ client.connect(() => {
 ```
 
 #### 3.1.1 Act Data Filters
-You can setup filters to refine your stream.
+You can set up filters to refine your stream.
 
 Filters should use fields following the Hyperion Action Data Structure, such as:
 
@@ -124,7 +124,7 @@ client.streamActions({
 To refine even more your stream, you could add more filters. 
 
 !!! attention
-    Remember that adding more filters will result in AND operations, currently it's not possible to make OR operations with filters.
+    Remember that adding more filters will result in AND operations. Currently, it's not possible to make OR operations with filters.
 
 
 #### 3.2 Delta Stream - client.streamDeltas
