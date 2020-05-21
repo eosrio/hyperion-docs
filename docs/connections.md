@@ -26,6 +26,8 @@
    - `"WS_ROUTER_HOST": "127.0.0.1"` --> Endpoint used by the Streaming API to connect to the Indexer. This is important when Indexer and API aren't on the same machine/instance.
    - `"WS_ROUTER_PORT":7001` --> Port used by the Streaming API to connect to the Indexer.
    
+   <br>
+   
 ## Example:
 In this example we have a connection.json file with:
 
