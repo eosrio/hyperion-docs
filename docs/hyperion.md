@@ -100,11 +100,11 @@ You can use `run` script to start the Indexer or the API.
 ```
 Examples:
 
-Start indexing EOS mainnet:
+• Start indexing EOS mainnet:
 ```
 ./run.sh eos-indexer
 ```
-Start EOS API:
+• Start EOS API:
 ```
 ./run.sh eos-api
 ```
@@ -119,7 +119,8 @@ The `stop` script follows the same pattern of the `run` script:
 ```
 
 Example:
-Stop the EOS mainnet indexer:
+
+• Stop the EOS mainnet indexer:
 ```
 ./stop.sh eos-indexer
 ```
