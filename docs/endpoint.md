@@ -3,6 +3,8 @@
 !!!tip
     Check the endpoint status at [https://bloks.io/hyperion](https://bloks.io/hyperion)
 
+## 1. Mainnets:
+
 ### EOS
 - http://api.eossweden.org/v2/docs
 - https://mainnet.eosn.io/v2/docs
@@ -10,7 +12,7 @@
 ### BOS
 - http://api.bossweden.org/v2/docs
 - https://bos.eosn.io/v2/docs
-- https://bos.eosusa.news/v2/docs 🚧
+- https://bos.eosusa.news/v2/docs
 
 ### WAX
 - https://api.waxsweden.org/v2/docs
@@ -19,13 +21,14 @@
 - https://wax.pink.gg/v2/docs
 - https://api-wax.maltablock.org/v2/docs
 - http://api.blokcrafters.io/v2/doc
-- https://hyperion.wax.eosdetroit.io
+- https://hyperion.wax.eosdetroit.io/v2/docs
 
 ### TELOS
 - https://mainnet.telosusa.io/v2/docs
 - https://telos.eosphere.io/v2/docs
 - https://api-telos-21zephyr.maltablock.org/v2/docs/
-- https://hyperion.telos.eosdetroit.io
+- https://telos.caleos.io/v2/docs
+- https://hyperion.telos.eosdetroit.io/v2/docs
 
 ### DAOBet mainnet
 - https://daobet.eossweden.org/v2/docs
@@ -44,14 +47,22 @@
 - https://ore.eosusa.news/v2/docs/
 
 ### Coffe 
-- api.coffe.io/v2/docs 🚧
+- https://hyperion.coffe.io/v2/docs
+- https://coffe.eosusa.news/v2/docs
 
-### Kylin Testent
+### Remme Mainnet
+- https://rem.eon.llc/v2/docs
+
+<br>
+
+## 2. Testnets:
+
+### Kylin EOS Testent
 - https://kylin.eosusa.news/v2/docs
 - https://kylin.eosn.io/v2/docs
-- https://kylin.eossweden.org/v2/docs 🚧
+- https://kylin.eossweden.org/v2/docs
 
-### Jungle Testnet
+### Jungle EOS Testnet
 - https://jungle.eosusa.news/v2/docs
 - https://junglehistory.cryptolions.io/v2/docs
 - https://jungle.eosn.io/v2/docs
@@ -62,6 +73,7 @@
 
 ### Telos Testnet
 - https://testnet.telosusa.io/v2/docs
+- https://testnet.telos.caleos.io/v2/docs
 
 ### WAX Testnet
 - https://testnet.wax.pink.gg/v2/docs
