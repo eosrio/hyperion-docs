@@ -30,27 +30,27 @@
 - https://telos.caleos.io/v2/docs
 - https://hyperion.telos.eosdetroit.io/v2/docs
 
-### DAOBet mainnet
+### DAOBet
 - https://daobet.eossweden.org/v2/docs
 - https://daobet.eosusa.news/v2/docs/
 
 ### INSTAR
 - https://instar.eosusa.news/v2/docs
 
-### WORBLI mainnet
+### WORBLI
 - https://api.worblisweden.org/v2/docs
 
-### MEETONE mainnet
+### MEETONE Mainnet
 - https://api.meetsweden.org/v2/docs
 
-### Aikon/ORE Mainnet
+### Aikon/ORE
 - https://ore.eosusa.news/v2/docs/
 
 ### Coffe 
 - https://hyperion.coffe.io/v2/docs
 - https://coffe.eosusa.news/v2/docs
 
-### Remme Mainnet
+### Remme
 - https://rem.eon.llc/v2/docs
 
 <br>
