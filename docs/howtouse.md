@@ -41,7 +41,7 @@ let getTransaction = function (args) {
 };
 ````
 
-Anf finally, let's call the function passing the tx id as parameter:
+And finally, let's call the function passing the tx id as parameter:
 ````javascript
 (async() =>{
   let id = "14b36232e919307090c7e9a7a2b17915f40bf0ce72734647c9f8c145c110dda0"

@@ -2,7 +2,7 @@
 
 ## How to Delete all the queues from RabbitMQ?
 
-### Using Policies - Management Console
+### 1. Using Policies - Management Console
 
   - Go to [Management Console](localhost:15672)
   - Click on Admin tab
@@ -22,7 +22,7 @@
 !!! warning
     You must remove this policy after this operation.
     
-### Using command line 
+### 2. Using command line 
 
 First, list your queues:
 ````bash

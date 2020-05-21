@@ -2,6 +2,19 @@ site_name: Hyperion
 
 markdown_extensions:
   - admonition
+  - pymdownx.mark
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - toc:
+      permalink: true
+
+
+google_analytics:
+  - UA-117919122-3
+  - auto
 
 # Repository
 repo_name: 'eosrio/hyperion-docs'
@@ -13,8 +26,8 @@ nav:
       - Enviroment Setup:
         - Script: quickstart.md
         - Manual: install.md
+        - Docker: docker.md
       - Hyperion Setup: hyperion.md
-      - Docker: docker.md
       - Connections: connections.md
       - Chain Configuration: chain.md
       - Ecosystem: ecosystem.md
@@ -34,8 +47,8 @@ nav:
 theme:
   name: 'material'
   palette:
-    primary: 'Blue Grey'
-    accent: 'Blue Grey'
+    primary: 'light blue'
+    accent: 'orange'
   icon:
     logo: material/home
   favicon: 'img/favicon.png'

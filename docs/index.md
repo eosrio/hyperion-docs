@@ -1,9 +1,12 @@
 # Hyperion History API
 
 [![Hyperion](img/hype.jpg)](img/hype.jpg)
-Scalable Full History API Solution for EOSIO based blockchains
 
-Made with ♥ by [EOS Rio](https://eosrio.io/)
+!!! abstract ""
+    Scalable Full History API Solution for EOSIO based blockchains
+      
+    Made with ♥ by [EOS Rio](https://eosrio.io/)
+      
 
 ### 1. Overview
 
@@ -21,8 +24,9 @@ No blocks or transaction data are stored; all information can be reconstructed f
 ### 2. Architecture
 The following components are required to have a fully functional Hyperion API deployment.
 
-For small use cases, it is fine to run all components on a single machine. But for larger chains and production environments, 
-we recommend setting them up into different servers under a high-speed local network.
+!!! tip
+    For small use cases, it is fine to run all components on a single machine. But for larger chains and production environments, 
+    we recommend setting them up into different servers under a high-speed local network.
 
 #### 2.1 - Elasticsearch Cluster
 The ES cluster is responsible for storing all indexed data. Direct access to the Hyperion API and Indexer must be provided. 
@@ -52,12 +56,16 @@ Nodeos plugin used to collect action traces and state deltas. It provides data v
 ### 3. How to use
 
 #### 3.1 For Providers
-For fresh installs, we recommend using the installation script. To do that, refer to the [script section](quickstart.md).
+=== "Script"
+    For fresh installs, we recommend using the installation script. To do that, refer to the [script section](quickstart.md).
 
-If you already have a previous version of Hyperion installed or if you want to set up the whole environment manually, please, 
- refer to the [manual installation section](install.md).
+=== "Manual Installation"
+    If you already have a previous version of Hyperion installed or if you want to set up the whole environment manually, please, 
+     refer to the [manual installation section](install.md).
+    
+=== "Docker"
+    For a light docker version of Hyperion, click [here](docker.md).
 
-And for a light docker version of Hyperion, click [here](docker.md).
 
 #### 3.2 For Developers
 For developers, click [here](howtouse.md)

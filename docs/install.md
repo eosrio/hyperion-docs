@@ -2,7 +2,9 @@
 
 ### Dependencies
 
-Recommended OS: Ubuntu 18.04
+!!! attention ""
+    Recommended OS: Ubuntu 18.04
+
 
  - [Elasticsearch 7.6.X](https://www.elastic.co/downloads/elasticsearch)
  - [RabbitMQ](https://www.rabbitmq.com/install-debian.html)
@@ -12,7 +14,11 @@ Recommended OS: Ubuntu 18.04
  - [Redis](https://redis.io/topics/quickstart) (only for the API caching layer)
 
 !!! note  
-    The indexer requires pm2 and node.js to be on the same machine. The other dependencies (Elasticsearch, RabbitMQ and Nodeos) can be installed on other machines, preferably on a high speed and low latency network. Indexing speed will vary greatly depending on this configuration.
+    The indexer requires pm2 and node.js to be on the same machine. 
+    
+    The other dependencies (Elasticsearch, RabbitMQ and Nodeos) can be installed on other machines, preferably on a high speed and low latency network. 
+    
+    Indexing speed will vary greatly depending on this configuration.
 
 <br>
 
@@ -30,30 +36,44 @@ bootstrap.memory_lock: true
 
 !!! warning  
     Setting `bootstrap.memory_lock: true` will make elasticsearch try to use all the RAM configured for JVM on startup  (check next step).
+    
     This could crash if you allocate more RAM than available on the system. 
+    
     Setting mem_lock as `false` with swap disabled might cause the JVM or shell session to exit if elasticsearch tries to allocate more memory than is available!
     
-After starting Elasticsearch, you can see whether this setting was applied successfully by checking the value of `mlockall` in the output from this request:
+    !!! success "Testing"
+        After starting Elasticsearch, you can see whether this setting was applied successfully by checking the value of `mlockall` in the output from this request:
+        
+        ````
+        GET _nodes?filter_path=**.mlockall
+        ```` 
 
-````
-GET _nodes?filter_path=**.mlockall
-```` 
+
+
+<br>
 
 ##### 2. Edit `/etc/elasticsearch/jvm.options`
 
-Avoid allocating more than 31GB when setting your heap size, even if you have enough RAM.
+!!! warning  
+    Avoid allocating more than 31GB when setting your heap size, even if you have enough RAM.
+    
+    !!! success "Testing"
+        You can test on your system by running the following command with the desired size (change `-Xmx32g`):
+         
+        ````   
+        java -Xmx32g -XX:+UseCompressedOops -XX:+PrintFlagsFinal Oops | grep Oops
+        ````
+        
+        Check if `UseCompressedOops` is true on the results for a valid optimized heap size. 
+        
+        After that, edit the following lines on `jvm.options`, note that Xms and Xmx must have the same value.
+        ```
+        -Xms16g
+        -Xmx16g
+        ```
 
-You can test on your system by running the following command with the desired size (change `-Xmx32g`):
 
-`java -Xmx32g -XX:+UseCompressedOops -XX:+PrintFlagsFinal Oops | grep Oops`
-
-Check if `UseCompressedOops` is true on the results for a valid optimized heap size. 
-
-After that, edit the following lines on `jvm.options`, note that Xms and Xmx must have the same value.
-```
--Xms16g
--Xmx16g
-```
+<br>
 
 ##### 3. Allow memlock
 run `sudo systemctl edit elasticsearch` and add the following lines:
@@ -236,6 +256,6 @@ plugin = eosio::state_history_plugin
     On EOSIO version higher or equal to 2.0.x, use wasm-runtime = eos-vm-jit to improve
     performance.
 
-If everything runs smoothly, now it's time to install [hyperion](hyperion.md)!
+If everything runs smoothly, now it's time to install [hyperion](hyperion.md)! :fontawesome-solid-glass-cheers:
 
 <br>

@@ -40,7 +40,7 @@
 ### WORBLI
 - https://api.worblisweden.org/v2/docs
 
-### MEETONE Mainnet
+### MEETONE
 - https://api.meetsweden.org/v2/docs
 
 ### Aikon/ORE

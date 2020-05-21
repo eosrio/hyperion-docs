@@ -8,7 +8,7 @@ npm install
 ```
 
 !!! tip
-    if you came from the script section, you can skip this step and go directly to the Edit configs step below.
+    **if you came from the script section**, you can skip this step and go directly to the Edit configs step below.
 
 <br>
 
@@ -22,7 +22,7 @@ cp example-connections.json connections.json
 nano connections.json
 ```
 
-connections.json Reference
+##### connections.json Reference
 ```json
 {
    "amqp":{
@@ -57,7 +57,9 @@ connections.json Reference
 ```
 For more details, refer to the [connections section](connections.md)
 
-ecosystem.config.js Reference
+<br>
+
+##### ecosystem.config.js Reference
 ```javascript
 module.exports = {
     apps: [
@@ -91,43 +93,51 @@ But, you can also do it manually if you prefer. This section will cover both way
 
 #### Option 1: Using run / stop script
 
-##### run script
-You can use `run` script to start the Indexer or the API.
-```
-./run.sh chain-indexer
+!!! success ""
+    
+    ##### run script
+    
+    You can use `run` script to start the Indexer or the API.
+    
+    ```
+    ./run.sh chain-indexer
+    
+    ./run.sh chain-api
+    ```
+    
+    !!! example "Examples"
+        Start indexing EOS mainnet: 
+        ```
+        ./run.sh eos-indexer
+        ```
+        Start EOS API: 
+        ```
+        ./run.sh eos-api
+        ```
 
-./run.sh chain-api
-```
-Examples:
+Remember that the chain name was previously defined in the [setup step](#3-setup).
 
-• Start indexing EOS mainnet:
-```
-./run.sh eos-indexer
-```
-• Start EOS API:
-```
-./run.sh eos-api
-```
-Remember that the chain name was previously defined in the [Hyperion section](#hyperion).
+!!! failure ""
 
-##### stop script
-The `stop` script follows the same pattern of the `run` script:
-```
-./stop.sh chain-indexer
+    ##### stop script
+    
+    The `stop` script follows the same pattern of the `run` script:
+    ```
+    ./stop.sh chain-indexer
+    
+    ./stop.sh chain-api
+    ```
+    !!! example
+        Stop the EOS mainnet indexer: 
+        ```
+        ./stop.sh eos-indexer
+        ```
+    !!! note  
+        **The stop script won't stop Hyperion Indexer immediately**, it will first flush the queues.
+        This operation could take some time.
+        If you want to stop immediately, you need to run the "force stop command" explained below.
 
-./stop.sh chain-api
-```
 
-Example:
-
-• Stop the EOS mainnet indexer:
-```
-./stop.sh eos-indexer
-```
-!!! note  
-    The stop script won't stop Hyperion Indexer immediately, it will first flush the queues.
-    This operation could take some time.
-    If you want to stop immediately, you need to run the "force stop command" explained below.
 
 <br>
 
@@ -158,7 +168,7 @@ pm2 logs chain-api
 <br>
 
 ### 6. Indexer
-As mentioned before on [Setup](#setup), the Hyperion Indexer is configured to perform an abi scan `("abi_scan_mode": true)` as default.
+As mentioned before on [Setup](#3-setup), the Hyperion Indexer is configured to perform an abi scan `("abi_scan_mode": true)` as default.
 So, on your first run, you'll probably see something like this:
 
  [![indexer](img/indexer.png)](img/indexer.png)
@@ -181,7 +191,7 @@ After running the api, you should see a log like this:
 
  [![api](img/api.png)](img/api.png)
 
-Now, it's time to play around making some queries =).
+Now, it's time to play around making some queries. :fontawesome-regular-laugh-beam:
 
 ### API Reference
 

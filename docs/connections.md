@@ -28,7 +28,7 @@
    
    <br>
    
-## Example:
+## Example
 In this example we have a connection.json file with:
 
   - Local RabbitMQ

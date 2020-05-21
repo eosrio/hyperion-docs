@@ -16,7 +16,7 @@ First of all, you need to generate the Hyperion configuration files. To do that,
 ```
 ./scripts/generate-config.sh --chain eos --chain-name "EOS Testnet"
 ```
-Feel free to change the generated files in `hyperion/config` folder the way it suits you.
+Feel free to change the generated files in `hyperion/config` folder the way it suits you. For more details, please refer to the [Hyperion Setup Section](hyperion.md)
 
 Now you have three options to run it:
 
@@ -26,8 +26,17 @@ This is the simplest way to run Hyperion. Just run `sudo docker-compose up -d` a
 !!! warning
     We recommend using the Script to run Hyperion Docker as the order in which containers are started is important.
 
-To check logs run `sudo docker-compose logs -f` and to bring all containers down run `sudo docker-compose down`.
+To check logs run: 
 
+```
+sudo docker-compose logs -f
+```
+
+and to bring all containers down run: 
+
+```
+sudo docker-compose down
+```
 
 ### Option 2: Script
 We created a script to start every container in a specific order to avoid problems like connection errors. From the `docker` folder run the `start.sh` script located inside the `scripts` folder. Example:
@@ -35,13 +44,16 @@ We created a script to start every container in a specific order to avoid proble
 ./scripts/start.sh --chain eos
 ```
 
-With this script, you also have the option to start the chain from a snapshot. Example:
-```
-./scripts/start.sh --chain eos --snapshot snapshot-file.bin
-```
+With this script, you also have the option to start the chain from a snapshot. 
+
+!!! abstract "Example"
+    ```
+    ./scripts/start.sh --chain eos --snapshot snapshot-file.bin
+    ```
+
 Don't forget to move the snapshot file to the `eosio/data/snapshots` folder.
 
-You can also use the `stop.sh` script to stop all or a specific service and also to bring all the containers down. Check the script usage for more information.
+You can also use the `stop.sh` script to stop all or a specific service and also to bring all the containers down. Check the [script usage](/hyperion/#option-1-using-run-stop-script) for more information.
 
 ### Option 3: Manual
 If you have some experience with Docker Compose you can probably explore Hyperion Docker a bit more.
@@ -64,26 +76,28 @@ It's also possible to start the chain form a snapshot passing a variable named `
 After running `docker-compose up`, you should have a development chain producing blocks on a Docker container (eosio-node) as well as Hyperion Indexer and API on the other two Docker containers (hyperion-indexer and hyperion-api).
 
 ### EOSIO-NODE
-The port 8888 of this container is exposed so you can use it to interact with the chain. Example:
-```
-cleos -u http://127.0.0.1:8888 get info
-```
+The port 8888 of this container is exposed so you can use it to interact with the chain.
 
+!!! abstract "Example"
+    ```
+    cleos -u http://127.0.0.1:8888 get info
+    ```
 
 ### Hyperion API
-Make queries to [http://127.0.0.1:7000/](http://127.0.0.1:7000). Example:
-```
-curl http://127.0.0.1:7000/v2/history/get_actions
-```
+Perform queries on the endpoint at [http://127.0.0.1:7000/](http://127.0.0.1:7000).
 
+The complete API reference can be found at [API section: v2](v2.md)
 
+!!! abstract "Example"
+    ```
+    curl http://127.0.0.1:7000/v2/history/get_actions
+    ```
+    
 ### Kibana
 Access [http://127.0.0.1:5601/](http://127.0.0.1:5601/)
 
 ### RabbitMQ
 Access [http://127.0.0.1:15672/](http://127.0.0.1:15672/)
-
-Feel free to change configurations as you like. All configurations files are located in `hyperion/config` or `eosio/config`.
 
 <br>
 
@@ -94,3 +108,11 @@ on the docker-compose.yml setting it to false:
 ```
 xpack.security.enabled=false
 ```
+
+## 5. Next steps
+
+Feel free to change configurations as you like. All configurations files are located in `hyperion/config` or `eosio/config`. 
+
+For more details, please refer to the [Hyperion Setup Section](hyperion.md).
+
+<br>

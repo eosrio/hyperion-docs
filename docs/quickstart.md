@@ -38,15 +38,15 @@ Do you want to create a directory for npm global installations [Y/n] :
 ````
 This is recommended. If you choose `n`, global npm packages will require root permissions.
 
-Now, the script will do the work, this can take a while. Get a cup of coffee and relax. =)
+Now, the script will do the work, this can take a while. Get a cup of coffee and relax. :fontawesome-solid-mug-hot: :fontawesome-regular-laugh-wink:
 
 !!! info
     The installation script may ask you for the admin password. This is needed to install the dependencies, please, provide it.
    
-If everything runs smoothly, the script will automatically generate elasticsearch passwords and save on `elastic_pass.txt` file.
+If everything runs smoothly, the script will automatically generate elasticsearch passwords and save them on the `elastic_pass.txt` file.
 
 To login into Kibana, use the `elastic` user credentials.
 
 <br>
 
- Now it's time to install [hyperion](hyperion.md)!
+ Now it's time to install [hyperion](hyperion.md)! :fontawesome-solid-glass-cheers:
