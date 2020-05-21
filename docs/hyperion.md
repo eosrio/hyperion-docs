@@ -167,7 +167,7 @@ pm2 logs chain-api
 
 <br>
 
-### 6. Indexer
+### 5. Indexer
 As mentioned before on [Setup](#3-setup), the Hyperion Indexer is configured to perform an abi scan `("abi_scan_mode": true)` as default.
 So, on your first run, you'll probably see something like this:
 
@@ -186,7 +186,7 @@ Where:
 
 <br>
 
-### 7. API
+### 6. API
 After running the api, you should see a log like this:
 
  [![api](img/api.png)](img/api.png)

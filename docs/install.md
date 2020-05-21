@@ -150,22 +150,22 @@ sudo rabbitmq-plugins enable rabbitmq_management
 sudo rabbitmqctl add_vhost /hyperion
 ```
 
-##### 2. Create a user and password
+##### 3. Create a user and password
 ```bash
 sudo rabbitmqctl add_user {my_user} {my_password}
 ```
 
-##### 3. Set the user as administrator
+##### 4. Set the user as administrator
 ```bash
 sudo rabbitmqctl set_user_tags {my_user} administrator
 ```
 
-##### 4. Set the user permissions to the vhost
+##### 5. Set the user permissions to the vhost
 ```bash
 sudo rabbitmqctl set_permissions -p /hyperion {my_user} ".*" ".*" ".*"
 ```
 
-##### 5. Check access to the WebUI
+##### 6. Check access to the WebUI
 
 [http://localhost:15672](http://localhost:15672)
 
