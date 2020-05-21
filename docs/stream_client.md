@@ -123,7 +123,7 @@ client.streamActions({
 
 To refine even more your stream, you could add more filters. 
 
-!!!note
+!!! attention
     Remember that adding more filters will result in an AND operation, currently it's not possible to make OR operations with filters.
 
 
@@ -150,7 +150,8 @@ client.streamDeltas({
 });
 ``` 
 
- _Note: Delta filters are planned to be implemented soon._
+!!! note
+    Delta filters are planned to be implemented soon.
 
 <br>
 
