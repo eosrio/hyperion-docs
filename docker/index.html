@@ -794,7 +794,7 @@
 <p>First of all, you need to generate the Hyperion configuration files. To do that, from the <code>docker</code> folder, run <code>generate-config.sh</code> located inside the <code>scripts</code> folder. You will have to pass an identifier and a name to the chain you will run. Example:
 <div class="highlight"><pre><span></span><code>./scripts/generate-config.sh --chain eos --chain-name &quot;EOS Testnet&quot;
 </code></pre></div>
-Feel free to change the generated files in <code>hyperion/config</code> folder the way it suits you. For more details, please refer to the <a href="../hyperion/">Hyperion Setup Section</a></p>
+Feel free to change the configuration files in <code>hyperion/config</code> folder the way it suits you. For more details, please refer to the <a href="../hyperion/">Hyperion Setup Section</a>.</p>
 <p>Now you have three options to run it:</p>
 <h3 id="option-1-docker-compose-up">Option 1: docker-compose up<a class="headerlink" href="#option-1-docker-compose-up" title="Permanent link">&para;</a></h3>
 <p>This is the simplest way to run Hyperion. Just run <code>sudo docker-compose up -d</code> and after some time all necessary docker containers will be running. You can start using it as you like.</p>
@@ -806,7 +806,7 @@ Feel free to change the generated files in <code>hyperion/config</code> folder t
 <div class="highlight"><pre><span></span><code>sudo docker-compose logs -f
 </code></pre></div>
 
-<p>and to bring all containers down run: </p>
+<p>And to bring all containers down run: </p>
 <div class="highlight"><pre><span></span><code>sudo docker-compose down
 </code></pre></div>
 
@@ -821,8 +821,8 @@ Feel free to change the generated files in <code>hyperion/config</code> folder t
 </code></pre></div>
 
 </div>
-<p>Don't forget to move the snapshot file to the <code>eosio/data/snapshots</code> folder.</p>
-<p>You can also use the <code>stop.sh</code> script to stop all or a specific service and also to bring all the containers down. Check the <a href="/hyperion/#option-1-using-run-stop-script">script usage</a> for more information.</p>
+<p>Don't forget to move the snapshot file to the <code>eosio/data/snapshots</code> folder and make sure to change the <code>chain_id</code> on <code>connections.json</code> file.</p>
+<p>You can also use the <code>stop.sh</code> script to stop all or a specific service and also to bring all the containers down. Check the script usage for more information.</p>
 <h3 id="option-3-manual">Option 3: Manual<a class="headerlink" href="#option-3-manual" title="Permanent link">&para;</a></h3>
 <p>If you have some experience with Docker Compose you can probably explore Hyperion Docker a bit more.</p>
 <p>We recommend starting services in the following order: <code>redis, rabbitmq, elasticsearch, kibana, eosio-node, hyperion-indexer and hyperion-api</code>. Wait until each of them is listening for connections before you start the next. Feel free to change the <code>docker-compose.yml</code> as you like.</p>
