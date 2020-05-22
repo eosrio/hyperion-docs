@@ -4,7 +4,7 @@ Hyperion Docker is a multi-container Docker application intended to get Hyperion
 !!! warning
     Using Hyperion Docker is not recommended for production environments, only for testing, debugging and local networks.
 
-!!! note
+!!! attention ""
     Recommend OS: Ubuntu 18.04
 
 ## 1. Dependencies
