@@ -19,7 +19,7 @@ First of all, you need to generate the Hyperion configuration files. To do that,
 ```
 ./scripts/generate-config.sh --chain eos --chain-name "EOS Testnet"
 ```
-Feel free to change the generated files in `hyperion/config` folder the way it suits you. For more details, please refer to the [Hyperion Setup Section](hyperion.md)
+Feel free to change the configuration files in `hyperion/config` folder the way it suits you. For more details, please refer to the [Hyperion Setup Section](hyperion.md).
 
 Now you have three options to run it:
 
@@ -35,7 +35,7 @@ To check logs run:
 sudo docker-compose logs -f
 ```
 
-and to bring all containers down run: 
+And to bring all containers down run: 
 
 ```
 sudo docker-compose down
@@ -54,9 +54,9 @@ With this script, you also have the option to start the chain from a snapshot.
     ./scripts/start.sh --chain eos --snapshot snapshot-file.bin
     ```
 
-Don't forget to move the snapshot file to the `eosio/data/snapshots` folder.
+Don't forget to move the snapshot file to the `eosio/data/snapshots` folder and make sure to change the `chain_id` on `connections.json` file.
 
-You can also use the `stop.sh` script to stop all or a specific service and also to bring all the containers down. Check the [script usage](/hyperion/#option-1-using-run-stop-script) for more information.
+You can also use the `stop.sh` script to stop all or a specific service and also to bring all the containers down. Check the script usage for more information.
 
 ### Option 3: Manual
 If you have some experience with Docker Compose you can probably explore Hyperion Docker a bit more.
