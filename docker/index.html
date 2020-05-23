@@ -835,7 +835,8 @@ sudo docker-compose down
 It's also possible to start the chain form a snapshot passing a variable named <code>SNAPSHOT</code> to <code>docker-compose up</code>.</p>
 <p><br></p>
 <h2 id="3-usage">3. Usage<a class="headerlink" href="#3-usage" title="Permanent link">&para;</a></h2>
-<p>After running <code>docker-compose up</code>, you should have a development chain producing blocks on a Docker container (eosio-node) as well as Hyperion Indexer and API on the other two Docker containers (hyperion-indexer and hyperion-api).</p>
+<p>After running Hyperion Docker, you should have a development chain producing blocks on a Docker container (eosio-node) as well as Hyperion Indexer and API on the other two Docker containers (hyperion-indexer and hyperion-api).</p>
+<p>If for some reason you decide to start it fresh again, make sure to clean all generated data. To do that just run <code>clean-up.sh</code> script inside <code>scripts</code> folder.</p>
 <h3 id="eosio-node">EOSIO-NODE<a class="headerlink" href="#eosio-node" title="Permanent link">&para;</a></h3>
 <p>The port 8888 of this container is exposed so you can use it to interact with the chain.</p>
 <div class="admonition abstract">
