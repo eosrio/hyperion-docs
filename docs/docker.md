@@ -76,7 +76,9 @@ It's also possible to start the chain form a snapshot passing a variable named `
 
 ## 3. Usage
 
-After running `docker-compose up`, you should have a development chain producing blocks on a Docker container (eosio-node) as well as Hyperion Indexer and API on the other two Docker containers (hyperion-indexer and hyperion-api).
+After running Hyperion Docker, you should have a development chain producing blocks on a Docker container (eosio-node) as well as Hyperion Indexer and API on the other two Docker containers (hyperion-indexer and hyperion-api).
+
+If for some reason you decide to start it fresh again, make sure to clean all generated data. To do that just run `clean-up.sh` script inside `scripts` folder.
 
 ### EOSIO-NODE
 The port 8888 of this container is exposed so you can use it to interact with the chain.
