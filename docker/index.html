@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../img/icon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.0">
+      <meta name="generator" content="mkdocs-1.1.1, mkdocs-material-5.1.6">
     
     
       
@@ -19,9 +19,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.18ac144a.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b9ffd7b.min.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/palette.616af814.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.b79bcd20.min.css">
       
       
         
@@ -53,8 +53,7 @@
   
     
     
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="orange">
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="orange">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -789,6 +788,7 @@
 <ul>
 <li><code>docker</code> and <code>docker-compose</code></li>
 </ul>
+<p>!!! warning You should configure your system to run Docker as a non-root user.</p>
 <p><br></p>
 <h2 id="2-run">2. RUN<a class="headerlink" href="#2-run" title="Permanent link">&para;</a></h2>
 <p>Inside the <code>docker</code> folder you will find everything you need to run Hyperion Docker.</p>
@@ -798,17 +798,17 @@
 Feel free to change the configuration files in <code>hyperion/config</code> folder the way it suits you. For more details, please refer to the <a href="../hyperion/">Hyperion Setup Section</a>.</p>
 <p>Now you have three options to run it:</p>
 <h3 id="option-1-docker-compose-up">Option 1: docker-compose up<a class="headerlink" href="#option-1-docker-compose-up" title="Permanent link">&para;</a></h3>
-<p>This is the simplest way to run Hyperion. Just run <code>sudo docker-compose up -d</code> and after some time all necessary docker containers will be running. You can start using it as you like.</p>
+<p>This is the simplest way to run Hyperion. Just run <code>docker-compose up -d</code> and after some time all necessary docker containers will be running. You can start using it as you like.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>We recommend using the Script to run Hyperion Docker as the order in which containers are started is important.</p>
 </div>
 <p>To check logs run: </p>
-<div class="highlight"><pre><span></span><code>sudo docker-compose logs -f
+<div class="highlight"><pre><span></span><code>docker-compose logs -f
 </code></pre></div>
 
 <p>And to bring all containers down run: </p>
-<div class="highlight"><pre><span></span><code>sudo docker-compose down
+<div class="highlight"><pre><span></span><code>docker-compose down
 </code></pre></div>
 
 <h3 id="option-2-script">Option 2: Script<a class="headerlink" href="#option-2-script" title="Permanent link">&para;</a></h3>
@@ -828,10 +828,10 @@ Feel free to change the configuration files in <code>hyperion/config</code> fold
 <p>If you have some experience with Docker Compose you can probably explore Hyperion Docker a bit more.</p>
 <p>We recommend starting services in the following order: <code>redis, rabbitmq, elasticsearch, kibana, eosio-node, hyperion-indexer and hyperion-api</code>. Wait until each of them is listening for connections before you start the next. Feel free to change the <code>docker-compose.yml</code> as you like.</p>
 <p>Bellow, you can find a simple example of how to control <code>hyperion-indexer</code> service:
-<div class="highlight"><pre><span></span><code>sudo docker-compose up --no-start
-sudo docker-compose start hyperion-indexer
-sudo docker-compose stop hyperion-indexer
-sudo docker-compose down
+<div class="highlight"><pre><span></span><code>docker-compose up --no-start
+docker-compose start hyperion-indexer
+docker-compose stop hyperion-indexer
+docker-compose down
 </code></pre></div>
 It's also possible to start the chain form a snapshot passing a variable named <code>SNAPSHOT</code> to <code>docker-compose up</code>.</p>
 <p><br></p>
@@ -967,15 +967,15 @@ on the docker-compose.yml setting it to false:</p>
       
     </div>
     
-      <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../assets/javascripts/vendor.a0c4167b.min.js"></script>
+      <script src="../assets/javascripts/bundle.fb26dd1d.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
           base: "..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.27c6a5e6.min.js"
+            worker: "../assets/javascripts/worker/search.37585f48.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
