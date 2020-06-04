@@ -10,6 +10,8 @@ Hyperion Docker is a multi-container Docker application intended to get Hyperion
 ## 1. Dependencies
 - `docker` and `docker-compose`
 
+!!! warning You should configure your system to run Docker as a non-root user.
+
 <br>
 
 ## 2. RUN
@@ -24,7 +26,7 @@ Feel free to change the configuration files in `hyperion/config` folder the way 
 Now you have three options to run it:
 
 ### Option 1: docker-compose up
-This is the simplest way to run Hyperion. Just run `sudo docker-compose up -d` and after some time all necessary docker containers will be running. You can start using it as you like.
+This is the simplest way to run Hyperion. Just run `docker-compose up -d` and after some time all necessary docker containers will be running. You can start using it as you like.
 
 !!! warning
     We recommend using the Script to run Hyperion Docker as the order in which containers are started is important.
@@ -32,13 +34,13 @@ This is the simplest way to run Hyperion. Just run `sudo docker-compose up -d` a
 To check logs run: 
 
 ```
-sudo docker-compose logs -f
+docker-compose logs -f
 ```
 
 And to bring all containers down run: 
 
 ```
-sudo docker-compose down
+docker-compose down
 ```
 
 ### Option 2: Script
@@ -65,10 +67,10 @@ We recommend starting services in the following order: `redis, rabbitmq, elastic
 
 Bellow, you can find a simple example of how to control `hyperion-indexer` service:
 ```
-sudo docker-compose up --no-start
-sudo docker-compose start hyperion-indexer
-sudo docker-compose stop hyperion-indexer
-sudo docker-compose down
+docker-compose up --no-start
+docker-compose start hyperion-indexer
+docker-compose stop hyperion-indexer
+docker-compose down
 ```
 It's also possible to start the chain form a snapshot passing a variable named `SNAPSHOT` to `docker-compose up`.
 
