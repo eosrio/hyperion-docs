@@ -9,7 +9,7 @@
 
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
-| http://api.eossweden.org/v2 | [docs](http://api.eossweden.org/v2/docs) |  |
+| https://api.eossweden.org/v2 | [docs](http://api.eossweden.org/v2/docs) |  |
 | https://mainnet.eosn.io/v2 | [docs](https://mainnet.eosn.io/v2/docs) |  |
 
 
@@ -17,7 +17,7 @@
 
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
-| http://api.bossweden.org/v2 | [docs](http://api.bossweden.org/v2/docs) |  |
+| https://api.bossweden.org/v2 | [docs](http://api.bossweden.org/v2/docs) |  |
 | https://bos.eosn.io/v2 | [docs](https://bos.eosn.io/v2/docs) |  |
 | https://bos.eosusa.news/v2 | [docs](https://bos.eosusa.news/v2/docs) |  |
 
@@ -32,7 +32,7 @@
 | https://wax.eosphere.io/v2 | [docs](https://wax.eosphere.io/v2/docs) |  |
 | https://wax.pink.gg/v2 | [docs](https://wax.pink.gg/v2/docs) |  |
 | https://api-wax.maltablock.org/v2 | [docs](https://api-wax.maltablock.org/v2/docs) |  |
-| http://api.blokcrafters.io/v2 | [docs](http://api.blokcrafters.io/v2/docs) |  |
+| https://api.blokcrafters.io/v2 | [docs](http://api.blokcrafters.io/v2/docs) |  |
 | https://hyperion.wax.eosdetroit.io/v2 | [docs](https://hyperion.wax.eosdetroit.io/v2/docs) |  |
 
 
@@ -151,8 +151,6 @@
 | https://tst.bossweden.org/v2 | [docs](https://tst.bossweden.org/v2/docs) |  |
 
 
-- https://tst.bossweden.org/v2/docs
-
 ### Telos Testnet
 
 | url | docs | explorer |
@@ -166,7 +164,7 @@
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://testnet.wax.pink.gg/v2 | [docs](https://testnet.wax.pink.gg/v2/docs) |  |
-| http://testnet.blokcrafters.io/v2 | [docs](http://testnet.blokcrafters.io/v2/docs) |  |
+| https://testnet.blokcrafters.io/v2 | [docs](http://testnet.blokcrafters.io/v2/docs) |  |
 
 
 ### DAOBet Testnet
