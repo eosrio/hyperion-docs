@@ -10,7 +10,8 @@ Hyperion Docker is a multi-container Docker application intended to get Hyperion
 ## 1. Dependencies
 - `docker` and `docker-compose`
 
-!!! warning You should configure your system to run Docker as a non-root user.
+!!! warning
+    You should configure your system to run Docker as a non-root user.
 
 <br>
 
