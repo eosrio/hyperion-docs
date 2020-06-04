@@ -6,7 +6,7 @@
     Recommended OS: Ubuntu 18.04
 
 
- - [Elasticsearch 7.6.X](https://www.elastic.co/downloads/elasticsearch)
+ - [Elasticsearch 7.7.X](https://www.elastic.co/downloads/elasticsearch)
  - [RabbitMQ](https://www.rabbitmq.com/install-debian.html)
  - [Node.js v14](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)
  - [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/)
