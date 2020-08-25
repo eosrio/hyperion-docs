@@ -34,9 +34,11 @@
 | https://api-wax.maltablock.org/v2 | [docs](https://api-wax.maltablock.org/v2/docs) |  |
 | https://api.blokcrafters.io/v2 | [docs](http://api.blokcrafters.io/v2/docs) |  |
 | https://hyperion.wax.eosdetroit.io/v2 | [docs](https://hyperion.wax.eosdetroit.io/v2/docs) |  |
+| https://wax.cryptolions/v2 | [docs](https://wax.cryptolions/v2/docs) |  |
 
 
 ### TELOS
+
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://telos.eosrio.io/v2 | [docs](https://telos.eosrio.io/v2/docs) | [explorer](https://telos.eosrio.io/v2/explore) |
@@ -62,6 +64,7 @@
 | https://instar.eosusa.news/v2 | [docs](https://instar.eosusa.news/v2/docs) | [explorer](https://instar.eosusa.news/v2/explore) |
 
 ### UOS
+
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://uos.eosusa.news/v2 | [docs](https://uos.eosusa.news/v2/docs) | [explorer](https://uos.eosusa.news/v2/explore) |
@@ -71,6 +74,7 @@
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://proton.eosusa.news/v2 | [docs](https://proton.eosusa.news/v2/docs) | [explorer](https://proton.eosusa.news/v2/explore) |
+| https://proton.cryptolions.io/v2 | [docs](https://proton.cryptolions.io/v2/docs) |  |
 
 
 ### WORBLI
@@ -103,9 +107,11 @@
 
 
 ### Remme
+
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
-| https://rem.eon.llc/v2 | [docs](https://rem.eon.llc/v2/docs) | |
+| https://rem.eon.llc/v2 | [docs](https://rem.eon.llc/v2/docs) |  |
+
 
 ### Covax
 
@@ -113,6 +119,11 @@
 | ---- | ---------- | ----------- |
 | https://covax.eosdsp.com/v2 | [docs](https://covax.eosdsp.com/v2/docs) | [explorer](https://covax.eosdsp.com/v2/explore) |
 
+
+### FIO
+| url | docs | explorer |
+| ---- | ---------- | ----------- |
+| https://fio.cryptolions.io/v2 | [docs](https://fio.cryptolions.io/v2/docs) |  |
 
 <br>
 
@@ -124,14 +135,14 @@
 | ---- | ---------- | ----------- |
 | https://kylin.eosn.io/v2 | [docs](https://kylin.eosn.io/v2/docs) |  |
 | https://kylin.eossweden.org/v2 | [docs](https://kylin.eossweden.org/v2/docs) |  |
-| https://kylin.eosusa.news/v2 | [docs](https://kylin.eosusa.news/v2/docs) | |
+| https://kylin.eosusa.news/v2 | [docs](https://kylin.eosusa.news/v2/docs) |  |
 
 ### Jungle 2 EOS Testnet
 
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
-| https://junglehistory.cryptolions.io/v2 | [docs](https://junglehistory.cryptolions.io/v2/docs) |  |
-| https://jungle.eossweden.org/v2 | [docs](https://jungle.eossweden.org/v2/docs) | |
+| https://jungle2.cryptolions.io/v2 | [docs](https://jungle2.cryptolions.io/v2/docs) |  |
+| https://jungle.eossweden.org/v2 | [docs](https://jungle.eossweden.org/v2/docs) |  |
 
 ### Jungle 3 EOS Testnet
 
@@ -179,3 +190,4 @@
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://test.proton.eosusa.news/v2 | [docs](https://test.proton.eosusa.news/v2/docs) | [explorer](https://test.proton.eosusa.news/v2/explore) |
+| https://proton-testnet.cryptolions.io/v2 | [docs](https://proton-testnet.cryptolions.io/v2) |  |
