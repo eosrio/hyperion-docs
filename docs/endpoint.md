@@ -34,7 +34,7 @@
 | https://api-wax.maltablock.org/v2 | [docs](https://api-wax.maltablock.org/v2/docs) |  |
 | https://api.blokcrafters.io/v2 | [docs](http://api.blokcrafters.io/v2/docs) |  |
 | https://hyperion.wax.eosdetroit.io/v2 | [docs](https://hyperion.wax.eosdetroit.io/v2/docs) |  |
-| https://wax.cryptolions/v2 | [docs](https://wax.cryptolions/v2/docs) |  |
+| https://wax.cryptolions/v2 | [docs](https://wax.cryptolions/v2/docs) | [explorer](https://wax.cryptolions.io/v2/explore) |
 
 
 ### TELOS
@@ -74,7 +74,7 @@
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://proton.eosusa.news/v2 | [docs](https://proton.eosusa.news/v2/docs) | [explorer](https://proton.eosusa.news/v2/explore) |
-| https://proton.cryptolions.io/v2 | [docs](https://proton.cryptolions.io/v2/docs) |  |
+| https://proton.cryptolions.io/v2 | [docs](https://proton.cryptolions.io/v2/docs) | [explorer](https://proton.cryptolions.io/v2/explore) |
 
 
 ### WORBLI
@@ -123,7 +123,7 @@
 ### FIO
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
-| https://fio.cryptolions.io/v2 | [docs](https://fio.cryptolions.io/v2/docs) |  |
+| https://fio.cryptolions.io/v2 | [docs](https://fio.cryptolions.io/v2/docs) | [explorer](https://fio.cryptolions.io/v2/explore) |
 
 <br>
 
@@ -141,7 +141,7 @@
 
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
-| https://jungle2.cryptolions.io/v2 | [docs](https://jungle2.cryptolions.io/v2/docs) |  |
+| https://jungle2.cryptolions.io/v2 | [docs](https://jungle2.cryptolions.io/v2/docs) | [explorer](https://jungle2.cryptolions.io/v2/explore) |
 | https://jungle.eossweden.org/v2 | [docs](https://jungle.eossweden.org/v2/docs) |  |
 
 ### Jungle 3 EOS Testnet
@@ -190,4 +190,4 @@
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://test.proton.eosusa.news/v2 | [docs](https://test.proton.eosusa.news/v2/docs) | [explorer](https://test.proton.eosusa.news/v2/explore) |
-| https://proton-testnet.cryptolions.io/v2 | [docs](https://proton-testnet.cryptolions.io/v2) |  |
+| https://testnet.protonchain.com/v2 | [docs](https://testnet.protonchain.com/v2/docs) | [explorer](https://testnet.protonchain.com/v2/explore) |
