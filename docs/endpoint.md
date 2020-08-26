@@ -34,7 +34,7 @@
 | https://api-wax.maltablock.org/v2 | [docs](https://api-wax.maltablock.org/v2/docs) |  |
 | https://api.blokcrafters.io/v2 | [docs](http://api.blokcrafters.io/v2/docs) |  |
 | https://hyperion.wax.eosdetroit.io/v2 | [docs](https://hyperion.wax.eosdetroit.io/v2/docs) |  |
-| https://wax.cryptolions/v2 | [docs](https://wax.cryptolions/v2/docs) | [explorer](https://wax.cryptolions.io/v2/explore) |
+| https://wax.cryptolions.io/v2 | [docs](https://wax.cryptolions.io/v2/docs) | [explorer](https://wax.cryptolions.io/v2/explore) |
 
 
 ### TELOS
@@ -150,7 +150,7 @@
 | ---- | ---------- | ----------- |
 | https://jungle3.eosrio.io/v2 | [docs](https://jungle3.eosrio.io/v2/docs) | [explorer](https://jungle3.eosrio.io/v2/explore) |
 | https://jungle3.eosusa.news/v2 | [docs](https://jungle3.eosusa.news/v2/docs) | [explorer](https://jungle3.eosusa.news/v2/explore) |
-| https://jungle3history.cryptolions.io/v2 | [docs](https://jungle3history.cryptolions.io/v2/docs) |  |
+| https://jungle3history.cryptolions.io/v2 | [docs](https://jungle3history.cryptolions.io/v2/docs) | [explore](https://jungle3history.cryptolions.io/v2/explore) |
 | https://jungle.eosn.io/v2 | [docs](https://jungle.eosn.io/v2/docs) |  |
 | https://jungle3.eossweden.org/v2 | [docs](https://jungle3.eossweden.org/v2/docs) |  |
 
