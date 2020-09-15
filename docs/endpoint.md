@@ -32,7 +32,7 @@
 | https://wax.eosphere.io/v2 | [docs](https://wax.eosphere.io/v2/docs) |  |
 | https://wax.pink.gg/v2 | [docs](https://wax.pink.gg/v2/docs) |  |
 | https://api-wax.maltablock.org/v2 | [docs](https://api-wax.maltablock.org/v2/docs) |  |
-| https://api.blokcrafters.io/v2 | [docs](http://api.blokcrafters.io/v2/docs) |  |
+| https://wax.blokcrafters.io/v2 | [docs](https://wax.blokcrafters.io/v2/docs) |  |
 | https://hyperion.wax.eosdetroit.io/v2 | [docs](https://hyperion.wax.eosdetroit.io/v2/docs) |  |
 | https://wax.cryptolions.io/v2 | [docs](https://wax.cryptolions.io/v2/docs) | [explorer](https://wax.cryptolions.io/v2/explore) |
 
