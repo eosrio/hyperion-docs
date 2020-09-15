@@ -175,7 +175,7 @@
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://testnet.wax.pink.gg/v2 | [docs](https://testnet.wax.pink.gg/v2/docs) |  |
-| https://testnet.blokcrafters.io/v2 | [docs](http://testnet.blokcrafters.io/v2/docs) |  |
+| https://wax-test.blokcrafters.io/v2 | [docs](https://wax-test.blokcrafters.io/v2/docs) |  |
 
 
 ### DAOBet Testnet
