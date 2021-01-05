@@ -10,7 +10,6 @@
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://api.eossweden.org/v2 | [docs](http://api.eossweden.org/v2/docs) |  |
-| https://mainnet.eosn.io/v2 | [docs](https://mainnet.eosn.io/v2/docs) |  |
 
 
 ### BOS
@@ -18,7 +17,6 @@
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://api.bossweden.org/v2 | [docs](http://api.bossweden.org/v2/docs) |  |
-| https://bos.eosn.io/v2 | [docs](https://bos.eosn.io/v2/docs) |  |
 | https://bos.eosusa.news/v2 | [docs](https://bos.eosusa.news/v2/docs) |  |
 
 
@@ -133,7 +131,6 @@
 
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
-| https://kylin.eosn.io/v2 | [docs](https://kylin.eosn.io/v2/docs) |  |
 | https://kylin.eossweden.org/v2 | [docs](https://kylin.eossweden.org/v2/docs) |  |
 | https://kylin.eosusa.news/v2 | [docs](https://kylin.eosusa.news/v2/docs) |  |
 
@@ -151,7 +148,6 @@
 | https://jungle3.eosrio.io/v2 | [docs](https://jungle3.eosrio.io/v2/docs) | [explorer](https://jungle3.eosrio.io/v2/explore) |
 | https://jungle3.eosusa.news/v2 | [docs](https://jungle3.eosusa.news/v2/docs) | [explorer](https://jungle3.eosusa.news/v2/explore) |
 | https://jungle3history.cryptolions.io/v2 | [docs](https://jungle3history.cryptolions.io/v2/docs) | [explore](https://jungle3history.cryptolions.io/v2/explore) |
-| https://jungle.eosn.io/v2 | [docs](https://jungle.eosn.io/v2/docs) |  |
 | https://jungle3.eossweden.org/v2 | [docs](https://jungle3.eossweden.org/v2/docs) |  |
 
 
