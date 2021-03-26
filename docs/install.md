@@ -6,11 +6,11 @@
     Recommended OS: Ubuntu 18.04
 
 
- - [Elasticsearch 7.7.X](https://www.elastic.co/downloads/elasticsearch)
+ - [Elasticsearch 7.12.X](https://www.elastic.co/downloads/elasticsearch)
  - [RabbitMQ](https://www.rabbitmq.com/install-debian.html)
  - [Node.js v15](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)
  - [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/)
- - [Nodeos 1.8+](https://github.com/EOSIO/eos/releases/latest) w/ state_history_plugin and chain_api_plugin
+ - [Nodeos 1.8+ (2.0 recommended)](https://github.com/EOSIO/eos/releases/latest) w/ state_history_plugin and chain_api_plugin
  - [Redis](https://redis.io/topics/quickstart) (only for the API caching layer)
 
 !!! note  
