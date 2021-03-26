@@ -8,7 +8,7 @@
 
  - [Elasticsearch 7.7.X](https://www.elastic.co/downloads/elasticsearch)
  - [RabbitMQ](https://www.rabbitmq.com/install-debian.html)
- - [Node.js v14](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)
+ - [Node.js v15](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)
  - [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/)
  - [Nodeos 1.8+](https://github.com/EOSIO/eos/releases/latest) w/ state_history_plugin and chain_api_plugin
  - [Redis](https://redis.io/topics/quickstart) (only for the API caching layer)
@@ -147,7 +147,7 @@ sudo rabbitmq-plugins enable rabbitmq_management
 
 ##### 2. Add vhost
 ```bash
-sudo rabbitmqctl add_vhost /hyperion
+sudo rabbitmqctl add_vhost hyperion
 ```
 
 ##### 3. Create a user and password
@@ -162,7 +162,7 @@ sudo rabbitmqctl set_user_tags {my_user} administrator
 
 ##### 5. Set the user permissions to the vhost
 ```bash
-sudo rabbitmqctl set_permissions -p /hyperion {my_user} ".*" ".*" ".*"
+sudo rabbitmqctl set_permissions -p hyperion {my_user} ".*" ".*" ".*"
 ```
 
 ##### 6. Check access to the WebUI
