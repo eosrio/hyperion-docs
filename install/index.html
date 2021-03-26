@@ -1053,11 +1053,11 @@
 <p>Recommended OS: Ubuntu 18.04</p>
 </div>
 <ul>
-<li><a href="https://www.elastic.co/downloads/elasticsearch">Elasticsearch 7.7.X</a></li>
+<li><a href="https://www.elastic.co/downloads/elasticsearch">Elasticsearch 7.12.X</a></li>
 <li><a href="https://www.rabbitmq.com/install-debian.html">RabbitMQ</a></li>
-<li><a href="https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions">Node.js v14</a></li>
+<li><a href="https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions">Node.js v15</a></li>
 <li><a href="http://pm2.keymetrics.io/docs/usage/quick-start/">PM2</a></li>
-<li><a href="https://github.com/EOSIO/eos/releases/latest">Nodeos 1.8+</a> w/ state_history_plugin and chain_api_plugin</li>
+<li><a href="https://github.com/EOSIO/eos/releases/latest">Nodeos 1.8+ (2.0 recommended)</a> w/ state_history_plugin and chain_api_plugin</li>
 <li><a href="https://redis.io/topics/quickstart">Redis</a> (only for the API caching layer)</li>
 </ul>
 <div class="admonition note">
@@ -1156,7 +1156,7 @@ Keep track of these passwords, we’ll need them again soon.</p>
 <div class="highlight"><pre><span></span><code>sudo rabbitmq-plugins <span class="nb">enable</span> rabbitmq_management
 </code></pre></div>
 <h5 id="2-add-vhost">2. Add vhost<a class="headerlink" href="#2-add-vhost" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code>sudo rabbitmqctl add_vhost /hyperion
+<div class="highlight"><pre><span></span><code>sudo rabbitmqctl add_vhost hyperion
 </code></pre></div>
 <h5 id="3-create-a-user-and-password">3. Create a user and password<a class="headerlink" href="#3-create-a-user-and-password" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code>sudo rabbitmqctl add_user <span class="o">{</span>my_user<span class="o">}</span> <span class="o">{</span>my_password<span class="o">}</span>
@@ -1165,7 +1165,7 @@ Keep track of these passwords, we’ll need them again soon.</p>
 <div class="highlight"><pre><span></span><code>sudo rabbitmqctl set_user_tags <span class="o">{</span>my_user<span class="o">}</span> administrator
 </code></pre></div>
 <h5 id="5-set-the-user-permissions-to-the-vhost">5. Set the user permissions to the vhost<a class="headerlink" href="#5-set-the-user-permissions-to-the-vhost" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code>sudo rabbitmqctl set_permissions -p /hyperion <span class="o">{</span>my_user<span class="o">}</span> <span class="s2">&quot;.*&quot;</span> <span class="s2">&quot;.*&quot;</span> <span class="s2">&quot;.*&quot;</span>
+<div class="highlight"><pre><span></span><code>sudo rabbitmqctl set_permissions -p hyperion <span class="o">{</span>my_user<span class="o">}</span> <span class="s2">&quot;.*&quot;</span> <span class="s2">&quot;.*&quot;</span> <span class="s2">&quot;.*&quot;</span>
 </code></pre></div>
 <h5 id="6-check-access-to-the-webui">6. Check access to the WebUI<a class="headerlink" href="#6-check-access-to-the-webui" title="Permanent link">&para;</a></h5>
 <p><a href="http://localhost:15672">http://localhost:15672</a></p>
