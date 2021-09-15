@@ -5,7 +5,9 @@ This section describes how to manually set up the environment needed to run Hype
 !!! attention  
     Recommended OS: Ubuntu 20.04
 
-### Dependencies
+## Dependencies
+
+Below you can find the list of all Hyperion's dependencies:
 
  - [Elasticsearch 7.14.X](https://www.elastic.co/downloads/elasticsearch)
  - [RabbitMQ](https://www.rabbitmq.com/install-debian.html)
@@ -14,23 +16,25 @@ This section describes how to manually set up the environment needed to run Hype
  - [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/)
  - [EOSIO 2.0](https://github.com/EOSIO/eos/releases/latest)
 
+On the next steps you will install and configure each one of them.
+
 !!! note  
-    The indexer requires Node.js and pm2 to be on the same machine. All other dependencies (Elasticsearch, RabbitMQ, Redis and EOSIO) can be installed on different machines, preferably on a high speed and low latency network. Keep in mind that indexing speed will vary greatly depending on this configuration.
+    The Hyperion Indexer requires Node.js and pm2 to be on the same machine. All other dependencies (Elasticsearch, RabbitMQ, Redis and EOSIO) can be installed on different machines, preferably on a high speed and low latency network. Keep in mind that indexing speed will vary greatly depending on this configuration.
 
-### Elasticsearch Installation
+## Elasticsearch Installation
 
-Follow the detailed installation instructions on the official [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb).
+Follow the detailed installation instructions on the official [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb). Return to this documentation before running it.
 
 !!! info  
     Elasticsearch is not started automatically after installation. We recomend running it with [systemd](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-running-systemd).
 
 !!! note  
-    It is very important to know the Elasticsearch [directory layout](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-layout) and to understand how [its configuration](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-configuring) works.
+    It is very important to know the Elasticsearch [directory layout](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-layout) and to understand how the [configuration](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-configuring) works.
 
-#### Configuration
+### Configuration
 ##### 1. Elasticsearch configuration
 
-Edit the following lines on `/etc/elasticsearch/elasticsearch.yml`.
+Edit the following lines on `/etc/elasticsearch/elasticsearch.yml`:
 
 ```
 cluster.name: CLUSTER_NAME
@@ -65,7 +69,7 @@ Check if `UseCompressedOops` is true on the results and change `-Xms` and `-Xmx`
 !!! note  
     Elasticsearch includes a bundled version of OpenJDK from the JDK maintainers. You can find it on `/usr/share/elasticsearch/jdk`.
 
-After that, change the heap size by editting the following lines on `/etc/elasticsearch/jvm.options`.
+After that, change the heap size by editting the following lines on `/etc/elasticsearch/jvm.options`:
 
 ```
 -Xms16g
@@ -103,20 +107,20 @@ sudo systemctl start elasticsearch.service
 sudo less /var/log/elasticsearch/CLUSTE_NAME.log
 ```
 
-Finally, enable it to run at startup:
+Enable it to run at startup:
 
 ```bash
 sudo systemctl enable elasticsearch.service
 ```
 
-!!! note  
-    Don't forget to check if memory lock worked.
-
-Test the REST API:
+And finally, test the REST API:
 
 ```
 curl -X GET "localhost:9200/?pretty"
 ```
+
+!!! note  
+    Don't forget to check if memory lock worked.
 
 The expeted result should be something like this:
 
@@ -124,15 +128,15 @@ The expeted result should be something like this:
 {
   "name" : "ip-172-31-5-121",
   "cluster_name" : "CLUSTER_NAME",
-  "cluster_uuid" : "....",
+  "cluster_uuid" : "FFl8DNcOQV-dVk3p1JDNMA",
   "version" : {
-    "number" : "7.1.0",
+    "number" : "7.14.1",
     "build_flavor" : "default",
     "build_type" : "deb",
     "build_hash" : "606a173",
-    "build_date" : "2019-05-16T00:43:15.323135Z",
+    "build_date" : "2021-08-26T00:43:15.323135Z",
     "build_snapshot" : false,
-    "lucene_version" : "8.0.0",
+    "lucene_version" : "8.9.0",
     "minimum_wire_compatibility_version" : "6.8.0",
     "minimum_index_compatibility_version" : "6.0.0-beta1"
   },
@@ -147,7 +151,7 @@ The Elasticsearch security features are disabled by default. To avoid security p
 To do that, add the following line to the end of the `/etc/elasticsearch/elasticsearch.yml` file:
 
 ```
-`xpack.security.enabled: true` to the end of
+xpack.security.enabled: true
 ```
 
 Now, set the passwords for the cluster:
@@ -161,7 +165,7 @@ Keep track of these passwords, we’ll need them again soon.
 !!! note  
     You can alternatively use the `interactive` parameter to manually define your passwords.
 
-!!! note
+!!! attention
     The minimal security scenario is not sufficient for production mode clusters. Check the [documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-basic-setup.html) for more information.
 
 
