@@ -159,9 +159,10 @@ sudo /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto
 Keep track of these passwords, we’ll need them again soon.
 
 !!! note  
-You can alternatively use the `interactive` parameter to manually define your passwords.
+    You can alternatively use the `interactive` parameter to manually define your passwords.
 
-
+!!! note
+    The minimal security scenario is not sufficient for production mode clusters. Check the [documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-basic-setup.html) for more information.
 
 
 #### RabbitMQ Installation
