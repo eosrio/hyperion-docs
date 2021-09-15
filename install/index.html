@@ -367,6 +367,46 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kibana-installation" class="md-nav__link">
+    Kibana Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Kibana Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration_1" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-elasticsearch-security" class="md-nav__link">
+    1. Elasticsearch security
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-start-kibana" class="md-nav__link">
+    2. Start Kibana
+  </a>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#rabbitmq-installation" class="md-nav__link">
     RabbitMQ Installation
@@ -507,13 +547,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kibana-installation" class="md-nav__link">
-    Kibana Installation
-  </a>
   
 </li>
         
@@ -863,6 +896,46 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kibana-installation" class="md-nav__link">
+    Kibana Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Kibana Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration_1" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-elasticsearch-security" class="md-nav__link">
+    1. Elasticsearch security
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-start-kibana" class="md-nav__link">
+    2. Start Kibana
+  </a>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#rabbitmq-installation" class="md-nav__link">
     RabbitMQ Installation
@@ -1007,13 +1080,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#kibana-installation" class="md-nav__link">
-    Kibana Installation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#nodeos-configini" class="md-nav__link">
     nodeos config.ini
   </a>
@@ -1057,6 +1123,7 @@
 <p>Below you can find the list of all Hyperion's dependencies:</p>
 <ul>
 <li><a href="https://www.elastic.co/downloads/elasticsearch">Elasticsearch 7.14.X</a></li>
+<li><a href="https://www.elastic.co/downloads/kibana">Kibana 7.14.X</a></li>
 <li><a href="https://www.rabbitmq.com/install-debian.html">RabbitMQ</a></li>
 <li><a href="https://redis.io/topics/quickstart">Redis</a></li>
 <li><a href="https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions">Node.js v16</a></li>
@@ -1179,6 +1246,30 @@ sudo less /var/log/elasticsearch/CLUSTE_NAME.log
 <p class="admonition-title">Attention</p>
 <p>The minimal security scenario is not sufficient for production mode clusters. Check the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/security-basic-setup.html">documentation</a> for more information.</p>
 </div>
+<h2 id="kibana-installation">Kibana Installation<a class="headerlink" href="#kibana-installation" title="Permanent link">&para;</a></h2>
+<p>Follow the detailed installation instructions on the official <a href="https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-repo">Kibana documentation</a>. Return to this documentation before running it.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Kibana is not started automatically after installation. We recomend running it with <a href="https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-running-systemd">systemd</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Like on Elasticsearch, it is very important to know the Kibana <a href="https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-layout">directory layout</a> and to understand how the <a href="https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-configuring">configuration</a> works.</p>
+</div>
+<h3 id="configuration_1">Configuration<a class="headerlink" href="#configuration_1" title="Permanent link">&para;</a></h3>
+<h5 id="1-elasticsearch-security">1. Elasticsearch security<a class="headerlink" href="#1-elasticsearch-security" title="Permanent link">&para;</a></h5>
+<p>If you have enabled the security pack on Elasticsearch, you need to set up the password on Kibana. Edit the folowing lines on the <code>/etc/kibana/kibana.yml</code> file:</p>
+<div class="highlight"><pre><span></span><code>elasticsearch.username: <span class="s2">&quot;kibana_system&quot;</span>
+elasticsearch.password: <span class="s2">&quot;password&quot;</span>
+</code></pre></div>
+<h5 id="2-start-kibana">2. Start Kibana<a class="headerlink" href="#2-start-kibana" title="Permanent link">&para;</a></h5>
+<p>Start Kibana and check the logs:</p>
+<div class="highlight"><pre><span></span><code>sudo systemctl start kibana.service
+sudo less /var/log/kibana/kibana.log
+</code></pre></div>
+<p>Enable it to run at startup:</p>
+<div class="highlight"><pre><span></span><code>sudo systemctl <span class="nb">enable</span> kibana.service
+</code></pre></div>
 <h4 id="rabbitmq-installation">RabbitMQ Installation<a class="headerlink" href="#rabbitmq-installation" title="Permanent link">&para;</a></h4>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1233,21 +1324,7 @@ the config file if you want to listen to other network.</p>
 <div class="highlight"><pre><span></span><code>sudo pm2 startup
 </code></pre></div>
 <p><br></p>
-<h4 id="kibana-installation">Kibana Installation<a class="headerlink" href="#kibana-installation" title="Permanent link">&para;</a></h4>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Follow the detailed installation instructions on the <a href="https://www.elastic.co/downloads/kibana">official documentation</a></p>
-</div>
-<p>If you have enabled the security pack on elastic, you'll need to set up the password on Kibana. Edit the <code>/etc/kibana/kibana.yml</code> file, find the lines that look like this:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#elasticsearch.username: &quot;user&quot;</span>
-<span class="c1">#elasticsearch.password: &quot;pass&quot;</span>
-</code></pre></div>
-<p>Uncomment the username and password fields by removing the # character at the beginning of the line. Change "user" to "kibana" 
-and then change "pass" to whatever the setup-passwords command tells us the Kibana password is. 
-Save the file, then we can restart Kibana.</p>
-<p><div class="highlight"><pre><span></span><code>systemctl restart kibana
-</code></pre></div>
-<br></p>
+<p><br></p>
 <h4 id="nodeos-configini">nodeos config.ini<a class="headerlink" href="#nodeos-configini" title="Permanent link">&para;</a></h4>
 <p>w/ state_history_plugin and chain_api_plugin</p>
 <div class="highlight"><pre><span></span><code>state-history-dir = &quot;state-history&quot;
