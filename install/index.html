@@ -1048,7 +1048,7 @@
                 
                 
                 <h1 id="manual-installation">Manual Installation<a class="headerlink" href="#manual-installation" title="Permanent link">&para;</a></h1>
-<p>This section describes how to manually setup the environment needed to run Hyperion. If you want more control of your installation, this is the way to go.</p>
+<p>This section describes how to manually set up the environment needed to run Hyperion. If you want more control of your installation, this is the way to go.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>Recommended OS: Ubuntu 20.04</p>
@@ -1085,7 +1085,7 @@ bootstrap.memory_lock: true
 <p>The memory lock option will prevent any Elasticsearch heap memory from being swapped out.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Setting <code>bootstrap.memory_lock: true</code> will make elasticsearch try to use all the RAM configured for JVM on startup (check next step). This can cause Elasticsearch to crash if you allocate more RAM than available.</p>
+<p>Setting <code>bootstrap.memory_lock: true</code> will make Elasticsearch try to use all the RAM configured for JVM on startup (check next step). This can cause the application to crash if you allocate more RAM than available.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1236,7 +1236,7 @@ the config file if you want to listen to other network.</p>
 <p class="admonition-title">Info</p>
 <p>Follow the detailed installation instructions on the <a href="https://www.elastic.co/downloads/kibana">official documentation</a></p>
 </div>
-<p>If you have enabled the security pack on elastic, you'll need to setup the password on Kibana. Edit the <code>/etc/kibana/kibana.yml</code> file, find the lines that look like this:</p>
+<p>If you have enabled the security pack on elastic, you'll need to set up the password on Kibana. Edit the <code>/etc/kibana/kibana.yml</code> file, find the lines that look like this:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">#elasticsearch.username: &quot;user&quot;</span>
 <span class="c1">#elasticsearch.password: &quot;pass&quot;</span>
 </code></pre></div>
