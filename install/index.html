@@ -367,11 +367,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#rabbitmq-installation" class="md-nav__link">
     RabbitMQ Installation
@@ -526,6 +521,11 @@
   <a href="#nodeos-configini" class="md-nav__link">
     nodeos config.ini
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -863,11 +863,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#rabbitmq-installation" class="md-nav__link">
     RabbitMQ Installation
@@ -1029,6 +1024,11 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
     </ul>
   
@@ -1053,7 +1053,8 @@
 <p class="admonition-title">Attention</p>
 <p>Recommended OS: Ubuntu 20.04</p>
 </div>
-<h3 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h3>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
+<p>Below you can find the list of all Hyperion's dependencies:</p>
 <ul>
 <li><a href="https://www.elastic.co/downloads/elasticsearch">Elasticsearch 7.14.X</a></li>
 <li><a href="https://www.rabbitmq.com/install-debian.html">RabbitMQ</a></li>
@@ -1062,23 +1063,24 @@
 <li><a href="http://pm2.keymetrics.io/docs/usage/quick-start/">PM2</a></li>
 <li><a href="https://github.com/EOSIO/eos/releases/latest">EOSIO 2.0</a></li>
 </ul>
+<p>On the next steps you will install and configure each one of them.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The indexer requires Node.js and pm2 to be on the same machine. All other dependencies (Elasticsearch, RabbitMQ, Redis and EOSIO) can be installed on different machines, preferably on a high speed and low latency network. Keep in mind that indexing speed will vary greatly depending on this configuration.</p>
+<p>The Hyperion Indexer requires Node.js and pm2 to be on the same machine. All other dependencies (Elasticsearch, RabbitMQ, Redis and EOSIO) can be installed on different machines, preferably on a high speed and low latency network. Keep in mind that indexing speed will vary greatly depending on this configuration.</p>
 </div>
-<h3 id="elasticsearch-installation">Elasticsearch Installation<a class="headerlink" href="#elasticsearch-installation" title="Permanent link">&para;</a></h3>
-<p>Follow the detailed installation instructions on the official <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb">Elasticsearch documentation</a>.</p>
+<h2 id="elasticsearch-installation">Elasticsearch Installation<a class="headerlink" href="#elasticsearch-installation" title="Permanent link">&para;</a></h2>
+<p>Follow the detailed installation instructions on the official <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb">Elasticsearch documentation</a>. Return to this documentation before running it.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Elasticsearch is not started automatically after installation. We recomend running it with <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-running-systemd">systemd</a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It is very important to know the Elasticsearch <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-layout">directory layout</a> and to understand how <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-configuring">its configuration</a> works.</p>
+<p>It is very important to know the Elasticsearch <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-layout">directory layout</a> and to understand how the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-configuring">configuration</a> works.</p>
 </div>
-<h4 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h4>
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
 <h5 id="1-elasticsearch-configuration">1. Elasticsearch configuration<a class="headerlink" href="#1-elasticsearch-configuration" title="Permanent link">&para;</a></h5>
-<p>Edit the following lines on <code>/etc/elasticsearch/elasticsearch.yml</code>.</p>
+<p>Edit the following lines on <code>/etc/elasticsearch/elasticsearch.yml</code>:</p>
 <div class="highlight"><pre><span></span><code>cluster.name: CLUSTER_NAME
 bootstrap.memory_lock: true
 </code></pre></div>
@@ -1106,7 +1108,7 @@ bootstrap.memory_lock: true
 <p class="admonition-title">Note</p>
 <p>Elasticsearch includes a bundled version of OpenJDK from the JDK maintainers. You can find it on <code>/usr/share/elasticsearch/jdk</code>.</p>
 </div>
-<p>After that, change the heap size by editting the following lines on <code>/etc/elasticsearch/jvm.options</code>.</p>
+<p>After that, change the heap size by editting the following lines on <code>/etc/elasticsearch/jvm.options</code>:</p>
 <div class="highlight"><pre><span></span><code>-Xms16g
 -Xmx16g
 </code></pre></div>
@@ -1131,29 +1133,29 @@ LimitMEMLOCK=infinity
 <div class="highlight"><pre><span></span><code>sudo systemctl start elasticsearch.service
 sudo less /var/log/elasticsearch/CLUSTE_NAME.log
 </code></pre></div>
-<p>Finally, enable it to run at startup:</p>
+<p>Enable it to run at startup:</p>
 <div class="highlight"><pre><span></span><code>sudo systemctl <span class="nb">enable</span> elasticsearch.service
+</code></pre></div>
+<p>And finally, test the REST API:</p>
+<div class="highlight"><pre><span></span><code>curl -X GET &quot;localhost:9200/?pretty&quot;
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Don't forget to check if memory lock worked.</p>
 </div>
-<p>Test the REST API:</p>
-<div class="highlight"><pre><span></span><code>curl -X GET &quot;localhost:9200/?pretty&quot;
-</code></pre></div>
 <p>The expeted result should be something like this:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;ip-172-31-5-121&quot;</span><span class="p">,</span>
   <span class="nt">&quot;cluster_name&quot;</span> <span class="p">:</span> <span class="s2">&quot;CLUSTER_NAME&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;cluster_uuid&quot;</span> <span class="p">:</span> <span class="s2">&quot;....&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;cluster_uuid&quot;</span> <span class="p">:</span> <span class="s2">&quot;FFl8DNcOQV-dVk3p1JDNMA&quot;</span><span class="p">,</span>
   <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;number&quot;</span> <span class="p">:</span> <span class="s2">&quot;7.1.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;number&quot;</span> <span class="p">:</span> <span class="s2">&quot;7.14.1&quot;</span><span class="p">,</span>
     <span class="nt">&quot;build_flavor&quot;</span> <span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
     <span class="nt">&quot;build_type&quot;</span> <span class="p">:</span> <span class="s2">&quot;deb&quot;</span><span class="p">,</span>
     <span class="nt">&quot;build_hash&quot;</span> <span class="p">:</span> <span class="s2">&quot;606a173&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;build_date&quot;</span> <span class="p">:</span> <span class="s2">&quot;2019-05-16T00:43:15.323135Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;build_date&quot;</span> <span class="p">:</span> <span class="s2">&quot;2021-08-26T00:43:15.323135Z&quot;</span><span class="p">,</span>
     <span class="nt">&quot;build_snapshot&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="nt">&quot;lucene_version&quot;</span> <span class="p">:</span> <span class="s2">&quot;8.0.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;lucene_version&quot;</span> <span class="p">:</span> <span class="s2">&quot;8.9.0&quot;</span><span class="p">,</span>
     <span class="nt">&quot;minimum_wire_compatibility_version&quot;</span> <span class="p">:</span> <span class="s2">&quot;6.8.0&quot;</span><span class="p">,</span>
     <span class="nt">&quot;minimum_index_compatibility_version&quot;</span> <span class="p">:</span> <span class="s2">&quot;6.0.0-beta1&quot;</span>
   <span class="p">},</span>
@@ -1163,7 +1165,7 @@ sudo less /var/log/elasticsearch/CLUSTE_NAME.log
 <h5 id="5-set-up-minimal-security">5. Set up minimal security<a class="headerlink" href="#5-set-up-minimal-security" title="Permanent link">&para;</a></h5>
 <p>The Elasticsearch security features are disabled by default. To avoid security problems, we recommend enabling the security pack.</p>
 <p>To do that, add the following line to the end of the <code>/etc/elasticsearch/elasticsearch.yml</code> file:</p>
-<div class="highlight"><pre><span></span><code>`xpack.security.enabled: true` to the end of
+<div class="highlight"><pre><span></span><code>xpack.security.enabled: true
 </code></pre></div>
 <p>Now, set the passwords for the cluster:</p>
 <div class="highlight"><pre><span></span><code>sudo /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto
@@ -1173,8 +1175,8 @@ sudo less /var/log/elasticsearch/CLUSTE_NAME.log
 <p class="admonition-title">Note</p>
 <p>You can alternatively use the <code>interactive</code> parameter to manually define your passwords.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
 <p>The minimal security scenario is not sufficient for production mode clusters. Check the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/security-basic-setup.html">documentation</a> for more information.</p>
 </div>
 <h4 id="rabbitmq-installation">RabbitMQ Installation<a class="headerlink" href="#rabbitmq-installation" title="Permanent link">&para;</a></h4>
