@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../img/icon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-6.2.3">
     
     
       
@@ -681,6 +681,11 @@ Then from the list, you'll need to manually delete them one by one:
 <div class="highlight"><pre><span></span><code>rabbitmqadmin delete queue <span class="nv">name</span><span class="o">=</span><span class="s1">&#39;queuename&#39;</span> 
 </code></pre></div>
 Because of the output format, doesn't appear you can grep the response from <code>list queues</code>. </p>
+<p>Alternatively, if you're just looking for a way to clear everything, use:
+<div class="highlight"><pre><span></span><code>rabbitmqctl stop_app
+rabbitmqctl reset
+rabbitmqctl start_app
+</code></pre></div></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Be sure you really want to do this!

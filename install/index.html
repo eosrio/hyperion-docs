@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../img/icon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-6.2.3">
     
     
       
@@ -314,10 +314,9 @@
     Dependencies
   </a>
   
-    <nav class="md-nav" aria-label="Dependencies">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#elasticsearch-installation" class="md-nav__link">
     Elasticsearch Installation
   </a>
@@ -326,43 +325,44 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-edit-etcelasticsearchelasticsearchyml" class="md-nav__link">
-    1. Edit /etc/elasticsearch/elasticsearch.yml
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-elasticsearch-configuration" class="md-nav__link">
+    1. Elasticsearch configuration
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-edit-etcelasticsearchjvmoptions" class="md-nav__link">
-    2. Edit /etc/elasticsearch/jvm.options
+  <a href="#2-heap-size-configuration" class="md-nav__link">
+    2. Heap size configuration
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-allow-memlock" class="md-nav__link">
-    3. Allow memlock
+  <a href="#3-allow-memory-lock" class="md-nav__link">
+    3. Allow memory lock
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-start-elasticsearch-and-check-the-logs-verify-if-the-memory-lock-was-successful" class="md-nav__link">
-    4. Start elasticsearch and check the logs (verify if the memory lock was successful)
+  <a href="#4-start-elasticsearch" class="md-nav__link">
+    4. Start Elasticsearch
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-test-the-rest-api" class="md-nav__link">
-    5. Test the REST API
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-security" class="md-nav__link">
-    6. Security
+  <a href="#5-set-up-minimal-security" class="md-nav__link">
+    5. Set up minimal security
   </a>
   
 </li>
@@ -810,10 +810,9 @@
     Dependencies
   </a>
   
-    <nav class="md-nav" aria-label="Dependencies">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#elasticsearch-installation" class="md-nav__link">
     Elasticsearch Installation
   </a>
@@ -822,43 +821,44 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-edit-etcelasticsearchelasticsearchyml" class="md-nav__link">
-    1. Edit /etc/elasticsearch/elasticsearch.yml
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-elasticsearch-configuration" class="md-nav__link">
+    1. Elasticsearch configuration
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-edit-etcelasticsearchjvmoptions" class="md-nav__link">
-    2. Edit /etc/elasticsearch/jvm.options
+  <a href="#2-heap-size-configuration" class="md-nav__link">
+    2. Heap size configuration
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-allow-memlock" class="md-nav__link">
-    3. Allow memlock
+  <a href="#3-allow-memory-lock" class="md-nav__link">
+    3. Allow memory lock
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-start-elasticsearch-and-check-the-logs-verify-if-the-memory-lock-was-successful" class="md-nav__link">
-    4. Start elasticsearch and check the logs (verify if the memory lock was successful)
+  <a href="#4-start-elasticsearch" class="md-nav__link">
+    4. Start Elasticsearch
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-test-the-rest-api" class="md-nav__link">
-    5. Test the REST API
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-security" class="md-nav__link">
-    6. Security
+  <a href="#5-set-up-minimal-security" class="md-nav__link">
+    5. Set up minimal security
   </a>
   
 </li>
@@ -1048,80 +1048,107 @@
                 
                 
                 <h1 id="manual-installation">Manual Installation<a class="headerlink" href="#manual-installation" title="Permanent link">&para;</a></h1>
-<h3 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h3>
+<p>This section describes how to manually setup the environment needed to run Hyperion. If you want more control of your installation, this is the way to go.</p>
 <div class="admonition attention">
-<p>Recommended OS: Ubuntu 18.04</p>
+<p class="admonition-title">Attention</p>
+<p>Recommended OS: Ubuntu 20.04</p>
 </div>
+<h3 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="https://www.elastic.co/downloads/elasticsearch">Elasticsearch 7.12.X</a></li>
+<li><a href="https://www.elastic.co/downloads/elasticsearch">Elasticsearch 7.14.X</a></li>
 <li><a href="https://www.rabbitmq.com/install-debian.html">RabbitMQ</a></li>
-<li><a href="https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions">Node.js v15</a></li>
+<li><a href="https://redis.io/topics/quickstart">Redis</a></li>
+<li><a href="https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions">Node.js v16</a></li>
 <li><a href="http://pm2.keymetrics.io/docs/usage/quick-start/">PM2</a></li>
-<li><a href="https://github.com/EOSIO/eos/releases/latest">Nodeos 1.8+ (2.0 recommended)</a> w/ state_history_plugin and chain_api_plugin</li>
-<li><a href="https://redis.io/topics/quickstart">Redis</a> (only for the API caching layer)</li>
+<li><a href="https://github.com/EOSIO/eos/releases/latest">EOSIO 2.0</a></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The indexer requires pm2 and node.js to be on the same machine. </p>
-<p>The other dependencies (Elasticsearch, RabbitMQ and Nodeos) can be installed on other machines, preferably on a high speed and low latency network. </p>
-<p>Indexing speed will vary greatly depending on this configuration.</p>
+<p>The indexer requires Node.js and pm2 to be on the same machine. All other dependencies (Elasticsearch, RabbitMQ, Redis and EOSIO) can be installed on different machines, preferably on a high speed and low latency network. Keep in mind that indexing speed will vary greatly depending on this configuration.</p>
 </div>
-<p><br></p>
-<h4 id="elasticsearch-installation">Elasticsearch Installation<a class="headerlink" href="#elasticsearch-installation" title="Permanent link">&para;</a></h4>
+<h3 id="elasticsearch-installation">Elasticsearch Installation<a class="headerlink" href="#elasticsearch-installation" title="Permanent link">&para;</a></h3>
+<p>Follow the detailed installation instructions on the official <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb">Elasticsearch documentation</a>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Follow the detailed installation instructions on the official <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html">elasticsearch documentation</a></p>
+<p>Elasticsearch is not started automatically after installation. We recomend running it with <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-running-systemd">systemd</a>.</p>
 </div>
-<h5 id="1-edit-etcelasticsearchelasticsearchyml">1. Edit <code>/etc/elasticsearch/elasticsearch.yml</code><a class="headerlink" href="#1-edit-etcelasticsearchelasticsearchyml" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code>cluster.name: myCluster
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is very important to know the Elasticsearch <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-layout">directory layout</a> and to understand how <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-configuring">its configuration</a> works.</p>
+</div>
+<h4 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h4>
+<h5 id="1-elasticsearch-configuration">1. Elasticsearch configuration<a class="headerlink" href="#1-elasticsearch-configuration" title="Permanent link">&para;</a></h5>
+<p>Edit the following lines on <code>/etc/elasticsearch/elasticsearch.yml</code>.</p>
+<div class="highlight"><pre><span></span><code>cluster.name: CLUSTER_NAME
 bootstrap.memory_lock: true
 </code></pre></div>
+<p>The memory lock option will prevent any Elasticsearch heap memory from being swapped out.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Setting <code>bootstrap.memory_lock: true</code> will make elasticsearch try to use all the RAM configured for JVM on startup  (check next step).</p>
-<p>This could crash if you allocate more RAM than available on the system. </p>
-<p>Setting mem_lock as <code>false</code> with swap disabled might cause the JVM or shell session to exit if elasticsearch tries to allocate more memory than is available!</p>
+<p>Setting <code>bootstrap.memory_lock: true</code> will make elasticsearch try to use all the RAM configured for JVM on startup (check next step). This can cause Elasticsearch to crash if you allocate more RAM than available.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A different approach is to <a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.14/setup-configuration-memory.html#setup-configuration-memory">disable swapping</a> on your system.</p>
+</div>
 <div class="admonition success">
 <p class="admonition-title">Testing</p>
 <p>After starting Elasticsearch, you can see whether this setting was applied successfully by checking the value of <code>mlockall</code> in the output from this request:</p>
-<div class="highlight"><pre><span></span><code>GET _nodes?filter_path=**.mlockall
+<div class="highlight"><pre><span></span><code>curl -X GET &quot;localhost:9200/_nodes?filter_path=**.mlockall&amp;pretty&quot;
 </code></pre></div>
 </div>
+<h5 id="2-heap-size-configuration">2. Heap size configuration<a class="headerlink" href="#2-heap-size-configuration" title="Permanent link">&para;</a></h5>
+<p>For a optimized heap size, check how much RAM can be allocated by the JVM on your system. Run the following command:</p>
+<pre><code>````   
+java -Xms16g -Xmx16g -XX:+UseCompressedOops -XX:+PrintFlagsFinal Oops | grep Oops
+````
+</code></pre>
+<p>Check if <code>UseCompressedOops</code> is true on the results and change <code>-Xms</code> and <code>-Xmx</code> to the desired value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Elasticsearch includes a bundled version of OpenJDK from the JDK maintainers. You can find it on <code>/usr/share/elasticsearch/jdk</code>.</p>
 </div>
-<p><br></p>
-<h5 id="2-edit-etcelasticsearchjvmoptions">2. Edit <code>/etc/elasticsearch/jvm.options</code><a class="headerlink" href="#2-edit-etcelasticsearchjvmoptions" title="Permanent link">&para;</a></h5>
+<p>After that, change the heap size by editting the following lines on <code>/etc/elasticsearch/jvm.options</code>.</p>
+<pre><code>```
+-Xms16g
+-Xmx16g
+```
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Xms and Xmx must have the same value.</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Avoid allocating more than 31GB when setting your heap size, even if you have enough RAM.</p>
-<div class="admonition success">
-<p class="admonition-title">Testing</p>
-<p>You can test on your system by running the following command with the desired size (change <code>-Xmx32g</code>):</p>
-<div class="highlight"><pre><span></span><code>java -Xmx32g -XX:+UseCompressedOops -XX:+PrintFlagsFinal Oops | grep Oops
-</code></pre></div>
-<p>Check if <code>UseCompressedOops</code> is true on the results for a valid optimized heap size. </p>
-<p>After that, edit the following lines on <code>jvm.options</code>, note that Xms and Xmx must have the same value.
-<div class="highlight"><pre><span></span><code>-Xms16g
--Xmx16g
-</code></pre></div></p>
 </div>
-</div>
-<p><br></p>
-<h5 id="3-allow-memlock">3. Allow memlock<a class="headerlink" href="#3-allow-memlock" title="Permanent link">&para;</a></h5>
-<p>run <code>sudo systemctl edit elasticsearch</code> and add the following lines:</p>
+<h5 id="3-allow-memory-lock">3. Allow memory lock<a class="headerlink" href="#3-allow-memory-lock" title="Permanent link">&para;</a></h5>
+<p>Override sysmted configuration by running <code>sudo systemctl edit elasticsearch</code> and add the following lines:</p>
 <div class="highlight"><pre><span></span><code>[Service]
 LimitMEMLOCK=infinity
 </code></pre></div>
-<h5 id="4-start-elasticsearch-and-check-the-logs-verify-if-the-memory-lock-was-successful">4. Start elasticsearch and check the logs (verify if the memory lock was successful)<a class="headerlink" href="#4-start-elasticsearch-and-check-the-logs-verify-if-the-memory-lock-was-successful" title="Permanent link">&para;</a></h5>
-<div class="highlight"><pre><span></span><code>sudo service elasticsearch start
-sudo less /var/log/elasticsearch/myCluster.log
-sudo systemctl <span class="nb">enable</span> elasticsearch
+<p>Run the following command to reload units:</p>
+<div class="highlight"><pre><span></span><code>sudo systemctl daemon-reload
 </code></pre></div>
-<h5 id="5-test-the-rest-api">5. Test the REST API<a class="headerlink" href="#5-test-the-rest-api" title="Permanent link">&para;</a></h5>
-<p><code>curl http://localhost:9200</code></p>
+<h5 id="4-start-elasticsearch">4. Start Elasticsearch<a class="headerlink" href="#4-start-elasticsearch" title="Permanent link">&para;</a></h5>
+<p>Start Elasticsearch and check the logs:</p>
+<div class="highlight"><pre><span></span><code>sudo systemctl start elasticsearch.service
+sudo less /var/log/elasticsearch/CLUSTE_NAME.log
+</code></pre></div>
+<p>Finally, enable it to run at startup:</p>
+<div class="highlight"><pre><span></span><code>sudo systemctl enable elasticsearch.service
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Don't forget to check if memory lock worked.</p>
+</div>
+<p>Test the REST API:</p>
+<div class="highlight"><pre><span></span><code>curl -X GET &quot;localhost:9200/?pretty&quot;
+</code></pre></div>
 <p>The expeted result should be something like this:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;ip-172-31-5-121&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;cluster_name&quot;</span> <span class="p">:</span> <span class="s2">&quot;hyperion&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;cluster_name&quot;</span> <span class="p">:</span> <span class="s2">&quot;CLUSTER_NAME&quot;</span><span class="p">,</span>
   <span class="nt">&quot;cluster_uuid&quot;</span> <span class="p">:</span> <span class="s2">&quot;....&quot;</span><span class="p">,</span>
   <span class="nt">&quot;version&quot;</span> <span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;number&quot;</span> <span class="p">:</span> <span class="s2">&quot;7.1.0&quot;</span><span class="p">,</span>
@@ -1137,16 +1164,23 @@ sudo systemctl <span class="nb">enable</span> elasticsearch
   <span class="nt">&quot;tagline&quot;</span> <span class="p">:</span> <span class="s2">&quot;You Know, for Search&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h5 id="6-security">6. Security<a class="headerlink" href="#6-security" title="Permanent link">&para;</a></h5>
-<p>By default, elasticsearch comes without a password configured. To avoid security problems, we recommend to
-enable the security pack on elasticsearch. </p>
-<p>To do that, add <code>xpack.security.enabled: true</code> to the end of <code>/etc/elasticsearch/elasticsearch.yml</code> file.</p>
-<p>Now it’s time to set the passwords for the cluster:</p>
+<h5 id="5-set-up-minimal-security">5. Set up minimal security<a class="headerlink" href="#5-set-up-minimal-security" title="Permanent link">&para;</a></h5>
+<p>The Elasticsearch security features are disabled by default. To avoid security problems, we recommend enabling the security pack.</p>
+<p>To do that, add the following line to the end of the <code>/etc/elasticsearch/elasticsearch.yml</code> file:</p>
+<div class="highlight"><pre><span></span><code>`xpack.security.enabled: true` to the end of
+</code></pre></div>
+<p>Now, set the passwords for the cluster:</p>
 <div class="highlight"><pre><span></span><code>sudo /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto
 </code></pre></div>
-<p>You can alternatively skip the auto parameter to manually define your passwords using the interactive parameter. 
-Keep track of these passwords, we’ll need them again soon.</p>
-<p><br></p>
+<p>Keep track of these passwords, we’ll need them again soon.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can alternatively use the <code>interactive</code> parameter to manually define your passwords.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The minimal security scenario is not sufficient for production mode clusters. Check the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/security-basic-setup.html">documentation</a> for more information.</p>
+</div>
 <h4 id="rabbitmq-installation">RabbitMQ Installation<a class="headerlink" href="#rabbitmq-installation" title="Permanent link">&para;</a></h4>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -1217,6 +1251,7 @@ Save the file, then we can restart Kibana.</p>
 </code></pre></div>
 <br></p>
 <h4 id="nodeos-configini">nodeos config.ini<a class="headerlink" href="#nodeos-configini" title="Permanent link">&para;</a></h4>
+<p>w/ state_history_plugin and chain_api_plugin</p>
 <div class="highlight"><pre><span></span><code>state-history-dir = &quot;state-history&quot;
 trace-history = true
 chain-state-history = true
