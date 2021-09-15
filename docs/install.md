@@ -1,106 +1,129 @@
 # Manual Installation
 
+This section describes how to manually setup the environment needed to run Hyperion. If you want more control of your installation, this is the way to go.
+
+!!! attention  
+    Recommended OS: Ubuntu 20.04
+
 ### Dependencies
 
-!!! attention ""
-    Recommended OS: Ubuntu 18.04
-
-
- - [Elasticsearch 7.12.X](https://www.elastic.co/downloads/elasticsearch)
+ - [Elasticsearch 7.14.X](https://www.elastic.co/downloads/elasticsearch)
  - [RabbitMQ](https://www.rabbitmq.com/install-debian.html)
- - [Node.js v15](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)
+ - [Redis](https://redis.io/topics/quickstart)
+ - [Node.js v16](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)
  - [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/)
- - [Nodeos 1.8+ (2.0 recommended)](https://github.com/EOSIO/eos/releases/latest) w/ state_history_plugin and chain_api_plugin
- - [Redis](https://redis.io/topics/quickstart) (only for the API caching layer)
+ - [EOSIO 2.0](https://github.com/EOSIO/eos/releases/latest)
 
 !!! note  
-    The indexer requires pm2 and node.js to be on the same machine. 
-    
-    The other dependencies (Elasticsearch, RabbitMQ and Nodeos) can be installed on other machines, preferably on a high speed and low latency network. 
-    
-    Indexing speed will vary greatly depending on this configuration.
+    The indexer requires Node.js and pm2 to be on the same machine. All other dependencies (Elasticsearch, RabbitMQ, Redis and EOSIO) can be installed on different machines, preferably on a high speed and low latency network. Keep in mind that indexing speed will vary greatly depending on this configuration.
 
-<br>
+### Elasticsearch Installation
 
-#### Elasticsearch Installation
+Follow the detailed installation instructions on the official [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb).
 
-!!! info
-    Follow the detailed installation instructions on the official [elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html)
+!!! info  
+    Elasticsearch is not started automatically after installation. We recomend running it with [systemd](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-running-systemd).
 
-##### 1. Edit `/etc/elasticsearch/elasticsearch.yml`
+!!! note  
+    It is very important to know the Elasticsearch [directory layout](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-layout) and to understand how [its configuration](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-configuring) works.
+
+#### Configuration
+##### 1. Elasticsearch configuration
+
+Edit the following lines on `/etc/elasticsearch/elasticsearch.yml`.
 
 ```
-cluster.name: myCluster
+cluster.name: CLUSTER_NAME
 bootstrap.memory_lock: true
 ```
 
+The memory lock option will prevent any Elasticsearch heap memory from being swapped out.
+
 !!! warning  
-    Setting `bootstrap.memory_lock: true` will make elasticsearch try to use all the RAM configured for JVM on startup  (check next step).
-    
-    This could crash if you allocate more RAM than available on the system. 
-    
-    Setting mem_lock as `false` with swap disabled might cause the JVM or shell session to exit if elasticsearch tries to allocate more memory than is available!
-    
-    !!! success "Testing"
-        After starting Elasticsearch, you can see whether this setting was applied successfully by checking the value of `mlockall` in the output from this request:
+    Setting `bootstrap.memory_lock: true` will make elasticsearch try to use all the RAM configured for JVM on startup (check next step). This can cause Elasticsearch to crash if you allocate more RAM than available.
+
+!!! note  
+    A different approach is to [disable swapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.14/setup-configuration-memory.html#setup-configuration-memory) on your system.
+
+!!! success "Testing"
+    After starting Elasticsearch, you can see whether this setting was applied successfully by checking the value of `mlockall` in the output from this request:
         
-        ````
-        GET _nodes?filter_path=**.mlockall
-        ```` 
+    ````
+    curl -X GET "localhost:9200/_nodes?filter_path=**.mlockall&pretty"
+    ````
 
+##### 2. Heap size configuration
 
+For a optimized heap size, check how much RAM can be allocated by the JVM on your system. Run the following command:
 
-<br>
+    ````   
+    java -Xms16g -Xmx16g -XX:+UseCompressedOops -XX:+PrintFlagsFinal Oops | grep Oops
+    ````
 
-##### 2. Edit `/etc/elasticsearch/jvm.options`
+Check if `UseCompressedOops` is true on the results and change `-Xms` and `-Xmx` to the desired value.
+
+!!! note  
+    Elasticsearch includes a bundled version of OpenJDK from the JDK maintainers. You can find it on `/usr/share/elasticsearch/jdk`.
+
+After that, change the heap size by editting the following lines on `/etc/elasticsearch/jvm.options`.
+
+    ```
+    -Xms16g
+    -Xmx16g
+    ```
+
+!!! note  
+    Xms and Xmx must have the same value.
 
 !!! warning  
     Avoid allocating more than 31GB when setting your heap size, even if you have enough RAM.
-    
-    !!! success "Testing"
-        You can test on your system by running the following command with the desired size (change `-Xmx32g`):
-         
-        ````   
-        java -Xmx32g -XX:+UseCompressedOops -XX:+PrintFlagsFinal Oops | grep Oops
-        ````
-        
-        Check if `UseCompressedOops` is true on the results for a valid optimized heap size. 
-        
-        After that, edit the following lines on `jvm.options`, note that Xms and Xmx must have the same value.
-        ```
-        -Xms16g
-        -Xmx16g
-        ```
 
 
-<br>
+##### 3. Allow memory lock
 
-##### 3. Allow memlock
-run `sudo systemctl edit elasticsearch` and add the following lines:
+Override sysmted configuration by running `sudo systemctl edit elasticsearch` and add the following lines:
 
 ```
 [Service]
 LimitMEMLOCK=infinity
 ```
 
-##### 4. Start elasticsearch and check the logs (verify if the memory lock was successful)
+Run the following command to reload units:
 
-```bash
-sudo service elasticsearch start
-sudo less /var/log/elasticsearch/myCluster.log
-sudo systemctl enable elasticsearch
+ ```
+ sudo systemctl daemon-reload
+ ```
+ 
+##### 4. Start Elasticsearch
+
+Start Elasticsearch and check the logs:
+
+```
+sudo systemctl start elasticsearch.service
+sudo less /var/log/elasticsearch/CLUSTE_NAME.log
 ```
 
-##### 5. Test the REST API
+Finally, enable it to run at startup:
 
-`curl http://localhost:9200`
+```
+sudo systemctl enable elasticsearch.service
+```
+
+!!! note  
+    Don't forget to check if memory lock worked.
+
+Test the REST API:
+
+```
+curl -X GET "localhost:9200/?pretty"
+```
 
 The expeted result should be something like this:
 
 ```json
 {
   "name" : "ip-172-31-5-121",
-  "cluster_name" : "hyperion",
+  "cluster_name" : "CLUSTER_NAME",
   "cluster_uuid" : "....",
   "version" : {
     "number" : "7.1.0",
@@ -117,22 +140,29 @@ The expeted result should be something like this:
 }
 ```
 
-##### 6. Security
-By default, elasticsearch comes without a password configured. To avoid security problems, we recommend to
-enable the security pack on elasticsearch. 
+##### 5. Set up minimal security
 
-To do that, add `xpack.security.enabled: true` to the end of `/etc/elasticsearch/elasticsearch.yml` file.
+The Elasticsearch security features are disabled by default. To avoid security problems, we recommend enabling the security pack.
 
-Now it’s time to set the passwords for the cluster:
+To do that, add the following line to the end of the `/etc/elasticsearch/elasticsearch.yml` file:
 
-`````bash
+```
+`xpack.security.enabled: true` to the end of
+```
+
+Now, set the passwords for the cluster:
+
+```
 sudo /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto
-`````
+```
 
-You can alternatively skip the auto parameter to manually define your passwords using the interactive parameter. 
 Keep track of these passwords, we’ll need them again soon.
 
-<br>
+!!! note  
+You can alternatively use the `interactive` parameter to manually define your passwords.
+
+
+
 
 #### RabbitMQ Installation
 
@@ -244,6 +274,9 @@ systemctl restart kibana
 <br>
 
 #### nodeos config.ini
+
+ w/ state_history_plugin and chain_api_plugin
+ 
 ```
 state-history-dir = "state-history"
 trace-history = true
