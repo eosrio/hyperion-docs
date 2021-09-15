@@ -1,6 +1,6 @@
 # Manual Installation
 
-This section describes how to manually setup the environment needed to run Hyperion. If you want more control of your installation, this is the way to go.
+This section describes how to manually set up the environment needed to run Hyperion. If you want more control of your installation, this is the way to go.
 
 !!! attention  
     Recommended OS: Ubuntu 20.04
@@ -40,7 +40,7 @@ bootstrap.memory_lock: true
 The memory lock option will prevent any Elasticsearch heap memory from being swapped out.
 
 !!! warning  
-    Setting `bootstrap.memory_lock: true` will make elasticsearch try to use all the RAM configured for JVM on startup (check next step). This can cause Elasticsearch to crash if you allocate more RAM than available.
+    Setting `bootstrap.memory_lock: true` will make Elasticsearch try to use all the RAM configured for JVM on startup (check next step). This can cause the application to crash if you allocate more RAM than available.
 
 !!! note  
     A different approach is to [disable swapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.14/setup-configuration-memory.html#setup-configuration-memory) on your system.
@@ -258,7 +258,7 @@ sudo pm2 startup
 !!! info
     Follow the detailed installation instructions on the [official documentation](https://www.elastic.co/downloads/kibana)
 
-If you have enabled the security pack on elastic, you'll need to setup the password on Kibana. Edit the `/etc/kibana/kibana.yml` file, find the lines that look like this:
+If you have enabled the security pack on elastic, you'll need to set up the password on Kibana. Edit the `/etc/kibana/kibana.yml` file, find the lines that look like this:
 
 `````bash 
 #elasticsearch.username: "user"
