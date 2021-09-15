@@ -10,6 +10,7 @@ This section describes how to manually set up the environment needed to run Hype
 Below you can find the list of all Hyperion's dependencies:
 
  - [Elasticsearch 7.14.X](https://www.elastic.co/downloads/elasticsearch)
+ - [Kibana 7.14.X](https://www.elastic.co/downloads/kibana)
  - [RabbitMQ](https://www.rabbitmq.com/install-debian.html)
  - [Redis](https://redis.io/topics/quickstart)
  - [Node.js v16](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)
@@ -168,6 +169,42 @@ Keep track of these passwords, we’ll need them again soon.
 !!! attention
     The minimal security scenario is not sufficient for production mode clusters. Check the [documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-basic-setup.html) for more information.
 
+## Kibana Installation
+
+Follow the detailed installation instructions on the official [Kibana documentation](https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-repo). Return to this documentation before running it.
+
+!!! info  
+    Kibana is not started automatically after installation. We recomend running it with [systemd](https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-running-systemd).
+
+!!! note  
+    Like on Elasticsearch, it is very important to know the Kibana [directory layout](https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-layout) and to understand how the [configuration](https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-configuring) works.
+
+
+### Configuration
+
+##### 1. Elasticsearch security
+
+If you have enabled the security pack on Elasticsearch, you need to set up the password on Kibana. Edit the folowing lines on the `/etc/kibana/kibana.yml` file:
+
+```bash 
+elasticsearch.username: "kibana_system"
+elasticsearch.password: "password"
+```
+
+##### 2. Start Kibana
+
+Start Kibana and check the logs:
+
+```bash
+sudo systemctl start kibana.service
+sudo less /var/log/kibana/kibana.log
+```
+
+Enable it to run at startup:
+
+```bash
+sudo systemctl enable kibana.service
+```
 
 #### RabbitMQ Installation
 
@@ -257,25 +294,6 @@ sudo pm2 startup
 
 <br>
 
-#### Kibana Installation
-
-!!! info
-    Follow the detailed installation instructions on the [official documentation](https://www.elastic.co/downloads/kibana)
-
-If you have enabled the security pack on elastic, you'll need to set up the password on Kibana. Edit the `/etc/kibana/kibana.yml` file, find the lines that look like this:
-
-`````bash 
-#elasticsearch.username: "user"
-#elasticsearch.password: "pass"
-`````                        
-                
-Uncomment the username and password fields by removing the # character at the beginning of the line. Change "user" to "kibana" 
-and then change "pass" to whatever the setup-passwords command tells us the Kibana password is. 
-Save the file, then we can restart Kibana.
-
-```
-systemctl restart kibana
-```
 <br>
 
 #### nodeos config.ini
