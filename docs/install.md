@@ -48,17 +48,17 @@ The memory lock option will prevent any Elasticsearch heap memory from being swa
 !!! success "Testing"
     After starting Elasticsearch, you can see whether this setting was applied successfully by checking the value of `mlockall` in the output from this request:
         
-    ````
+    ```bash
     curl -X GET "localhost:9200/_nodes?filter_path=**.mlockall&pretty"
-    ````
+    ```
 
 ##### 2. Heap size configuration
 
 For a optimized heap size, check how much RAM can be allocated by the JVM on your system. Run the following command:
 
-    ````   
-    java -Xms16g -Xmx16g -XX:+UseCompressedOops -XX:+PrintFlagsFinal Oops | grep Oops
-    ````
+```
+java -Xms16g -Xmx16g -XX:+UseCompressedOops -XX:+PrintFlagsFinal Oops | grep Oops
+```
 
 Check if `UseCompressedOops` is true on the results and change `-Xms` and `-Xmx` to the desired value.
 
@@ -67,10 +67,10 @@ Check if `UseCompressedOops` is true on the results and change `-Xms` and `-Xmx`
 
 After that, change the heap size by editting the following lines on `/etc/elasticsearch/jvm.options`.
 
-    ```
-    -Xms16g
-    -Xmx16g
-    ```
+```
+-Xms16g
+-Xmx16g
+```
 
 !!! note  
     Xms and Xmx must have the same value.
@@ -90,22 +90,22 @@ LimitMEMLOCK=infinity
 
 Run the following command to reload units:
 
- ```
- sudo systemctl daemon-reload
- ```
+```bash
+sudo systemctl daemon-reload
+```
  
 ##### 4. Start Elasticsearch
 
 Start Elasticsearch and check the logs:
 
-```
+```bash
 sudo systemctl start elasticsearch.service
 sudo less /var/log/elasticsearch/CLUSTE_NAME.log
 ```
 
 Finally, enable it to run at startup:
 
-```
+```bash
 sudo systemctl enable elasticsearch.service
 ```
 
@@ -152,7 +152,7 @@ To do that, add the following line to the end of the `/etc/elasticsearch/elastic
 
 Now, set the passwords for the cluster:
 
-```
+```bash
 sudo /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto
 ```
 
