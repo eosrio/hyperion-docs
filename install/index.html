@@ -1094,26 +1094,22 @@ bootstrap.memory_lock: true
 <div class="admonition success">
 <p class="admonition-title">Testing</p>
 <p>After starting Elasticsearch, you can see whether this setting was applied successfully by checking the value of <code>mlockall</code> in the output from this request:</p>
-<div class="highlight"><pre><span></span><code>curl -X GET &quot;localhost:9200/_nodes?filter_path=**.mlockall&amp;pretty&quot;
+<div class="highlight"><pre><span></span><code>curl -X GET <span class="s2">&quot;localhost:9200/_nodes?filter_path=**.mlockall&amp;pretty&quot;</span>
 </code></pre></div>
 </div>
 <h5 id="2-heap-size-configuration">2. Heap size configuration<a class="headerlink" href="#2-heap-size-configuration" title="Permanent link">&para;</a></h5>
 <p>For a optimized heap size, check how much RAM can be allocated by the JVM on your system. Run the following command:</p>
-<pre><code>````   
-java -Xms16g -Xmx16g -XX:+UseCompressedOops -XX:+PrintFlagsFinal Oops | grep Oops
-````
-</code></pre>
+<div class="highlight"><pre><span></span><code>java -Xms16g -Xmx16g -XX:+UseCompressedOops -XX:+PrintFlagsFinal Oops | grep Oops
+</code></pre></div>
 <p>Check if <code>UseCompressedOops</code> is true on the results and change <code>-Xms</code> and <code>-Xmx</code> to the desired value.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Elasticsearch includes a bundled version of OpenJDK from the JDK maintainers. You can find it on <code>/usr/share/elasticsearch/jdk</code>.</p>
 </div>
 <p>After that, change the heap size by editting the following lines on <code>/etc/elasticsearch/jvm.options</code>.</p>
-<pre><code>```
--Xms16g
+<div class="highlight"><pre><span></span><code>-Xms16g
 -Xmx16g
-```
-</code></pre>
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Xms and Xmx must have the same value.</p>
@@ -1136,7 +1132,7 @@ LimitMEMLOCK=infinity
 sudo less /var/log/elasticsearch/CLUSTE_NAME.log
 </code></pre></div>
 <p>Finally, enable it to run at startup:</p>
-<div class="highlight"><pre><span></span><code>sudo systemctl enable elasticsearch.service
+<div class="highlight"><pre><span></span><code>sudo systemctl <span class="nb">enable</span> elasticsearch.service
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
