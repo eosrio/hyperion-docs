@@ -23,9 +23,9 @@ repo_url: 'https://github.com/eosrio/hyperion-history-api'
 nav:
     - Home: index.md
     - Providers:
-      - Enviroment Setup:
+      - Enviroment Set Up:
+        - Manual Set Up: install.md
         - Script: quickstart.md
-        - Manual: install.md
         - Docker: docker.md
       - Hyperion Setup: hyperion.md
       - Connections: connections.md
