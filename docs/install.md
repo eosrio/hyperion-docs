@@ -11,7 +11,7 @@ Below you can find the list of all Hyperion's dependencies:
 
  - [Elasticsearch 7.14.X](https://www.elastic.co/downloads/elasticsearch)
  - [Kibana 7.14.X](https://www.elastic.co/downloads/kibana)
- - [RabbitMQ](https://www.rabbitmq.com/install-debian.html)
+ - [RabbitMQ](https://www.rabbitmq.com)
  - [Redis](https://redis.io/topics/quickstart)
  - [Node.js v16](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)
  - [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/)
@@ -206,10 +206,13 @@ Enable it to run at startup:
 sudo systemctl enable kibana.service
 ```
 
-#### RabbitMQ Installation
+## RabbitMQ Installation
 
-!!! info
-    Follow the detailed installation instructions on the official [RabbitMQ documentation](https://www.rabbitmq.com/install-debian.html#installation-methods)
+Follow the detailed installation instructions on the official [RabbitMQ documentation](https://www.rabbitmq.com/install-debian.html#installation-methods).
+
+RabbitMQ should automatically start after installation. Check the [documentation](https://www.rabbitmq.com/install-debian.html#managing-service) for more details on how to manage its service.
+
+### Configuration
 
 ##### 1. Enable the WebUI
 
@@ -218,83 +221,79 @@ sudo rabbitmq-plugins enable rabbitmq_management
 ```
 
 ##### 2. Add vhost
+
 ```bash
 sudo rabbitmqctl add_vhost hyperion
 ```
 
 ##### 3. Create a user and password
+
 ```bash
-sudo rabbitmqctl add_user {my_user} {my_password}
+sudo rabbitmqctl add_user USER PASSWORD
 ```
 
 ##### 4. Set the user as administrator
+
 ```bash
-sudo rabbitmqctl set_user_tags {my_user} administrator
+sudo rabbitmqctl set_user_tags USER administrator
 ```
 
 ##### 5. Set the user permissions to the vhost
+
 ```bash
-sudo rabbitmqctl set_permissions -p hyperion {my_user} ".*" ".*" ".*"
+sudo rabbitmqctl set_permissions -p hyperion USER ".*" ".*" ".*"
 ```
 
 ##### 6. Check access to the WebUI
 
 [http://localhost:15672](http://localhost:15672)
 
-<br>
+## Redis Installation
 
-#### Redis Installation
-
-##### 1. Install
 ```bash
 sudo apt install redis-server
 ```
 
-##### 2. Edit `/etc/redis/redis.conf`
+Redis will also start automatically after installation.
 
-Change `supervised` to `systemd`
+### Configuration
+
+##### 1. Update Redis supervision method
+
+Change the `supervised` configuration to `systemd` on `/etc/redis/redis.conf`.
 
 !!! note
-    By default, redis binds to the localhost address. You need to edit `bind` in
-    the config file if you want to listen to other network.
+    By default, Redis binds to the localhost address. You need to edit `bind` in the config file if you want to listen to other network.
 
 
-##### 3. Restart redis
+##### 2. Restart Redis
 ```bash
 sudo systemctl restart redis.service
 ```
 
-<br>
+## NodeJS Instalation
 
-#### NodeJS
-
-##### 1. Add the nodejs source
 ```bash
-curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
-```
-
-##### 2. Install nodejs
-```bash
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
-<br>
+!!! attention  
+    Make sure to configure npm not to use sudo when installing global packages.
 
-#### PM2
+## PM2 Instalation
 
-##### 1. Install
 ```bash
-sudo npm install pm2@latest -g
+npm install pm2@latest -g
 ```
 
-##### 2. Configure for system startup
+### Configuration
+
+##### 1. Configure for system startup
+
 ```bash
-sudo pm2 startup
+pm2 startup
 ```
-
-<br>
-
-<br>
 
 #### nodeos config.ini
 
