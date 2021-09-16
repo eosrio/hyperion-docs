@@ -555,15 +555,28 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#nodeos-configini" class="md-nav__link">
-    nodeos config.ini
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eosio-instalation" class="md-nav__link">
+    EOSIO Instalation
+  </a>
+  
+    <nav class="md-nav" aria-label="EOSIO Instalation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration_5" class="md-nav__link">
+    Configuration
+  </a>
   
 </li>
         
@@ -1089,15 +1102,28 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#nodeos-configini" class="md-nav__link">
-    nodeos config.ini
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eosio-instalation" class="md-nav__link">
+    EOSIO Instalation
+  </a>
+  
+    <nav class="md-nav" aria-label="EOSIO Instalation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration_5" class="md-nav__link">
+    Configuration
+  </a>
   
 </li>
         
@@ -1138,7 +1164,7 @@
 <li><a href="https://redis.io/topics/quickstart">Redis</a></li>
 <li><a href="https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions">Node.js v16</a></li>
 <li><a href="http://pm2.keymetrics.io/docs/usage/quick-start/">PM2</a></li>
-<li><a href="https://github.com/EOSIO/eos/releases/latest">EOSIO 2.0</a></li>
+<li><a href="https://github.com/EOSIO/eos">EOSIO 2.1</a></li>
 </ul>
 <p>On the next steps you will install and configure each one of them.</p>
 <div class="admonition note">
@@ -1300,7 +1326,7 @@ sudo less /var/log/kibana/kibana.log
 <div class="highlight"><pre><span></span><code>sudo rabbitmqctl set_permissions -p hyperion USER <span class="s2">&quot;.*&quot;</span> <span class="s2">&quot;.*&quot;</span> <span class="s2">&quot;.*&quot;</span>
 </code></pre></div>
 <h5 id="6-check-access-to-the-webui">6. Check access to the WebUI<a class="headerlink" href="#6-check-access-to-the-webui" title="Permanent link">&para;</a></h5>
-<p><a href="http://localhost:15672">http://localhost:15672</a></p>
+<p>Try to access RabbitMQ WebUI at <a href="http://localhost:15672">http://localhost:15672</a>.</p>
 <h2 id="redis-installation">Redis Installation<a class="headerlink" href="#redis-installation" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>sudo apt install redis-server
 </code></pre></div>
@@ -1330,21 +1356,20 @@ sudo apt-get install -y nodejs
 <h5 id="1-configure-for-system-startup">1. Configure for system startup<a class="headerlink" href="#1-configure-for-system-startup" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code>pm2 startup
 </code></pre></div>
-<h4 id="nodeos-configini">nodeos config.ini<a class="headerlink" href="#nodeos-configini" title="Permanent link">&para;</a></h4>
-<p>w/ state_history_plugin and chain_api_plugin</p>
+<h2 id="eosio-instalation">EOSIO Instalation<a class="headerlink" href="#eosio-instalation" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>wget https://github.com/eosio/eos/releases/download/v2.1.0/eosio_2.1.0-1-ubuntu-20.04_amd64.deb
+sudo apt install ./eosio_2.1.0-1-ubuntu-20.04_amd64.deb
+</code></pre></div>
+<h3 id="configuration_5">Configuration<a class="headerlink" href="#configuration_5" title="Permanent link">&para;</a></h3>
+<p>Add the following configuration to the <code>config.ini</code> file:</p>
 <div class="highlight"><pre><span></span><code>state-history-dir = &quot;state-history&quot;
 trace-history = true
 chain-state-history = true
 state-history-endpoint = 127.0.0.1:8080
+plugin = eosio::chain_api_plugin
 plugin = eosio::state_history_plugin
 </code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>On EOSIO version higher or equal to 2.0.x, use wasm-runtime = eos-vm-jit to improve
-performance.</p>
-</div>
-<p>If everything runs smoothly, now it's time to install <a href="../hyperion/">hyperion</a>! <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M639.4 433.6c-8.4-20.4-31.8-30.1-52.2-21.6l-22.1 9.2-38.7-101.9c47.9-35 64.8-100.3 34.5-152.8L474.3 16c-8-13.9-25.1-19.7-40-13.6L320 49.8 205.7 2.4c-14.9-6.2-32-.3-40 13.6L79.1 166.5C48.9 219 65.7 284.3 113.6 319.2L74.9 421.1l-22.1-9.2c-20.4-8.5-43.7 1.2-52.2 21.6-1.7 4.1.2 8.8 4.3 10.5l162.3 67.4c4.1 1.7 8.7-.2 10.4-4.3 8.4-20.4-1.2-43.8-21.6-52.3l-22.1-9.2L173.3 342c4.4.5 8.8 1.3 13.1 1.3 51.7 0 99.4-33.1 113.4-85.3l20.2-75.4 20.2 75.4c14 52.2 61.7 85.3 113.4 85.3 4.3 0 8.7-.8 13.1-1.3L506 445.6l-22.1 9.2c-20.4 8.5-30.1 31.9-21.6 52.3 1.7 4.1 6.4 6 10.4 4.3L635.1 444c4-1.7 6-6.3 4.3-10.4zM275.9 162.1l-112.1-46.5 36.5-63.4 94.5 39.2-18.9 70.7zm88.2 0l-18.9-70.7 94.5-39.2 36.5 63.4-112.1 46.5z"/></svg></span></p>
-<p><br></p>
+<p>If everything runs smoothly, it's time to install <a href="../hyperion/">hyperion</a>! <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M639.4 433.6c-8.4-20.4-31.8-30.1-52.2-21.6l-22.1 9.2-38.7-101.9c47.9-35 64.8-100.3 34.5-152.8L474.3 16c-8-13.9-25.1-19.7-40-13.6L320 49.8 205.7 2.4c-14.9-6.2-32-.3-40 13.6L79.1 166.5C48.9 219 65.7 284.3 113.6 319.2L74.9 421.1l-22.1-9.2c-20.4-8.5-43.7 1.2-52.2 21.6-1.7 4.1.2 8.8 4.3 10.5l162.3 67.4c4.1 1.7 8.7-.2 10.4-4.3 8.4-20.4-1.2-43.8-21.6-52.3l-22.1-9.2L173.3 342c4.4.5 8.8 1.3 13.1 1.3 51.7 0 99.4-33.1 113.4-85.3l20.2-75.4 20.2 75.4c14 52.2 61.7 85.3 113.4 85.3 4.3 0 8.7-.8 13.1-1.3L506 445.6l-22.1 9.2c-20.4 8.5-30.1 31.9-21.6 52.3 1.7 4.1 6.4 6 10.4 4.3L635.1 444c4-1.7 6-6.3 4.3-10.4zM275.9 162.1l-112.1-46.5 36.5-63.4 94.5 39.2-18.9 70.7zm88.2 0l-18.9-70.7 94.5-39.2 36.5 63.4-112.1 46.5z"/></svg></span></p>
                 
               
               
