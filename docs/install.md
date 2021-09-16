@@ -15,7 +15,7 @@ Below you can find the list of all Hyperion's dependencies:
  - [Redis](https://redis.io/topics/quickstart)
  - [Node.js v16](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)
  - [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/)
- - [EOSIO 2.0](https://github.com/EOSIO/eos/releases/latest)
+ - [EOSIO 2.1](https://github.com/EOSIO/eos)
 
 On the next steps you will install and configure each one of them.
 
@@ -246,7 +246,7 @@ sudo rabbitmqctl set_permissions -p hyperion USER ".*" ".*" ".*"
 
 ##### 6. Check access to the WebUI
 
-[http://localhost:15672](http://localhost:15672)
+Try to access RabbitMQ WebUI at [http://localhost:15672](http://localhost:15672).
 
 ## Redis Installation
 
@@ -295,22 +295,24 @@ npm install pm2@latest -g
 pm2 startup
 ```
 
-#### nodeos config.ini
+## EOSIO Instalation
 
- w/ state_history_plugin and chain_api_plugin
- 
+```
+wget https://github.com/eosio/eos/releases/download/v2.1.0/eosio_2.1.0-1-ubuntu-20.04_amd64.deb
+sudo apt install ./eosio_2.1.0-1-ubuntu-20.04_amd64.deb
+```
+
+### Configuration
+
+Add the following configuration to the `config.ini` file:
+
 ```
 state-history-dir = "state-history"
 trace-history = true
 chain-state-history = true
 state-history-endpoint = 127.0.0.1:8080
+plugin = eosio::chain_api_plugin
 plugin = eosio::state_history_plugin
 ```
 
-!!!tip
-    On EOSIO version higher or equal to 2.0.x, use wasm-runtime = eos-vm-jit to improve
-    performance.
-
-If everything runs smoothly, now it's time to install [hyperion](hyperion.md)! :fontawesome-solid-glass-cheers:
-
-<br>
+If everything runs smoothly, it's time to install [hyperion](hyperion.md)! :fontawesome-solid-glass-cheers:
