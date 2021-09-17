@@ -587,7 +587,7 @@
 
   <li class="md-nav__item">
     <a href="../quickstart/" class="md-nav__link">
-      Script
+      Installation Script
     </a>
   </li>
 
@@ -1270,8 +1270,9 @@ sudo less /var/log/elasticsearch/CLUSTE_NAME.log
 <p>To do that, add the following line to the end of the <code>/etc/elasticsearch/elasticsearch.yml</code> file:</p>
 <div class="highlight"><pre><span></span><code>xpack.security.enabled: true
 </code></pre></div>
-<p>Now, set the passwords for the cluster:</p>
-<div class="highlight"><pre><span></span><code>sudo /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto
+<p>Restart Elasticsearch and set the passwords for the cluster:</p>
+<div class="highlight"><pre><span></span><code>sudo systemctl restart elasticsearch.service
+sudo /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto
 </code></pre></div>
 <p>Keep track of these passwords, we’ll need them again soon.</p>
 <div class="admonition note">
@@ -1409,7 +1410,7 @@ plugin = eosio::state_history_plugin
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Script
+                Installation Script
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
