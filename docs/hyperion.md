@@ -1,6 +1,6 @@
-# Hyperion Setup
+# Hyperion Set Up
 
-### 1. Clone & Install packages
+### Clone & Install packages
 ```bash
 git clone https://github.com/eosrio/hyperion-history-api.git
 cd hyperion-history-api
@@ -12,164 +12,85 @@ npm install
 
 <br>
 
-### 2. Edit configs
-```
-cp example-ecosystem.config.js ecosystem.config.js
-nano ecosystem.config.js
+## Set Up
 
-# Enter connection details here (chain name must match on the ecosystem file)
-cp example-connections.json connections.json
-nano connections.json
-```
+TODO: Describe hyp-config tool.
 
-##### connections.json Reference
-```json
-{
-   "amqp":{
-      "host":"127.0.0.1:5672",
-      "api":"127.0.0.1:15672",
-      "user":"my_user",
-      "pass":"my_password",
-      "vhost":"hyperion"
-   },
-   "elasticsearch":{
-      "host":"127.0.0.1:9200",
-      "ingest_nodes":[
-         "127.0.0.1:9200"
-      ],
-      "user":"",
-      "pass":""
-   },
-   "redis":{
-      "host":"127.0.0.1",
-      "port":"6379"
-   },
-   "chains":{
-      "eos":{
-         "name":"EOS Mainnet",
-         "chain_id":"aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906",
-         "http":"http://127.0.0.1:8888",
-         "ship":"ws://127.0.0.1:8080",
-         "WS_ROUTER_PORT":7001
-      }
-   }
-}
-```
-For more details, refer to the [connections section](connections.md)
+### Initialize connections
 
-<br>
-
-##### ecosystem.config.js Reference
-```javascript
-module.exports = {
-    apps: [
-        addIndexer('eos'),
-        addApiServer('eos', 1)
-    ]
-};
-```
-For more details, refer to the [ecosystem section](ecosystem.md)
-
-<br>
-
-### 3. Setup
+First, let's initialize the connections configuration. Just run:
 
 ```
-cp chains/example.config.json chains/CHAIN_NAME.config.json
+./hyp-config init connections
+```
 
-Example:
-cp chains/example.config.json chains/eos.config.json
-``` 
-The default config.json file is ready to run. The parameter `abi_scan_mode` is `true` to perform an abi scan on the first run.
+!!! note
+    This command will also check the connection to Elasticsearch, Rabbitmq and Redis.
 
-For more details, refer to the [chain section](chain.md)
+### Add new chain
 
-<br>
+Now you can proceed and add a new chain to your configuration. Run the following command:
 
-### 4. Start and Stop
+```
+./hyp-config new chain eos --http "http://127.0.0.1:8888" --ship "ws://127.0.0.1:8080"
+```
+
+### Check you configuration
+
+Finally, check your configuration running:
+
+```
+/hyp-config list chains
+```
+
+## Plugins Set Up
+
+!!! attention
+    Under contruction
+
+## Running Hyperion
 
 We provide scripts to simplify the process of starting and stopping your Hyperion Indexer or API instance.
-But, you can also do it manually if you prefer. This section will cover both ways:
 
-#### Option 1: Using run / stop script
+### Starting
 
-!!! success ""
-    
-    ##### run script
-    
-    You can use `run` script to start the Indexer or the API.
-    
+To start, just use the run.sh script. Here are some examples:
+
+!!! example "Examples"
+    Starting indexer for EOS mainnet:
     ```
-    ./run.sh chain-indexer
-    
-    ./run.sh chain-api
+    ./run.sh eos-indexer
     ```
-    
-    !!! example "Examples"
-        Start indexing EOS mainnet: 
-        ```
-        ./run.sh eos-indexer
-        ```
-        Start EOS API: 
-        ```
-        ./run.sh eos-api
-        ```
-
-Remember that the chain name was previously defined in the [setup step](#3-setup).
-
-!!! failure ""
-
-    ##### stop script
-    
-    The `stop` script follows the same pattern of the `run` script:
+    Starting API for test chain:
     ```
-    ./stop.sh chain-indexer
-    
-    ./stop.sh chain-api
+    ./run.sh test-api
     ```
-    !!! example
-        Stop the EOS mainnet indexer: 
-        ```
-        ./stop.sh eos-indexer
-        ```
-    !!! note  
-        **The stop script won't stop Hyperion Indexer immediately**, it will first flush the queues.
-        This operation could take some time.
-        If you want to stop immediately, you need to run the "force stop command" explained below.
 
+!!! note
+    You need to pass the name of the chain you previously created followed by indexer or api to indicate the instance you want to start.
 
+### Stopping
 
-<br>
+Use the stop.sh script to stop an instance as follows:
 
-#### Option 2: Commands
+!!! example "Examples"
+    Stop API for EOS mainnet:
+    ```
+    ./stop.sh eos-api
+    ```
+    Stop indexer for WAX mainnet:
+    ```
+    ./stop.sh wax-indexer
+    ```
 
-##### Start indexing
-```
-pm2 start --only chain-indexer --update-env
-pm2 logs chain-indexer
-```
+!!! note
+    You need to pass the name of the chain you previously created followed by indexer or api to indicate the instance you want to stop.
 
-##### Stop reading and wait for queues to flush
-```
-pm2 trigger chain-indexer stop
-```
+!!! attention  
+    The stop script won't stop Hyperion Indexer immediately, it will first flush the queues. Be aware that this operation could take some time.
 
-##### Force stop
-```
-pm2 stop chain-indexer
-```
-
-##### Starting the API node
-```
-pm2 start --only chain-api --update-env
-pm2 logs chain-api
-```
-
-<br>
-
-### 5. Indexer
-As mentioned before on [Setup](#3-setup), the Hyperion Indexer is configured to perform an abi scan `("abi_scan_mode": true)` as default.
-So, on your first run, you'll probably see something like this:
+## Indexer
+As mentioned before on [Setup](#3-setup), the Hyperion Indexer is configured to perform an abi scan `("abi_scan_mode": true)` as default. So, on your first run, you'll probably see something like this:
 
  [![indexer](img/indexer.png)](img/indexer.png)
  
@@ -184,19 +105,10 @@ Where:
   - D (Deserialized): Deserializations of the actions.
   - I (Indexed): Indexing of all of the docs.
 
-<br>
 
-### 6. API
+## API
 After running the api, you should see a log like this:
 
  [![api](img/api.png)](img/api.png)
 
 Now, it's time to play around making some queries. :fontawesome-regular-laugh-beam:
-
-### API Reference
-
-API Reference: [API section: v2](v2.md)
-
-Example: [OpenAPI Docs](https://eos.hyperion.eosrio.io/v2/docs)
-
-<br>
