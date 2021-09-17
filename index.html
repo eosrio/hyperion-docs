@@ -357,13 +357,13 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" >
     
     <label class="md-nav__link" for="nav-2-1">
-      Enviroment Set Up
+      Hyperion Installation
       <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" aria-label="Enviroment Set Up" data-md-level="2">
+    <nav class="md-nav" aria-label="Hyperion Installation" data-md-level="2">
       <label class="md-nav__title" for="nav-2-1">
         <span class="md-nav__icon md-icon"></span>
-        Enviroment Set Up
+        Hyperion Installation
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -418,9 +418,33 @@
 
 
 
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Hyperion Set Up
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Hyperion Set Up" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon"></span>
+        Hyperion Set Up
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
   <li class="md-nav__item">
     <a href="hyperion/" class="md-nav__link">
-      Hyperion Setup
+      Configuration
     </a>
   </li>
 
@@ -433,7 +457,7 @@
 
   <li class="md-nav__item">
     <a href="connections/" class="md-nav__link">
-      Connections
+      Connections Configuration Details
     </a>
   </li>
 
@@ -446,21 +470,13 @@
 
   <li class="md-nav__item">
     <a href="chain/" class="md-nav__link">
-      Chain Configuration
+      Chain Configuration Details
     </a>
   </li>
 
         
-          
-          
-          
-
-
-
-  <li class="md-nav__item">
-    <a href="ecosystem/" class="md-nav__link">
-      Ecosystem
-    </a>
+      </ul>
+    </nav>
   </li>
 
         
@@ -760,37 +776,42 @@
                 <h1 id="hyperion-history-api">Hyperion History API<a class="headerlink" href="#hyperion-history-api" title="Permanent link">&para;</a></h1>
 <p><a href="img/hype.jpg"><img alt="Hyperion" src="img/hype.jpg" /></a></p>
 <div class="admonition abstract">
-<p>Scalable Full History API Solution for EOSIO based blockchains</p>
-<p>Made with ♥ by <a href="https://eosrio.io/">EOS Rio</a></p>
+<p class="admonition-title">Abstract</p>
 </div>
+<p>Scalable Full History API Solution for EOSIO based blockchains
+Made with ♥ by <a href="https://eosrio.io/">EOS Rio</a></p>
 <h3 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h3>
-<p>Hyperion is a full history solution for indexing, storing and retrieving EOSIO blockchain`s historical data. 
-EOSIO protocol is highly scalable, reaching up to tens of thousands of transactions per second, demanding high-performance indexing and optimized storage and querying solutions.
-Hyperion is developed to tackle those challenges providing open-source software to be operated by block producers, infrastructure providers and dApp developers.
-Focused on delivering faster search times, lower bandwidth overhead and easier usability for UI/UX developers, Hyperion implements an improved data structure:</p>
+<p>Hyperion is a full history solution for indexing, storing and retrieving EOSIO blockchain`s historical data. EOSIO
+protocol is highly scalable, reaching up to tens of thousands of transactions per second, demanding high-performance
+indexing and optimized storage and querying solutions. Hyperion is developed to tackle those challenges providing
+open-source software to be operated by block producers, infrastructure providers and dApp developers. Focused on
+delivering faster search times, lower bandwidth overhead and easier usability for UI/UX developers, Hyperion implements
+an improved data structure:</p>
 <ul>
-<li>actions are stored in a flattened format;  </li>
+<li>actions are stored in a flattened format;</li>
 <li>a parent field is added to the inline actions to point to the parent global sequence</li>
-<li>if the inline action data is identical to the parent, it is considered a notification and thus removed from the database.</li>
+<li>if the inline action data is identical to the parent, it is considered a notification and thus removed from the
+  database.</li>
 </ul>
 <p>No blocks or transaction data are stored; all information can be reconstructed from actions.</p>
 <h3 id="2-architecture">2. Architecture<a class="headerlink" href="#2-architecture" title="Permanent link">&para;</a></h3>
 <p>The following components are required to have a fully functional Hyperion API deployment.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>For small use cases, it is fine to run all components on a single machine. But for larger chains and production environments, 
-we recommend setting them up into different servers under a high-speed local network.</p>
-</div>
+<p>!!! tip For small use cases, it is fine to run all components on a single machine. But for larger chains and production
+environments, we recommend setting them up into different servers under a high-speed local network.</p>
 <h4 id="21-elasticsearch-cluster">2.1 - Elasticsearch Cluster<a class="headerlink" href="#21-elasticsearch-cluster" title="Permanent link">&para;</a></h4>
-<p>The ES cluster is responsible for storing all indexed data. Direct access to the Hyperion API and Indexer must be provided. </p>
-<p>We recommend nodes in the cluster to have at least 32GB of RAM and 8 CPU cores. SSD/NVME drives are recommended for maximum indexing throughput.</p>
+<p>The ES cluster is responsible for storing all indexed data. Direct access to the Hyperion API and Indexer must be
+provided.</p>
+<p>We recommend nodes in the cluster to have at least 32GB of RAM and 8 CPU cores. SSD/NVME drives are recommended for
+maximum indexing throughput.</p>
 <p>For production environments, a multi-node cluster is highly recommended.</p>
 <h4 id="22-hyperion-indexer">2.2 - Hyperion Indexer<a class="headerlink" href="#22-hyperion-indexer" title="Permanent link">&para;</a></h4>
-<p>The indexer is a Node.js based app that processes data from the state history plugin and allows it to be indexed. </p>
-<p>The PM2 process manager is used to launch and operate the indexer. The configuration flexibility is very extensive, so system recommendations depend on the use case and data load. </p>
+<p>The indexer is a Node.js based app that processes data from the state history plugin and allows it to be indexed.</p>
+<p>The PM2 process manager is used to launch and operate the indexer. The configuration flexibility is very extensive, so
+system recommendations depend on the use case and data load.</p>
 <p>It requires access to at least one ES node, RabbitMQ, and the state history node.</p>
 <h4 id="23-hyperion-api">2.3 - Hyperion API<a class="headerlink" href="#23-hyperion-api" title="Permanent link">&para;</a></h4>
-<p>Parallelizable API server that provides the V2 and V1 (legacy history plugin) endpoints. It is launched by PM2 and can also operate in cluster mode. </p>
+<p>Parallelizable API server that provides the V2 and V1 (legacy history plugin) endpoints. It is launched by PM2 and can
+also operate in cluster mode.</p>
 <p>It requires direct access to at least one ES node for the queries and all other services for a full health check.</p>
 <h4 id="24-rabbitmq">2.4 - RabbitMQ<a class="headerlink" href="#24-rabbitmq" title="Permanent link">&para;</a></h4>
 <p>Use as messaging queue and data transport between the indexer stages.</p>
@@ -798,17 +819,17 @@ we recommend setting them up into different servers under a high-speed local net
 <p>Nodeos plugin used to collect action traces and state deltas. It provides data via websocket to the indexer.</p>
 <h3 id="3-how-to-use">3. How to use<a class="headerlink" href="#3-how-to-use" title="Permanent link">&para;</a></h3>
 <h4 id="31-for-providers">3.1 For Providers<a class="headerlink" href="#31-for-providers" title="Permanent link">&para;</a></h4>
-<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Script</label><div class="tabbed-content">
-<p>For fresh installs, we recommend using the installation script. To do that, refer to the <a href="quickstart/">script section</a>.</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Script</label><div class="tabbed-content"></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Manual Installation</label><div class="tabbed-content">
-<p>If you already have a previous version of Hyperion installed or if you want to set up the whole environment manually, please, 
- refer to the <a href="install/">manual installation section</a>.</p>
+<p>For fresh installs, we recommend using the installation script. To do that, refer to the <a href="quickstart/">script section</a>
+.</p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Manual Installation</label><div class="tabbed-content"></div>
 </div>
-<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Docker</label><div class="tabbed-content">
+<p>If you already have a previous version of Hyperion installed or if you want to set up the whole environment manually,
+please, refer to the <a href="install/">manual installation section</a>.</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Docker</label><div class="tabbed-content"></div>
+</div>
 <p>For a light docker version of Hyperion, click <a href="docker/">here</a>.</p>
-</div>
-</div>
 <h4 id="32-for-developers">3.2 For Developers<a class="headerlink" href="#32-for-developers" title="Permanent link">&para;</a></h4>
 <p>For developers, click <a href="howtouse/">here</a></p>
                 
