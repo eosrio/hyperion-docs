@@ -1,7 +1,10 @@
-## Installation Script
+# Installation Script
+!!! attention
+    The installation script and this guide are not to date.
+
 !!! tip
-    The usage of this installation script is highly recommended for fresh installs. If you already have
-    dependencies installed, update them manually before running the script.
+    The usage of this script is highly recommended for fresh installations. If you already have dependencies installed,
+    update them manually before running the script.
 
 !!! note
     For Windows installation using Multipass, refer to [this guide](windows.md) 
@@ -49,4 +52,4 @@ To login into Kibana, use the `elastic` user credentials.
 
 <br>
 
- Now it's time to install [hyperion](hyperion.md)! :fontawesome-solid-glass-cheers:
+ Now it's time to install [hyperion](hyperion_configuration.md)! :fontawesome-solid-glass-cheers:

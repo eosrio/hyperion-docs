@@ -1,144 +1,135 @@
-## Detailed description of the chains/example.config.json
+# Detailed Description of Chain Configuration
 
 This section is a quick guide of the config.json file. Here you are going to find a brief explanation of each parameter
 with its default value and an example of real usage.
 
 ### 1. API Configuration
 
-  - `"chain_name": "EXAMPLE Chain"`
-  - `"server_addr": "127.0.0.1"`
-  - `"server_port": 7000`
-  - `"server_name": "127.0.0.1:7000"`
-  - `"provider_name": "Example Provider"`
-  - `"provider_url": "https://example.com"`
-  - `"chain_logo_url": ""`
-  - `"enable_caching": true` ⇒ Set API cache
-  - `"cache_life": 1` ⇒ Define the cache life
-  - `"limits"` ⇒ Set API response limits
-    - `"get_actions": 1000`
-    - `"get_voters": 100`
-    - `"get_links": 1000`
-    - `"get_deltas": 1000`
-  - `"access_log": false` ⇒ Enable log API access.
-  - `"enable_explorer": false`
-  
-  <br>
-  
+- `"chain_name": "EXAMPLE Chain"`
+- `"server_addr": "127.0.0.1"`
+- `"server_port": 7000`
+- `"server_name": "127.0.0.1:7000"`
+- `"provider_name": "Example Provider"`
+- `"provider_url": "https://example.com"`
+- `"chain_logo_url": ""`
+- `"enable_caching": true` ⇒ Set API cache
+- `"cache_life": 1` ⇒ Define the cache life
+- `"limits"` ⇒ Set API response limits
+  - `"get_actions": 1000`
+  - `"get_voters": 100`
+  - `"get_links": 1000`
+  - `"get_deltas": 1000`
+- `"access_log": false` ⇒ Enable log API access.
+- `"enable_explorer": false`
+
 ### 2. Settings
 
-   - `"preview": false` ⇒ Preview mode - prints worker map and exit
-   - `"chain": "eos"` ⇒ Chain name (The same used on ecosystem.config.js)
-   - `"eosio_alias": "eosio"`
-   - `"parser": "1.8"` ⇒ Version of the parser to be used
-   - `"auto_stop": 300` ⇒ Automatically stop Indexer after X seconds if no more blocks are being processed (0=disable)
-   - `"index_version": "v1"` ⇒ Set the index version
-   - `"debug": false` ⇒ Enable debug mode
-   - `"rate_monitoring": true` ⇒ Print data rates for each phase every 5s
-   - `"bp_logs": false` ⇒ Enable logs
-   - `"bp_monitoring": false` ⇒ Allow monitoring and logging of missed blocks and rounds
-   - `"ipc_debug_rate": 60000` ⇒ interval between IPC messaging rate debug messages, setting it to false or 0 will disable the logging
-   - `"allow_custom_abi": false` ⇒ allow using custom ABIs from the custom-abi/<CHAIN_NAME> folder, they must match the pattern <contract>-<start_block>-<end_block>.json. 
-   Those ABIs will overwrite on-chain data for the given range.
+- `"preview": false` ⇒ Preview mode - prints worker map and exit
+- `"chain": "eos"` ⇒ Chain name (The same used on ecosystem.config.js)
+- `"eosio_alias": "eosio"`
+- `"parser": "1.8"` ⇒ Version of the parser to be used
+- `"auto_stop": 300` ⇒ Automatically stop Indexer after X seconds if no more blocks are being processed (0=disable)
+- `"index_version": "v1"` ⇒ Set the index version
+- `"debug": false` ⇒ Enable debug mode
+- `"rate_monitoring": true` ⇒ Print data rates for each phase every 5s
+- `"bp_logs": false` ⇒ Enable logs
+- `"bp_monitoring": false` ⇒ Allow monitoring and logging of missed blocks and rounds
+- `"ipc_debug_rate": 60000` ⇒ interval between IPC messaging rate debug messages, setting it to false or 0 will disable
+  the logging
+- `"allow_custom_abi": false` ⇒ allow using custom ABIs from the custom-abi/<CHAIN_NAME> folder, they must match the
+  pattern <contract>-<start_block>-<end_block>.json. Those ABIs will overwrite on-chain data for the given range.
 
-  <br>
-  
 ### 3. Blacklists
- Blacklist for actions and deltas
- 
-   - "actions": []
-   - "deltas": []
 
-<br>
+Blacklist for actions and deltas
+
+- "actions": []
+- "deltas": []
 
 ### 4. Whitelists
- Whitelist for actions and deltas
- 
-   - actions": []
-   - "deltas": []
-  
-  <br>
-  
+
+Whitelist for actions and deltas
+
+- actions": []
+- "deltas": []
+
 ### 5. Scaling options
 
-   - `"batch_size": 10000` ⇒ Parallel reader batch size in blocks
-   - `"queue_limit": 50000` ⇒ Queue size limit on rabbitmq
-   - `"readers": 1` ⇒ Number of readers
-   - `"ds_queues": 1` ⇒ Number of deserializer queues
-   - `"ds_threads": 1` ⇒ Number of deserializer threads
-   - `"ds_pool_size": 1` ⇒ Deserializer pool size
-   - `"indexing_queues": 1` ⇒ Number of indexing queues
-   - `"ad_idx_queues": 1` ⇒ Multiplier for action indexing queues
-   - `"max_autoscale": 4` ⇒ Max number of readers to autoscale
-   - `"auto_scale_trigger": 20000` ⇒ Number of itens on queue to trigger autoscale
-   - `"routing_mode": "heatmap"` ⇒ We recommend using the `heatmap` routing algorithm since it uses less memory. If you see performance issues on large chains with very unbalanced action distribution (majority of the action on a single contract) you can change it to `round_robin` to improve throughput. Keep in mind that the `round_robin` method will use more RAM as it has larger `ds_pool_size` values
- 
-  <br>
-  
+- `"batch_size": 10000` ⇒ Parallel reader batch size in blocks
+- `"queue_limit": 50000` ⇒ Queue size limit on rabbitmq
+- `"readers": 1` ⇒ Number of readers
+- `"ds_queues": 1` ⇒ Number of deserializer queues
+- `"ds_threads": 1` ⇒ Number of deserializer threads
+- `"ds_pool_size": 1` ⇒ Deserializer pool size
+- `"indexing_queues": 1` ⇒ Number of indexing queues
+- `"ad_idx_queues": 1` ⇒ Multiplier for action indexing queues
+- `"max_autoscale": 4` ⇒ Max number of readers to autoscale
+- `"auto_scale_trigger": 20000` ⇒ Number of itens on queue to trigger autoscale
+- `"routing_mode": "heatmap"` ⇒ We recommend using the `heatmap` routing algorithm since it uses less memory. If you see
+  performance issues on large chains with very unbalanced action distribution (majority of the action on a single
+  contract) you can change it to `round_robin` to improve throughput. Keep in mind that the `round_robin` method will
+  use more RAM as it has larger `ds_pool_size` values
+
 ### 6. Indexer configuration
 
-   - `"start_on": 0` ⇒ Start indexing on block (0=disable)
-   - `"stop_on": 0` ⇒ Stop indexing on block  (0=disable)
-   - `"rewrite": false` ⇒ Force rewrite the target replay range
-   - `"purge_queues": true` ⇒ Clear rabbitmq queues before starting the indexer
-   - `"live_reader": false` ⇒ Enable live reader
-   - `"live_only_mode": false` ⇒ Only reads realtime data serially
-   - `"abi_scan_mode": true` ⇒ Enable abi scan mode (<b>Indicated on the first run</b>)
-   - `"fetch_block": true` ⇒ Request full blocks from the state history plugin
-   - `"fetch_traces": true` ⇒ Request traces from the state history plugin
-   - `"disable_reading": false` ⇒ Completely disable block reading, for lagged queue processing
-   - `"disable_indexing": false` ⇒ Disable indexing
-   - `"process_deltas": true` ⇒ Read table deltas
-   - `"max_inline": 20` ⇒ Max inline actions depth to index
- 
-  <br>
-  
+- `"start_on": 0` ⇒ Start indexing on block (0=disable)
+- `"stop_on": 0` ⇒ Stop indexing on block  (0=disable)
+- `"rewrite": false` ⇒ Force rewrite the target replay range
+- `"purge_queues": true` ⇒ Clear rabbitmq queues before starting the indexer
+- `"live_reader": false` ⇒ Enable live reader
+- `"live_only_mode": false` ⇒ Only reads realtime data serially
+- `"abi_scan_mode": true` ⇒ Enable abi scan mode (<b>Indicated on the first run</b>)
+- `"fetch_block": true` ⇒ Request full blocks from the state history plugin
+- `"fetch_traces": true` ⇒ Request traces from the state history plugin
+- `"disable_reading": false` ⇒ Completely disable block reading, for lagged queue processing
+- `"disable_indexing": false` ⇒ Disable indexing
+- `"process_deltas": true` ⇒ Read table deltas
+- `"max_inline": 20` ⇒ Max inline actions depth to index
+
 ### 7. Features
 
-   - `"index_deltas": true` ⇒ Index common table deltas (see delta on definitions/mappings)
-   - `"index_transfer_memo": true` ⇒ Index transfers memo
-   - `"index_all_deltas": true` ⇒ Index all table deltas
-   
+- `"index_deltas": true` ⇒ Index common table deltas (see delta on definitions/mappings)
+- `"index_transfer_memo": true` ⇒ Index transfers memo
+- `"index_all_deltas": true` ⇒ Index all table deltas
+
 #### 7.1 Streaming
+
 Enable live streaming
 
-   - `"enable": false`
-   - `"traces": false`
-   - `"deltas": false`
+- `"enable": false`
+- `"traces": false`
+- `"deltas": false`
 
 #### 7.2 Tables
+
 Tables to fetch
 
-   - `"proposals": true`
-   - `"accounts": true`
-   - `"voters": true`
-   - `"userres": false`
-   - `"delband": false`
-  
-  <br>
-  
+- `"proposals": true`
+- `"accounts": true`
+- `"voters": true`
+- `"userres": false`
+- `"delband": false`
+
 ### 8. Prefetch
 
-   - `"read": 50` ⇒ Stage 1 prefetch size
-   - `"block": 100` ⇒ Stage 2 prefetch size
-   - `"index": 500` ⇒ Stage 3 prefetch size
- 
-  <br>
-  
+- `"read": 50` ⇒ Stage 1 prefetch size
+- `"block": 100` ⇒ Stage 2 prefetch size
+- `"index": 500` ⇒ Stage 3 prefetch size
+
 ## Example
 
-!!! tip
-    For multiple chains, you should have one config file for each chain.
+!!! tip For multiple chains, you should have one config file for each chain.
 
 Let's suppose that we gonna start Indexing the EOS Mainnet with:
 
- - Locally exposed API
- - 2 Readers
- - 2 Deserializer Queues
- - Live Streaming Enabled with Traces
- - ABI scan already done
- 
-The first step is to make a copy of the config file and rename it: `chains/example.config.json` to `chains/eos.config.json`.
-The next step is to edit the file as the following:
+- Locally exposed API
+- 2 Readers
+- 2 Deserializer Queues
+- Live Streaming Enabled with Traces
+- ABI scan already done
+
+The first step is to make a copy of the config file and rename it: `chains/example.config.json`
+to `chains/eos.config.json`. The next step is to edit the file as the following:
 
 ````json
 {

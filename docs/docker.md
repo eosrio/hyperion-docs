@@ -1,4 +1,7 @@
 # Hyperion Docker
+!!! attention
+    This guide is not to date.
+
 Hyperion Docker is a multi-container Docker application intended to get Hyperion up and running as fast as possible. It will index data from a development chain where you can set your contracts, push some actions and see what happens when querying the Hyperion API.
 
 !!! warning
@@ -22,7 +25,7 @@ First of all, you need to generate the Hyperion configuration files. To do that,
 ```
 ./scripts/generate-config.sh --chain eos --chain-name "EOS Testnet"
 ```
-Feel free to change the configuration files in `hyperion/config` folder the way it suits you. For more details, please refer to the [Hyperion Setup Section](hyperion.md).
+Feel free to change the configuration files in `hyperion/config` folder the way it suits you. For more details, please refer to the [Hyperion Setup Section](hyperion_configuration.md).
 
 Now you have three options to run it:
 
@@ -121,6 +124,6 @@ xpack.security.enabled=false
 
 Feel free to change configurations as you like. All configurations files are located in `hyperion/config` or `eosio/config`. 
 
-For more details, please refer to the [Hyperion Setup Section](hyperion.md).
+For more details, please refer to the [Hyperion Setup Section](hyperion_configuration.md).
 
 <br>

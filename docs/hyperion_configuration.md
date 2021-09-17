@@ -1,31 +1,23 @@
 # Hyperion Set Up
 
-### Clone & Install packages
-```bash
-git clone https://github.com/eosrio/hyperion-history-api.git
-cd hyperion-history-api
-npm install
-```
-
-!!! tip
-    **if you came from the script section**, you can skip this step and go directly to the Edit configs step below.
-
-<br>
-
 ## Set Up
 
-TODO: Describe hyp-config tool.
+We've developed a tool to automate the configuration of Hyperion. It basically initializes the connections with all the
+dependencies and creates the configuration for each chain you are running.
+
+Run `./hyp-config --help` for more details.
 
 ### Initialize connections
 
-First, let's initialize the connections configuration. Just run:
+First, let's initialize our configuration. Just run:
 
 ```
 ./hyp-config init connections
 ```
 
 !!! note
-    This command will also check the connection to Elasticsearch, Rabbitmq and Redis.
+    This command will also check the connection to Elasticsearch, Rabbitmq and Redis. Make sure everything is up and
+    running.
 
 ### Add new chain
 
@@ -46,7 +38,7 @@ Finally, check your configuration running:
 ## Plugins Set Up
 
 !!! attention
-    Under contruction
+    Under construction
 
 ## Running Hyperion
 
@@ -67,7 +59,8 @@ To start, just use the run.sh script. Here are some examples:
     ```
 
 !!! note
-    You need to pass the name of the chain you previously created followed by indexer or api to indicate the instance you want to start.
+    You need to pass the name of the chain you previously created followed by indexer or api to indicate the instance
+    you want to start.
 
 ### Stopping
 
@@ -84,20 +77,23 @@ Use the stop.sh script to stop an instance as follows:
     ```
 
 !!! note
-    You need to pass the name of the chain you previously created followed by indexer or api to indicate the instance you want to stop.
+    You need to pass the name of the chain you previously created followed by indexer or api to indicate the instance
+    you want to stop.
 
 !!! attention  
-    The stop script won't stop Hyperion Indexer immediately, it will first flush the queues. Be aware that this operation could take some time.
+    The stop script won't stop Hyperion Indexer immediately, it will first flush the queues. Be aware that this
+    operation could take some time.
 
 ## Indexer
-As mentioned before on [Setup](#3-setup), the Hyperion Indexer is configured to perform an abi scan `("abi_scan_mode": true)` as default. So, on your first run, you'll probably see something like this:
+The Hyperion Indexer is configured to perform an abi scan `("abi_scan_mode": true)` as default. So, on your first run,
+you'll probably see something like this:
 
- [![indexer](img/indexer.png)](img/indexer.png)
- 
+[![indexer](img/indexer.png)](img/indexer.png)
+
 This an example of an ABI SCAN on the WAX chain.
 
-Where: 
-    
+Where:
+
   - W (Workers): Number of workers.
   - R (Read): Blocks read from state history and pushing into the blocks queue.
   - C (Consumed): Blocks consumed from blocks queue.
