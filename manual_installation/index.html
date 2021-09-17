@@ -1376,8 +1376,11 @@ service.</p>
 <p>Redis will also start automatically after installation.</p>
 <h3 id="configuration_3">Configuration<a class="headerlink" href="#configuration_3" title="Permanent link">&para;</a></h3>
 <h5 id="1-update-redis-supervision-method">1. Update Redis supervision method<a class="headerlink" href="#1-update-redis-supervision-method" title="Permanent link">&para;</a></h5>
-<p>Change the <code>supervised</code> configuration to <code>systemd</code> on <code>/etc/redis/redis.conf</code>.</p>
-<p>!!! note By default, Redis binds to the localhost address. You need to edit <code>bind</code> in the config file if you want to
+<p>Change the <code>supervised</code> configuration from <code>supervised no</code> to  <code>supervised systemd</code> on <code>/etc/redis/redis.conf</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>By default, Redis binds to the localhost address. You need to edit <code>bind</code> in the config file if you want to
 listen to other network.</p>
 <h5 id="2-restart-redis">2. Restart Redis<a class="headerlink" href="#2-restart-redis" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code>sudo systemctl restart redis.service
