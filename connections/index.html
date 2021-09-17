@@ -14,7 +14,7 @@
     
     
       
-        <title>Connections Configuration Details - Hyperion Docs</title>
+        <title>Connections Configuration - Hyperion Docs</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Connections Configuration Details
+              Connections Configuration
             
           </span>
         </div>
@@ -334,7 +334,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../hyperion/" class="md-nav__link">
+    <a href="../hyperion_configuration/" class="md-nav__link">
       Configuration
     </a>
   </li>
@@ -354,12 +354,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Connections Configuration Details
+        Connections Configuration
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      Connections Configuration Details
+      Connections Configuration
     </a>
     
       
@@ -436,7 +436,7 @@
 
   <li class="md-nav__item">
     <a href="../chain/" class="md-nav__link">
-      Chain Configuration Details
+      Chain Configuration
     </a>
   </li>
 
@@ -703,7 +703,7 @@
                   </a>
                 
                 
-                  <h1>Connections Configuration Details</h1>
+                  <h1>Connections Configuration</h1>
                 
                 <h2 id="detailed-description-of-the-connectionsjson">Detailed description of the connections.json<a class="headerlink" href="#detailed-description-of-the-connectionsjson" title="Permanent link">&para;</a></h2>
 <h3 id="rabbitmq-parameters">RabbitMQ parameters<a class="headerlink" href="#rabbitmq-parameters" title="Permanent link">&para;</a></h3>
@@ -718,7 +718,7 @@
 <ul>
 <li><code>"protocol": "http"</code> ⇒ Protocol used to connect to Elasticsearch (default: http).</li>
 <li><code>"host":"127.0.0.1:9200"</code></li>
-<li><code>"ingest_nodes": [ "127.0.0.1:9200"]</code> </li>
+<li><code>"ingest_nodes": [ "127.0.0.1:9200"]</code></li>
 <li><code>"user":""</code> ⇒ User defined on elasticsearch configuration.</li>
 <li><code>"pass":""</code> ⇒ Password defined on elasticsearch configuration.</li>
 </ul>
@@ -733,10 +733,10 @@
 <li><code>"chain_id":"aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906"</code></li>
 <li><code>"http":"http://127.0.0.1:8888"</code></li>
 <li><code>"ship":"ws://127.0.0.1:8080"</code></li>
-<li><code>"WS_ROUTER_HOST": "127.0.0.1"</code> ⇒ Endpoint used by the Streaming API to connect to the Indexer. This is important when Indexer and API aren't on the same machine/instance.</li>
+<li><code>"WS_ROUTER_HOST": "127.0.0.1"</code> ⇒ Endpoint used by the Streaming API to connect to the Indexer. This is important when
+  Indexer and API aren't on the same machine/instance.</li>
 <li><code>"WS_ROUTER_PORT":7001</code> ⇒ Port used by the Streaming API to connect to the Indexer.</li>
 </ul>
-<p><br></p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <p>In this example we have a connection.json file with:</p>
 <ul>
@@ -754,8 +754,8 @@
 <li>Remote EOS Mainnet state history</li>
 <li>Remote WAX state history</li>
 </ul>
-<p>The first step is to make a copy of the config file and rename it: <code>example-connections.json</code> to <code>connections.json</code>.
-The next step is to edit the file as the follows:</p>
+<p>The first step is to make a copy of the config file and rename it: <code>example-connections.json</code> to <code>connections.json</code>. The
+next step is to edit the file as the follows:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;amqp&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1:5672&quot;</span><span class="p">,</span>
@@ -766,7 +766,9 @@ The next step is to edit the file as the follows:</p>
   <span class="p">},</span>
   <span class="nt">&quot;elasticsearch&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1:9200&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;ingest_nodes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;127.0.0.1:9200&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;ingest_nodes&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">&quot;127.0.0.1:9200&quot;</span>
+    <span class="p">],</span>
     <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
     <span class="nt">&quot;pass&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
   <span class="p">},</span>
@@ -811,7 +813,7 @@ The next step is to edit the file as the follows:</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../hyperion/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../hyperion_configuration/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -832,7 +834,7 @@ The next step is to edit the file as the follows:</p>
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Chain Configuration Details
+                Chain Configuration
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
