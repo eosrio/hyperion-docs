@@ -155,9 +155,10 @@ To do that, add the following line to the end of the `/etc/elasticsearch/elastic
 xpack.security.enabled: true
 ```
 
-Now, set the passwords for the cluster:
+Restart Elasticsearch and set the passwords for the cluster:
 
 ```bash
+sudo systemctl restart elasticsearch.service
 sudo /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto
 ```
 
