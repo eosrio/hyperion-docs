@@ -779,14 +779,17 @@
                 
                 <h1 id="hyperion-set-up">Hyperion Set Up<a class="headerlink" href="#hyperion-set-up" title="Permanent link">&para;</a></h1>
 <h2 id="set-up">Set Up<a class="headerlink" href="#set-up" title="Permanent link">&para;</a></h2>
-<p>TODO: Describe hyp-config tool.</p>
+<p>We've developed a tool to automate the configuration of Hyperion. It basically initializes the connections with all the
+dependencies and creates the configuration for each chain you are running.</p>
+<p>Run <code>./hyp-config --help</code> for more details.</p>
 <h3 id="initialize-connections">Initialize connections<a class="headerlink" href="#initialize-connections" title="Permanent link">&para;</a></h3>
 <p>First, let's initialize our configuration. Just run:</p>
 <div class="highlight"><pre><span></span><code>./hyp-config init connections
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This command will also check the connection to Elasticsearch, Rabbitmq and Redis.</p>
+<p>This command will also check the connection to Elasticsearch, Rabbitmq and Redis. Make sure everything is up and
+running.</p>
 </div>
 <h3 id="add-new-chain">Add new chain<a class="headerlink" href="#add-new-chain" title="Permanent link">&para;</a></h3>
 <p>Now you can proceed and add a new chain to your configuration. Run the following command:</p>
