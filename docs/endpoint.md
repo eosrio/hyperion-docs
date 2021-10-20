@@ -39,6 +39,7 @@
 
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
+| https://mainnet.telos.net/v2 | [docs](https://mainnet.telos.net/v2/docs) | [explorer](https://mainnet.telos.net/v2/explore) |
 | https://telos.eosrio.io/v2 | [docs](https://telos.eosrio.io/v2/docs) | [explorer](https://telos.eosrio.io/v2/explore) |
 | https://mainnet.telosusa.io/v2 | [docs](https://mainnet.telosusa.io/v2/docs) | [explorer](https://mainnet.telosusa.io/v2/explore) |
 | https://telos.eosphere.io/v2 | [docs](https://telos.eosphere.io/v2/docs) |  |
@@ -162,6 +163,7 @@
 
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
+| https://testnet.telos.net/v2 | [docs](https://testnet.telos.net/v2/docs) | [explorer](https://testnet.telos.net/v2/explore) |
 | https://testnet.telosusa.io/v2 | [docs](https://testnet.telosusa.io/v2/docs) | [explorer](https://testnet.telosusa.io/v2/explore) |
 | https://testnet.telos.caleos.io/v2 | [docs](https://testnet.telos.caleos.io/v2/docs) | [explorer](https://testnet.telos.caleos.io/v2/explore) |
 
