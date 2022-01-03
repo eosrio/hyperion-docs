@@ -10,8 +10,8 @@ installation, this is the way to go.
 
 Below you can find the list of all Hyperion's dependencies:
 
-- [Elasticsearch 7.14.X](https://www.elastic.co/downloads/elasticsearch)
-- [Kibana 7.14.X](https://www.elastic.co/downloads/kibana)
+- [Elasticsearch 7.16.X](https://www.elastic.co/downloads/elasticsearch)
+- [Kibana 7.16.X](https://www.elastic.co/downloads/kibana)
 - [RabbitMQ](https://www.rabbitmq.com)
 - [Redis](https://redis.io/topics/quickstart)
 - [Node.js v16](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)
