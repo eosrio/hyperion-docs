@@ -3,6 +3,7 @@ site_name: Hyperion Docs
 markdown_extensions:
 - admonition
 - pymdownx.mark
+- pymdownx.details
 - pymdownx.superfences
 - pymdownx.tabbed
 - pymdownx.emoji:
@@ -48,6 +49,20 @@ theme:
     accent: 'orange'
   logo: 'img/simplified_logo.svg'
   favicon: 'img/icon.png'
+  icon:
+    admonition:
+      note: fontawesome/solid/note-sticky
+      abstract: fontawesome/solid/book
+      info: fontawesome/solid/circle-info
+      tip: fontawesome/solid/bullhorn
+      success: fontawesome/solid/check
+      question: fontawesome/solid/circle-question
+      warning: fontawesome/solid/triangle-exclamation
+      failure: fontawesome/solid/bomb
+      danger: fontawesome/solid/skull
+      bug: fontawesome/solid/robot
+      example: fontawesome/solid/flask
+      quote: fontawesome/solid/quote-left
 
 extra:
   social:
