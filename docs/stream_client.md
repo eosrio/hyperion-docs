@@ -23,7 +23,6 @@
 npm install @eosrio/hyperion-stream-client --save
 ```
 
-
 #### Importing the client
 
 ESM (Node and Browser):
@@ -36,8 +35,6 @@ CommonJs (Node):
 const {HyperionStreamClient} = require('@eosrio/hyperion-stream-client');
 ```
 
-<br>
-
 ### Browser library (served from public Hyperion APIs)
 
 Without installing via npm, you can also load the webpack bundle directly:
@@ -49,9 +46,6 @@ Without installing via npm, you can also load the webpack bundle directly:
 Where `<ENDPOINT>` is the Hyperion API (e.g. `https://eos.hyperion.eosrio.io`)
 
 For other usages, the bundle is also available at `dist/hyperion-stream-client.js`
-
-<br>
-
 
 ### 1. Connection
 
@@ -80,20 +74,18 @@ below;
 
 `client.streamActions(request: StreamActionsRequest): void`
 
-
 - `contract` - contract account
 - `action` - action name
 - `account` - notified account name
 - `start_from` - start reading on block or on a specific date. 0=disabled means it will read starting from HEAD block.
 - `read_until` - stop reading on block  (0=disable) or on a specific date (0=disabled)
-- `filters` - actions filter (more details below)
+- `filters` - actions filter (more details below)  
 
-**Notes**
-
-- Block number can be either positive or negative - E.g.: **700** (start from block 700)
-- In case of negative block number, it will be subtracted from the HEAD - E.g.: **-150** (since 150 blocks ago)
-- Date format (ISO 8601) - e.g. 2020-01-01T00:00:00.000Z
-
+!!! note "Notes"
+    - Block number can be either positive or negative - E.g.: **700** (start from block 700)
+    - In case of negative block number, it will be subtracted from the HEAD - E.g.: **-150** (since 150 blocks ago)
+    - Date format (ISO 8601) - e.g. 2020-01-01T00:00:00.000Z
+  
 ```typescript
 import {HyperionStreamClient, StreamClientEvents} from "@eosrio/hyperion-stream-client";
 const client = new HyperionStreamClient({
@@ -165,26 +157,20 @@ will result in **AND** operations. For **OR** operations setup another request.
 - `start_from` - start reading on block or on a specific date. 0=disabled means it will read starting from HEAD block.
 - `read_until` - stop reading on block  (0=disable) or on a specific date (0=disabled)
 
-
-
-Example:
-
-Referring to the same pattern as the action stream example above, one could also include a delta stream request
-
-```javascript
-client.streamDeltas({
-    code: 'eosio.token',
-    table: '*',
-    scope: '',
-    payer: '',
-    start_from: 0,
-    read_until: 0,
-});
-``` 
+!!! example "Example:"  
+    Referring to the same pattern as the action stream example above, one could also include a delta stream request
+    ```javascript
+    client.streamDeltas({
+        code: 'eosio.token',
+        table: '*',
+        scope: '',
+        payer: '',
+        start_from: 0,
+        read_until: 0,
+    });
+    ``` 
 
 _Note: Delta filters are planned to be implemented soon._
-
-<br>
 
 #### 3. Handling Data
 
@@ -215,8 +201,6 @@ client.setAsyncLibDataHandler(async (data) => {
   // await processSomethingHere();
 })
 ```
-
-
 
 Useful information about load-balancing multiple Socket.IO servers:
 https://socket.io/docs/v4/using-multiple-nodes/#NginX-configuration
