@@ -1,6 +1,7 @@
 {
   "name": "hyperion-docs",
-  "version": "1.0.0",
+  "description": "Hyperion History Api Documentation",
+  "version": "1.1.0",
   "scripts": {
     "start": "python -m mkdocs serve",
     "build": "mkdocs build"
