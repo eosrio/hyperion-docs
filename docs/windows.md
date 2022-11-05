@@ -1,38 +1,35 @@
-# Windows
-## Installation instructions for Multipass on Windows 10 with Hyper-V
+# Windows + WSL2 + systemd
 
-###  1. Create VM:
-````bash 
-multipass launch -m 16G -c 4 -d 16G -n hyperion
-*adjust -m/-d/-c according to your needs
-````
+!!! note
+    Optimizing for performance is beyond the scope of this guide,
+    this is intended for learning and development on Hyperion.
+    systemd is now available in WSL2 and
+    required for this guide. [Read more](https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl)
 
-### 2. Stop the VM:
-````bash 
-multipass stop hyperion
-```` 
+## 1. Make sure WSL2 is updated
 
-### 3. Disable Dynamic Memory
-   - Open the Hyper-V Manager
-   - right click the "hyperion" VM 
-   - go on "Settings..." -> "Memory" -> Uncheck "Enable Dynamic Memory"
+```
+wsl --update
+```
 
-### 4. Start the VM: 
-`````bash
-multipass start hyperion
-`````
+## 2. Install and launch an Ubuntu 22.04 instance
 
-### 5. Proceed with the automated install:
-````bash 
-  git clone https://github.com/eosrio/hyperion-history-api.git
-  cd hyperion-history-api
-  ./install_env.sh
-````
+[Ubuntu 22.04.1 LTS on Microsoft Store](https://www.microsoft.com/store/productId/9PN20MSR04DW)
 
-### 6. Check if elasticsearch memlock was successful:
-````bash
-systemctl status elasticsearch.service
-````
+## 3. Enable systemd
 
-!!!note 
-    "Dynamic Memory" can be enabled after installation if desired, just stop the vm, update the settings and restart.
+(sudo) Add the following to **/etc/wsl.conf**
+
+```
+[boot]
+systemd=true
+```
+
+## 4. Restart the WSL2 engine
+
+```
+wsl --shutdown
+wsl -d Ubuntu-22.04
+```
+
+## 5. Proceed with the [automated install](installation_script.md)

@@ -1,6 +1,6 @@
 # Hyperion Docker
 !!! attention
-    This guide is not to date.
+    This guide is not up-to-date.
 
 Hyperion Docker is a multi-container Docker application intended to get Hyperion up and running as fast as possible. It will index data from a development chain where you can set your contracts, push some actions and see what happens when querying the Hyperion API.
 

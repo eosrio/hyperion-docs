@@ -4,19 +4,19 @@ This section describes how to manually install Hyperion and its environment. If 
 installation, this is the way to go.
 
 !!! attention
-    Recommended OS: Ubuntu 20.04
+    Recommended OS: Ubuntu 22.04
 
 ## Dependencies
 
 Below you can find the list of all Hyperion's dependencies:
 
-- [Elasticsearch 7.16.X](https://www.elastic.co/downloads/elasticsearch)
-- [Kibana 7.16.X](https://www.elastic.co/downloads/kibana)
+- [Elasticsearch 8.X](https://www.elastic.co/downloads/elasticsearch)
+- [Kibana 8.X](https://www.elastic.co/downloads/kibana)
 - [RabbitMQ](https://www.rabbitmq.com)
 - [Redis](https://redis.io/topics/quickstart)
-- [Node.js v16](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)
+- [Node.js v18](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)
 - [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/)
-- [EOSIO 2.1](https://github.com/EOSIO/eos)
+- [LEAP/NODEOS 3.1](https://github.com/AntelopeIO/leap)
 
 On the next steps you will install and configure each one of them.
 

@@ -1,55 +1,39 @@
-# Installation Script
+# Automated Installation Script
+
+This installation script is maintained [here](https://github.com/eosrio/hyperion-auto-setup)
+
 !!! attention
-    The installation script and this guide are not to date.
+    Learning about the software components of the Hyperion architecture is recommended.
+    This automatic setup will use defaults that are not suitable for all scenarios.
 
 !!! tip
-    The usage of this script is highly recommended for fresh installations. If you already have dependencies installed,
-    update them manually before running the script.
+    The usage of this script is recommended only for fresh installations. 
+    If you already have some dependencies installed,
+    please proceed with the [manual setup](manual_installation.md)
 
 !!! note
-    For Windows installation using Multipass, refer to [this guide](windows.md) 
-    
-We provide an automated shell script that installs all dependencies and then configure Hyperion.
+    For Windows installation using WSL2, refer to [this guide](windows.md)
 
-The first step is to clone the Hyperion repository:
-```bash
-git clone https://github.com/eosrio/hyperion-history-api.git
-cd hyperion-history-api
+### 1. Create a directory for the installer files
+```shell
+mkdir -p ~/.hyperion-installer && cd ~/.hyperion-installer
 ```
 
-Then, you just need to run the script:
-````
-./install_env.sh
-````
+### 2. Unpack the latest installer
 
-The script will ask you for some information:
-````
-Enter rabbitmq user [hyperion]:
-````
-
-Enter the desired rabbitmq user and hit enter. If you leave it blank, the default user
-`hyperion` will be set.
-
-Then, do the same for the rabbitmq password:
-```
-Enter rabbitmq password [123456]:
+```shell
+wget -qO- https://github.com/eosrio/hyperion-auto-setup/raw/main/install.tar.gz | tar -xvz
 ```
 
-And finally, it will ask if you want to create the npm global folder:
-````
-Do you want to create a directory for npm global installations [Y/n] :
-````
-This is recommended. If you choose `n`, global npm packages will require root permissions.
-
-Now, the script will do the work, this can take a while. Get a cup of coffee and relax. :fontawesome-solid-mug-hot: :fontawesome-regular-laugh-wink:
+### 3. Install by running
+```./install.sh```
 
 !!! info
-    The installation script may ask you for the admin password. This is needed to install the dependencies, please, provide it.
-   
-If everything runs smoothly, the script will automatically generate elasticsearch passwords and save them on the `elastic_pass.txt` file.
+    The installation script may ask you for the sudo password.
 
-To login into Kibana, use the `elastic` user credentials.
-
-<br>
-
- Now it's time to install [hyperion](hyperion_configuration.md)! :fontawesome-solid-glass-cheers:
+- The **elastic** account password will be saved on the `elastic.pass` file
+- **RabbitMQ** will be available on `http://localhost:15672`
+    - user: `hyperion_user`
+    - password: `hyperion_password`
+    - vhost: `hyperion`
+    * _changing your credentials is recommended, specially if opening access to the management interface is planned_
