@@ -88,7 +88,7 @@ Use the stop.sh script to stop an instance as follows:
 The Hyperion Indexer is configured to perform an abi scan `("abi_scan_mode": true)` as default. So, on your first run,
 you'll probably see something like this:
 
-[![indexer](img/indexer.png)](img/indexer.png)
+[![indexer](../assets/img/indexer.png)](../assets/img/indexer.png)
 
 This an example of an ABI SCAN on the WAX chain.
 
@@ -105,6 +105,6 @@ Where:
 ## API
 After running the api, you should see a log like this:
 
- [![api](img/api.png)](img/api.png)
+ [![api](../assets/img/api.png)](../assets/img/api.png)
 
 Now, it's time to play around making some queries. :fontawesome-regular-laugh-beam:

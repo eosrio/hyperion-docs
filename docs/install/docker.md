@@ -25,7 +25,7 @@ First of all, you need to generate the Hyperion configuration files. To do that,
 ```
 ./scripts/generate-config.sh --chain eos --chain-name "EOS Testnet"
 ```
-Feel free to change the configuration files in `hyperion/config` folder the way it suits you. For more details, please refer to the [Hyperion Setup Section](hyperion_configuration.md).
+Feel free to change the configuration files in `hyperion/config` folder the way it suits you. For more details, please refer to the [Hyperion Setup Section](../setup/hyperion_configuration.md).
 
 Now you have three options to run it:
 
@@ -97,7 +97,7 @@ The port 8888 of this container is exposed so you can use it to interact with th
 ### Hyperion API
 Perform queries on the endpoint at [http://127.0.0.1:7000/](http://127.0.0.1:7000).
 
-The complete API reference can be found at [API section: v2](v2.md)
+The complete API reference can be found at [API section: v2](../api/v2.md)
 
 !!! abstract "Example"
     ```
@@ -124,6 +124,6 @@ xpack.security.enabled=false
 
 Feel free to change configurations as you like. All configurations files are located in `hyperion/config` or `eosio/config`. 
 
-For more details, please refer to the [Hyperion Setup Section](hyperion_configuration.md).
+For more details, please refer to the [Hyperion Setup Section](../setup/hyperion_configuration.md).
 
 <br>

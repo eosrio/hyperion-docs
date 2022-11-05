@@ -34,19 +34,19 @@ If you can't access, check your credentials on your config file.
 
 1. To create a new index pattern, go to `Management`
 
-    [![kibana](img/kibana1.png)](img/kibana1.png)
+    [![kibana](../assets/img/kibana1.png)](../assets/img/kibana1.png)
 
 2. Click on `Index Patterns` at the left menu
  
-    [![kibana](img/kibana2.png)](img/kibana2.png)
+    [![kibana](../assets/img/kibana2.png)](../assets/img/kibana2.png)
 
 3. Click on `Create index pattern`
  
-    [![kibana](img/kibana3.png)](img/kibana3.png)
+    [![kibana](../assets/img/kibana3.png)](../assets/img/kibana3.png)
     
 4. Enter desired index pattern and click on `> Next step`
  
-    [![kibana](img/kibana4.png)](img/kibana4.png)
+    [![kibana](../assets/img/kibana4.png)](../assets/img/kibana4.png)
  
     !!! tip
          Index Pattern List:
@@ -55,7 +55,6 @@ If you can't access, check your credentials on your config file.
 
 5. Select a time filter, if there are any, and click on `Create index pattern`
  
-    [![kibana](img/kibana5.png)](img/kibana5.png)
+    [![kibana](../assets/img/kibana5.png)](../assets/img/kibana5.png)
     
-    [![kibana](img/kibana6.png)](img/kibana6.png)
- 
+    [![kibana](../assets/img/kibana6.png)](../assets/img/kibana6.png)

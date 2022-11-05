@@ -17,7 +17,7 @@
   - Click on `Add / update policy`
   - Checkout Queues tab again, all queues must be deleted.
   
-  [![rabbit](img/rabbit.png)](img/rabbit.png)
+  [![rabbit](../assets/img/rabbit.png)](../assets/img/rabbit.png)
  
 !!! warning
     You must remove this policy after this operation.

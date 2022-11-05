@@ -1,54 +1,53 @@
 site_name: Hyperion Docs
 
 markdown_extensions:
-- admonition
-- pymdownx.mark
-- pymdownx.details
-- pymdownx.superfences
-- pymdownx.tabbed
-- pymdownx.emoji:
-    emoji_index: !!python/name:materialx.emoji.twemoji
-    emoji_generator: !!python/name:materialx.emoji.to_svg
-- toc:
-    permalink: true
-
-google_analytics:
-- UA-117919122-3
-- auto
+  - admonition
+  - pymdownx.mark
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - toc:
+      permalink: true
 
 repo_name: 'eosrio/hyperion-history-api'
 repo_url: 'https://github.com/eosrio/hyperion-history-api'
 
 nav:
-- Home: index.md
-- Providers:
-  - Hyperion Installation:
-    - Manual Installation: manual_installation.md
-    - Installation Script: installation_script.md
-    - Docker: docker.md
-  - Hyperion Set Up:
-    - Configuration: hyperion_configuration.md
-    - Connections Configuration: connections.md
-    - Chain Configuration: chain.md
-- Users / Developers:
-  - Getting Started: howtouse.md
-  - Stream Client: stream_client.md
-  - Endpoint List: endpoint.md
-- API Reference:
-  - v2: v2.md
-  - v1 compatible: v1.md
-- Troubleshooting:
-  #- Kibana: kibana.md
-  - RabbitMQ: rabbit.md
-#  - FAQ: faq.md
+  - Home: index.md
+  - Providers:
+      - Hyperion Installation:
+          - Manual Installation: install/manual_installation.md
+          - Automated Install Script: install/installation_script.md
+          - Docker: install/docker.md
+          - Windows / WSL2: install/windows.md
+      - Hyperion Set Up:
+          - Configuration: setup/hyperion_configuration.md
+          - Connections Configuration: setup/connections.md
+          - Chain Configuration: setup/chain.md
+  - Users / Developers:
+      - Getting Started: dev/howtouse.md
+      - Stream Client: dev/stream_client.md
+      - Endpoint List: dev/endpoint.md
+  - API Reference:
+      - v2: api/v2.md
+      - v1 compatible: api/v1.md
+  - Troubleshooting:
+      - Kibana: help/kibana.md
+      - RabbitMQ: help/rabbit.md
+      - FAQ: help/faq.md
+
 
 theme:
   name: 'material'
+  language: en
   palette:
     primary: 'light blue'
     accent: 'orange'
-  logo: 'img/simplified_logo.svg'
-  favicon: 'img/icon.png'
+  logo: 'assets/img/simplified_logo.svg'
+  favicon: 'assets/img/icon.png'
   icon:
     admonition:
       note: fontawesome/solid/note-sticky
@@ -65,10 +64,15 @@ theme:
       quote: fontawesome/solid/quote-left
 
 extra:
+  analytics:
+    provider: google
+    property: G-N6WF1VPFSH
   social:
-  - icon: fontawesome/brands/github-alt
-    link: 'https://github.com/eosrio/hyperion-history-api'
-  - icon: fontawesome/brands/twitter
-    link: 'https://twitter.com/eosriobrazil'
-  - icon: fontawesome/brands/telegram
-    link: 'https://t.me/EOSHyperion'
+    - icon: fontawesome/brands/github
+      link: 'https://github.com/eosrio/hyperion-history-api'
+    - icon: fontawesome/brands/github-alt
+      link: 'https://github.com/eosrio/hyperion-docs'
+    - icon: fontawesome/brands/twitter
+      link: 'https://twitter.com/eosriobrazil'
+    - icon: fontawesome/brands/telegram
+      link: 'https://t.me/EOSHyperion'
