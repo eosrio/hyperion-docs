@@ -2,6 +2,7 @@
   "name": "hyperion-docs",
   "version": "1.0.0",
   "scripts": {
-    "start": "python -m mkdocs serve"
+    "start": "python -m mkdocs serve",
+    "build": "mkdocs build"
   }
 }
