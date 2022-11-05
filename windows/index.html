@@ -9,18 +9,18 @@
       
       
       <link rel="icon" href="../img/icon.png">
-      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.7">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.8">
     
     
       
-        <title>Windows - Hyperion Docs</title>
+        <title>Windows + WSL2 + systemd - Hyperion Docs</title>
       
     
     
       <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.815d1a91.min.css">
         
           
           
@@ -107,7 +107,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#windows" class="md-skip">
+        <a href="#windows-wsl2-systemd" class="md-skip">
           Skip to content
         </a>
       
@@ -139,7 +139,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Windows
+              Windows + WSL2 + systemd
             
           </span>
         </div>
@@ -652,57 +652,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installation-instructions-for-multipass-on-windows-10-with-hyper-v" class="md-nav__link">
-    Installation instructions for Multipass on Windows 10 with Hyper-V
-  </a>
-  
-    <nav class="md-nav" aria-label="Installation instructions for Multipass on Windows 10 with Hyper-V">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-create-vm" class="md-nav__link">
-    1. Create VM:
+  <a href="#1-make-sure-wsl2-is-updated" class="md-nav__link">
+    1. Make sure WSL2 is updated
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#2-stop-the-vm" class="md-nav__link">
-    2. Stop the VM:
+      
+        <li class="md-nav__item">
+  <a href="#2-install-and-launch-an-ubuntu-2204-instance" class="md-nav__link">
+    2. Install and launch an Ubuntu 22.04 instance
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#3-disable-dynamic-memory" class="md-nav__link">
-    3. Disable Dynamic Memory
+      
+        <li class="md-nav__item">
+  <a href="#3-enable-systemd" class="md-nav__link">
+    3. Enable systemd
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#4-start-the-vm" class="md-nav__link">
-    4. Start the VM:
+      
+        <li class="md-nav__item">
+  <a href="#4-restart-the-wsl2-engine" class="md-nav__link">
+    4. Restart the WSL2 engine
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#5-proceed-with-the-automated-install" class="md-nav__link">
-    5. Proceed with the automated install:
+    5. Proceed with the automated install
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-check-if-elasticsearch-memlock-was-successful" class="md-nav__link">
-    6. Check if elasticsearch memlock was successful:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -726,36 +706,29 @@
   </a>
 
 
-<h1 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h1>
-<h2 id="installation-instructions-for-multipass-on-windows-10-with-hyper-v">Installation instructions for Multipass on Windows 10 with Hyper-V<a class="headerlink" href="#installation-instructions-for-multipass-on-windows-10-with-hyper-v" title="Permanent link">&para;</a></h2>
-<h3 id="1-create-vm">1. Create VM:<a class="headerlink" href="#1-create-vm" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>multipass launch -m 16G -c <span class="m">4</span> -d 16G -n hyperion
-*adjust -m/-d/-c according to your needs
-</code></pre></div>
-<h3 id="2-stop-the-vm">2. Stop the VM:<a class="headerlink" href="#2-stop-the-vm" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>multipass stop hyperion
-</code></pre></div>
-<h3 id="3-disable-dynamic-memory">3. Disable Dynamic Memory<a class="headerlink" href="#3-disable-dynamic-memory" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Open the Hyper-V Manager</li>
-<li>right click the "hyperion" VM </li>
-<li>go on "Settings..." -&gt; "Memory" -&gt; Uncheck "Enable Dynamic Memory"</li>
-</ul>
-<h3 id="4-start-the-vm">4. Start the VM:<a class="headerlink" href="#4-start-the-vm" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>multipass start hyperion
-</code></pre></div>
-<h3 id="5-proceed-with-the-automated-install">5. Proceed with the automated install:<a class="headerlink" href="#5-proceed-with-the-automated-install" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>  git clone https://github.com/eosrio/hyperion-history-api.git
-  <span class="nb">cd</span> hyperion-history-api
-  ./install_env.sh
-</code></pre></div>
-<h3 id="6-check-if-elasticsearch-memlock-was-successful">6. Check if elasticsearch memlock was successful:<a class="headerlink" href="#6-check-if-elasticsearch-memlock-was-successful" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>systemctl status elasticsearch.service
-</code></pre></div>
+<h1 id="windows-wsl2-systemd">Windows + WSL2 + systemd<a class="headerlink" href="#windows-wsl2-systemd" title="Permanent link">&para;</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>"Dynamic Memory" can be enabled after installation if desired, just stop the vm, update the settings and restart.</p>
+<p>Optimizing for performance is beyond the scope of this guide,
+this is intended for learning and development on Hyperion.
+systemd is now available in WSL2 and
+required for this guide. <a href="https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl">Read more</a></p>
 </div>
+<h2 id="1-make-sure-wsl2-is-updated">1. Make sure WSL2 is updated<a class="headerlink" href="#1-make-sure-wsl2-is-updated" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>wsl --update
+</code></pre></div>
+<h2 id="2-install-and-launch-an-ubuntu-2204-instance">2. Install and launch an Ubuntu 22.04 instance<a class="headerlink" href="#2-install-and-launch-an-ubuntu-2204-instance" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.microsoft.com/store/productId/9PN20MSR04DW">Ubuntu 22.04.1 LTS on Microsoft Store</a></p>
+<h2 id="3-enable-systemd">3. Enable systemd<a class="headerlink" href="#3-enable-systemd" title="Permanent link">&para;</a></h2>
+<p>(sudo) Add the following to <strong>/etc/wsl.conf</strong></p>
+<div class="highlight"><pre><span></span><code>[boot]
+systemd=true
+</code></pre></div>
+<h2 id="4-restart-the-wsl2-engine">4. Restart the WSL2 engine<a class="headerlink" href="#4-restart-the-wsl2-engine" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>wsl --shutdown
+wsl -d Ubuntu-22.04
+</code></pre></div>
+<h2 id="5-proceed-with-the-automated-install">5. Proceed with the <a href="../installation_script/">automated install</a><a class="headerlink" href="#5-proceed-with-the-automated-install" title="Permanent link">&para;</a></h2>
 
 
 
@@ -827,7 +800,7 @@
     <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
       
     
   </body>

@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../img/icon.png">
-      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.7">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.8">
     
     
       
@@ -20,7 +20,7 @@
       <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.815d1a91.min.css">
         
           
           
@@ -107,7 +107,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation-script" class="md-skip">
+        <a href="#automated-installation-script" class="md-skip">
           Skip to content
         </a>
       
@@ -342,9 +342,54 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Installation Script
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Installation Script
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-a-directory-for-the-installer-files" class="md-nav__link">
+    1. Create a directory for the installer files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-unpack-the-latest-installer" class="md-nav__link">
+    2. Unpack the latest installer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-install-by-running" class="md-nav__link">
+    3. Install by running
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -659,6 +704,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-a-directory-for-the-installer-files" class="md-nav__link">
+    1. Create a directory for the installer files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-unpack-the-latest-installer" class="md-nav__link">
+    2. Unpack the latest installer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-install-by-running" class="md-nav__link">
+    3. Install by running
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -677,49 +751,45 @@
   </a>
 
 
-<h1 id="installation-script">Installation Script<a class="headerlink" href="#installation-script" title="Permanent link">&para;</a></h1>
+<h1 id="automated-installation-script">Automated Installation Script<a class="headerlink" href="#automated-installation-script" title="Permanent link">&para;</a></h1>
+<p>This installation script is maintained <a href="https://github.com/eosrio/hyperion-auto-setup">here</a></p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>The installation script and this guide are not to date.</p>
+<p>Learning about the software components of the Hyperion architecture is recommended.
+This automatic setup will use defaults that are not suitable for all scenarios.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The usage of this script is highly recommended for fresh installations. If you already have dependencies installed,
-update them manually before running the script.</p>
+<p>The usage of this script is recommended only for fresh installations. 
+If you already have some dependencies installed,
+please proceed with the <a href="../manual_installation/">manual setup</a></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For Windows installation using Multipass, refer to <a href="../windows/">this guide</a> </p>
+<p>For Windows installation using WSL2, refer to <a href="../windows/">this guide</a></p>
 </div>
-<p>We provide an automated shell script that installs all dependencies and then configure Hyperion.</p>
-<p>The first step is to clone the Hyperion repository:
-<div class="highlight"><pre><span></span><code>git clone https://github.com/eosrio/hyperion-history-api.git
-<span class="nb">cd</span> hyperion-history-api
-</code></pre></div></p>
-<p>Then, you just need to run the script:
-<div class="highlight"><pre><span></span><code>./install_env.sh
-</code></pre></div></p>
-<p>The script will ask you for some information:
-<div class="highlight"><pre><span></span><code>Enter rabbitmq user [hyperion]:
-</code></pre></div></p>
-<p>Enter the desired rabbitmq user and hit enter. If you leave it blank, the default user
-<code>hyperion</code> will be set.</p>
-<p>Then, do the same for the rabbitmq password:
-<div class="highlight"><pre><span></span><code>Enter rabbitmq password [123456]:
-</code></pre></div></p>
-<p>And finally, it will ask if you want to create the npm global folder:
-<div class="highlight"><pre><span></span><code>Do you want to create a directory for npm global installations [Y/n] :
+<h3 id="1-create-a-directory-for-the-installer-files">1. Create a directory for the installer files<a class="headerlink" href="#1-create-a-directory-for-the-installer-files" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>mkdir -p ~/.hyperion-installer <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/.hyperion-installer
 </code></pre></div>
-This is recommended. If you choose <code>n</code>, global npm packages will require root permissions.</p>
-<p>Now, the script will do the work, this can take a while. Get a cup of coffee and relax. <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M88 0C74.7 0 64 10.7 64 24c0 38.9 23.4 59.4 39.1 73.1l1.1 1c16.3 14.2 23.8 21.8 23.8 37.9 0 13.3 10.7 24 24 24s24-10.7 24-24c0-38.9-23.4-59.4-39.1-73.1l-1.1-1C119.5 47.7 112 40.1 112 24c0-13.3-10.7-24-24-24zM32 192c-17.7 0-32 14.3-32 32v192c0 53 43 96 96 96h192c53 0 96-43 96-96h16c61.9 0 112-50.1 112-112s-50.1-112-112-112H32zm352 64h16c26.5 0 48 21.5 48 48s-21.5 48-48 48h-16v-96zM224 24c0-13.3-10.7-24-24-24s-24 10.7-24 24c0 38.9 23.4 59.4 39.1 73.1l1.1 1c16.3 14.2 23.8 21.8 23.8 37.9 0 13.3 10.7 24 24 24s24-10.7 24-24c0-38.9-23.4-59.4-39.1-73.1l-1.1-1C231.5 47.7 224 40.1 224 24z"/></svg></span> :fontawesome-regular-laugh-wink:</p>
+<h3 id="2-unpack-the-latest-installer">2. Unpack the latest installer<a class="headerlink" href="#2-unpack-the-latest-installer" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>wget -qO- https://github.com/eosrio/hyperion-auto-setup/raw/main/install.tar.gz <span class="p">|</span> tar -xvz
+</code></pre></div>
+<h3 id="3-install-by-running">3. Install by running<a class="headerlink" href="#3-install-by-running" title="Permanent link">&para;</a></h3>
+<p><code>./install.sh</code></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>The installation script may ask you for the admin password. This is needed to install the dependencies, please, provide it.</p>
+<p>The installation script may ask you for the sudo password.</p>
 </div>
-<p>If everything runs smoothly, the script will automatically generate elasticsearch passwords and save them on the <code>elastic_pass.txt</code> file.</p>
-<p>To login into Kibana, use the <code>elastic</code> user credentials.</p>
-<p><br></p>
-<p>Now it's time to install <a href="../hyperion_configuration/">hyperion</a>! :fontawesome-solid-glass-cheers:</p>
+<ul>
+<li>The <strong>elastic</strong> account password will be saved on the <code>elastic.pass</code> file</li>
+<li><strong>RabbitMQ</strong> will be available on <code>http://localhost:15672</code><ul>
+<li>user: <code>hyperion_user</code></li>
+<li>password: <code>hyperion_password</code></li>
+<li>vhost: <code>hyperion</code></li>
+<li><em>changing your credentials is recommended, specially if opening access to the management interface is planned</em></li>
+</ul>
+</li>
+</ul>
 
 
 
@@ -827,7 +897,7 @@ This is recommended. If you choose <code>n</code>, global npm packages will requ
     <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
       
     
   </body>
