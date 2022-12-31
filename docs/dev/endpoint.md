@@ -10,6 +10,7 @@
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://api.eossweden.org/v2 | [docs](http://api.eossweden.org/v2/docs) |  |
+| https://eos.eosusa.io/v2 | [docs](https://eos.eosusa.io/v2/docs) |  |
 
 
 ### BOS
@@ -17,8 +18,6 @@
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://api.bossweden.org/v2 | [docs](http://api.bossweden.org/v2/docs) |  |
-| https://bos.eosusa.news/v2 | [docs](https://bos.eosusa.news/v2/docs) |  |
-
 
 ### WAX
 
@@ -26,7 +25,7 @@
 | ---- | ---------- | ----------- |
 | https://wax.eosrio.io/v2 | [docs](https://wax.eosrio.io/v2/docs) | [explorer](https://wax.eosrio.io/v2/explore) |
 | https://api.waxsweden.org/v2 | [docs](https://api.waxsweden.org/v2/docs) |  |
-| https://wax.eosusa.news/v2 | [docs](https://wax.eosusa.news/v2/docs) | [explorer](https://wax.eosusa.news/v2/explore) |
+| https://wax.eosusa.io/v2 | [docs](https://wax.eosusa.io/v2/docs) |  |
 | https://wax.eosphere.io/v2 | [docs](https://wax.eosphere.io/v2/docs) |  |
 | https://wax.pink.gg/v2 | [docs](https://wax.pink.gg/v2/docs) |  |
 | https://api-wax.maltablock.org/v2 | [docs](https://api-wax.maltablock.org/v2/docs) |  |
@@ -41,7 +40,7 @@
 | ---- | ---------- | ----------- |
 | https://mainnet.telos.net/v2 | [docs](https://mainnet.telos.net/v2/docs) | [explorer](https://mainnet.telos.net/v2/explore) |
 | https://telos.eosrio.io/v2 | [docs](https://telos.eosrio.io/v2/docs) | [explorer](https://telos.eosrio.io/v2/explore) |
-| https://mainnet.telosusa.io/v2 | [docs](https://mainnet.telosusa.io/v2/docs) | [explorer](https://mainnet.telosusa.io/v2/explore) |
+| https://telos.eosusa.io/v2 | [docs](https://telos.eosusa.io/v2/docs) |  |
 | https://telos.eosphere.io/v2 | [docs](https://telos.eosphere.io/v2/docs) |  |
 | https://api-telos-21zephyr.maltablock.org/v2 | [docs](https://api-telos-21zephyr.maltablock.org/v2/docs) |  |
 | https://telos.caleos.io/v2| [docs](https://telos.caleos.io/v2/docs) | [explorer](https://telos.caleos.io/v2/explore) |
@@ -53,26 +52,25 @@
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://daobet.eossweden.org/v2 | [docs](https://daobet.eossweden.org/v2/docs) |  |
-| https://daobet.eosusa.news/v2 | [docs](https://daobet.eosusa.news/v2/docs) |  |
 
 
 ### INSTAR
 
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
-| https://instar.eosusa.news/v2 | [docs](https://instar.eosusa.news/v2/docs) | [explorer](https://instar.eosusa.news/v2/explore) |
+| https://instar.eosusa.io/v2 | [docs](https://instar.eosusa.io/v2/docs) |  |
 
 ### UOS
 
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
-| https://uos.eosusa.news/v2 | [docs](https://uos.eosusa.news/v2/docs) | [explorer](https://uos.eosusa.news/v2/explore) |
+| https://ultra.eosusa.io/v2 | [docs](https://ultra.eosusa.io/v2/docs) |  |
 
 ### Proton
 
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
-| https://proton.eosusa.news/v2 | [docs](https://proton.eosusa.news/v2/docs) | [explorer](https://proton.eosusa.news/v2/explore) |
+| https://proton.eosusa.io/v2 | [docs](https://proton.eosusa.io/v2/docs) |  |
 | https://proton.cryptolions.io/v2 | [docs](https://proton.cryptolions.io/v2/docs) | [explorer](https://proton.cryptolions.io/v2/explore) |
 
 
@@ -94,7 +92,7 @@
 
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
-| https://ore.eosusa.news/v2 | [docs](https://ore.eosusa.news/v2/docs) | [explorer](https://ore.eosusa.news/v2/explore) |
+| https://ore.eosusa.io/v2 | [docs](https://ore.eosusa.io/v2/docs) |  |
 
 
 ### Coffe
@@ -102,7 +100,6 @@
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://hyperion.coffe.io/v2 | [docs](https://hyperion.coffe.io/v2/docs) |  |
-| https://coffe.eosusa.news/v2 | [docs](https://coffe.eosusa.news/v2/docs) | [explorer](https://coffe.eosusa.news/v2/explore) |
 
 
 ### Remme
@@ -123,6 +120,20 @@
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://fio.cryptolions.io/v2 | [docs](https://fio.cryptolions.io/v2/docs) | [explorer](https://fio.cryptolions.io/v2/explore) |
+| https://fio.eosusa.io/v2 | [docs](https://fio.eosusa.io/v2/docs) | |
+
+
+### UX
+| url | docs | explorer |
+| ---- | ---------- | ----------- |
+| https://ux.eosusa.io/v2 | [docs](https://ux.eosusa.io/v2/docs) |  |
+
+
+### LIBRE
+| url | docs | explorer |
+| ---- | ---------- | ----------- |
+| https://libre.eosusa.io/v2 | [docs](https://libre.eosusa.io/v2/docs) |  |
+
 
 <br>
 
@@ -133,7 +144,7 @@
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://kylin.eossweden.org/v2 | [docs](https://kylin.eossweden.org/v2/docs) |  |
-| https://kylin.eosusa.news/v2 | [docs](https://kylin.eosusa.news/v2/docs) |  |
+| https://kylin.eosusa.io/v2 | [docs](https://kylin.eosusa.io/v2/docs) |  |
 
 ### Jungle 2 EOS Testnet
 
@@ -147,9 +158,14 @@
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://jungle3.eosrio.io/v2 | [docs](https://jungle3.eosrio.io/v2/docs) | [explorer](https://jungle3.eosrio.io/v2/explore) |
-| https://jungle3.eosusa.news/v2 | [docs](https://jungle3.eosusa.news/v2/docs) | [explorer](https://jungle3.eosusa.news/v2/explore) |
 | https://jungle3history.cryptolions.io/v2 | [docs](https://jungle3history.cryptolions.io/v2/docs) | [explore](https://jungle3history.cryptolions.io/v2/explore) |
 | https://jungle3.eossweden.org/v2 | [docs](https://jungle3.eossweden.org/v2/docs) |  |
+
+### Jungle 4 EOS Testnet
+
+| url | docs | explorer |
+| ---- | ---------- | ----------- |
+| https://jungle.eosusa.io/v2 | [docs](https://jungle.eosusa.io/v2/docs) |  |
 
 
 ### BOS Testnet
@@ -164,7 +180,7 @@
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://testnet.telos.net/v2 | [docs](https://testnet.telos.net/v2/docs) | [explorer](https://testnet.telos.net/v2/explore) |
-| https://testnet.telosusa.io/v2 | [docs](https://testnet.telosusa.io/v2/docs) | [explorer](https://testnet.telosusa.io/v2/explore) |
+| https://test.telos.eosusa.io/v2 | [docs](https://test.telos.eosusa.io/v2/docs) |  |
 | https://testnet.telos.caleos.io/v2 | [docs](https://testnet.telos.caleos.io/v2/docs) | [explorer](https://testnet.telos.caleos.io/v2/explore) |
 
 
@@ -174,6 +190,7 @@
 | ---- | ---------- | ----------- |
 | https://testnet.wax.pink.gg/v2 | [docs](https://testnet.wax.pink.gg/v2/docs) |  |
 | https://wax-test.blokcrafters.io/v2 | [docs](https://wax-test.blokcrafters.io/v2/docs) |  |
+| https://test.wax.eosusa.io/v2 | [docs](https://test.wax.eosusa.io/v2/docs) |  |
 
 
 ### DAOBet Testnet
@@ -181,11 +198,37 @@
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
 | https://daobet-test.eossweden.org/v2 | [docs](https://daobet-test.eossweden.org/v2/docs) |  |
-| https://test.daobet.eosusa.news/v2 | [docs](https://test.daobet.eosusa.news/v2/docs) |  |
+
 
 ### Proton Testnet 
 
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
-| https://test.proton.eosusa.news/v2 | [docs](https://test.proton.eosusa.news/v2/docs) | [explorer](https://test.proton.eosusa.news/v2/explore) |
+| https://test.proton.eosusa.io/v2 | [docs](https://test.proton.eosusa.io/v2/docs) |  |
 | https://testnet.protonchain.com/v2 | [docs](https://testnet.protonchain.com/v2/docs) | [explorer](https://testnet.protonchain.com/v2/explore) |
+
+
+### FIO Testnet
+
+| url | docs | explorer |
+| ---- | ---------- | ----------- |
+| https://test.fio.eosusa.io/v2 | [docs](https://test.fio.eosusa.io/v2/docs) | |
+
+
+### UOS Testnet
+
+| url | docs | explorer |
+| ---- | ---------- | ----------- |
+| https://test.ultra.eosusa.io/v2 | [docs](https://test.ultra.eosusa.io/v2/docs) |  |
+
+
+### UX Testnet
+| url | docs | explorer |
+| ---- | ---------- | ----------- |
+| https://test.ux.eosusa.io/v2 | [docs](https://test.ux.eosusa.io/v2/docs) |  |
+
+
+### LIBRE Testnet
+| url | docs | explorer |
+| ---- | ---------- | ----------- |
+| https://test.libre.eosusa.io/v2 | [docs](https://test.libre.eosusa.io/v2/docs) |  |
