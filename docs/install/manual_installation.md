@@ -16,7 +16,7 @@ Below you can find the list of all Hyperion's dependencies:
 - [Redis](https://redis.io/topics/quickstart)
 - [Node.js v18](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)
 - [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/)
-- [LEAP/NODEOS 3.1](https://github.com/AntelopeIO/leap)
+- [LEAP/NODEOS 3.2.1](https://github.com/AntelopeIO/leap)
 
 On the next steps you will install and configure each one of them.
 
@@ -325,8 +325,8 @@ pm2 startup
 ## EOSIO
 
 ```
-wget https://github.com/eosio/eos/releases/download/v2.1.0/eosio_2.1.0-1-ubuntu-20.04_amd64.deb
-sudo apt install ./eosio_2.1.0-1-ubuntu-20.04_amd64.deb
+wget https://github.com/AntelopeIO/leap/releases/download/v3.2.1/leap_3.2.1-ubuntu22.04_amd64.deb
+sudo apt install ./leap_3.2.1-ubuntu22.04_amd64.deb
 ```
 
 ### Configuration
@@ -344,7 +344,7 @@ plugin = eosio::state_history_plugin
 
 ## Hyperion
 
-If everything runs smoothly, it's time to install Hyperion! :fontawesome-solid-glass-cheers:
+If everything runs smoothly, it's time to install Hyperion! :fontawesome-solid-champagne-glasses:
 
 To do that, simply run the following commands:
 
