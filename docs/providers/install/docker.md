@@ -97,7 +97,7 @@ The port 8888 of this container is exposed so you can use it to interact with th
 ### Hyperion API
 Perform queries on the endpoint at [http://127.0.0.1:7000/](http://127.0.0.1:7000).
 
-The complete API reference can be found at [API section: v2](../api/v2.md)
+The complete API reference can be found at [API section: v2](../../api/v2.md)
 
 !!! abstract "Example"
     ```

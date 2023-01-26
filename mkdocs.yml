@@ -2,6 +2,7 @@ site_name: Hyperion Docs
 
 markdown_extensions:
   - admonition
+  - attr_list
   - pymdownx.mark
   - pymdownx.details
   - pymdownx.superfences
@@ -18,15 +19,17 @@ repo_url: 'https://github.com/eosrio/hyperion-history-api'
 nav:
   - Home: index.md
   - Providers:
+      - Getting Started : providers/get-started.md
       - Hyperion Installation:
-          - Manual Installation: install/manual_installation.md
-          - Automated Install Script: install/installation_script.md
-          - Docker: install/docker.md
-          - Windows / WSL2: install/windows.md
+          - WSL2 Pre-configuration: providers/install/wsl2.md
+          - Automated Install Script: providers/install/auto_install.md
+          - Manual Installation: providers/install/manual_install.md
+          - Docker: providers/install/docker.md
       - Hyperion Set Up:
-          - Configuration: setup/hyperion_configuration.md
-          - Connections Configuration: setup/connections.md
-          - Chain Configuration: setup/chain.md
+          - Configuration: providers/setup/hyperion_configuration.md
+          - Connections Configuration: providers/setup/connections.md
+          - Chain Configuration: providers/setup/chain.md
+      - Updating: providers/update.md
   - Users / Developers:
       - Getting Started: dev/howtouse.md
       - Stream Client: dev/stream_client.md
@@ -42,6 +45,8 @@ nav:
 
 theme:
   name: 'material'
+  features:
+    - content.code.copy
   language: en
   palette:
     primary: 'light blue'

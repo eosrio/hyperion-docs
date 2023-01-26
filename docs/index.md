@@ -8,9 +8,9 @@
 
 ### [Official documentation](https://hyperion.docs.eosrio.io)
 
-### How to use
+### Get Started
 
-- [For Providers](install/manual_installation.md)
+- [For Providers](providers/get-started.md)
 
 - [For Developers](dev/howtouse.md)
 

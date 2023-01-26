@@ -5,9 +5,14 @@
 We've developed a tool to automate the configuration of Hyperion. It basically initializes the connections with all the
 dependencies and creates the configuration for each chain you are running.
 
-Make sure you are in the installation directory: `cd ~/hyperion`
+!!! warning
+    Make sure you are in the installation directory:
+    ```shell
+    cd ~/hyperion
+    ```
 
-Run `./hyp-config --help` for more details.
+!!! tip
+    Run `./hyp-config --help` for more details.
 
 ### Initialize connections
 
@@ -31,7 +36,7 @@ Now you can proceed and add a new chain to your configuration. Run the following
 ./hyp-config new chain eos --http "http://127.0.0.1:8888" --ship "ws://127.0.0.1:8080"
 ```
 
-### Check you configuration
+### Check your chain configuration
 
 Finally, check your configuration running:
 
@@ -40,18 +45,8 @@ Finally, check your configuration running:
 ```
 
 You should see an output similar to:
-[![indexer](../assets/img/configured_chains.png)](../assets/img/configured_chains.png)
 
-## Plugins Set Up
-
-Plugins are optional. Follow the documentation on the required plugin page.
-
-Official Plugins:
-    
-- [Hyperion Explorer](https://github.com/eosrio/hyperion-explorer-plugin/tree/develop)
-
-!!! warning "Experimental Feature"
-    Running 3rd-party plugins could be dangerous, please make sure you review the published code before installing
+[![indexer](../../assets/img/configured_chains.png)](../../assets/img/configured_chains.png)
 
 ## Running Hyperion
 
@@ -103,7 +98,7 @@ Use the stop.sh script to stop an instance as follows:
 The Hyperion Indexer is configured to perform an abi scan `("abi_scan_mode": true)` as default. So, on your first run,
 you'll probably see something like this:
 
-[![indexer](../assets/img/indexer.png)](../assets/img/indexer.png)
+[![indexer](../../assets/img/indexer.png)](../../assets/img/indexer.png)
 
 This an example of an ABI SCAN on the WAX chain.
 
@@ -120,6 +115,17 @@ Where:
 ## API
 After running the api, you should see a log like this:
 
- [![api](../assets/img/api.png)](../assets/img/api.png)
+ [![api](../../assets/img/api.png)](../../assets/img/api.png)
 
 Now, it's time to play around making some queries. :fontawesome-regular-laugh-beam:
+
+## Plugins Set Up
+
+Plugins are optional. Follow the documentation on the required plugin page.
+
+Official Plugins:
+
+- [Hyperion Explorer](https://github.com/eosrio/hyperion-explorer-plugin/tree/develop)
+
+!!! warning "Experimental Feature"
+Running 3rd-party plugins could be dangerous, please make sure you review the published code before installing
