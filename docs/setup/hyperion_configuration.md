@@ -39,10 +39,19 @@ Finally, check your configuration running:
 ./hyp-config list chains
 ```
 
+You should see an output similar to:
+[![indexer](../assets/img/configured_chains.png)](../assets/img/configured_chains.png)
+
 ## Plugins Set Up
 
-!!! attention
-    Under construction
+Plugins are optional. Follow the documentation on the required plugin page.
+
+Official Plugins:
+    
+- [Hyperion Explorer](https://github.com/eosrio/hyperion-explorer-plugin/tree/develop)
+
+!!! warning "Experimental Feature"
+    Running 3rd-party plugins could be dangerous, please make sure you review the published code before installing
 
 ## Running Hyperion
 
@@ -50,14 +59,16 @@ We provide scripts to simplify the process of starting and stopping your Hyperio
 
 ### Starting
 
-To start, just use the run.sh script. Here are some examples:
+To run the indexer, execute `./run.sh [chain name]-indexer`
+
+To run the api, execute `./run.sh [chain name]-api`
 
 !!! example "Examples"
-    Starting indexer for EOS mainnet:
+    Starting indexer for **"eos"** chain:
     ```
     ./run.sh eos-indexer
     ```
-    Starting API for test chain:
+    Starting API for **"test"** chain:
     ```
     ./run.sh test-api
     ```
