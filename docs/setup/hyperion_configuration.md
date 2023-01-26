@@ -5,6 +5,8 @@
 We've developed a tool to automate the configuration of Hyperion. It basically initializes the connections with all the
 dependencies and creates the configuration for each chain you are running.
 
+Make sure you are in the installation directory: `cd ~/hyperion`
+
 Run `./hyp-config --help` for more details.
 
 ### Initialize connections
@@ -12,12 +14,14 @@ Run `./hyp-config --help` for more details.
 First, let's initialize our configuration. Just run:
 
 ```
-./hyp-config init connections
+./hyp-config connections init
 ```
 
 !!! note
     This command will also check the connection to Elasticsearch, Rabbitmq and Redis. Make sure everything is up and
     running.
+
+You can use `./hyp-config connections test` to test connectivity at any point and `./hyp-config connections reset` to back up and remove the current configuration.
 
 ### Add new chain
 
@@ -32,7 +36,7 @@ Now you can proceed and add a new chain to your configuration. Run the following
 Finally, check your configuration running:
 
 ```
-/hyp-config list chains
+./hyp-config list chains
 ```
 
 ## Plugins Set Up
