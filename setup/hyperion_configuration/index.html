@@ -957,21 +957,29 @@ running.</p>
 <p>Finally, check your configuration running:</p>
 <div class="highlight"><pre><span></span><code>./hyp-config list chains
 </code></pre></div>
+<p>You should see an output similar to:
+<a href="../../assets/img/configured_chains.png"><img alt="indexer" src="../../assets/img/configured_chains.png" /></a></p>
 <h2 id="plugins-set-up">Plugins Set Up<a class="headerlink" href="#plugins-set-up" title="Permanent link">&para;</a></h2>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>Under construction</p>
+<p>Plugins are optional. Follow the documentation on the required plugin page.</p>
+<p>Official Plugins:</p>
+<ul>
+<li><a href="https://github.com/eosrio/hyperion-explorer-plugin/tree/develop">Hyperion Explorer</a></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Experimental Feature</p>
+<p>Running 3rd-party plugins could be dangerous, please make sure you review the published code before installing</p>
 </div>
 <h2 id="running-hyperion">Running Hyperion<a class="headerlink" href="#running-hyperion" title="Permanent link">&para;</a></h2>
 <p>We provide scripts to simplify the process of starting and stopping your Hyperion Indexer or API instance.</p>
 <h3 id="starting">Starting<a class="headerlink" href="#starting" title="Permanent link">&para;</a></h3>
-<p>To start, just use the run.sh script. Here are some examples:</p>
+<p>To run the indexer, execute <code>./run.sh [chain name]-indexer</code></p>
+<p>To run the api, execute <code>./run.sh [chain name]-api</code></p>
 <div class="admonition example">
 <p class="admonition-title">Examples</p>
-<p>Starting indexer for EOS mainnet:
+<p>Starting indexer for <strong>"eos"</strong> chain:
 <div class="highlight"><pre><span></span><code>./run.sh eos-indexer
 </code></pre></div>
-Starting API for test chain:
+Starting API for <strong>"test"</strong> chain:
 <div class="highlight"><pre><span></span><code>./run.sh test-api
 </code></pre></div></p>
 </div>
