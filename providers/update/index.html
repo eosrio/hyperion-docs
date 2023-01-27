@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../docker/">
+        <link rel="prev" href="../setup/chain/">
       
       
-        <link rel="next" href="../../setup/hyperion_configuration/">
+        <link rel="next" href="../../dev/howtouse/">
       
       <link rel="icon" href="../../assets/img/icon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>Windows / WSL2 - Hyperion Docs</title>
+        <title>Updating - Hyperion Docs</title>
       
     
     
@@ -120,7 +120,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#windows-wsl2-systemd" class="md-skip">
+        <a href="#update-and-build" class="md-skip">
           Skip to content
         </a>
       
@@ -152,7 +152,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Windows / WSL2
+              Updating
             
           </span>
         </div>
@@ -303,26 +303,38 @@
               
   
   
-    
+  
+    <li class="md-nav__item">
+      <a href="../get-started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
   
   
+  
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
       
       
       
-        <label class="md-nav__link" for="__nav_2_1" tabindex="0" aria-expanded="true">
+        <label class="md-nav__link" for="__nav_2_2" tabindex="0" aria-expanded="false">
           Hyperion Installation
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Hyperion Installation" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_1">
+        <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
           Hyperion Installation
         </label>
@@ -334,8 +346,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../manual_installation/" class="md-nav__link">
-        Manual Installation
+      <a href="../install/wsl2/" class="md-nav__link">
+        WSL2 Pre-configuration
       </a>
     </li>
   
@@ -348,7 +360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installation_script/" class="md-nav__link">
+      <a href="../install/auto_install/" class="md-nav__link">
         Automated Install Script
       </a>
     </li>
@@ -362,8 +374,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../docker/" class="md-nav__link">
-        Docker
+      <a href="../install/manual_install/" class="md-nav__link">
+        Manual Installation
       </a>
     </li>
   
@@ -374,80 +386,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Windows / WSL2
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Windows / WSL2
+    <li class="md-nav__item">
+      <a href="../install/docker/" class="md-nav__link">
+        Docker
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-make-sure-wsl2-is-updated" class="md-nav__link">
-    1. Make sure WSL2 is updated
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-install-and-launch-an-ubuntu-2204-instance" class="md-nav__link">
-    2. Install and launch an Ubuntu 22.04 instance
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-enable-systemd" class="md-nav__link">
-    3. Enable systemd
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-restart-the-wsl2-engine" class="md-nav__link">
-    4. Restart the WSL2 engine
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-proceed-with-the-automated-install" class="md-nav__link">
-    5. Proceed with the automated install
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -471,17 +414,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
       
       
       
-        <label class="md-nav__link" for="__nav_2_2" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_2_3" tabindex="0" aria-expanded="false">
           Hyperion Set Up
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Hyperion Set Up" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_2">
+        <label class="md-nav__title" for="__nav_2_3">
           <span class="md-nav__icon md-icon"></span>
           Hyperion Set Up
         </label>
@@ -493,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/hyperion_configuration/" class="md-nav__link">
+      <a href="../setup/hyperion_configuration/" class="md-nav__link">
         Configuration
       </a>
     </li>
@@ -507,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/connections/" class="md-nav__link">
+      <a href="../setup/connections/" class="md-nav__link">
         Connections Configuration
       </a>
     </li>
@@ -521,7 +464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/chain/" class="md-nav__link">
+      <a href="../setup/chain/" class="md-nav__link">
         Chain Configuration
       </a>
     </li>
@@ -531,6 +474,57 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Updating
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Updating
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#update-and-build" class="md-nav__link">
+    Update and Build
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -776,8 +770,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -786,36 +778,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-make-sure-wsl2-is-updated" class="md-nav__link">
-    1. Make sure WSL2 is updated
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-install-and-launch-an-ubuntu-2204-instance" class="md-nav__link">
-    2. Install and launch an Ubuntu 22.04 instance
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-enable-systemd" class="md-nav__link">
-    3. Enable systemd
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-restart-the-wsl2-engine" class="md-nav__link">
-    4. Restart the WSL2 engine
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-proceed-with-the-automated-install" class="md-nav__link">
-    5. Proceed with the automated install
+  <a href="#update-and-build" class="md-nav__link">
+    Update and Build
   </a>
   
 </li>
@@ -839,29 +803,19 @@
 
 
 
-<h1 id="windows-wsl2-systemd">Windows + WSL2 + systemd<a class="headerlink" href="#windows-wsl2-systemd" title="Permanent link">&para;</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Optimizing for performance is beyond the scope of this guide,
-this is intended for learning and development on Hyperion.
-systemd is now available in WSL2 and
-required for this guide. <a href="https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl">Read more</a></p>
-</div>
-<h2 id="1-make-sure-wsl2-is-updated">1. Make sure WSL2 is updated<a class="headerlink" href="#1-make-sure-wsl2-is-updated" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>wsl --update
-</code></pre></div>
-<h2 id="2-install-and-launch-an-ubuntu-2204-instance">2. Install and launch an Ubuntu 22.04 instance<a class="headerlink" href="#2-install-and-launch-an-ubuntu-2204-instance" title="Permanent link">&para;</a></h2>
-<p><a href="https://www.microsoft.com/store/productId/9PN20MSR04DW">Ubuntu 22.04.1 LTS on Microsoft Store</a></p>
-<h2 id="3-enable-systemd">3. Enable systemd<a class="headerlink" href="#3-enable-systemd" title="Permanent link">&para;</a></h2>
-<p>(sudo) Add the following to <strong>/etc/wsl.conf</strong></p>
-<div class="highlight"><pre><span></span><code>[boot]
-systemd=true
-</code></pre></div>
-<h2 id="4-restart-the-wsl2-engine">4. Restart the WSL2 engine<a class="headerlink" href="#4-restart-the-wsl2-engine" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>wsl --shutdown
-wsl -d Ubuntu-22.04
-</code></pre></div>
-<h2 id="5-proceed-with-the-automated-install">5. Proceed with the <a href="../installation_script/">automated install</a><a class="headerlink" href="#5-proceed-with-the-automated-install" title="Permanent link">&para;</a></h2>
+  <h1>Updating</h1>
+
+<h3 id="update-and-build">Update and Build<a class="headerlink" href="#update-and-build" title="Permanent link">&para;</a></h3>
+<p>Checkout the main branch or the specific tag you wish to update to, fetch new changes with <code>git pull</code> and run <code>npm install</code> (it will update all packages and automatically build afterwards)
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull
+npm<span class="w"> </span>install
+</code></pre></div></p>
+<p>After the rebuild, you need to restart the indexer and api.
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/hyperion
+./run.sh<span class="w"> </span><span class="o">[</span>chain<span class="w"> </span>name<span class="o">]</span>-indexer
+./run.sh<span class="w"> </span><span class="o">[</span>chain<span class="w"> </span>name<span class="o">]</span>-api
+</code></pre></div></p>
 
 
   
@@ -941,7 +895,7 @@ wsl -d Ubuntu-22.04
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>

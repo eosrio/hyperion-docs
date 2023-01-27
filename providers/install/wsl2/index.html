@@ -9,24 +9,24 @@
       
       
       
-        <link rel="prev" href="../../providers/update/">
+        <link rel="prev" href="../../get-started/">
       
       
-        <link rel="next" href="../stream_client/">
+        <link rel="next" href="../auto_install/">
       
-      <link rel="icon" href="../../assets/img/icon.png">
+      <link rel="icon" href="../../../assets/img/icon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>Getting Started - Hyperion Docs</title>
+        <title>WSL2 Pre-configuration - Hyperion Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.558e4712.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
       
       
   
@@ -83,7 +83,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -120,7 +120,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-use" class="md-skip">
+        <a href="#wsl2-systemd" class="md-skip">
           Skip to content
         </a>
       
@@ -134,9 +134,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Hyperion Docs" class="md-header__button md-logo" aria-label="Hyperion Docs" data-md-component="logo">
+    <a href="../../.." title="Hyperion Docs" class="md-header__button md-logo" aria-label="Hyperion Docs" data-md-component="logo">
       
-  <img src="../../assets/img/simplified_logo.svg" alt="logo">
+  <img src="../../../assets/img/simplified_logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -152,7 +152,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting Started
+              WSL2 Pre-configuration
             
           </span>
         </div>
@@ -231,9 +231,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Hyperion Docs" class="md-nav__button md-logo" aria-label="Hyperion Docs" data-md-component="logo">
+    <a href="../../.." title="Hyperion Docs" class="md-nav__button md-logo" aria-label="Hyperion Docs" data-md-component="logo">
       
-  <img src="../../assets/img/simplified_logo.svg" alt="logo">
+  <img src="../../../assets/img/simplified_logo.svg" alt="logo">
 
     </a>
     Hyperion Docs
@@ -261,7 +261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -274,18 +274,20 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
-        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
           Providers
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -303,7 +305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/get-started/" class="md-nav__link">
+      <a href="../../get-started/" class="md-nav__link">
         Getting Started
       </a>
     </li>
@@ -315,18 +317,20 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
       
       
       
-        <label class="md-nav__link" for="__nav_2_2" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_2_2" tabindex="0" aria-expanded="true">
           Hyperion Installation
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -342,11 +346,80 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../providers/install/wsl2/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          WSL2 Pre-configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         WSL2 Pre-configuration
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-make-sure-wsl2-is-updated" class="md-nav__link">
+    1. Make sure WSL2 is updated
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-install-and-launch-an-ubuntu-2204-instance" class="md-nav__link">
+    2. Install and launch an Ubuntu 22.04 instance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-enable-systemd" class="md-nav__link">
+    3. Enable systemd
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-restart-the-wsl2-engine" class="md-nav__link">
+    4. Restart the WSL2 engine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-proceed-with-the-installation" class="md-nav__link">
+    5. Proceed with the installation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -358,7 +431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/install/auto_install/" class="md-nav__link">
+      <a href="../auto_install/" class="md-nav__link">
         Automated Install Script
       </a>
     </li>
@@ -372,7 +445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/install/manual_install/" class="md-nav__link">
+      <a href="../manual_install/" class="md-nav__link">
         Manual Installation
       </a>
     </li>
@@ -386,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/install/docker/" class="md-nav__link">
+      <a href="../docker/" class="md-nav__link">
         Docker
       </a>
     </li>
@@ -434,7 +507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/setup/hyperion_configuration/" class="md-nav__link">
+      <a href="../../setup/hyperion_configuration/" class="md-nav__link">
         Configuration
       </a>
     </li>
@@ -448,7 +521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/setup/connections/" class="md-nav__link">
+      <a href="../../setup/connections/" class="md-nav__link">
         Connections Configuration
       </a>
     </li>
@@ -462,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/setup/chain/" class="md-nav__link">
+      <a href="../../setup/chain/" class="md-nav__link">
         Chain Configuration
       </a>
     </li>
@@ -483,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/update/" class="md-nav__link">
+      <a href="../../update/" class="md-nav__link">
         Updating
       </a>
     </li>
@@ -503,20 +576,18 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
-        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="true">
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
           Users / Developers
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -532,59 +603,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Getting Started
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../dev/howtouse/" class="md-nav__link">
         Getting Started
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-javascript-client-using-https" class="md-nav__link">
-    1. JavaScript client using https
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-third-party-library" class="md-nav__link">
-    2. Third party library
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -596,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../stream_client/" class="md-nav__link">
+      <a href="../../../dev/stream_client/" class="md-nav__link">
         Stream Client
       </a>
     </li>
@@ -610,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../endpoint/" class="md-nav__link">
+      <a href="../../../dev/endpoint/" class="md-nav__link">
         Endpoint List
       </a>
     </li>
@@ -659,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/v2/" class="md-nav__link">
+      <a href="../../../api/v2/" class="md-nav__link">
         v2
       </a>
     </li>
@@ -673,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/v1/" class="md-nav__link">
+      <a href="../../../api/v1/" class="md-nav__link">
         v1 compatible
       </a>
     </li>
@@ -722,7 +745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../help/kibana/" class="md-nav__link">
+      <a href="../../../help/kibana/" class="md-nav__link">
         Kibana
       </a>
     </li>
@@ -736,7 +759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../help/rabbit/" class="md-nav__link">
+      <a href="../../../help/rabbit/" class="md-nav__link">
         RabbitMQ
       </a>
     </li>
@@ -750,7 +773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../help/faq/" class="md-nav__link">
+      <a href="../../../help/faq/" class="md-nav__link">
         FAQ
       </a>
     </li>
@@ -791,15 +814,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-javascript-client-using-https" class="md-nav__link">
-    1. JavaScript client using https
+  <a href="#1-make-sure-wsl2-is-updated" class="md-nav__link">
+    1. Make sure WSL2 is updated
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-third-party-library" class="md-nav__link">
-    2. Third party library
+  <a href="#2-install-and-launch-an-ubuntu-2204-instance" class="md-nav__link">
+    2. Install and launch an Ubuntu 22.04 instance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-enable-systemd" class="md-nav__link">
+    3. Enable systemd
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-restart-the-wsl2-engine" class="md-nav__link">
+    4. Restart the WSL2 engine
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-proceed-with-the-installation" class="md-nav__link">
+    5. Proceed with the installation
   </a>
   
 </li>
@@ -823,104 +867,48 @@
 
 
 
-<h1 id="how-to-use">How to use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h1>
-<h2 id="1-javascript-client-using-https">1. JavaScript client using https<a class="headerlink" href="#1-javascript-client-using-https" title="Permanent link">&para;</a></h2>
-<p>Fetching data from Hyperion using JavaScript is quite simple. </p>
-<p>To do that we're going to use https library to make the requests.</p>
-<p>So, the first step is to include the https lib:
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">https</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;https&#39;</span><span class="p">);</span>
-</code></pre></div></p>
-<p>In this example, we will fetch the WAX chain for the transaction id: 
-14b36232e919307090c7e9a7a2b17915f40bf0ce72734647c9f8c145c110dda0.</p>
-<p>This is the query:
-<div class="highlight"><pre><span></span><code>&quot;https://wax.hyperion.eosrio.io/v2/history/get_transaction?id=14b36232e919307090c7e9a7a2b17915f40bf0ce72734647c9f8c145c110dda0&quot;
-</code></pre></div></p>
-<p>Now, let's create a Promise function that will receive the tx id as parameter and save it into a variable called <code>getTransaction</code>:
-<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">getTransaction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://wax.hyperion.eosrio.io/v2/history/get_transaction?id=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">args</span><span class="p">;</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">resolve</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">https</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">resp</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">;</span>
-
-<span class="w">            </span><span class="c1">// A chunk of data has been recieved.</span>
-<span class="w">            </span><span class="nx">resp</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">chunk</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="nx">data</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">chunk</span><span class="p">;</span>
-<span class="w">            </span><span class="p">});</span>
-
-<span class="w">            </span><span class="c1">// The whole response has been received. Print out the result.</span>
-<span class="w">            </span><span class="nx">resp</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="nx">resolve</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
-<span class="w">            </span><span class="p">});</span>
-<span class="w">        </span><span class="p">});</span>
-
-<span class="w">    </span><span class="p">})</span>
-<span class="p">};</span>
-</code></pre></div></p>
-<p>And finally, let's call the function passing the tx id as parameter:
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">async</span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;{</span>
-<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;14b36232e919307090c7e9a7a2b17915f40bf0ce72734647c9f8c145c110dda0&quot;</span>
-<span class="w">   </span><span class="nx">getTransaction</span><span class="p">(</span><span class="nx">id</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-<span class="w">  </span><span class="p">});</span>
-<span class="p">})();</span>
-</code></pre></div></p>
-<p>Request response:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="kc">tr</span><span class="err">x_id</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">14</span><span class="err">b</span><span class="mf">36232e919307090</span><span class="err">c</span><span class="mf">7e9</span><span class="err">a</span><span class="mi">7</span><span class="err">a</span><span class="mi">2</span><span class="err">b</span><span class="mi">17915</span><span class="kc">f</span><span class="mi">40</span><span class="err">b</span><span class="kc">f</span><span class="mi">0</span><span class="err">ce</span><span class="mi">72734647</span><span class="err">c</span><span class="mi">9</span><span class="kc">f</span><span class="mi">8</span><span class="err">c</span><span class="mi">145</span><span class="err">c</span><span class="mi">110</span><span class="err">dda</span><span class="mi">0</span><span class="err">&#39;</span><span class="p">,</span>
-<span class="w">  </span><span class="err">lib</span><span class="p">:</span><span class="w"> </span><span class="mi">49925737</span><span class="p">,</span>
-<span class="w">  </span><span class="err">ac</span><span class="kc">t</span><span class="err">io</span><span class="kc">ns</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="err">ac</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">_ordi</span><span class="kc">nal</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">      </span><span class="err">crea</span><span class="kc">t</span><span class="err">or_ac</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">_ordi</span><span class="kc">nal</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">      </span><span class="err">ac</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">Objec</span><span class="kc">t</span><span class="p">],</span>
-<span class="w">      </span><span class="err">co</span><span class="kc">nte</span><span class="err">x</span><span class="kc">t</span><span class="err">_</span><span class="kc">free</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">      </span><span class="err">elapsed</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">0</span><span class="err">&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="err">accou</span><span class="kc">nt</span><span class="err">_ram_del</span><span class="kc">tas</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">Array</span><span class="p">],</span>
-<span class="w">      </span><span class="err">&#39;@</span><span class="kc">t</span><span class="err">imes</span><span class="kc">ta</span><span class="err">mp&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">2020-04-08</span><span class="err">T</span><span class="mi">23</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mf">02.500</span><span class="err">&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="err">block_</span><span class="kc">nu</span><span class="err">m</span><span class="p">:</span><span class="w"> </span><span class="mi">49924003</span><span class="p">,</span>
-<span class="w">      </span><span class="err">producer</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;ze</span><span class="kc">n</span><span class="err">blockswax&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="kc">tr</span><span class="err">x_id</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">14</span><span class="err">b</span><span class="mf">36232e919307090</span><span class="err">c</span><span class="mf">7e9</span><span class="err">a</span><span class="mi">7</span><span class="err">a</span><span class="mi">2</span><span class="err">b</span><span class="mi">17915</span><span class="kc">f</span><span class="mi">40</span><span class="err">b</span><span class="kc">f</span><span class="mi">0</span><span class="err">ce</span><span class="mi">72734647</span><span class="err">c</span><span class="mi">9</span><span class="kc">f</span><span class="mi">8</span><span class="err">c</span><span class="mi">145</span><span class="err">c</span><span class="mi">110</span><span class="err">dda</span><span class="mi">0</span><span class="err">&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="err">global_seque</span><span class="kc">n</span><span class="err">ce</span><span class="p">:</span><span class="w"> </span><span class="mi">260804226</span><span class="p">,</span>
-<span class="w">      </span><span class="err">cpu_usage_us</span><span class="p">:</span><span class="w"> </span><span class="mi">1173</span><span class="p">,</span>
-<span class="w">      </span><span class="kc">net</span><span class="err">_usage_words</span><span class="p">:</span><span class="w"> </span><span class="mi">36</span><span class="p">,</span>
-<span class="w">      </span><span class="err">i</span><span class="kc">nl</span><span class="err">i</span><span class="kc">ne</span><span class="err">_cou</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
-<span class="w">      </span><span class="err">i</span><span class="kc">nl</span><span class="err">i</span><span class="kc">ne</span><span class="err">_</span><span class="kc">f</span><span class="err">il</span><span class="kc">tere</span><span class="err">d</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">      </span><span class="err">receip</span><span class="kc">ts</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">Array</span><span class="p">],</span>
-<span class="w">      </span><span class="err">code_seque</span><span class="kc">n</span><span class="err">ce</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
-<span class="w">      </span><span class="err">abi_seque</span><span class="kc">n</span><span class="err">ce</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
-<span class="w">      </span><span class="kc">n</span><span class="err">o</span><span class="kc">t</span><span class="err">i</span><span class="kc">f</span><span class="err">ied</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">Array</span><span class="p">],</span>
-<span class="w">      </span><span class="kc">t</span><span class="err">imes</span><span class="kc">ta</span><span class="err">mp</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">2020-04-08</span><span class="err">T</span><span class="mi">23</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mf">02.500</span><span class="err">&#39;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="err">ac</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">_ordi</span><span class="kc">nal</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<span class="w">      </span><span class="err">crea</span><span class="kc">t</span><span class="err">or_ac</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">_ordi</span><span class="kc">nal</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">      </span><span class="err">ac</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">Objec</span><span class="kc">t</span><span class="p">],</span>
-<span class="w">      </span><span class="err">co</span><span class="kc">nte</span><span class="err">x</span><span class="kc">t</span><span class="err">_</span><span class="kc">free</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">      </span><span class="err">elapsed</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">0</span><span class="err">&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="err">accou</span><span class="kc">nt</span><span class="err">_ram_del</span><span class="kc">tas</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">Array</span><span class="p">],</span>
-<span class="w">      </span><span class="err">&#39;@</span><span class="kc">t</span><span class="err">imes</span><span class="kc">ta</span><span class="err">mp&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">2020-04-08</span><span class="err">T</span><span class="mi">23</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mf">02.500</span><span class="err">&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="err">block_</span><span class="kc">nu</span><span class="err">m</span><span class="p">:</span><span class="w"> </span><span class="mi">49924003</span><span class="p">,</span>
-<span class="w">      </span><span class="err">producer</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;ze</span><span class="kc">n</span><span class="err">blockswax&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="kc">tr</span><span class="err">x_id</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">14</span><span class="err">b</span><span class="mf">36232e919307090</span><span class="err">c</span><span class="mf">7e9</span><span class="err">a</span><span class="mi">7</span><span class="err">a</span><span class="mi">2</span><span class="err">b</span><span class="mi">17915</span><span class="kc">f</span><span class="mi">40</span><span class="err">b</span><span class="kc">f</span><span class="mi">0</span><span class="err">ce</span><span class="mi">72734647</span><span class="err">c</span><span class="mi">9</span><span class="kc">f</span><span class="mi">8</span><span class="err">c</span><span class="mi">145</span><span class="err">c</span><span class="mi">110</span><span class="err">dda</span><span class="mi">0</span><span class="err">&#39;</span><span class="p">,</span>
-<span class="w">      </span><span class="err">global_seque</span><span class="kc">n</span><span class="err">ce</span><span class="p">:</span><span class="w"> </span><span class="mi">260804227</span><span class="p">,</span>
-<span class="w">      </span><span class="err">receip</span><span class="kc">ts</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">Array</span><span class="p">],</span>
-<span class="w">      </span><span class="err">code_seque</span><span class="kc">n</span><span class="err">ce</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
-<span class="w">      </span><span class="err">abi_seque</span><span class="kc">n</span><span class="err">ce</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
-<span class="w">      </span><span class="kc">n</span><span class="err">o</span><span class="kc">t</span><span class="err">i</span><span class="kc">f</span><span class="err">ied</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">Array</span><span class="p">],</span>
-<span class="w">      </span><span class="kc">t</span><span class="err">imes</span><span class="kc">ta</span><span class="err">mp</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">2020-04-08</span><span class="err">T</span><span class="mi">23</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mf">02.500</span><span class="err">&#39;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">],</span>
-<span class="w">  </span><span class="err">query_</span><span class="kc">t</span><span class="err">ime_ms</span><span class="p">:</span><span class="w"> </span><span class="mf">45.26</span>
-<span class="p">}</span>
-</code></pre></div>
-<p><br></p>
-<h2 id="2-third-party-library">2. Third party library<a class="headerlink" href="#2-third-party-library" title="Permanent link">&para;</a></h2>
-<p>There is a third party Javascript library made by EOS Cafe. 
-Refer to their github for further information: <a href="https://github.com/eoscafe/hyperion-api">https://github.com/eoscafe/hyperion-api</a></p>
+<h1 id="wsl2-systemd">WSL2 + systemd<a class="headerlink" href="#wsl2-systemd" title="Permanent link">&para;</a></h1>
+<p>Guide on enabling systemd if you are using WSL2 on Windows.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This is a third party library and is not maintained by EOS Rio</p>
+<p>Optimizing for performance is beyond the scope of this guide,
+this is intended for learning and development on Hyperion.
+systemd is now available in WSL2 and
+required for this guide. <a href="https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl">Read more</a></p>
 </div>
+<h2 id="1-make-sure-wsl2-is-updated">1. Make sure WSL2 is updated<a class="headerlink" href="#1-make-sure-wsl2-is-updated" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Windows Terminal</p>
+<div class="highlight"><pre><span></span><code>wsl --update
+</code></pre></div>
+</div>
+<h2 id="2-install-and-launch-an-ubuntu-2204-instance">2. Install and launch an Ubuntu 22.04 instance<a class="headerlink" href="#2-install-and-launch-an-ubuntu-2204-instance" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.microsoft.com/store/productId/9PN20MSR04DW">Ubuntu 22.04.1 LTS on Microsoft Store</a></p>
+<h2 id="3-enable-systemd">3. Enable systemd<a class="headerlink" href="#3-enable-systemd" title="Permanent link">&para;</a></h2>
+<p>The infrastructure requires <code>systemd</code> to be enabled</p>
+<div class="admonition note">
+<p class="admonition-title">Linux Terminal</p>
+<p>As root edit the file <strong>/etc/wsl.conf</strong>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/wsl.conf
+</code></pre></div>
+Add the following lines
+<div class="highlight"><pre><span></span><code><span class="o">[</span>boot<span class="o">]</span>
+<span class="nv">systemd</span><span class="o">=</span><span class="nb">true</span>
+</code></pre></div></p>
+</div>
+<h2 id="4-restart-the-wsl2-engine">4. Restart the WSL2 engine<a class="headerlink" href="#4-restart-the-wsl2-engine" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Windows Terminal</p>
+<p>Shutdown all instances
+<div class="highlight"><pre><span></span><code>wsl<span class="w"> </span>--shutdown
+</code></pre></div>
+Start your instance
+<div class="highlight"><pre><span></span><code>wsl<span class="w"> </span>-d<span class="w"> </span>Ubuntu-22.04
+</code></pre></div></p>
+</div>
+<h2 id="5-proceed-with-the-installation">5. Proceed with the installation<a class="headerlink" href="#5-proceed-with-the-installation" title="Permanent link">&para;</a></h2>
+<p><a class="md-button" href="../auto_install/">Automatic Installation Script</a></p>
+<p><a class="md-button" href="../manual_install/">Manual Installation</a></p>
 
 
   
@@ -1000,10 +988,10 @@ Refer to their github for further information: <a href="https://github.com/eosca
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.51d95adb.min.js"></script>
       
     
   </body>
