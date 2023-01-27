@@ -1,8 +1,6 @@
-# Hyperion Set Up
+# Hyperion Configuration
 
-## Set Up
-
-We've developed a tool to automate the configuration of Hyperion. It basically initializes the connections with all the
+We've developed a tool to automate the configuration of Hyperion. It initializes the connections with all the
 dependencies and creates the configuration for each chain you are running.
 
 !!! warning
@@ -28,6 +26,8 @@ First, let's initialize our configuration. Just run:
 
 You can use `./hyp-config connections test` to test connectivity at any point and `./hyp-config connections reset` to back up and remove the current configuration.
 
+The initialization command will create a `connections.json` file that follows the template described [here](connections.md).
+
 ### Add new chain
 
 Now you can proceed and add a new chain to your configuration. Run the following command:
@@ -35,6 +35,8 @@ Now you can proceed and add a new chain to your configuration. Run the following
 ```
 ./hyp-config new chain eos --http "http://127.0.0.1:8888" --ship "ws://127.0.0.1:8080"
 ```
+
+This command will create a `chains/eos.config.json` file that follows the template described [here](chain.md) and also configure the state history section of the `connections.json` file for this chain.
 
 ### Check your chain configuration
 
@@ -117,7 +119,45 @@ After running the api, you should see a log like this:
 
  [![api](../../assets/img/api.png)](../../assets/img/api.png)
 
-Now, it's time to play around making some queries. :fontawesome-regular-laugh-beam:
+Now, it's time to play around making some queries. :fontawesome-regular-face-laugh-wink:
+
+!!! tip "Tip"
+    we are using `jq` to format the json output for better readability
+
+    if you don't have it installed use
+
+    ```
+    sudo apt install jq
+    ```
+
+First, let's test the health check endpoint
+
+```
+curl -Ss "http://127.0.0.1:7000/v2/health" | jq
+```
+
+??? example "View example"
+    [![healthcheck](../../assets/img/healthcheck.png)](../../assets/img/healthcheck.png)
+
+Then we can ask for the last action on chain:
+
+```
+curl -Ss "http://127.0.0.1:7000/v2/history/get_actions?limit=1" | jq
+```
+
+??? example "View example"
+    [![get_actions](../../assets/img/get_actions.png)](../../assets/img/get_actions.png)
+
+We can do the same for deltas:
+
+```
+curl -Ss "http://127.0.0.1:7000/v2/history/get_deltas?limit=1" | jq
+```
+
+??? example "View example"
+    [![get_deltas](../../assets/img/get_deltas.png)](../../assets/img/get_deltas.png)
+
+
 
 ## Plugins Set Up
 

@@ -16,6 +16,9 @@ markdown_extensions:
 repo_name: 'eosrio/hyperion-history-api'
 repo_url: 'https://github.com/eosrio/hyperion-history-api'
 
+extra_css:
+  - stylesheets/extra.css
+
 nav:
   - Home: index.md
   - Providers:
@@ -25,10 +28,10 @@ nav:
           - Automated Install Script: providers/install/auto_install.md
           - Manual Installation: providers/install/manual_install.md
           - Docker: providers/install/docker.md
-      - Hyperion Set Up:
+      - Hyperion Configuration:
           - Configuration: providers/setup/hyperion_configuration.md
-          - Connections Configuration: providers/setup/connections.md
-          - Chain Configuration: providers/setup/chain.md
+          - Connections Reference: providers/setup/connections.md
+          - Chain Config Reference: providers/setup/chain.md
       - Updating: providers/update.md
   - Users / Developers:
       - Getting Started: dev/howtouse.md

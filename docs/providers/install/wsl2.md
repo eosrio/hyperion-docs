@@ -10,7 +10,7 @@ Guide on enabling systemd if you are using WSL2 on Windows.
 
 ## 1. Make sure WSL2 is updated
 
-!!! note "Windows Terminal"
+!!! windows "Windows Terminal"
     ```
     wsl --update
     ```
@@ -23,7 +23,7 @@ Guide on enabling systemd if you are using WSL2 on Windows.
 
 The infrastructure requires `systemd` to be enabled
 
-!!! note "Linux Terminal"
+!!! linux "Linux Terminal"
     As root edit the file **/etc/wsl.conf**
     ```shell
     sudo nano /etc/wsl.conf
@@ -36,7 +36,7 @@ The infrastructure requires `systemd` to be enabled
 
 ## 4. Restart the WSL2 engine
 
-!!! note "Windows Terminal"
+!!! windows "Windows Terminal"
     Shutdown all instances
     ```shell
     wsl --shutdown
@@ -48,6 +48,6 @@ The infrastructure requires `systemd` to be enabled
 
 ## 5. Proceed with the installation
 
-[Automatic Installation Script](auto_install.md){ .md-button }
+[Automatic Installation Script :fontawesome-solid-arrow-right-long:](auto_install.md){ .md-button }
 
-[Manual Installation](manual_install.md){ .md-button }
+[Manual Installation :fontawesome-solid-arrow-right-long:](manual_install.md){ .md-button }

@@ -11,7 +11,7 @@ This installation script is maintained [here](https://github.com/eosrio/hyperion
     If you already have some dependencies installed,
     please proceed with the [manual setup](manual_install.md)
 
-!!! note "WSL2"
+!!! windows "WSL2"
     For Windows installation using WSL2, refer to [this guide](wsl2.md)
 
 ### 1. Create a directory for the installer files
@@ -40,7 +40,7 @@ wget -qO- https://github.com/eosrio/hyperion-auto-setup/raw/main/install.tar.gz 
 - **Redis** will be listening on port **6379**
 - **RabbitMQ** will be listening on port **5672/15672/25672**
 
-!!! note "Elasticsearch password"
+!!! key "Elasticsearch password"
     The **elastic** account password will be saved on the `~/.hyperion-installer/elastic.pass` file, please save this on a safe location, as you might need it later on. If you need to reset this password you can do it with the following command:
       ```shell
       sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic -a -s -b
@@ -61,4 +61,4 @@ stat launcher.js
 
 ### 5. Proceed with the configuration
 
-[Hyperion Setup](../setup/hyperion_configuration.md){ .md-button }
+[Hyperion Configuration :fontawesome-solid-arrow-right-long:](../setup/hyperion_configuration.md){ .md-button }

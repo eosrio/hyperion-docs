@@ -353,3 +353,7 @@ git clone https://github.com/eosrio/hyperion-history-api.git
 cd hyperion-history-api
 npm install
 ```
+
+## Proceed with Hyperion Configuration
+
+[Hyperion Setup :fontawesome-solid-arrow-right-long:](../setup/hyperion_configuration.md){ .md-button }

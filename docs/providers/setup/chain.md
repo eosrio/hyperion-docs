@@ -1,4 +1,5 @@
-# Detailed Description of Chain Configuration
+[:fontawesome-solid-arrow-left-long: Hyperion Configuration](hyperion_configuration.md#add-new-chain)
+# Chain Configuration Reference
 
 This section is a quick guide of the config.json file. Here you are going to find a brief explanation of each parameter
 with its default value and an example of real usage.
@@ -225,3 +226,5 @@ to `chains/eos.config.json`. The next step is to edit the file as the following:
   }
 }
 ````
+
+[:fontawesome-solid-arrow-left-long: Hyperion Configuration](hyperion_configuration.md#add-new-chain){ .md-button }

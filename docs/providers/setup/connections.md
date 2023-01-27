@@ -1,4 +1,5 @@
-# Detailed Description of Connections Configuration
+[:fontawesome-solid-arrow-left-long: Hyperion Configuration](hyperion_configuration.md#initialize-connections)
+# Connections Configuration Reference
 
 ### RabbitMQ parameters
 
@@ -42,11 +43,11 @@ In this example we have a connection.json file with:
     - no user
     - no password
 - Local Reddis
-- Remote EOS Mainnet state history
-- Remote WAX state history
+- State History connections: 
+    - Remote EOS Mainnet
+    - Remote sample chain
 
-The first step is to make a copy of the config file and rename it: `example-connections.json` to `connections.json`. The
-next step is to edit the file as the follows:
+
 
 ````json
 {
@@ -58,6 +59,7 @@ next step is to edit the file as the follows:
     "vhost": "hyperion"
   },
   "elasticsearch": {
+    "protocol": "http",
     "host": "127.0.0.1:9200",
     "ingest_nodes": [
       "127.0.0.1:9200"
@@ -88,3 +90,5 @@ next step is to edit the file as the follows:
   }
 }
 ````
+
+[:fontawesome-solid-arrow-left-long: Hyperion Configuration](hyperion_configuration.md#initialize-connections){ .md-button }
