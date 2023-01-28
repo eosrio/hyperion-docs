@@ -157,7 +157,46 @@ curl -Ss "http://127.0.0.1:7000/v2/history/get_deltas?limit=1" | jq
 ??? example "View example"
     [![get_deltas](../../assets/img/get_deltas.png)](../../assets/img/get_deltas.png)
 
+You can check the **Swagger UI** at: `http://127.0.0.1:7000/v2/docs` for more information on all the available endpoints
 
+## Enabling Streaming
+
+Once your indexer is finished and it's only reading live blocks, you can enable the **streaming api** if needed. To do so, enable all options under `features.streaming` in your chain config file
+
+```
+"features": {
+    "streaming": {
+      "enable": true,
+      "traces": true,
+      "deltas": true
+    }
+```
+
+By default, the stream api will be available on the `port 1234`, this can be configured by the `api.stream_port property` in the chain config file.
+
+Once you're done configuring, just **restart** both the **indexer and api**.
+
+A quick test using `curl 127.0.0.1:1234/stream/` should result in the output `{"code":0,"message":"Transport unknown"}` meaning the port is ready for websocket connections.
+Alternatively, you can check the api logs after restart for a `Websocket manager loaded!` message
+
+!!! note "NGINX"
+    if you are using `NGINX` as your reverse proxy, use the following block to properly forward your `/stream` path to the correct port
+    
+    ```
+    location /stream/ {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $host;
+    proxy_pass http://127.0.0.1:1234/stream/;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    }
+    ```
+
+!!! tip "Tip"
+    check our Proxy Guide for full `NGINX` or `HAProxy` examples.
+
+Finally, clients using the Hyperion Stream Client will be able to connect https://github.com/eosrio/hyperion-stream-client
 
 ## Plugins Set Up
 

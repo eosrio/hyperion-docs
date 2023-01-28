@@ -6,14 +6,31 @@
     Scalable Full History API Solution for [Antelope](https://antelope.io/) (former EOSIO) based blockchains.
     Made with ♥ by [Rio Blocks / EOS Rio](https://rioblocks.io/?lang=en)
 
-### [Official documentation](https://hyperion.docs.eosrio.io)
+## Official documentation
 
-### Get Started
+!!! quote ""
+    ### For **Providers**
+    ---
 
-- [For Providers](providers/get-started.md)
+    [Getting Started](providers/get-started.md){ .md-button .md-button--primary}
+    [Configuring](providers/setup/hyperion_configuration.md){ .md-button }
+    [Updating](providers/update.md){ .md-button }
 
-- [For Developers](dev/howtouse.md)
+!!! quote ""
+    ### For **Developers**
+    ---
 
+    [Getting Started](dev/howtouse.md){ .md-button .md-button--primary}
+
+    ---
+    [Stream Client](dev/stream_client.md){ .md-button }
+    [Endpoints List](dev/endpoint.md){ .md-button }
+
+!!! quote ""
+    ### **API Reference**
+
+    [V2](api/v2.md){ .md-button }
+    [V1 Compatible](api/v1.md){ .md-button }
 
 
 ### Official plugins:
