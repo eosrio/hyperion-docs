@@ -172,7 +172,7 @@ Once your indexer is finished and it's only reading live blocks, you can enable 
     }
 ```
 
-By default, the stream api will be available on the `port 1234`, this can be configured by the `api.stream_port property` in the chain config file.
+By default, the stream api will be available on the port 1234, this can be configured by the `api.stream_port` property in the chain config file.
 
 Once you're done configuring, just **restart** both the **indexer and api**.
 
@@ -184,19 +184,20 @@ Alternatively, you can check the api logs after restart for a `Websocket manager
     
     ```
     location /stream/ {
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header Host $host;
-    proxy_pass http://127.0.0.1:1234/stream/;
-    proxy_http_version 1.1;
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "upgrade";
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $host;
+        proxy_pass http://127.0.0.1:1234/stream/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
     }
     ```
 
-!!! tip "Tip"
-    check our Proxy Guide for full `NGINX` or `HAProxy` examples.
+[//]: # (!!! tip "Tip")
 
-Finally, clients using the Hyperion Stream Client will be able to connect https://github.com/eosrio/hyperion-stream-client
+[//]: # (    check our Proxy Guide for full `NGINX` or `HAProxy` examples.)
+
+Finally, clients using the [Hyperion Stream Client](https://github.com/eosrio/hyperion-stream-client) will be able to connect.
 
 ## Plugins Set Up
 
