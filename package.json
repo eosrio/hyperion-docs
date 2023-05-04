@@ -1,6 +1,6 @@
 {
   "name": "hyperion-docs",
-  "description": "Hyperion History Api Documentation",
+  "description": "Hyperion History API Documentation",
   "version": "1.1.0",
   "scripts": {
     "start": "python -m mkdocs serve --dev-addr=0.0.0.0:8000",

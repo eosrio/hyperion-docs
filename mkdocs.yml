@@ -1,4 +1,4 @@
-site_name: Hyperion Docs
+site_name: Hyperion Documentation
 
 markdown_extensions:
   - admonition
@@ -42,6 +42,7 @@ nav:
       - v2: api/v2.md
       - v1 compatible: api/v1.md
   - Troubleshooting:
+      - Repair: help/repair.md
       - Kibana: help/kibana.md
       - RabbitMQ: help/rabbit.md
       - FAQ: help/faq.md
@@ -51,6 +52,10 @@ theme:
   name: 'material'
   features:
     - content.code.copy
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.expand
+    - toc.follow
   language: en
   palette:
     primary: 'light blue'
