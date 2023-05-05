@@ -1,4 +1,5 @@
 site_name: Hyperion Documentation
+copyright: Hyperion History API Documentation
 
 markdown_extensions:
   - admonition
@@ -56,6 +57,7 @@ theme:
     - navigation.tabs.sticky
     - navigation.expand
     - toc.follow
+    - navigation.footer
   language: en
   palette:
     primary: 'light blue'
@@ -78,6 +80,7 @@ theme:
       quote: fontawesome/solid/quote-left
 
 extra:
+  generator: false
   analytics:
     provider: google
     property: G-N6WF1VPFSH
