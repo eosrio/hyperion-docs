@@ -48,6 +48,11 @@ nav:
       - RabbitMQ: help/rabbit.md
       - FAQ: help/faq.md
 
+plugins:
+  - social
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+
 
 theme:
   name: 'material'
@@ -58,6 +63,8 @@ theme:
     - navigation.expand
     - toc.follow
     - navigation.footer
+    - search.suggest
+    - search.highlight
   language: en
   palette:
     primary: 'light blue'
