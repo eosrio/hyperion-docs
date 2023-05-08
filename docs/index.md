@@ -1,6 +1,6 @@
 # Hyperion History API
 
-[![Hyperion](assets/img/hype.jpg)](assets/img/hype.jpg)
+[![Hyperion](assets/img/cover.png)](assets/img/cover.png)
 
 !!! abstract ""
     Scalable Full History API Solution for [Antelope](https://antelope.io/) (former EOSIO) based blockchains.
