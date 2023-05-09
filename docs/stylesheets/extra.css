@@ -34,3 +34,9 @@
     -webkit-mask-image: var(--md-admonition-icon--linux);
     mask-image: var(--md-admonition-icon--linux);
 }
+
+.md-sidebar--primary {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: ease-in-out;
+}
