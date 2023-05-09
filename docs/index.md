@@ -5,8 +5,8 @@
 [![Hyperion](assets/img/cover.png)](assets/img/cover.png)
 
 !!! abstract ""
-    Scalable Full History API Solution for [Antelope](https://antelope.io/) (former EOSIO) based blockchains.
-    Made with ♥ by [Rio Blocks / EOS Rio](https://rioblocks.io/?lang=en)
+    Scalable Full History API Solution for <a href="https://antelope.io/" target="_blank">Antelope</a> (former EOSIO) based blockchains.
+    Made with ♥ by <a href="https://rioblocks.io/?lang=en" target="_blank">Rio Blocks / EOS Rio</a>
 
 ## Official documentation
 
@@ -71,7 +71,7 @@ For production environments, a multi-node cluster is highly recommended.
 #### 2.2 Hyperion Indexer
 
 The Indexer is a Node.js based app that process data from the state history plugin and allows it to be indexed.
-The [PM2 process manager](https://pm2.keymetrics.io) is used to launch and operate the indexer. The configuration
+The <a href="https://pm2.keymetrics.io" target="_blank">PM2 process manager</a> is used to launch and operate the indexer. The configuration
 flexibility is very extensive,
 so system recommendations will depend on the use case and data load. It will require access to at least one ES node,
 RabbitMQ and the state history node.
@@ -93,13 +93,13 @@ the `v2/history/get_transaction` and `v2/history/check_transaction` endpoints
 
 #### 2.6 Leap State History
 
-[Leap / Nodeos](https://github.com/AntelopeIO/leap/tree/main/plugins/state_history_plugin) plugin used
+<a href="https://github.com/AntelopeIO/leap/tree/main/plugins/state_history_plugin" target="_blank">Leap / Nodeos</a> plugin used
 to collect action traces and state deltas. Provides data via websocket to the indexer
 
 #### 2.7 Hyperion Stream Client (optional)
 
 Web and Node.js client for real-time streaming on enabled hyperion
-providers. [Documentation](https://hyperion.docs.eosrio.io/stream_client/)
+providers. [Documentation](https://hyperion.docs.eosrio.io/dev/stream_client/)
 
 #### 2.8 Hyperion Plugins (optional)
 
