@@ -1,118 +1,210 @@
 # Hyperion Docker
-!!! attention
-    This guide is not up-to-date.
+* [Hyperion Docker Repository](https://github.com/eosrio/hyperion-docker)
+
+<br>
+
+!!! warning
+    Hyperion Docker is not recommended for production environments, only for testing, debugging and local networks.
 
 Hyperion Docker is a multi-container Docker application intended to get Hyperion up and running as fast as possible. It will index data from a development chain where you can set your contracts, push some actions and see what happens when querying the Hyperion API.
 
-!!! warning
-    Using Hyperion Docker is not recommended for production environments, only for testing, debugging and local networks.
+!!! linux "Recommend OS"
+    Ubuntu 22.04
 
-!!! attention ""
-    Recommend OS: Ubuntu 18.04
+## Architecture
 
-## 1. Dependencies
-- `docker` and `docker-compose`
+### Layers
 
-!!! warning
-    You should configure your system to run Docker as a non-root user.
+<!-- ![infrastructure](imgs/infrastructure.svg) -->
 
-<br>
+To simplify things, we divided the microservices involved with Hyperion into layers.
 
-## 2. RUN
-Inside the `docker` folder you will find everything you need to run Hyperion Docker.
+1. Blockchain (Leap with state-history plugin)
+2. Hyperion
+3. Infra (Elasticsearch, Redis, RabbitMQ)
 
-First of all, you need to generate the Hyperion configuration files. To do that, from the `docker` folder, run `generate-config.sh` located inside the `scripts` folder. You will have to pass an identifier and a name to the chain you will run. Example:
+The **first layer** would be the Chain itself - `Node Service`. For Hyperion to work, we need a chain to consume data from. In this layer, we will have a single microservice:
+
+!!! note "Leap Node"
+    local chain for data consumption
+
+The **second layer** would be Hyperion itself, which is divided into 2 microservices:
+
+!!! note "Hyperion API"
+    This service allows interaction with the indexed data.
+
+!!! note "Hyperion Indexer"
+    As its name suggests, this service connects to the Chain to fetch and index data.
+
+And finally, in the **third layer**, which we can understand as `Infra Services`, there are 3 microservices:
+
+1. Elasticsearch
+2. Redis
+3. RabbitMQ
+
+** We added 2 extra microservices to facilitate debugging. These microservices need additional commands to be executed; see *[running extra tools section](#profile).
+
+4. Kibana
+5. RedisCommander
+
+### Image Infrastructure
+
+??? note "Infra Image"
+    [![infrastructure](../../assets/img/infrastructure.svg)](../../assets/img/infrastructure.svg)
+
+
+Considering this structure, the [Project Repository](https://github.com/eosrio/hyperion-docker) has 3 folders representing each mentioned layer.
+
+- ../hyperion-docker
+    - hyperion
+    - infra
+    - nodeos
+
+
+In each directory mentioned above, we added a `docker-compose.yaml` file that will be responsible for starting its respective microservices.
+
+For those who have never used `docker-compose`, it allows the creation of several containers simultaneously. These containers are declared as services.
+
+??? note "Example `docker-compose.yaml`"
+    [![docker-compose](../../assets/img/docker-compose-file.png)](../../assets/img/docker-compose-file.png)
+
+All services (containers) declared within a `docker-compose.yaml` share the same network by default. Still, as we will separate the containers into different files, we will need to create a network in Docker that will be shared. The procedure will be detailed below in the configuration process.
+
+
+## Getting Started
+
+### Prerequisites
+
+Before starting with the containers, we need to make some Linux configurations to ensure we are fine with Elasticsearch. Edit the file `/etc/sysctl.conf`
+
+``` bash
+sudo nano /etc/sysctl.conf
 ```
-./scripts/generate-config.sh --chain eos --chain-name "EOS Testnet"
-```
-Feel free to change the configuration files in `hyperion/config` folder the way it suits you. For more details, please refer to the [Hyperion Setup Section](../setup/hyperion_configuration.md).
 
-Now you have three options to run it:
+Add the following properties:
 
-### Option 1: docker-compose up
-This is the simplest way to run Hyperion. Just run `docker-compose up -d` and after some time all necessary docker containers will be running. You can start using it as you like.
-
-!!! warning
-    We recommend using the Script to run Hyperion Docker as the order in which containers are started is important.
-
-To check logs run: 
-
-```
-docker-compose logs -f
+``` bash
+vm.overcommit_memory=1
+vm.max_map_count=262144
 ```
 
-And to bring all containers down run: 
+To ensure the settings are working without restarting the machine, just run:
 
-```
-docker-compose down
-```
-
-### Option 2: Script
-We created a script to start every container in a specific order to avoid problems like connection errors. From the `docker` folder run the `start.sh` script located inside the `scripts` folder. Example:
-```
-./scripts/start.sh --chain eos
+``` bash
+sudo sysctl -w vm.overcommit_memory=1
+sudo sysctl -w vm.max_map_count=262144
 ```
 
-With this script, you also have the option to start the chain from a snapshot. 
+Now let's get started!
 
-!!! abstract "Example"
-    ```
-    ./scripts/start.sh --chain eos --snapshot snapshot-file.bin
-    ```
+### Infrastructure Layer
 
-Don't forget to move the snapshot file to the `eosio/data/snapshots` folder and make sure to change the `chain_id` on `connections.json` file.
+#### 1. Clone the repository 
 
-You can also use the `stop.sh` script to stop all or a specific service and also to bring all the containers down. Check the script usage for more information.
+Clone the repository to your local machine:
 
-### Option 3: Manual
-If you have some experience with Docker Compose you can probably explore Hyperion Docker a bit more.
-
-We recommend starting services in the following order: `redis, rabbitmq, elasticsearch, kibana, eosio-node, hyperion-indexer and hyperion-api`. Wait until each of them is listening for connections before you start the next. Feel free to change the `docker-compose.yml` as you like.
-
-Bellow, you can find a simple example of how to control `hyperion-indexer` service:
+``` bash
+git clone https://github.com/eosrio/hyperion-docker.git
+cd hyperion-docker
 ```
-docker-compose up --no-start
-docker-compose start hyperion-indexer
-docker-compose stop hyperion-indexer
-docker-compose down
+
+#### 2. Verify Docker is running 
+Make sure Docker is running by executing the following command in the terminal:
+``` bash
+docker ps
 ```
-It's also possible to start the chain form a snapshot passing a variable named `SNAPSHOT` to `docker-compose up`.
 
-<br>
+!!! abstract "Expected result"
+    ![infrastructure](../../assets/img/docker-ps.png)
 
-## 3. Usage
+####  3. Create shared network
 
-After running Hyperion Docker, you should have a development chain producing blocks on a Docker container (eosio-node) as well as Hyperion Indexer and API on the other two Docker containers (hyperion-indexer and hyperion-api).
+Create a network that will be shared between the containers by running the command:
+``` bash
+docker network create hyperion
+```
 
-If for some reason you decide to start it fresh again, make sure to clean all generated data. To do that just run `clean-up.sh` script inside `scripts` folder.
+!!! abstract "Expected result"
+    ![infrastructure](../../assets/img/docker-create-network.png)
 
-### EOSIO-NODE
-The port 8888 of this container is exposed so you can use it to interact with the chain.
 
-!!! abstract "Example"
-    ```
-    cleos -u http://127.0.0.1:8888 get info
-    ```
+#### 4. Create the microservices
 
-### Hyperion API
-Perform queries on the endpoint at [http://127.0.0.1:7000/](http://127.0.0.1:7000).
+Now, let's start creating the microservices of the infrastructure layer. 
 
-The complete API reference can be found at [API section: v2](../../api/v2.md)
+Navigate to the **infra directory** of the repository and run the following command:
 
-!!! abstract "Example"
-    ```
-    curl http://127.0.0.1:7000/v2/history/get_actions
-    ```
-    
-### Kibana
-Access [http://127.0.0.1:5601/](http://127.0.0.1:5601/)
+``` bash
+cd infra
+docker compose up -d
+```
 
-### RabbitMQ
-Access [http://127.0.0.1:15672/](http://127.0.0.1:15672/)
+!!! info "`-d` flag"
+    Note that we use the `-d` flag to run in detached mode, allowing us to continue using the session's command line.
 
-<br>
+This command will create the 3 microservices (Elasticsearch, Redis, RabbitMQ).
 
-## 4. Troubleshooting
+The first time you run the command, it may take some time for everything to be set up. You can follow the execution log using the command:
+``` bash
+docker compose logs -f
+```
+
+Press ++ctrl+c++ to end the log reading process.
+
+<a id='profile'></a>
+#### 5. Running extra tools
+Assuming that the 3 microservices are up and running, we added 2 extra microservices (Kibana and RedisCommander) to the docker-compose that can be executed with the following command:
+
+``` bash
+docker compose --profile tools up -d
+```
+
+These two microservices are responsible for the graphical interfaces interacting with Redis and Elasticsearch.
+
+RedisCommander is a tool that allows you to view the data stored in Redis. It is useful for debugging and checking if the data is being stored correctly.
+
+Kibana is a tool used to monitor your Elasticsearch cluster and view the data stored. It is useful for creating dashboards and graphs to visualize the data.
+
+#### 6. Check services
+
+Check if the services are up and running:
+
+- RabbitMQ - <a href="http://localhost:15672/" target="_blank">http://localhost:15672</a>
+
+- Kibana - <a href="http://localhost:5601/" target="_blank">http://localhost:5601</a>
+
+- RedisCommander - <a href="http://localhost:8089/" target="_blank">http://localhost:8089</a>
+
+
+Once we have completed the Infrastructure Layer configuration, we can move on to the Leap (nodeos) Layer.
+
+### Leap (nodeos) Layer
+
+Navigate to the nodeos directory in the repository and run:
+
+``` bash
+cd ../nodeos
+docker compose up -d
+```
+This layer was added to the repository assuming that you don't have a configured chain from which  the Hyperion Indexer will consume the data.
+
+Once the infrastructure and the blockchain node are configured, we can finally start **Hyperion**.
+
+### Hyperion Layer
+
+This layer has 2 microservices, **Hyperion API** and **Hyperion Indexer**.
+
+To start them, navigate to the hyperion directory and run the following command:
+
+``` bash
+cd ../hyperion
+docker compose up -d
+```
+
+[//]: # (***Adicionar aqui um exemplo de interação com o HYPERION API.)
+
+
+## Troubleshooting
 If you're having problems accessing Kibana or using Elasticsearch API, you could disable the xpack security
 on the docker-compose.yml setting it to false:
 
@@ -120,10 +212,10 @@ on the docker-compose.yml setting it to false:
 xpack.security.enabled=false
 ```
 
-## 5. Next steps
+## Next steps
 
-Feel free to change configurations as you like. All configurations files are located in `hyperion/config` or `eosio/config`. 
+Feel free to change configurations as you like. All configurations files are located in `hyperion/config` or `nodeos/leap/config`. 
 
-For more details, please refer to the [Hyperion Setup Section](../setup/hyperion_configuration.md).
+For more details, please refer to the [Hyperion Configuration Section](../setup/hyperion_configuration.md).
 
 <br>
