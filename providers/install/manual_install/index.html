@@ -1531,13 +1531,13 @@ installation, this is the way to go.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <p>Below you can find the list of all Hyperion's dependencies:</p>
 <ul>
-<li><a href="https://www.elastic.co/downloads/elasticsearch">Elasticsearch 8.X</a></li>
-<li><a href="https://www.elastic.co/downloads/kibana">Kibana 8.X</a></li>
-<li><a href="https://www.rabbitmq.com">RabbitMQ</a></li>
-<li><a href="https://redis.io/topics/quickstart">Redis</a></li>
-<li><a href="https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions">Node.js v18</a></li>
-<li><a href="http://pm2.keymetrics.io/docs/usage/quick-start/">PM2</a></li>
-<li><a href="https://github.com/AntelopeIO/leap">LEAP/NODEOS 3.2.1</a></li>
+<li><a href="https://www.elastic.co/downloads/elasticsearch" target="_blank">Elasticsearch 8.X</a></li>
+<li><a href="https://www.elastic.co/downloads/kibana" target="_blank">Kibana 8.X</a></li>
+<li><a href="https://www.rabbitmq.com" target="_blank">RabbitMQ</a></li>
+<li><a href="https://redis.io/topics/quickstart" target="_blank">Redis</a></li>
+<li><a href="https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions" target="_blank">Node.js v18</a></li>
+<li><a href="https://pm2.keymetrics.io/docs/usage/quick-start/" target="_blank">PM2</a></li>
+<li><a href="https://github.com/AntelopeIO/leap" target="_blank">LEAP/NODEOS 3.2.1</a></li>
 </ul>
 <p>On the next steps you will install and configure each one of them.</p>
 <div class="admonition note">
@@ -1548,19 +1548,16 @@ network. Keep in mind that indexing speed will vary greatly depending on this co
 </div>
 <h2 id="elasticsearch">Elasticsearch<a class="headerlink" href="#elasticsearch" title="Permanent link">&para;</a></h2>
 <p>Follow the detailed installation instructions on the
-official <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb">Elasticsearch documentation</a> and
+official <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb" target="_blank">Elasticsearch documentation</a> and
 return to this guide before running it.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Elasticsearch is not started automatically after installation. We recommend running it
-with <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-running-systemd">systemd</a>.</p>
+with <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-running-systemd" target="_blank">systemd</a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It is very important to know the Elasticsearch
-<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-layout">directory layout</a>
-and to understand how the
-<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-configuring">configuration</a> works.</p>
+<p>It is very important to know the Elasticsearch <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-layout" target="_blank">directory layout</a> and to understand how the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-configuring" target="_blank">configuration</a> works.</p>
 </div>
 <h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
 <h5 id="1-elasticsearch-configuration">1. Elasticsearch configuration<a class="headerlink" href="#1-elasticsearch-configuration" title="Permanent link">&para;</a></h5>
@@ -1576,8 +1573,7 @@ check next step). This can cause the application to crash if you allocate more R
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A different approach is to
-<a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.14/setup-configuration-memory.html#setup-configuration-memory">disable swapping</a>
+<p>A different approach is to <a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.14/setup-configuration-memory.html#setup-configuration-memory" target="_blank">disable swapping</a>
 on your system.</p>
 </div>
 <div class="admonition success">
@@ -1669,23 +1665,18 @@ sudo<span class="w"> </span>/usr/share/elasticsearch/bin/elasticsearch-setup-pas
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>The minimal security scenario is not sufficient for production mode clusters. Check
-the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/security-basic-setup.html">documentation</a> for
-more information.</p>
+the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/security-basic-setup.html" target="_blank">official documentation</a> for more information.</p>
 </div>
 <h2 id="kibana">Kibana<a class="headerlink" href="#kibana" title="Permanent link">&para;</a></h2>
 <p>Follow the detailed installation instructions on the official
-<a href="https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb">Kibana documentation</a>. Return to this documentation before
-running it.</p>
+<a href="https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb" target="_blank">Kibana documentation</a>. Return to this documentation before running it.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Kibana is not started automatically after installation. We recomend running it with
-<a href="https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-running-systemd">systemd</a>.</p>
+<p>Kibana is not started automatically after installation. We recomend running it with <a href="https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-running-systemd" target="_blank">systemd</a>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Like on Elasticsearch, it is very important to know the Kibana
-<a href="https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-layout">directory layout</a> and to understand how the
-<a href="https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-configuring">configuration</a> works.</p>
+<p>Like on Elasticsearch, it is very important to know the Kibana <a href="https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-layout" target="_blank">directory layout</a> and to understand how the <a href="https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-configuring" target="_blank">configuration</a> works.</p>
 </div>
 <h3 id="configuration_1">Configuration<a class="headerlink" href="#configuration_1" title="Permanent link">&para;</a></h3>
 <h5 id="1-elasticsearch-security">1. Elasticsearch security<a class="headerlink" href="#1-elasticsearch-security" title="Permanent link">&para;</a></h5>
@@ -1704,9 +1695,9 @@ sudo<span class="w"> </span>less<span class="w"> </span>/var/log/kibana/kibana.l
 </code></pre></div>
 <h2 id="rabbitmq">RabbitMQ<a class="headerlink" href="#rabbitmq" title="Permanent link">&para;</a></h2>
 <p>Follow the detailed installation instructions on the
-official <a href="https://www.rabbitmq.com/install-debian.html#installation-methods">RabbitMQ documentation</a>.</p>
+official <a href="https://www.rabbitmq.com/install-debian.html#installation-methods" target="_blank">RabbitMQ documentation</a>.</p>
 <p>RabbitMQ should automatically start after installation. Check
-the <a href="https://www.rabbitmq.com/install-debian.html#managing-service">documentation</a> for more details on how to manage its
+the <a href="https://www.rabbitmq.com/install-debian.html#managing-service" target="_blank">documentation</a> for more details on how to manage its
 service.</p>
 <h3 id="configuration_2">Configuration<a class="headerlink" href="#configuration_2" title="Permanent link">&para;</a></h3>
 <h5 id="1-enable-the-webui">1. Enable the WebUI<a class="headerlink" href="#1-enable-the-webui" title="Permanent link">&para;</a></h5>
@@ -1725,7 +1716,7 @@ service.</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rabbitmqctl<span class="w"> </span>set_permissions<span class="w"> </span>-p<span class="w"> </span>hyperion<span class="w"> </span>USER<span class="w"> </span><span class="s2">&quot;.*&quot;</span><span class="w"> </span><span class="s2">&quot;.*&quot;</span><span class="w"> </span><span class="s2">&quot;.*&quot;</span>
 </code></pre></div>
 <h5 id="6-check-access-to-the-webui">6. Check access to the WebUI<a class="headerlink" href="#6-check-access-to-the-webui" title="Permanent link">&para;</a></h5>
-<p>Try to access RabbitMQ WebUI at <a href="http://localhost:15672">http://localhost:15672</a>.</p>
+<p>Try to access RabbitMQ WebUI at <a href="http://localhost:15672" target="_blank">http://localhost:15672</a> with the user and password you just created.</p>
 <h2 id="redis">Redis<a class="headerlink" href="#redis" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>redis-server
 </code></pre></div>
