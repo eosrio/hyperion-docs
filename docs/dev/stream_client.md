@@ -124,7 +124,7 @@ such as:
 - `@transfer.to` (here the @ prefix is required since transfers have special mappings)
 
 Please refer to
-the [mapping definitions](https://github.com/eosrio/Hyperion-History-API/blob/main/definitions/index-templates.ts) to
+the [mapping definitions](https://github.com/eosrio/Hyperion-History-API/blob/main/definitions/index-templates.ts){:target="_blank"} to
 know which data fields are available
 
 For example, to filter the stream for
@@ -183,9 +183,8 @@ data object is structured as follows:
 
 - `type` - _action_ | _delta_
 - `mode` - _live_ | _history_
-- `content` - Hyperion Data Structure (
-  see [action index](https://github.com/eosrio/Hyperion-History-API/blob/main/definitions/index-templates.ts#L53)
-  and [delta index](https://github.com/eosrio/Hyperion-History-API/blob/main/definitions/index-templates.ts#L212)
+- `content` - Hyperion Data Structure (see [action index](https://github.com/eosrio/Hyperion-History-API/blob/main/definitions/index-templates.ts#L53){:target="_blank"}
+  and [delta index](https://github.com/eosrio/Hyperion-History-API/blob/main/definitions/index-templates.ts#L212){:target="_blank"}
   templates)
 
 ```javascript
@@ -202,5 +201,5 @@ client.setAsyncLibDataHandler(async (data) => {
 })
 ```
 
-Useful information about load-balancing multiple Socket.IO servers:
-https://socket.io/docs/v4/using-multiple-nodes/#NginX-configuration
+!!! tip
+    In this [link](https://socket.io/docs/v4/using-multiple-nodes/#NginX-configuration){:target="_blank"} you can find some useful information about load-balancing multiple Socket.IO servers.

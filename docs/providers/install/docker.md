@@ -1,5 +1,5 @@
 # Hyperion Docker
-* [Hyperion Docker Repository](https://github.com/eosrio/hyperion-docker)
+* [Hyperion Docker Repository](https://github.com/eosrio/hyperion-docker){:target="_blank"}
 
 <br>
 
@@ -53,7 +53,7 @@ And finally, in the **third layer**, which we can understand as `Infra Services`
     [![infrastructure](../../assets/img/infrastructure.svg)](../../assets/img/infrastructure.svg)
 
 
-Considering this structure, the [Project Repository](https://github.com/eosrio/hyperion-docker) has 3 folders representing each mentioned layer.
+Considering this structure, the [Project Repository](https://github.com/eosrio/hyperion-docker){:target="_blank"} has 3 folders representing each mentioned layer.
 
 - ../hyperion-docker
     - hyperion
@@ -169,11 +169,11 @@ Kibana is a tool used to monitor your Elasticsearch cluster and view the data st
 
 Check if the services are up and running:
 
-- RabbitMQ - <a href="http://localhost:15672/" target="_blank">http://localhost:15672</a>
+- RabbitMQ - [http://localhost:15672/](http://localhost:15672){:target="_blank"}
 
-- Kibana - <a href="http://localhost:5601/" target="_blank">http://localhost:5601</a>
+- Kibana - [http://localhost:5601/](http://localhost:5601){:target="_blank"}
 
-- RedisCommander - <a href="http://localhost:8089/" target="_blank">http://localhost:8089</a>
+- RedisCommander - [http://localhost:8089/](http://localhost:8089){:target="_blank"}
 
 
 Once we have completed the Infrastructure Layer configuration, we can move on to the Leap (nodeos) Layer.

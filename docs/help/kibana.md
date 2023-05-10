@@ -1,5 +1,5 @@
 The purpose here is to guide you through some basic steps using and configuring the Kibana. 
-For more detailed information, please, refer to the [official documentation](https://www.elastic.co/guide/en/kibana/current/index.html).
+For more detailed information, please, refer to the [official documentation](https://www.elastic.co/guide/en/kibana/current/index.html){:target="_blank"}.
 
 ## Running Kibana with `systemd`
 To configure Kibana to start automatically when the system boots up, run the following commands:
@@ -17,7 +17,7 @@ Log information can be accessed via `journalctl -u kibana.service.`
 
 ## Opening Kibana
 
-Open [http://localhost:5601](http://localhost:5601) and check if you can access Kibana.
+Open [http://localhost:5601](http://localhost:5601){:target="_blank"} and check if you can access Kibana.
 
 If Kibana asks for credentials, the default user and password is:
 

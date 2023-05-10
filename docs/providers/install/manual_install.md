@@ -10,13 +10,13 @@ installation, this is the way to go.
 
 Below you can find the list of all Hyperion's dependencies:
 
-- [Elasticsearch 8.X](https://www.elastic.co/downloads/elasticsearch)
-- [Kibana 8.X](https://www.elastic.co/downloads/kibana)
-- [RabbitMQ](https://www.rabbitmq.com)
-- [Redis](https://redis.io/topics/quickstart)
-- [Node.js v18](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)
-- [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/)
-- [LEAP/NODEOS 3.2.1](https://github.com/AntelopeIO/leap)
+- [Elasticsearch 8.X](https://www.elastic.co/downloads/elasticsearch){:target="_blank"}
+- [Kibana 8.X](https://www.elastic.co/downloads/kibana){:target="_blank"}
+- [RabbitMQ](https://www.rabbitmq.com){:target="_blank"}
+- [Redis](https://redis.io/topics/quickstart){:target="_blank"}
+- [Node.js v18](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions){:target="_blank"}
+- [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/){:target="_blank"}
+- [LEAP/NODEOS 3.2.1](https://github.com/AntelopeIO/leap){:target="_blank"}
 
 On the next steps you will install and configure each one of them.
 
@@ -28,18 +28,18 @@ On the next steps you will install and configure each one of them.
 ## Elasticsearch
 
 Follow the detailed installation instructions on the
-official [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb) and
+official [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb){:target="_blank"} and
 return to this guide before running it.
 
 !!! info
     Elasticsearch is not started automatically after installation. We recommend running it
-    with [systemd](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-running-systemd).
+    with [systemd](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-running-systemd){:target="_blank"}.
 
 !!! note
     It is very important to know the Elasticsearch
-    [directory layout](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-layout)
+    [directory layout](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-layout){:target="_blank"}
     and to understand how the
-    [configuration](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-configuring) works.
+    [configuration](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html#deb-configuring){:target="_blank"} works.
 
 ### Configuration
 
@@ -60,7 +60,7 @@ The memory lock option will prevent any Elasticsearch heap memory from being swa
 
 !!! note
     A different approach is to
-    [disable swapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.14/setup-configuration-memory.html#setup-configuration-memory)
+    [disable swapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.14/setup-configuration-memory.html#setup-configuration-memory){:target="_blank"}
     on your system.
 
 !!! success "Testing"
@@ -184,23 +184,23 @@ Keep track of these passwords, we’ll need them again soon.
 
 !!! attention
     The minimal security scenario is not sufficient for production mode clusters. Check
-    the [documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-basic-setup.html) for
+    the [documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-basic-setup.html){:target="_blank"} for
     more information.
 
 ## Kibana
 
 Follow the detailed installation instructions on the official
-[Kibana documentation](https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb). Return to this documentation before
+[Kibana documentation](https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb){:target="_blank"}. Return to this documentation before
 running it.
 
 !!! info
     Kibana is not started automatically after installation. We recomend running it with
-    [systemd](https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-running-systemd).
+    [systemd](https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-running-systemd){:target="_blank"}.
 
 !!! note
     Like on Elasticsearch, it is very important to know the Kibana
-    [directory layout](https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-layout) and to understand how the
-    [configuration](https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-configuring) works.
+    [directory layout](https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-layout){:target="_blank"} and to understand how the
+    [configuration](https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-configuring){:target="_blank"} works.
 
 ### Configuration
 
@@ -232,10 +232,10 @@ sudo systemctl enable kibana.service
 ## RabbitMQ
 
 Follow the detailed installation instructions on the
-official [RabbitMQ documentation](https://www.rabbitmq.com/install-debian.html#installation-methods).
+official [RabbitMQ documentation](https://www.rabbitmq.com/install-debian.html#installation-methods){:target="_blank"}.
 
 RabbitMQ should automatically start after installation. Check
-the [documentation](https://www.rabbitmq.com/install-debian.html#managing-service) for more details on how to manage its
+the [documentation](https://www.rabbitmq.com/install-debian.html#managing-service){:target="_blank"} for more details on how to manage its
 service.
 
 ### Configuration
@@ -272,7 +272,7 @@ sudo rabbitmqctl set_permissions -p hyperion USER ".*" ".*" ".*"
 
 ##### 6. Check access to the WebUI
 
-Try to access RabbitMQ WebUI at [http://localhost:15672](http://localhost:15672).
+Try to access RabbitMQ WebUI at [http://localhost:15672](http://localhost:15672){:target="_blank"} with the user and password you just created.
 
 ## Redis
 

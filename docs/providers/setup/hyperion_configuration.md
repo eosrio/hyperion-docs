@@ -197,7 +197,7 @@ Alternatively, you can check the api logs after restart for a `Websocket manager
 
 [//]: # (    check our Proxy Guide for full `NGINX` or `HAProxy` examples.)
 
-Finally, clients using the [Hyperion Stream Client](https://github.com/eosrio/hyperion-stream-client) will be able to connect.
+Finally, clients using the [Hyperion Stream Client](https://github.com/eosrio/hyperion-stream-client){:target="_blank"} will be able to connect.
 
 ## Plugins Set Up
 
@@ -205,7 +205,7 @@ Plugins are optional. Follow the documentation on the required plugin page.
 
 Official Plugins:
 
-- [Hyperion Explorer](https://github.com/eosrio/hyperion-explorer-plugin/tree/develop)
+- [Hyperion Explorer](https://github.com/eosrio/hyperion-explorer-plugin/tree/develop){:target="_blank"}
 
 !!! warning "Experimental Feature"
 Running 3rd-party plugins could be dangerous, please make sure you review the published code before installing

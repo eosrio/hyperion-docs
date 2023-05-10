@@ -4,7 +4,7 @@
 
 ### 1. Using Policies - Management Console
 
-  - Go to [Management Console](localhost:15672)
+  - Go to [Management Console](http://localhost:15672){:target="_blank"} at http://localhost:15672
   - Click on Admin tab
   - Policies tab (on the right side)
   - Add Policy

@@ -6,7 +6,7 @@ Guide on enabling systemd if you are using WSL2 on Windows.
     Optimizing for performance is beyond the scope of this guide,
     this is intended for learning and development on Hyperion.
     systemd is now available in WSL2 and
-    required for this guide. [Read more](https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl)
+    required for this guide. [Read more](https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl){:target="_blank"}
 
 ## 1. Make sure WSL2 is updated
 
@@ -17,7 +17,7 @@ Guide on enabling systemd if you are using WSL2 on Windows.
 
 ## 2. Install and launch an Ubuntu 22.04 instance
 
-[Ubuntu 22.04.1 LTS on Microsoft Store](https://www.microsoft.com/store/productId/9PN20MSR04DW)
+[Ubuntu 22.04.1 LTS on Microsoft Store](https://www.microsoft.com/store/productId/9PN20MSR04DW){:target="_blank"}
 
 ## 3. Enable systemd
 

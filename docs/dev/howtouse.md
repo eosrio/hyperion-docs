@@ -107,7 +107,7 @@ Request response:
 
 ## 2. Third party library
 There is a third party Javascript library made by EOS Cafe. 
-Refer to their github for further information: [https://github.com/eoscafe/hyperion-api](https://github.com/eoscafe/hyperion-api)
+Refer to their github for further information: [https://github.com/eoscafe/hyperion-api](https://github.com/eoscafe/hyperion-api){:target="_blank"}
 
 !!!note
     This is a third party library and is not maintained by EOS Rio

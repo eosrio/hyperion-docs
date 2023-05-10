@@ -1,6 +1,6 @@
 # Automated Installation Script
 
-This installation script is maintained [here](https://github.com/eosrio/hyperion-auto-setup)
+This installation script is maintained [here](https://github.com/eosrio/hyperion-auto-setup){:target="_blank"}
 
 !!! info "Tip"
     Learning about the software components of the Hyperion architecture is recommended.
@@ -47,7 +47,7 @@ wget -qO- https://github.com/eosrio/hyperion-auto-setup/raw/main/install.tar.gz 
       ```
 
 
-- **RabbitMQ Management UI** will be available on `http://localhost:15672`
+- **RabbitMQ Management UI** will be available on [http://localhost:15672](http://localhost:15672){:target="_blank"}
     - user: `hyperion_user`
     - password: `hyperion_password`
     - vhost: `hyperion`
