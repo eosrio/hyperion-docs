@@ -21,3 +21,8 @@ To install Hyperion as a provider you can choose one of the following routes:
     For docker based deployments, use the [Docker Guide](install/docker.md)
 
     [Docker Installation](install/docker.md){ .md-button }
+
+    For LXD pre-configured Hyperion instance, use the [LXD Guide](install/lxd.md)
+
+    [LXD Installation](install/lxd.md){ .md-button }
+
