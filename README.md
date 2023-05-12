@@ -1,12 +1,29 @@
 # hyperion-docs
+
 Hyperion History Documentation
 
-https://hyperion.docs.eosrio.io/
+Public URL: https://hyperion.docs.eosrio.io/
 
-### Install depedencies (as admin)
+### Install dependencies
+
 ```shell
 pip install -r requirements.txt
+```
 
-# pip install mkdocs
-# pip install mkdocs-material
+### Run development server
+
+```bash
+mkdocs serve
+```
+
+### Build static site
+
+```bash
+mkdocs build
+```
+
+### Deploy to gh-pages
+
+```bash
+mkdocs gh-deploy
 ```

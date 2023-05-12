@@ -1,5 +1,10 @@
 site_name: Hyperion Documentation
+site_url: https://hyperion.docs.eosrio.io/
+site_description: Scalable Full History API Solution for Antelope (former EOSIO) based blockchains.
 copyright: Hyperion History API Documentation
+repo_name: 'eosrio/hyperion-history-api'
+repo_url: 'https://github.com/eosrio/hyperion-history-api'
+
 
 markdown_extensions:
   - admonition
@@ -9,15 +14,11 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed
   - pymdownx.keys
-
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - toc:
       permalink: true
-
-repo_name: 'eosrio/hyperion-history-api'
-repo_url: 'https://github.com/eosrio/hyperion-history-api'
 
 extra_css:
   - stylesheets/extra.css
@@ -34,6 +35,7 @@ nav:
           - Automated Install Script: providers/install/auto_install.md
           - Manual Installation: providers/install/manual_install.md
           - Docker: providers/install/docker.md
+          - LXD: providers/install/lxd.md
       - Hyperion Configuration:
           - Configuration: providers/setup/hyperion_configuration.md
           - Connections Reference: providers/setup/connections.md
@@ -53,10 +55,12 @@ nav:
       - FAQ: help/faq.md
 
 plugins:
-  - social
+  - social:
+      cards_layout_options:
+        background_color: "#00B3FE"
+        font_family: Ubuntu
   - search:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
-
 
 theme:
   name: 'material'
