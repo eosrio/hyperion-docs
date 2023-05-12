@@ -604,6 +604,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#stopping-the-instance" class="md-nav__link">
+    Stopping the instance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting" class="md-nav__link">
+    Deleting
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1022,6 +1036,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#stopping-the-instance" class="md-nav__link">
+    Stopping the instance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting" class="md-nav__link">
+    Deleting
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1081,13 +1109,18 @@ wget<span class="w"> </span>https://raw.githubusercontent.com/eosrio/hyperion-lx
 </div>
 <h2 id="4-import-the-hyperion-image">4. Import the Hyperion image<a class="headerlink" href="#4-import-the-hyperion-image" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
-<p class="admonition-title">LXC</p>
-<p>The next command is LXC (Client), which is part of LXD (Daemon). This command is often used to manage resources, and you can learn more about it by typing:
+<p class="admonition-title">Note</p>
+<p>Now, you are going to use the LXC (Client), which is part of LXD (Daemon). This command is used to manage resources, and you can learn more about it by typing:</p>
 <div class="highlight"><pre><span></span><code>lxc<span class="w"> </span>--help
-</code></pre></div></p>
+</code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In some environments you may need to use <strong><code>sudo</code></strong> to run the <code>lxc</code> command.</p>
 </div>
 <div class="admonition linux">
 <p class="admonition-title">Linux Terminal</p>
+<p>Now that you have the image downloaded, you can import it to LXD storage using the command below:</p>
 <div class="highlight"><pre><span></span><code>lxc<span class="w"> </span>image<span class="w"> </span>import<span class="w"> </span>hyperion_3.3.9-5.tar.zst<span class="w"> </span>--alias<span class="w"> </span>hyperion-starter
 </code></pre></div>
 <p>When the image import is complete, you can check if it's present by running the command:</p>
@@ -1095,8 +1128,10 @@ wget<span class="w"> </span>https://raw.githubusercontent.com/eosrio/hyperion-lx
 </code></pre></div>
 </div>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<p class="admonition-title">Tip 2</p>
 <p>Feel free to delete the downloaded file <code>hyperion_3.3.9-5.tar.zst</code> after importing the image.</p>
+<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>hyperion_3.3.9-5.tar.zst
+</code></pre></div>
 </div>
 <h2 id="5-create-the-hyperion-container">5. Create the Hyperion container<a class="headerlink" href="#5-create-the-hyperion-container" title="Permanent link">&para;</a></h2>
 <p>Now let's create the container with the image. We provided the configuration file <a href="https://raw.githubusercontent.com/eosrio/hyperion-lxd/main/hyperion-devices.yaml" target="_blank"><code>hyperion-devices.yaml</code></a> to configure the ports exposed by the container. You can pass it to the launch command below to streamline the configuration. Feel free to modify the <code>listen</code> port values in the file if you need to. <strong>Just keep the <code>connect</code> ports as they are.</strong></p>
@@ -1109,7 +1144,9 @@ wget<span class="w"> </span>https://raw.githubusercontent.com/eosrio/hyperion-lx
 <p class="admonition-title">Tip</p>
 <p>If you want to change any device configuration after the container has been started you can use the <code>lxc config device ...</code> command</p>
 </div>
-<p>We can verify our created instance with the command <strong><code>lxc ls</code></strong></p>
+<p>You can verify our created instance with the command </p>
+<div class="highlight"><pre><span></span><code>lxc<span class="w"> </span>ls
+</code></pre></div>
 <p>You can also test if everything is working properly by accessing <a href="http://localhost:7000/v2/health" target="_blank">http://localhost:7000/v2/health</a> to get a response from the Hyperion API.</p>
 <h2 id="6-accessing-the-container">6. Accessing the container<a class="headerlink" href="#6-accessing-the-container" title="Permanent link">&para;</a></h2>
 <p>At this point the container should be running and you are ready to use Hyperion, you can open a shell inside it with:</p>
@@ -1121,7 +1158,9 @@ wget<span class="w"> </span>https://raw.githubusercontent.com/eosrio/hyperion-lx
 <p>Check PM2 logs to see if the indexer is running:
 <div class="highlight"><pre><span></span><code>pm2<span class="w"> </span>logs
 </code></pre></div>
-Check your elastic password:
+<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> to exit seeing the logs.</p>
+<p><a id='elasticpass'></a>
+Check your elastic password, you will need it to login to Kibana:
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>~/elastic.pass
 </code></pre></div></p>
 </div>
@@ -1151,19 +1190,35 @@ They can be accessed at:</p>
 <ul>
 <li>Kibana: <a href="http://localhost:5601" target="_blank">http://localhost:5601</a><ul>
 <li>Username: elastic</li>
-<li>Password: </li>
+<li>Password: see <a href="#elasticpass"><code>cat ~/elastic.pass</code></a></li>
 </ul>
 </li>
 <li>RabbitMQ Management: <a href="http://localhost:15672" target="_blank">http://localhost:15672</a><ul>
-<li>Username: guest</li>
-<li>Password: guest</li>
+<li>Username: hyperion-lxd</li>
+<li>Password: changeme123</li>
 </ul>
 </li>
 <li>Hyperion API: <a href="http://localhost:7000" target="_blank">http://localhost:7000</a></li>
 </ul>
+<p>If you are a developer, you can access the hyperion swagger at <a href="http://localhost:7000/v2/docs" target="_blank">http://localhost:7000/v2/docs</a></p>
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p>Feel free to change configurations as you like. All configurations files are located in <code>~/hyperion</code> or <code>~/nodeos</code></p>
-<p>For more details, please refer to the <a href="../../setup/hyperion_configuration/">Hyperion Configuration Section</a>.</p>
+<p>For more details, please refer to the <a href="../../setup/hyperion_configuration/">Hyperion Configuration Section <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l73.4 73.4H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h370.7l-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg></span></a>.</p>
+<p><br></p>
+<h2 id="stopping-the-instance">Stopping the instance<a class="headerlink" href="#stopping-the-instance" title="Permanent link">&para;</a></h2>
+<p>First, use the command to <code>exit</code> the container shell and then stop the instance:</p>
+<div class="admonition linux">
+<p class="admonition-title">Linux Terminal</p>
+<div class="highlight"><pre><span></span><code>lxc<span class="w"> </span>stop<span class="w"> </span>hyperion-1
+</code></pre></div>
+</div>
+<h2 id="deleting">Deleting<a class="headerlink" href="#deleting" title="Permanent link">&para;</a></h2>
+<div class="admonition linux">
+<p class="admonition-title">Linux Terminal</p>
+<div class="highlight"><pre><span></span><code>lxc<span class="w"> </span>delete<span class="w"> </span>hyperion-1
+</code></pre></div>
+</div>
+<p><br></p>
 
 
   
