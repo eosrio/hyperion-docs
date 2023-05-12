@@ -3,9 +3,9 @@
   "description": "Hyperion History API Documentation",
   "version": "1.2.0",
   "scripts": {
-    "start": "mkdocs serve",
+    "start": "python -m mkdocs serve",
     "start:external": "python -m mkdocs serve --dev-addr=0.0.0.0:8000",
-    "build": "mkdocs build",
-    "deploy": "mkdocs gh-deploy"
+    "build": "python -m mkdocs build",
+    "deploy": "python -m mkdocs gh-deploy"
   }
 }
