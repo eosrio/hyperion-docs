@@ -8,6 +8,8 @@ or missed blocks in the indexer. Usually forks are handled by the indexer itself
 state-history plugin in the past, that caused fork events to be omitted during live indexing.
 For cases like that and others, this tool can be used to fix the data and check integrity.
 
+### 1. Test the connection
+
 Use the following command to test the connection to the indexer:
 
 ```shell
@@ -17,11 +19,14 @@ Use the following command to test the connection to the indexer:
 7002 is the default port for the indexer control websocket, which can be configured on the connections.json file
 under `chains -> YOUR_CHAIN -> control_port`.
 
-If the connection is successful, you should see the following output:
+!!! success "Connection successful"
+    If the connection is successful, you should see the following output:
 
-```shell
-✅  Hyperion Indexer Online - ws://127.0.0.1:7002
-```
+    ```shell
+    ✅  Hyperion Indexer Online - ws://127.0.0.1:7002
+    ```
+
+### 2. Scan
 
 Scan for forks or missing blocks
 
@@ -37,21 +42,29 @@ If you don't specify a range, the scan will start in reverse, from the last inde
 Elasticsearch.
 And if no output path is specified, the scan will be saved in the `.repair` folder.
 
-Verify the saved scan file
+### 3. Verify the saved scan file
 
 ```shell
 # Example, your file name may be different
 ./hyp-repair view .repair/local-4-25334-missing-blocks.json
 ```
 
-Request the indexer to fill the missing blocks
+### 4. Request
+
+##### 4.1. Missing blocks
+
+Request the indexer to fill the **missing blocks**:
 
 ```shell
 # Example, your file name may be different
 ./hyp-repair fill-missing local .repair/local-4-25334-missing-blocks.json
 ```
 
-In the case of forked blocks (blocks that were indexed but are not linked to the previous block), you can use:
+<br>
+
+##### 4.2. Forked blocks
+
+In the case of **forked blocks** (blocks that were indexed but are not linked to the previous block), you can use:
 
 ```shell
 # Dry-run first to check the proposed removals
@@ -61,8 +74,10 @@ In the case of forked blocks (blocks that were indexed but are not linked to the
 ./hyp-repair repair local .repair/local-4-25334-forked-blocks.json
 ```
 
-**hyp-repair repair** will first remove the forked blocks and the corresponding actions, deltas and state tables. Then
-it will
-request the indexer to fill the missing blocks.
+**`hyp-repair repair`** will first remove the forked blocks and the corresponding actions, deltas and state tables. Then
+it will request the indexer to fill the missing blocks.
 
-Once the repair is completed, you can run the scan again to verify that there are no more missing blocks or forks.
+!!! success "Verify the results"
+    Once the repair is completed, you can run the scan again to verify that there are no more missing blocks or forks.
+
+<br>

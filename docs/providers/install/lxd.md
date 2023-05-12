@@ -22,7 +22,7 @@ LXD is pre-installed on Ubuntu Server cloud images, but if it's not available, y
 
 ## 2. Initialize LXD
 
-After installation, you must initialize LXD, which involves configuring the network interface, storage, and other things. For this process, run the command below. The prompt will ask some questions, it's fine to use the default values, just hit 'ENTER' to proceed.
+After installation, you must initialize LXD, which involves configuring the network interface, storage, and other things. For this process, run the command below. The prompt will ask some questions, it's fine to use the default values, just hit ++enter++ to proceed.
 
 When asked about the **default pool size**, you can use the default value or set it to a higher value if you have enough disk space. Later on, it's easy to expand to add more storage, but keep in mind **you can't shrink an existing pool**.
 
