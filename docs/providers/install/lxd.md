@@ -47,14 +47,19 @@ Now that LXD is running, you need to download the Hyperion image from our reposi
 
 ## 4. Import the Hyperion image
 
-!!! info "LXC"
-    The next command is LXC (Client), which is part of LXD (Daemon). This command is often used to manage resources, and you can learn more about it by typing:
+!!! info "Note"
+    Now, you are going to use the LXC (Client), which is part of LXD (Daemon). This command is used to manage resources, and you can learn more about it by typing:
+
     ```shell
     lxc --help
     ```
 
+!!! tip
+    In some environments you may need to use **`sudo`** to run the `lxc` command.
 
 !!! linux "Linux Terminal"
+    Now that you have the image downloaded, you can import it to LXD storage using the command below:
+
     ```shell
     lxc image import hyperion_3.3.9-5.tar.zst --alias hyperion-starter
     ```
@@ -65,8 +70,12 @@ Now that LXD is running, you need to download the Hyperion image from our reposi
     lxc image ls
     ```
 
-!!! tip
+!!! tip "Tip 2" 
     Feel free to delete the downloaded file `hyperion_3.3.9-5.tar.zst` after importing the image.
+
+    ```shell
+    rm hyperion_3.3.9-5.tar.zst
+    ```
 
 ## 5. Create the Hyperion container
 
@@ -80,7 +89,11 @@ Now let's create the container with the image. We provided the configuration fil
 !!! tip
     If you want to change any device configuration after the container has been started you can use the `lxc config device ...` command
 
-We can verify our created instance with the command **`lxc ls`**
+You can verify our created instance with the command 
+
+```shell
+lxc ls
+```
 
 You can also test if everything is working properly by accessing [http://localhost:7000/v2/health](http://localhost:7000/v2/health){:target="_blank"} to get a response from the Hyperion API.
 
@@ -99,7 +112,10 @@ At this point the container should be running and you are ready to use Hyperion,
     ```shell
     pm2 logs
     ```
-    Check your elastic password:
+    ++ctrl+c++ to exit seeing the logs.
+
+    <a id='elasticpass'></a>
+    Check your elastic password, you will need it to login to Kibana:
     ```shell
     cat ~/elastic.pass
     ```
@@ -130,13 +146,33 @@ They can be accessed at:
 
 - Kibana: [http://localhost:5601](http://localhost:5601){:target="_blank"}
     - Username: elastic
-    - Password: 
+    - Password: see [`cat ~/elastic.pass`](#elasticpass)
 - RabbitMQ Management: [http://localhost:15672](http://localhost:15672){:target="_blank"}
-    - Username: guest
-    - Password: guest
+    - Username: hyperion-lxd
+    - Password: changeme123
 - Hyperion API: [http://localhost:7000](http://localhost:7000){:target="_blank"}
+
+If you are a developer, you can access the hyperion swagger at [http://localhost:7000/v2/docs](http://localhost:7000/v2/docs){:target="_blank"}
 
 ## Next steps
 Feel free to change configurations as you like. All configurations files are located in `~/hyperion` or `~/nodeos`
 
-For more details, please refer to the [Hyperion Configuration Section](../setup/hyperion_configuration.md).
+For more details, please refer to the [Hyperion Configuration Section :fontawesome-solid-arrow-right-long:](../setup/hyperion_configuration.md).
+
+<br>
+## Stopping the instance
+
+First, use the command to `exit` the container shell and then stop the instance:
+
+!!! linux "Linux Terminal"
+    ```shell
+    lxc stop hyperion-1
+    ```
+## Deleting
+
+!!! linux "Linux Terminal"
+    ```shell
+    lxc delete hyperion-1
+    ```
+
+<br>

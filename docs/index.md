@@ -24,10 +24,15 @@
     ---
 
     [Getting Started](dev/howtouse.md){ .md-button .md-button--primary}
-
-    ---
     [Stream Client](dev/stream_client.md){ .md-button }
     [Endpoints List](dev/endpoint.md){ .md-button }
+    
+
+    ---
+    Testing/Development environment:
+
+    [Running Docker](providers/install/docker.md){ .md-button}
+    [Running LXD](providers/install/lxd.md){ .md-button}
 
 !!! quote ""
     ### **API Reference**

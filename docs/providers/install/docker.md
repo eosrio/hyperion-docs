@@ -216,6 +216,6 @@ xpack.security.enabled=false
 
 Feel free to change configurations as you like. All configurations files are located in `hyperion/config` or `nodeos/leap/config`. 
 
-For more details, please refer to the [Hyperion Configuration Section](../setup/hyperion_configuration.md).
+For more details, please refer to the [Hyperion Configuration Section :fontawesome-solid-arrow-right-long:](../setup/hyperion_configuration.md).
 
 <br>
