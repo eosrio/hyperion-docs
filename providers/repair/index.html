@@ -6,20 +6,24 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Scalable Full History API Solution for Antelope (former EOSIO) based blockchains.">
       
       
       
-        <link rel="prev" href="../repair/">
+        <link rel="canonical" href="https://hyperion.docs.eosrio.io/providers/repair/">
       
       
-        <link rel="next" href="../rabbit/">
+        <link rel="prev" href="../update/">
+      
+      
+        <link rel="next" href="../help/kibana/">
       
       <link rel="icon" href="../../assets/img/icon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.11">
     
     
       
-        <title>Kibana - Hyperion Documentation</title>
+        <title>Index Repair - Hyperion Documentation</title>
       
     
     
@@ -106,11 +110,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Kibana - Hyperion Documentation" >
+        <meta  property="og:title"  content="Index Repair - Hyperion Documentation" >
       
-        <meta  property="og:description"  content="None" >
+        <meta  property="og:description"  content="Scalable Full History API Solution for Antelope (former EOSIO) based blockchains." >
       
-        <meta  property="og:image"  content="./assets/images/social/help/kibana.png" >
+        <meta  property="og:image"  content="https://hyperion.docs.eosrio.io/assets/images/social/providers/repair.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -118,15 +122,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="None" >
+        <meta  property="og:url"  content="https://hyperion.docs.eosrio.io/providers/repair/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Kibana - Hyperion Documentation" >
+        <meta  name="twitter:title"  content="Index Repair - Hyperion Documentation" >
       
-        <meta  name="twitter:description"  content="None" >
+        <meta  name="twitter:description"  content="Scalable Full History API Solution for Antelope (former EOSIO) based blockchains." >
       
-        <meta  name="twitter:image"  content="./assets/images/social/help/kibana.png" >
+        <meta  name="twitter:image"  content="https://hyperion.docs.eosrio.io/assets/images/social/providers/repair.png" >
       
     
     
@@ -148,7 +152,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#running-kibana-with-systemd" class="md-skip">
+        <a href="#repairing-indexed-data" class="md-skip">
           Skip to content
         </a>
       
@@ -182,7 +186,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Kibana
+              Index Repair
             
           </span>
         </div>
@@ -264,13 +268,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../providers/get-started/" class="md-tabs__link">
+      <a href="../get-started/" class="md-tabs__link md-tabs__link--active">
         Providers
       </a>
     </li>
@@ -304,24 +310,6 @@
     <li class="md-tabs__item">
       <a href="../../api/v2/" class="md-tabs__link">
         API Reference
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-    
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../repair/" class="md-tabs__link md-tabs__link--active">
-        Troubleshooting
       </a>
     </li>
   
@@ -397,16 +385,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
       
@@ -415,7 +403,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Providers
@@ -428,7 +416,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/get-started/" class="md-nav__link">
+      <a href="../get-started/" class="md-nav__link">
         Getting Started
       </a>
     </li>
@@ -471,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/install/wsl2/" class="md-nav__link">
+      <a href="../install/wsl2/" class="md-nav__link">
         WSL2 Pre-configuration
       </a>
     </li>
@@ -485,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/install/auto_install/" class="md-nav__link">
+      <a href="../install/auto_install/" class="md-nav__link">
         Automated Install Script
       </a>
     </li>
@@ -499,7 +487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/install/manual_install/" class="md-nav__link">
+      <a href="../install/manual_install/" class="md-nav__link">
         Manual Installation
       </a>
     </li>
@@ -513,8 +501,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/install/docker/" class="md-nav__link">
+      <a href="../install/docker/" class="md-nav__link">
         Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/lxd/" class="md-nav__link">
+        LXD
       </a>
     </li>
   
@@ -563,7 +565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/setup/hyperion_configuration/" class="md-nav__link">
+      <a href="../setup/hyperion_configuration/" class="md-nav__link">
         Configuration
       </a>
     </li>
@@ -577,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/setup/connections/" class="md-nav__link">
+      <a href="../setup/connections/" class="md-nav__link">
         Connections Reference
       </a>
     </li>
@@ -591,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/setup/chain/" class="md-nav__link">
+      <a href="../setup/chain/" class="md-nav__link">
         Chain Config Reference
       </a>
     </li>
@@ -612,9 +614,182 @@
   
   
     <li class="md-nav__item">
-      <a href="../../providers/update/" class="md-nav__link">
+      <a href="../update/" class="md-nav__link">
         Updating
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Index Repair
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Index Repair
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#forks-and-missed-blocks" class="md-nav__link">
+    Forks and Missed Blocks
+  </a>
+  
+    <nav class="md-nav" aria-label="Forks and Missed Blocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-test-the-connection" class="md-nav__link">
+    1. Test the connection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-scan" class="md-nav__link">
+    2. Scan
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-verify-the-saved-scan-file" class="md-nav__link">
+    3. Verify the saved scan file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-request" class="md-nav__link">
+    4. Request
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Request">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-missing-blocks" class="md-nav__link">
+    4.1. Missing blocks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-forked-blocks" class="md-nav__link">
+    4.2. Forked blocks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+          Troubleshooting
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Troubleshooting
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../help/kibana/" class="md-nav__link">
+        Kibana
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../help/rabbit/" class="md-nav__link">
+        RabbitMQ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -770,150 +945,6 @@
   
 
     
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-          Troubleshooting
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          Troubleshooting
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../repair/" class="md-nav__link">
-        Repair
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Kibana
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Kibana
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#running-kibana-with-systemd" class="md-nav__link">
-    Running Kibana with systemd
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#opening-kibana" class="md-nav__link">
-    Opening Kibana
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-index-pattern" class="md-nav__link">
-    Creating index pattern
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../rabbit/" class="md-nav__link">
-        RabbitMQ
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../faq/" class="md-nav__link">
-        FAQ
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -931,6 +962,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -939,23 +972,63 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#running-kibana-with-systemd" class="md-nav__link">
-    Running Kibana with systemd
+  <a href="#forks-and-missed-blocks" class="md-nav__link">
+    Forks and Missed Blocks
+  </a>
+  
+    <nav class="md-nav" aria-label="Forks and Missed Blocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-test-the-connection" class="md-nav__link">
+    1. Test the connection
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#opening-kibana" class="md-nav__link">
-    Opening Kibana
+        
+          <li class="md-nav__item">
+  <a href="#2-scan" class="md-nav__link">
+    2. Scan
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-index-pattern" class="md-nav__link">
-    Creating index pattern
+        
+          <li class="md-nav__item">
+  <a href="#3-verify-the-saved-scan-file" class="md-nav__link">
+    3. Verify the saved scan file
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-request" class="md-nav__link">
+    4. Request
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Request">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-missing-blocks" class="md-nav__link">
+    4.1. Missing blocks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-forked-blocks" class="md-nav__link">
+    4.2. Forked blocks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -977,59 +1050,62 @@
   
 
 
-  <h1>Kibana</h1>
-
-<p>The purpose here is to guide you through some basic steps using and configuring the Kibana. 
-For more detailed information, please, refer to the <a href="https://www.elastic.co/guide/en/kibana/current/index.html">official documentation</a>.</p>
-<h2 id="running-kibana-with-systemd">Running Kibana with <code>systemd</code><a class="headerlink" href="#running-kibana-with-systemd" title="Permanent link">&para;</a></h2>
-<p>To configure Kibana to start automatically when the system boots up, run the following commands:
-<div class="highlight"><pre><span></span><code>sudo /bin/systemctl daemon-reload
-sudo /bin/systemctl enable kibana.service
+<h1 id="repairing-indexed-data">Repairing Indexed Data<a class="headerlink" href="#repairing-indexed-data" title="Permanent link">&para;</a></h1>
+<h2 id="forks-and-missed-blocks">Forks and Missed Blocks<a class="headerlink" href="#forks-and-missed-blocks" title="Permanent link">&para;</a></h2>
+<p>After version 3.3.9-5, Hyperion includes a tool to repair indexed data. This tool can be used to fix any unlinked
+block (forked)
+or missed blocks in the indexer. Usually forks are handled by the indexer itself, but there was an issue with the
+state-history plugin in the past, that caused fork events to be omitted during live indexing.
+For cases like that and others, this tool can be used to fix the data and check integrity.</p>
+<h3 id="1-test-the-connection">1. Test the connection<a class="headerlink" href="#1-test-the-connection" title="Permanent link">&para;</a></h3>
+<p>Use the following command to test the connection to the indexer:</p>
+<div class="highlight"><pre><span></span><code>./hyp-repair<span class="w"> </span>connect<span class="w"> </span>--host<span class="w"> </span><span class="s2">&quot;ws://127.0.0.1:7002&quot;</span>
 </code></pre></div>
-Kibana can be started and stopped as follows:
-<div class="highlight"><pre><span></span><code>sudo systemctl start kibana.service
-sudo systemctl stop kibana.service
+<p>7002 is the default port for the indexer control websocket, which can be configured on the connections.json file
+under <code>chains -&gt; YOUR_CHAIN -&gt; control_port</code>.</p>
+<div class="admonition success">
+<p class="admonition-title">Connection successful</p>
+<p>If the connection is successful, you should see the following output:</p>
+<div class="highlight"><pre><span></span><code>✅<span class="w">  </span>Hyperion<span class="w"> </span>Indexer<span class="w"> </span>Online<span class="w"> </span>-<span class="w"> </span>ws://127.0.0.1:7002
 </code></pre></div>
-These commands provide no feedback as to whether Kibana was started successfully or not. 
-Log information can be accessed via <code>journalctl -u kibana.service.</code></p>
-<h2 id="opening-kibana">Opening Kibana<a class="headerlink" href="#opening-kibana" title="Permanent link">&para;</a></h2>
-<p>Open <a href="http://localhost:5601">http://localhost:5601</a> and check if you can access Kibana.</p>
-<p>If Kibana asks for credentials, the default user and password is:</p>
-<div class="highlight"><pre><span></span><code>user: elastic
-password: changeme
-</code></pre></div>
-<p>If you installed Kibana through the <code>install_infra.sh</code> script, check your elastic_pass.txt file.</p>
-<p>If you can't access, check your credentials on your config file.</p>
-<h2 id="creating-index-pattern">Creating index pattern<a class="headerlink" href="#creating-index-pattern" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p>To create a new index pattern, go to <code>Management</code></p>
-<p><a href="../../assets/img/kibana1.png"><img alt="kibana" src="../../assets/img/kibana1.png" /></a></p>
-</li>
-<li>
-<p>Click on <code>Index Patterns</code> at the left menu</p>
-<p><a href="../../assets/img/kibana2.png"><img alt="kibana" src="../../assets/img/kibana2.png" /></a></p>
-</li>
-<li>
-<p>Click on <code>Create index pattern</code></p>
-<p><a href="../../assets/img/kibana3.png"><img alt="kibana" src="../../assets/img/kibana3.png" /></a></p>
-</li>
-<li>
-<p>Enter desired index pattern and click on <code>&gt; Next step</code></p>
-<p><a href="../../assets/img/kibana4.png"><img alt="kibana" src="../../assets/img/kibana4.png" /></a></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Index Pattern List:
- <code>eos-abi-*</code> <code>eos-action-*</code> <code>eos-block-*</code> <code>eos-logs-*</code> <code>eos-delta-*</code>   <br />
- Where <code>eos</code> is the name of the chain.</p>
 </div>
-</li>
-<li>
-<p>Select a time filter, if there are any, and click on <code>Create index pattern</code></p>
-<p><a href="../../assets/img/kibana5.png"><img alt="kibana" src="../../assets/img/kibana5.png" /></a></p>
-<p><a href="../../assets/img/kibana6.png"><img alt="kibana" src="../../assets/img/kibana6.png" /></a></p>
-</li>
-</ol>
+<h3 id="2-scan">2. Scan<a class="headerlink" href="#2-scan" title="Permanent link">&para;</a></h3>
+<p>Scan for forks or missing blocks</p>
+<div class="highlight"><pre><span></span><code>./hyp-repair<span class="w"> </span>scan<span class="w"> </span><span class="nb">local</span>
+<span class="c1"># Specify a range</span>
+./hyp-repair<span class="w"> </span>scan<span class="w"> </span><span class="nb">local</span><span class="w"> </span>--first<span class="w"> </span><span class="m">1000000</span><span class="w"> </span>--last<span class="w"> </span><span class="m">2000000</span>
+<span class="c1"># Specify the output pathname</span>
+./hyp-repair<span class="w"> </span>scan<span class="w"> </span><span class="nb">local</span><span class="w"> </span>-o<span class="w"> </span>./local
+</code></pre></div>
+<p>If you don't specify a range, the scan will start in reverse, from the last indexed block until the first block in
+Elasticsearch.
+And if no output path is specified, the scan will be saved in the <code>.repair</code> folder.</p>
+<h3 id="3-verify-the-saved-scan-file">3. Verify the saved scan file<a class="headerlink" href="#3-verify-the-saved-scan-file" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example, your file name may be different</span>
+./hyp-repair<span class="w"> </span>view<span class="w"> </span>.repair/local-4-25334-missing-blocks.json
+</code></pre></div>
+<h3 id="4-request">4. Request<a class="headerlink" href="#4-request" title="Permanent link">&para;</a></h3>
+<h5 id="41-missing-blocks">4.1. Missing blocks<a class="headerlink" href="#41-missing-blocks" title="Permanent link">&para;</a></h5>
+<p>Request the indexer to fill the <strong>missing blocks</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example, your file name may be different</span>
+./hyp-repair<span class="w"> </span>fill-missing<span class="w"> </span><span class="nb">local</span><span class="w"> </span>.repair/local-4-25334-missing-blocks.json
+</code></pre></div>
+<p><br></p>
+<h5 id="42-forked-blocks">4.2. Forked blocks<a class="headerlink" href="#42-forked-blocks" title="Permanent link">&para;</a></h5>
+<p>In the case of <strong>forked blocks</strong> (blocks that were indexed but are not linked to the previous block), you can use:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Dry-run first to check the proposed removals</span>
+./hyp-repair<span class="w"> </span>repair<span class="w"> </span><span class="nb">local</span><span class="w"> </span>.repair/local-4-25334-forked-blocks.json<span class="w"> </span>--dry
+
+<span class="c1"># If everything looks good, run the repair</span>
+./hyp-repair<span class="w"> </span>repair<span class="w"> </span><span class="nb">local</span><span class="w"> </span>.repair/local-4-25334-forked-blocks.json
+</code></pre></div>
+<p><strong><code>hyp-repair repair</code></strong> will first remove the forked blocks and the corresponding actions, deltas and state tables. Then
+it will request the indexer to fill the missing blocks.</p>
+<div class="admonition success">
+<p class="admonition-title">Verify the results</p>
+<p>Once the repair is completed, you can run the scan again to verify that there are no more missing blocks or forks.</p>
+</div>
+<p><br></p>
 
 
   
@@ -1053,7 +1129,7 @@ password: changeme
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../repair/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Repair" rel="prev">
+          <a href="../update/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Updating" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1062,20 +1138,20 @@ password: changeme
                 Previous
               </span>
               <div class="md-ellipsis">
-                Repair
+                Updating
               </div>
             </div>
           </a>
         
         
           
-          <a href="../rabbit/" class="md-footer__link md-footer__link--next" aria-label="Next: RabbitMQ" rel="next">
+          <a href="../help/kibana/" class="md-footer__link md-footer__link--next" aria-label="Next: Kibana" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                RabbitMQ
+                Kibana
               </div>
             </div>
             <div class="md-footer__button md-icon">
