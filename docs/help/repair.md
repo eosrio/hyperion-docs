@@ -4,7 +4,9 @@
 
 After version 3.3.9-5, Hyperion includes a tool to repair indexed data. This tool can be used to fix any unlinked
 block (forked)
-or missed blocks in the indexer. Usually forks are handled
+or missed blocks in the indexer. Usually forks are handled by the indexer itself, but there was an issue with the
+state-history plugin in the past, that caused fork events to be omitted during live indexing.
+For cases like that and others, this tool can be used to fix the data and check integrity.
 
 Use the following command to test the connection to the indexer:
 
