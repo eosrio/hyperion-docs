@@ -41,6 +41,10 @@ nav:
           - Connections Reference: providers/setup/connections.md
           - Chain Config Reference: providers/setup/chain.md
       - Updating: providers/update.md
+      - Index Repair: providers/repair.md
+      - Troubleshooting:
+          - Kibana: providers/help/kibana.md
+          - RabbitMQ: providers/help/rabbit.md
   - Users / Developers:
       - Getting Started: dev/howtouse.md
       - Stream Client: dev/stream_client.md
@@ -48,11 +52,7 @@ nav:
   - API Reference:
       - v2: api/v2.md
       - v1 compatible: api/v1.md
-  - Troubleshooting:
-      - Repair: help/repair.md
-      - Kibana: help/kibana.md
-      - RabbitMQ: help/rabbit.md
-      - FAQ: help/faq.md
+#  - FAQ: help/faq.md
 
 plugins:
   - social:

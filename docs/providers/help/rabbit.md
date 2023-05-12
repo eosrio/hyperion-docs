@@ -2,6 +2,10 @@
 
 ## How to Delete all the queues from RabbitMQ?
 
+!!! warning
+    Be sure you really want to do this!
+    This gonna reset all your rabbitMQ configuration, and return it to the default state.
+
 ### 1. Using Policies - Management Console
 
   - Go to [Management Console](http://localhost:15672){:target="_blank"} at http://localhost:15672
@@ -9,7 +13,7 @@
   - Policies tab (on the right side)
   - Add Policy
   - Fill Fields
-    - Virtual Host: Select (Default is /hyperion)
+    - Virtual Host: Select (Default is `/hyperion`)
     - Name: Expire All Policies(Delete Later)
     - Pattern: .*
     - Apply to: Queues
@@ -17,7 +21,7 @@
   - Click on `Add / update policy`
   - Checkout Queues tab again, all queues must be deleted.
   
-  [![rabbit](../assets/img/rabbit.png)](../assets/img/rabbit.png)
+  [![rabbit](../../assets/img/rabbit.png)](../../assets/img/rabbit.png)
  
 !!! warning
     You must remove this policy after this operation.
@@ -40,6 +44,6 @@ rabbitmqctl stop_app
 rabbitmqctl reset
 rabbitmqctl start_app
 ````
-!!! warning
-    Be sure you really want to do this!
-    This gonna reset all your rabbitMQ configuration, and return it to the default state.
+
+<br>
+

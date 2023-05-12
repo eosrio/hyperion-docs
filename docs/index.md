@@ -17,6 +17,7 @@
     [Getting Started](providers/get-started.md){ .md-button .md-button--primary}
     [Configuring](providers/setup/hyperion_configuration.md){ .md-button }
     [Updating](providers/update.md){ .md-button }
+    [Repairing](providers/repair.md){ .md-button }
 
 !!! quote ""
     ### For **Developers**
@@ -106,3 +107,4 @@ providers. [Documentation](dev/stream_client.md)
 Hyperion includes a flexible plugin architecture to allow further customization.
 Plugins are managed by the `hpm` (hyperion plugin manager) command line tool.
 
+<br>
