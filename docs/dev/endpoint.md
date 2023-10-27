@@ -9,8 +9,9 @@
 
 | url | docs | explorer |
 | ---- | ---------- | ----------- |
-| https://api.eossweden.org/v2 | [docs](http://api.eossweden.org/v2/docs){:target="_blank"} |  |
+| https://eos.hyperion.eosrio.io/v2 | [docs](https://eos.hyperion.eosrio.io/v2/docs){:target="_blank"} |  |
 | https://eos.eosusa.io/v2 | [docs](https://eos.eosusa.io/v2/docs){:target="_blank"} |  |
+| https://hyperion.paycash.online/v2 | [docs](https://hyperion.paycash.online/v2/docs){:target="_blank"} |  |
 
 
 ### WAX
