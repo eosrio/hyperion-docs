@@ -12,11 +12,11 @@ Below you can find the list of all Hyperion's dependencies:
 
 - [Elasticsearch 8.X](https://www.elastic.co/downloads/elasticsearch){:target="_blank"}
 - [Kibana 8.X](https://www.elastic.co/downloads/kibana){:target="_blank"}
-- [RabbitMQ](https://www.rabbitmq.com){:target="_blank"}
+- [RabbitMQ](https://www.rabbitmq.com){:target="_blank"} (v 3.12+)
 - [Redis](https://redis.io/topics/quickstart){:target="_blank"}
-- [Node.js v18](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions){:target="_blank"}
+- [Node.js v20](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions){:target="_blank"}
 - [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/){:target="_blank"}
-- [LEAP/NODEOS 3.2.1](https://github.com/AntelopeIO/leap){:target="_blank"}
+- [LEAP/NODEOS 5.0.2](https://github.com/AntelopeIO/leap/releases/tag/v5.0.2){:target="_blank"}
 
 On the next steps you will install and configure each one of them.
 
@@ -230,6 +230,9 @@ sudo systemctl enable kibana.service
 ```
 
 ## RabbitMQ
+
+!!! attention
+    From Hyperion 3.3.10, RabbitMQ version 3.12+ is required.
 
 Follow the detailed installation instructions on the
 official [RabbitMQ documentation](https://www.rabbitmq.com/install-debian.html#installation-methods){:target="_blank"}.
