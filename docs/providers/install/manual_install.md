@@ -354,7 +354,7 @@ To do that, simply run the following commands:
 ```bash
 git clone https://github.com/eosrio/hyperion-history-api.git
 cd hyperion-history-api
-npm install
+npm ci
 ```
 
 ## Proceed with Hyperion Configuration
