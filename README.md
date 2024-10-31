@@ -13,6 +13,17 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
+
+### Windows 
+
+```cmd
+python -m venv .venv
+.\.venv\Scripts\activate.bat
+```
+Trouble installing cairo on Windows:
+https://squidfunk.github.io/mkdocs-material/plugins/requirements/image-processing/#cairo-graphics-windows
+
+
 ### Run development server
 
 ```bash
