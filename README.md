@@ -20,7 +20,7 @@ python -m pip install -r requirements.txt
 python -m venv .venv
 .\.venv\Scripts\activate.bat
 ```
-Trouble installing cairo on Windows:
+Troubleshoot installing cairo on Windows:
 https://squidfunk.github.io/mkdocs-material/plugins/requirements/image-processing/#cairo-graphics-windows
 
 
