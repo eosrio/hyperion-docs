@@ -1,6 +1,9 @@
 [:fontawesome-solid-arrow-left-long: Hyperion Configuration](hyperion_configuration.md#initialize-connections)
 # Connections Configuration Reference
 
+!!! info
+    <u>Failover option: </u> Now you can add an array of strings or array of objects. Check `Chain Parameters` below on "ship" paramert to configure. 
+
 ### RabbitMQ parameters
 
 - `"host":"127.0.0.1:5672"`
@@ -27,7 +30,8 @@
 - `"name":"EOS Mainnet"`
 - `"chain_id":"aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906"`
 - `"http":"http://127.0.0.1:8888"`
-- `"ship":"ws://127.0.0.1:8080"`
+- <u>`"ship": [ {"label": "primary", "url": "ws://127.0.0.1:8080"},   {"label": "secondary", "url": "ws://127.0.0.1:38080"}], or 
+"ship": ["ws://127.0.0.1:8080","ws://127.0.0.1:38080"] `</u>
 - `"WS_ROUTER_HOST": "127.0.0.1"` ⇒ Endpoint used by the Streaming API to connect to the Indexer. This is important when
   Indexer and API aren't on the same machine/instance.
 - `"WS_ROUTER_PORT":7001` ⇒ Port used by the Streaming API to connect to the Indexer.

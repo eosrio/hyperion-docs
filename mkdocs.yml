@@ -40,6 +40,7 @@ nav:
           - Configuration: providers/setup/hyperion_configuration.md
           - Connections Reference: providers/setup/connections.md
           - Chain Config Reference: providers/setup/chain.md
+          - Connect Provider to QRY: providers/setup/qry_connection.md
       - Updating: providers/update.md
       - Index Repair: providers/repair.md
       - Troubleshooting:

@@ -3,20 +3,27 @@
 This section describes how to manually install Hyperion and its environment. If you want more control of your
 installation, this is the way to go.
 
-!!! attention
-    Recommended OS: Ubuntu 22.04
+!!! warning
+    If you are running more than one node (Leap/Savanna), you can now configure the failover option directly in the `connections.json` file. Please refer to the section detailing the new parameters by clicking [here](../../setup/connections)
 
+
+!!! info
+    Review the guidelines for configuring Hyperion for Provider Registration on Qry, a new decentralized ecosystem that provides access to a variety of data services and APIs. Follow the steps outlined in [Config Provider](../../providers/setup/qry_connection.md) steps
+
+!!! attention
+    Recommended OS: Ubuntu 24.04
+   
 ## Dependencies
 
 Below you can find the list of all Hyperion's dependencies:
 
-- [Elasticsearch 8.X](https://www.elastic.co/downloads/elasticsearch){:target="_blank"}
-- [Kibana 8.X](https://www.elastic.co/downloads/kibana){:target="_blank"}
+- [Elasticsearch 8.7+](https://www.elastic.co/downloads/elasticsearch){:target="_blank"}
+- [Kibana 8.7+](https://www.elastic.co/downloads/kibana){:target="_blank"}
 - [RabbitMQ](https://www.rabbitmq.com){:target="_blank"} (v 3.12+)
 - [Redis](https://redis.io/topics/quickstart){:target="_blank"}
-- [Node.js v20](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions){:target="_blank"}
+- [Node.js v22](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions){:target="_blank"}
 - [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/){:target="_blank"}
-- [LEAP/NODEOS 5.0.2](https://github.com/AntelopeIO/leap/releases/tag/v5.0.2){:target="_blank"}
+- [NODEOS (spring 1.0.2 or leap 5.0.3)](https://github.com/AntelopeIO/leap/releases/tag/v5.0.3){:target="_blank"}
 
 On the next steps you will install and configure each one of them.
 
@@ -304,8 +311,20 @@ sudo systemctl restart redis.service
 ## NodeJS
 
 ```bash
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs
+# installs fnm (Fast Node Manager)
+curl -fsSL https://fnm.vercel.app/install | bash
+
+# activate fnm
+source ~/.bashrc
+
+# download and install Node.js
+fnm use --install-if-missing 22
+
+# verifies the right Node.js version is in the environment
+node -v # should print `v22.11.0`
+
+# verifies the right npm version is in the environment
+npm -v # should print `10.9.0`
 ```
 
 !!! attention
@@ -327,10 +346,18 @@ pm2 startup
 
 ## EOSIO
 
+
+### Leap
 ```
-wget https://github.com/AntelopeIO/leap/releases/download/v3.2.1/leap_3.2.1-ubuntu22.04_amd64.deb
-sudo apt install ./leap_3.2.1-ubuntu22.04_amd64.deb
+wget https://github.com/AntelopeIO/leap/releases/download/v5.0.3/leap_5.0.3_amd64.deb
+sudo apt install ./leap_5.0.3_amd64.deb
 ```
+
+### Savana/Spring
+```
+Adicionar repositorio
+```
+
 
 ### Configuration
 
