@@ -2,7 +2,7 @@
 # Connections Configuration Reference
 
 !!! info
-    <u>Failover option: </u> Now you can add an array of strings or array of objects. Check `Chain Parameters` below on "ship" paramert to configure. 
+    <u>Failover option: </u> Now you can add an array of strings or array of objects to configure failover on Hyperion. Check `Chain Parameters` below on "ship" paramert to configure. 
 
 ### RabbitMQ parameters
 

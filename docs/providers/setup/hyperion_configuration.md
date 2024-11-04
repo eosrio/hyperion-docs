@@ -4,6 +4,9 @@ We've developed a tool to automate the configuration of Hyperion. It initializes
 dependencies and creates the configuration for each chain you are running.
 
 !!! warning
+    Check [Connections Reference](../connections) to add the new <u>failover</u> option.
+
+
     Make sure you are in the installation directory:
     ```shell
     cd ~/hyperion
