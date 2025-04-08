@@ -3,9 +3,14 @@
   "description": "Hyperion History API Documentation",
   "version": "1.2.0",
   "scripts": {
+    "activate": "bash -c 'source ./.venv/bin/activate'",
     "start": "python -m mkdocs serve",
     "start:external": "python -m mkdocs serve --dev-addr=0.0.0.0:8000",
     "build": "python -m mkdocs build",
-    "deploy": "python -m mkdocs gh-deploy"
+    "deploy": "python -m mkdocs gh-deploy",
+    "prestart": "npm run activate",
+    "prestart:external": "npm run activate",
+    "prebuild": "npm run activate",
+    "predeploy": "npm run activate"
   }
 }
