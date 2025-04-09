@@ -47,6 +47,7 @@ And finally, in the **third layer**, which we can understand as `Infra Services`
 4. Kibana
 5. RedisCommander
 
+<a id='image-infrastructure'></a>
 ### Image Infrastructure
 
 ??? note "Infra Image"

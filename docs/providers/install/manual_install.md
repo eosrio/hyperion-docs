@@ -17,13 +17,14 @@ installation, this is the way to go.
 
 Below you can find the list of all Hyperion's dependencies:
 
-- [Elasticsearch 8.7+](https://www.elastic.co/downloads/elasticsearch){:target="_blank"}
-- [Kibana 8.7+](https://www.elastic.co/downloads/kibana){:target="_blank"}
-- [RabbitMQ](https://www.rabbitmq.com){:target="_blank"} (v 3.12+)
-- [Redis](https://redis.io/topics/quickstart){:target="_blank"}
-- [Node.js v22](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions){:target="_blank"}
-- [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/){:target="_blank"}
-- [NODEOS (spring 1.1.2 or leap 5.0.3)](https://github.com/AntelopeIO/leap/releases/tag/v5.0.3){:target="_blank"}
+- [Elasticsearch 8.7+](https://www.elastic.co/downloads/elasticsearch){:target="_blank"}  - **Required** for historical data indexing.
+- [Kibana 8.7+](https://www.elastic.co/downloads/kibana){:target="_blank"} - Optional, for visualizing Elasticsearch data.
+- [RabbitMQ](https://www.rabbitmq.com){:target="_blank"} (v 3.12+) - **Required** for message queuing between indexer stages.
+- [Redis](https://redis.io/topics/quickstart){:target="_blank"}  - **Required** for caching and inter-process communication.
+- [MongoDB Community Server](https://www.mongodb.com/try/download/community){:target="_blank"} - **Conditionally Required**. Needed *only* if enabling state tracking features (`features.tables.*` or `features.contract_state.enabled` in chain config). See MongoDB section below for details.
+- [Node.js v22](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions){:target="_blank"} - **Required** runtime environment.
+- [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/){:target="_blank"} - **Required** process manager for Node.js applications.
+- [NODEOS (spring 1.1.2 or leap 5.0.3 recommended)](https://github.com/AntelopeIO/leap/releases/tag/v5.0.3){:target="_blank"} - **Required** Antelope node with State History Plugin (SHIP) enabled.
 
 On the next steps you will install and configure each one of them.
 
@@ -307,6 +308,59 @@ Change the `supervised` configuration from `supervised no` to  `supervised syste
 ```bash
 sudo systemctl restart redis.service
 ```
+
+## MongoDB (Conditional Requirement)
+
+!!! attention "Requirement Check"
+    MongoDB is **only required** if you plan to enable specific state-tracking features in your Hyperion chain configuration (`config/chains/<chain>.config.json`). These features include:
+
+    - **System Tables:** Setting `features.tables.proposals`, `features.tables.accounts`, or `features.tables.voters` to `true`.
+    - **Contract State:** Setting `features.contract_state.enabled` to `true`.
+
+    If you do not enable these features, you can skip the MongoDB installation. Hyperion will rely solely on Elasticsearch for historical action/delta data.
+
+MongoDB is used by Hyperion to store the *current state* of specific on-chain data (like proposals, voter info, token balances, and configured contract tables), enabling fast lookups via the `/v2/state/*` API endpoints.
+
+### Installation (Ubuntu Example)
+
+Follow the official MongoDB Community Edition installation guide for your specific Ubuntu version:
+[Install MongoDB Community Edition on Ubuntu](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/){:target="_blank"}
+
+The general steps involve:
+
+1.  Importing the MongoDB public GPG Key.
+2.  Creating a list file for MongoDB.
+3.  Reloading the local package database (`sudo apt-get update`).
+4.  Installing the MongoDB packages (`sudo apt-get install -y mongodb-org`).
+
+### Configuration & Service Management
+
+##### 1. Start MongoDB
+
+After installation, start the MongoDB service:
+
+```bash
+sudo systemctl start mongod
+```
+
+Check if the service started successfully:
+
+```bash
+sudo systemctl status mongod
+```
+
+
+Look for `active (running)` in the output. You can also try connecting using the MongoDB Shell: `mongosh`.
+
+To ensure MongoDB starts automatically on system boot:
+
+```bash
+sudo systemctl enable mongod
+```
+
+For production environments, it is highly recommended to [enable access control and configure authentication](https://www.mongodb.com/docs/manual/administration/security-checklist/){:target="_blank"} for MongoDB. This typically involves creating an administrative user and updating the configuration file (`/etc/mongod.conf`) to enforce authentication. The basic installation often allows unauthenticated access from localhost.
+
+Hyperion connection details for MongoDB (host, port, user, password, database prefix) will be configured later in the `config/connections.json` file using the `./hyp-config connections init` tool or by manual editing.
 
 ## NodeJS
 
