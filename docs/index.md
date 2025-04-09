@@ -45,21 +45,24 @@
 
 - [Hyperion Lightweight Explorer](https://github.com/eosrio/hyperion-explorer-plugin){:target="_blank"}
 
-### 1. Overview
+## 1. Overview
 
 Hyperion is a full history solution for indexing, storing and retrieving Antelope blockchain's historical data.
-Antelope protocol is highly scalable reaching up to tens of thousands of transactions per second demanding high
-performance indexing and optimized storage and querying solutions. Hyperion is developed to tackle those challenges
-providing open source software to be operated by block producers, infrastructure providers and dApp developers.
+Antelope protocol is highly scalable reaching up to tens of thousands of transactions per second demanding high performance indexing
+and optimized storage and querying solutions. Hyperion is developed to tackle those challenges, providing open source software
+to be operated by block producers, infrastructure providers and dApp developers.
 
-Focused on delivering faster search times, lower bandwidth overhead and easier usability for UI/UX developers,
-Hyperion implements an improved data structure. Actions are stored in a flattened format, transaction ids are added to
-all inline actions, allowing to group by transaction without storing a full transaction index. Besides that if the inline
-action data is identical to the parent, it is considered a notification and thus removed from the database.
-No full block or transaction data is stored, all information can be reconstructed from actions and deltas, only a block
-header index is stored.
+### Improved Data Structure
 
-### 2. Architecture
+Focused on delivering faster search times, lower bandwidth overhead and easier usability for UI/UX developers, Hyperion implements an **improved data structure**:
+
+*   Actions are stored in a flattened format.
+*   Transaction IDs are added to all inline actions, allowing grouping by transaction without needing a full transaction index.
+*   If the inline action data is identical to the parent, it is considered a notification and thus removed from the database.
+*   No full block or transaction data is stored; all information can be reconstructed from actions and deltas.
+*   Only a block header index is stored.
+
+## 2. Architecture
 
 The following components are required in order to have a fully functional Hyperion API deployment. 
 
@@ -84,7 +87,7 @@ RabbitMQ and the state history node.
 
 #### 2.3 Hyperion API
 
-Parallelizable API server that provides the V2 and V1 (legacy history plugin) endpoints.
+Parallelizable API server that provides the **V2 and V1 (legacy history plugin) endpoints**.
 It is launched by PM2 and can also operate in cluster mode. It requires direct access to
 at least one ES node for the queries and all other services for full healthcheck
 
@@ -100,7 +103,7 @@ the `v2/history/get_transaction` and `v2/history/check_transaction` endpoints
 #### 2.6 Leap State History
 
 [Leap / Nodeos](https://github.com/AntelopeIO/leap/tree/main/plugins/state_history_plugin){:target="_blank"} plugin used
-to collect action traces and state deltas. Provides data via websocket to the indexer
+to collect action traces and state deltas. Provides data via websocket to the indexer.
 
 #### 2.7 Hyperion Stream Client (optional)
 
@@ -110,6 +113,7 @@ providers. [Documentation](dev/stream_client.md)
 #### 2.8 Hyperion Plugins (optional)
 
 Hyperion includes a flexible plugin architecture to allow further customization.
-Plugins are managed by the `hpm` (hyperion plugin manager) command line tool.
+**Plugins are managed by the `hpm` (hyperion plugin manager) command line tool**.
+More information on using `hpm` to manage plugins will be provided in a dedicated section.
 
 <br>

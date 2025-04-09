@@ -12,7 +12,7 @@ installation, this is the way to go.
 
 !!! attention
     Recommended OS: Ubuntu 24.04
-   
+
 ## Dependencies
 
 Below you can find the list of all Hyperion's dependencies:
@@ -23,7 +23,7 @@ Below you can find the list of all Hyperion's dependencies:
 - [Redis](https://redis.io/topics/quickstart){:target="_blank"}
 - [Node.js v22](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions){:target="_blank"}
 - [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/){:target="_blank"}
-- [NODEOS (spring 1.0.2 or leap 5.0.3)](https://github.com/AntelopeIO/leap/releases/tag/v5.0.3){:target="_blank"}
+- [NODEOS (spring 1.1.2 or leap 5.0.3)](https://github.com/AntelopeIO/leap/releases/tag/v5.0.3){:target="_blank"}
 
 On the next steps you will install and configure each one of them.
 
