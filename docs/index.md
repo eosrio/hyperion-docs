@@ -155,11 +155,14 @@ A Node.js application responsible for fetching data from SHIP, deserializing it,
 A Node.js (Fastify framework) application that serves the HTTP API endpoints (v1 and v2). It queries Elasticsearch, MongoDB, Redis, and the Antelope node as needed. It also manages the Swagger documentation UI and handles WebSocket connections for live streaming. Typically run in cluster mode using PM2 for scalability and resilience.
 
 ### 3.8 Hyperion Stream Client (Optional)
-A client library (for Web and Node.js) simplifying connection to the real-time streaming endpoints offered by enabled Hyperion providers. See [Stream Client Documentation](https://hyperion.docs.eosrio.io/dev/stream_client/).
+A client library (for Web and Node.js) simplifying connection to the real-time streaming endpoints offered by enabled Hyperion providers. 
+
+See [Stream Client Documentation](https://hyperion.docs.eosrio.io/dev/stream_client/).
 
 ### 3.9 Hyperion Plugins (Optional)
 Hyperion features an extensible plugin architecture. Plugins can add custom data handlers, API routes, or other functionalities. Managed via the `hpm` (hyperion plugin manager) command-line tool.
-*   **Example:** [Hyperion Lightweight Explorer](https://github.com/eosrio/hyperion-explorer-plugin){:target="_blank"}
+ 
+* **Example:** [Hyperion Lightweight Explorer](https://github.com/eosrio/hyperion-explorer-plugin){:target="_blank"}
 
 
 <br>
