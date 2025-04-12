@@ -46,6 +46,7 @@ nav:
       - Troubleshooting:
           - Kibana: providers/help/kibana.md
           - RabbitMQ: providers/help/rabbit.md
+          - MongoDB: providers/help/mongodb.md
   - Users / Developers:
       - Getting Started: dev/howtouse.md
       - Stream Client: dev/stream_client.md

@@ -7,7 +7,7 @@ We will primarily use the `hyp-config` command-line tool provided with Hyperion.
 !!! tip "CLI Tool"
     Ensure you are in the root directory of your Hyperion installation (`hyperion-history-api/`) when running `./hyp-config` commands. Run `./hyp-config --help` for a full list of commands and options.
 
-!!! warning
+!!! warning "New failover option"
     Check [Connections Reference](connections.md) to add the new <u>failover</u> option.
 
 
