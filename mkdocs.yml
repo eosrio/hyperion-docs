@@ -49,7 +49,16 @@ nav:
           - MongoDB: providers/help/mongodb.md
   - Users / Developers:
       - Getting Started: dev/howtouse.md
-      - Stream Client: dev/stream_client.md
+      - Stream Client (v3.6+):
+          - Introduction: dev/stream_client/index.md
+          - Getting Started: dev/stream_client/getting-started.md
+          - Client Configuration: dev/stream_client/configuration.md
+          - Streaming Actions: dev/stream_client/streaming-actions.md
+          - Streaming Table Deltas: dev/stream_client/streaming-deltas.md
+          - Handling Stream Data: dev/stream_client/data-handling.md
+          - Block Range Parameters: dev/stream_client/block-ranges.md
+          - Browser Usage: dev/stream_client/browser-usage.md
+          - Error Handling: dev/stream_client/error-handling.md
       - Endpoint List: dev/endpoint.md
   - API Reference:
       - v2: api/v2.md
