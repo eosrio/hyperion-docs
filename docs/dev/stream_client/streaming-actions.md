@@ -21,7 +21,7 @@ try {
     const actionStream = await client.streamActions({
         contract: "eosio.token",
         action: "transfer",
-        account: "", // Optional: filter by notified account
+        account: "",    // Optional: filter by notified account
         start_from: 0, // Start from HEAD block
         read_until: 0, // Stream indefinitely
         filters: [
@@ -219,12 +219,16 @@ this object by listening to its events:
       true).
       See [Handling Stream Data](./data-handling.md) for more on `ActionContent`.
 
+> For cleaner sequential processing of the data check the [AsyncIterator Pattern](../data-handling/#12-asynciterator-pattern-for-awaitof)
+
 * **`stream.on("error", (error: any) => { ... })`**:
   Fired if an error occurs that is specific to this stream (e.g., the server terminates the stream due to an issue).
 
 * **`stream.on("start", (response: { status: string, reqUUID: string, startingBlock: number | string }) => { ... })`**:
   Fired when the Hyperion server acknowledges and successfully starts the stream request. `response.reqUUID` will match
   `stream.reqUUID`. `startingBlock` reflects the effective `start_from` resolved by the server.
+
+
 
 ## Stopping an Action Stream
 
@@ -241,58 +245,42 @@ console.log("Requested to stop action stream:", actionStream.reqUUID);
 ### 1. Stream Live Transfers to a Specific Account
 
 ```typescript
-async function streamLiveTransfersToUser(userName: string) {
-  if (!client.online) { console.error("Client not connected"); return; }
-  try {
-    const stream = await client.streamActions({
-      contract: "eosio.token",
-      action: "transfer",
-      start_from: 0, // Live
-      filters: [
-        { field: "act.data.to", value: userName }
-      ],
-      replayOnReconnect: true
-    });
+const stream = await client.streamActions({
+  contract: "eosio.token",
+  action: "transfer",
+  start_from: 0, // Live
+  filters: [
+    { field: "act.data.to", value: USER_ACCOUNT_NAME }
+  ],
+  replayOnReconnect: true
+});
 
-    stream.on("message", (msg) => {
-      console.log(`Live transfer to ${userName}:`, msg.content.act.data);
-    });
-    console.log(`Listening for live eosio.token transfers to ${userName}...`);
-  } catch (e) { console.error(e); }
-}
+stream.on("message", (msg) => {
+  console.log(`Live transfer to ${USER_ACCOUNT_NAME}:`, msg.content.act.data);
+});
 ```
 
-### 2. Get All Actions by a Contract from a Specific Past Block
+### 2. Get All Actions by a Contract from a Specific Block Range
 
 ```typescript
-async function getContractActionsFromBlock(contractName: string, blockNum: number) {
-  if (!client.online) { console.error("Client not connected"); return; }
-  try {
-    const stream = await client.streamActions({
-      contract: contractName,
-      action: "*", // All actions
-      start_from: blockNum,
-      read_until: blockNum, // Only actions from this single block
-      ignore_live: true   // Stop after this block
-    });
+const stream = await client.streamActions({
+  contract: CONTRACT_NAME,
+  action: "*", // All actions
+  start_from: START_BLOCK_NUM,
+  read_until: END_BLOCK_NUM,
+  ignore_live: true   // Stop after this block
+});
 
-    console.log(`Fetching all actions for ${contractName} from block ${blockNum}:`);
-    // Using AsyncIterator for this example
-    for await (const message of stream) {
-      if (message === null) break; // Stream ended
-      console.log(`  ${message.content.act.name}:`, message.content.act.data);
-    }
-    console.log("Finished fetching actions.");
-  } catch (e) { console.error(e); }
+// Using AsyncIterator for this example
+for await (const message of stream) {
+  if (message === null) break; // Stream ended
+  console.log(`  ${message.content.act.name}:`, message.content.act.data);
 }
 ```
 
 ## Next Steps
 
-* **Handling Stream Data**: Dive deeper into the structure of `ActionContent` and explore the AsyncIterator pattern
-  in [Handling Stream Data](./data-handling.md).
-* **Streaming Table Deltas**: Learn about monitoring contract table changes
-  in [Streaming Table Deltas](./streaming-deltas.md).
-* **Client Configuration**: Review all [Client Configuration](./configuration.md) options.
-
-```
+* **[Handling Stream Data](./data-handling.md)**: Dive deeper into the structure of `ActionContent` and explore the AsyncIterator pattern.
+* **[Streaming Table Deltas](./streaming-deltas.md)**: Learn about monitoring contract table changes.
+* **[Client Configuration](./configuration.md)**: Review all Client Configuration options.
+  <br><br><br>

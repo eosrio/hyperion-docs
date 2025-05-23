@@ -20,8 +20,9 @@ It simplifies handling WebSocket connections, message parsing, and stream manage
 
 ## Prerequisites
 
-*   **Node.js**: Version 18 or higher is required for server-side usage or for building/bundling for the browser. For **direct In-Browser usage** [see here](./browser-usage.md)
 *   **Hyperion API Endpoint**: Access to a running Hyperion History API (v3.6+) instance that has streaming enabled. You can find a list of public endpoints [here](../../dev/endpoint.md).
+*   **Node.js**: Version 18 or higher is required for server-side usage or for building/bundling for the browser. For **direct In-Browser usage** [see here](./browser-usage.md)
+
 
 ## Installation
 

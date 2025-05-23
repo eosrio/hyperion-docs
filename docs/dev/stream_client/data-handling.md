@@ -2,8 +2,8 @@
 
 Once you've initiated a stream for actions or table deltas using the Hyperion Stream Client, you need a way to process the incoming data. The client offers two primary mechanisms for this: 
 
-* the **Event-Driven API** 
-* or the **AsyncIterator Pattern** (`for await...of`).
+* the **[Event-Driven API](./#11-event-driven-api-streamonmessage)** (`stream.on('message', ...)`)
+* or the **[AsyncIterator Pattern](./#12-asynciterator-pattern-for-awaitof)** (`for await...of`).
 
 This guide also details the structure of the data messages you'll receive.
 
