@@ -1,16 +1,52 @@
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 418 469.6424361493125" width="418" height="469.6424361493125">
-  <!-- svg-source:excalidraw -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 520" width="500" height="520">
+  <!-- Minimalist Hyperion Infrastructure Diagram -->
   
-  <defs>
-    <style class="style-fonts">
-      @font-face {
-        font-family: "Virgil";
-        src: url("https://excalidraw.com/Virgil.woff2");
-      }
-      @font-face {
-        font-family: "Cascadia";
-        src: url("https://excalidraw.com/Cascadia.woff2");
-      }
-    </style>
-  </defs>
-  <rect x="0" y="0" width="418" height="469.6424361493125" fill="#ffffff"></rect><g stroke-opacity="0.5" fill-opacity="0.5" stroke-linecap="round" transform="translate(10 161.3575638506877) rotate(0 199 68.6424361493124)"><path d="M32.14 -1.36 L367.98 1.18 L380.11 1.63 L389 9.25 L393.32 10.78 L398.48 24.02 L396.63 107.05 L395.16 120.6 L393.18 126.29 L386.05 132.97 L381.85 136.49 L365.91 139.23 L31.77 138.08 L17.73 135.94 L12.31 133.23 L2.78 123.4 L0.61 113.39 L2.05 22.88 L0.55 19.94 L7.3 6.78 L18.74 3.4 L33.03 -1.15" stroke="none" stroke-width="0" fill="#4c6ef5"></path><path d="M32 0 M32 0 C134.77 1.13, 234.73 0.82, 366 0 M32 0 C124.62 -1.96, 215.93 -1.84, 366 0 M366 0 C388.46 1.86, 397.67 11.33, 398 32 M366 0 C388.01 -1.2, 398.74 8.88, 398 32 M398 32 C397.64 51.8, 397.57 73.26, 398 105.28 M398 32 C397.52 54.47, 398.24 76, 398 105.28 M398 105.28 C399.24 127.31, 388.9 138.89, 366 137.28 M398 105.28 C398.96 127.29, 386.04 136.73, 366 137.28 M366 137.28 C262.77 137.06, 157.09 135.38, 32 137.28 M366 137.28 C243.53 134.55, 121.85 135.02, 32 137.28 M32 137.28 C9.36 135.63, -0.24 126.4, 0 105.28 M32 137.28 C11.47 138.74, 1.03 127.03, 0 105.28 M0 105.28 C-0.7 75.59, 1.13 45.74, 0 32 M0 105.28 C1.42 82.07, -0.12 60.27, 0 32 M0 32 C0.29 12.15, 11.18 -0.34, 32 0 M0 32 C-0.72 12.7, 11.09 0.59, 32 0" stroke="#495057" stroke-width="2" fill="none"></path></g><g stroke-opacity="0.5" fill-opacity="0.5" transform="translate(20.5 205.64243614931252) rotate(0 76.171875 12)"><text x="0" y="0" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#495057" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">►Hyperion API</text></g><g stroke-opacity="0.5" fill-opacity="0.5" transform="translate(127.857421875 174.64243614931252) rotate(0 81.142578125 11.5)"><text x="0" y="0" font-family="Helvetica, Segoe UI Emoji" font-size="20px" fill="#495057" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">Hyperion Services</text></g><g stroke-opacity="0.5" fill-opacity="0.5" transform="translate(20.5 239.64243614931252) rotate(0 87.890625 12)"><text x="0" y="0" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#495057" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">►Hyperion Index</text></g><g stroke-opacity="0.5" fill-opacity="0.5" stroke-linecap="round" transform="translate(10.5 309.6424361493125) rotate(0 198.5 75)"><path d="M32 0 L365 0 L372.5 0.5 L379 2 L384.5 4.5 L389 8 L392.5 12.5 L395 18 L396.5 24.5 L397 118 L396.5 125.5 L395 132 L392.5 137.5 L389 142 L384.5 145.5 L379 148 L372.5 149.5 L365 150 L32 150 L24.5 149.5 L18 148 L12.5 145.5 L8 142 L4.5 137.5 L2 132 L0.5 125.5 L0 118 L0.5 24.5 L2 18 L4.5 12.5 L8 8 L12.5 4.5 L18 2 L24.5 0.5 L32 0" stroke="none" stroke-width="0" fill="#82c91e"></path><path d="M32 0 M32 0 C120.7 0, 209.4 0, 365 0 M32 0 C115.76 0, 199.51 0, 365 0 M365 0 C386.33 0, 397 10.67, 397 32 M365 0 C386.33 0, 397 10.67, 397 32 M397 32 C397 51.96, 397 71.91, 397 118 M397 32 C397 52.07, 397 72.15, 397 118 M397 118 C397 139.33, 386.33 150, 365 150 M397 118 C397 139.33, 386.33 150, 365 150 M365 150 C289.85 150, 214.7 150, 32 150 M365 150 C273.1 150, 181.21 150, 32 150 M32 150 C10.67 150, 0 139.33, 0 118 M32 150 C10.67 150, 0 139.33, 0 118 M0 118 C0 96.06, 0 74.12, 0 32 M0 118 C0 100.68, 0 83.36, 0 32 M0 32 C0 10.67, 10.67 0, 32 0 M0 32 C0 10.67, 10.67 0, 32 0" stroke="#495057" stroke-width="2" fill="none"></path></g><g stroke-opacity="0.5" fill-opacity="0.5" stroke-linecap="round" transform="translate(200 354.6424361493125) rotate(0 95.5 47.5)"><path d="M23.75 0 L167.25 0 L177.64 1.48 L181.72 3.34 L185.06 5.94 L187.66 9.28 L190.63 18.18 L191 71.25 L190.63 76.82 L187.66 85.72 L185.06 89.06 L181.72 91.66 L177.64 93.52 L167.25 95 L23.75 95 L18.18 94.63 L9.28 91.66 L5.94 89.06 L3.34 85.72 L0.37 76.82 L0.37 18.18 L1.48 13.36 L3.34 9.28 L5.94 5.94 L9.28 3.34 L13.36 1.48 L23.75 0" stroke="none" stroke-width="0" fill="#ced4da"></path><path d="M23.75 0 M23.75 0 C70.46 0, 117.17 0, 167.25 0 M23.75 0 C76.59 0, 129.43 0, 167.25 0 M167.25 0 C183.08 0, 191 7.92, 191 23.75 M167.25 0 C183.08 0, 191 7.92, 191 23.75 M191 23.75 C191 34.5, 191 45.26, 191 71.25 M191 23.75 C191 40.52, 191 57.3, 191 71.25 M191 71.25 C191 87.08, 183.08 95, 167.25 95 M191 71.25 C191 87.08, 183.08 95, 167.25 95 M167.25 95 C132.59 95, 97.92 95, 23.75 95 M167.25 95 C122.36 95, 77.48 95, 23.75 95 M23.75 95 C7.92 95, 0 87.08, 0 71.25 M23.75 95 C7.92 95, 0 87.08, 0 71.25 M0 71.25 C0 53.44, 0 35.63, 0 23.75 M0 71.25 C0 55.3, 0 39.35, 0 23.75 M0 23.75 C0 7.92, 7.92 0, 23.75 0 M0 23.75 C0 7.92, 7.92 0, 23.75 0" stroke="#495057" stroke-width="2" fill="none"></path></g><g stroke-opacity="0.5" fill-opacity="0.5" transform="translate(23 421.6424361493125) rotate(0 52.734375 12)"><text x="0" y="0" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">►Rabbitmq</text></g><g stroke-opacity="0.5" fill-opacity="0.5" transform="translate(23 356.6424361493125) rotate(0 82.03125 12)"><text x="0" y="0" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">►ElasticSearch</text></g><g stroke-opacity="0.5" fill-opacity="0.5" transform="translate(152.8671875 320.6424361493125) rotate(0 56.1328125 11.5)"><text x="0" y="0" font-family="Helvetica, Segoe UI Emoji" font-size="20px" fill="#2b8a3e" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">Infra Service</text></g><g stroke-opacity="0.5" fill-opacity="0.5" transform="translate(201.828125 380.6424361493125) rotate(0 41.015625 12)"><text x="0" y="0" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">►Kibana</text></g><g stroke-opacity="0.5" fill-opacity="0.5" transform="translate(22 390.6424361493125) rotate(0 35.15625 12)"><text x="0" y="0" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">►Redis</text></g><g stroke-opacity="0.5" fill-opacity="0.5" transform="translate(201.828125 411.6424361493125) rotate(0 93.75 12)"><text x="0" y="0" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">►Redis-Commander</text></g><g stroke-opacity="0.5" fill-opacity="0.5" transform="translate(254 358.6424361493125) rotate(0 35.7275390625 8.131555555555565)"><text x="0" y="0" font-family="Cascadia, Segoe UI Emoji" font-size="13.552592592592589px" fill="#495057" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">*PROFILES</text></g><g stroke-opacity="0.5" fill-opacity="0.5" stroke-linecap="round" transform="translate(10 10) rotate(0 199 68.64243614931237)"><path d="M32.37 0.57 L367.2 -1.29 L378.94 2.12 L389.41 6.19 L393.41 13.53 L398.27 24.5 L398.84 103.47 L396.96 118.19 L393.02 122.99 L385.4 134.18 L378.02 134.77 L367.79 139.02 L30.66 137.42 L17.06 137.21 L12.48 130.84 L4.89 124.51 L1.29 111.64 L-0.79 25.12 L2.16 17.92 L7.21 9.89 L19.4 0.39 L31.32 0.52" stroke="none" stroke-width="0" fill="#ced4da"></path><path d="M32 0 M32 0 C133.98 -0.85, 233.4 0.1, 366 0 M32 0 C142.87 -2.28, 254.1 -1.9, 366 0 M366 0 C388.63 0.04, 398.82 12.32, 398 32 M366 0 C389.3 -0.22, 398.83 8.59, 398 32 M398 32 C399.67 50.64, 399.66 74.91, 398 105.28 M398 32 C397.29 59.72, 397.83 85.34, 398 105.28 M398 105.28 C396.87 128.01, 388.52 137.38, 366 137.28 M398 105.28 C396.24 124.56, 386.34 137.87, 366 137.28 M366 137.28 C279.49 138.48, 194.59 139.33, 32 137.28 M366 137.28 C252.45 137.96, 137.09 138.45, 32 137.28 M32 137.28 C8.85 138.88, -0.62 126.4, 0 105.28 M32 137.28 C9.56 135.7, 0.87 127.13, 0 105.28 M0 105.28 C0.13 91.53, 1.78 75.05, 0 32 M0 105.28 C-0.45 87.56, 1.06 68.52, 0 32 M0 32 C1.78 9.94, 9.92 0.8, 32 0 M0 32 C-1.06 10.73, 10.11 1.69, 32 0" stroke="#495057" stroke-width="2" fill="none"></path></g><g stroke-opacity="0.5" fill-opacity="0.5" transform="translate(20.5 69.28487229862503) rotate(0 58.59375 12)"><text x="0" y="0" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#495057" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">►Leap Node</text></g><g stroke-opacity="0.5" fill-opacity="0.5" transform="translate(133.4091796875 36.28487229862492) rotate(0 75.5908203125 11.5)"><text x="75.5908203125" y="0" font-family="Helvetica, Segoe UI Emoji" font-size="20px" fill="#495057" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">Nodeos Services</text></g></svg>
+  <!-- Background -->
+  <rect x="0" y="0" width="500" height="520" fill="#ffffff" />
+  
+  <!-- Layer 1: Nodeos Services -->
+  <rect x="60" y="30" width="380" height="75" rx="12" fill="#e8eaed" stroke="#dadce0" stroke-width="1"/>
+  <text x="250" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600" font-size="16px" fill="#202124">Nodeos Services</text>
+  <text x="90" y="80" font-family="Arial, sans-serif" font-weight="400" font-size="14px" fill="#5f6368">►  Leap Node</text>
+  
+  <!-- Connection line 1 -->
+  <line x1="250" y1="105" x2="250" y2="140" stroke="#9aa0a6" stroke-width="1" stroke-dasharray="2,2" />
+  
+  <!-- Arrow 1 -->
+  <polygon points="245,140 255,140 250,150" fill="#9aa0a6"/>
+  
+  <!-- Layer 2: Hyperion Services -->
+  <rect x="60" y="155" width="380" height="90" rx="12" fill="#d7e2fa" stroke="#b8c4e0" stroke-width="1"/>
+  <text x="250" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600" font-size="16px" fill="#202124">Hyperion Services</text>
+  <text x="90" y="205" font-family="Arial, sans-serif" font-weight="400" font-size="14px" fill="#5f6368">►  Hyperion API</text>
+  <text x="90" y="230" font-family="Arial, sans-serif" font-weight="400" font-size="14px" fill="#5f6368">►  Hyperion Index</text>
+  
+  <!-- Connection line 2 -->
+  <line x1="250" y1="245" x2="250" y2="265" stroke="#9aa0a6" stroke-width="1" stroke-dasharray="2,2" />
+  
+  <!-- Arrow 2 -->
+  <polygon points="245,265 255,265 250,275" fill="#9aa0a6"/>
+  
+  <!-- Layer 3: Infra Service -->
+  <rect x="60" y="280" width="380" height="105" rx="12" fill="#e5f3e2" stroke="#c9e2c6" stroke-width="1"/>
+  <text x="250" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600" font-size="16px" fill="#202124">Infra Service</text>
+  
+  <text x="90" y="330" font-family="Arial, sans-serif" font-weight="400" font-size="14px" fill="#5f6368">►  Redis</text>
+  <text x="90" y="355" font-family="Arial, sans-serif" font-weight="400" font-size="14px" fill="#5f6368">►  RabbitMQ</text>
+  <text x="90" y="380" font-family="Arial, sans-serif" font-weight="400" font-size="14px" fill="#5f6368">►  MongoDB</text>
+  
+  <!-- Connection line 3 -->
+  <line x1="250" y1="385" x2="250" y2="405" stroke="#9aa0a6" stroke-width="1" stroke-dasharray="2,2" />
+  
+  <!-- Arrow 3 -->
+  <polygon points="245,405 255,405 250,415" fill="#9aa0a6"/>
+  
+  <!-- Layer 4: Elasticsearch / Kibana -->
+  <rect x="60" y="420" width="380" height="75" rx="12" fill="#fff4d1" stroke="#f0e6c2" stroke-width="1"/>
+  <text x="250" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600" font-size="16px" fill="#202124">Elasticsearch / Kibana</text>
+  <text x="90" y="470" font-family="Arial, sans-serif" font-weight="400" font-size="14px" fill="#5f6368">►  Elasticsearch</text>
+  <text x="290" y="470" font-family="Arial, sans-serif" font-weight="400" font-size="14px" fill="#5f6368">►  Kibana</text>
+  
+  <!-- Title -->
+  <text x="250" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600" font-size="18px" fill="#202124" visibility="hidden">Hyperion Architecture</text>
+</svg>
