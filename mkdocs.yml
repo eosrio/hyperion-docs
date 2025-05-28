@@ -41,8 +41,12 @@ nav:
           - Connections Reference: providers/setup/connections.md
           - Chain Config Reference: providers/setup/chain.md
           - Connect Provider to QRY: providers/setup/qry_connection.md
+      - Hyperion CLI Tools:
+          - Config Tool (hyp-config): providers/cli-tools/hyp-config.md
+          - Indexer Control (hyp-control): providers/cli-tools/hyp-control.md
+          - Elasticsearch Config Tool (hyp-es-config): providers/cli-tools/hyp-es-config.md
+          - Index Repair (hyp-repair): providers/cli-tools/hyp-repair.md
       - Updating: providers/update.md
-      - Index Repair: providers/repair.md
       - Troubleshooting:
           - Kibana: providers/help/kibana.md
           - RabbitMQ: providers/help/rabbit.md
