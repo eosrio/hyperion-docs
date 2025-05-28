@@ -15,9 +15,9 @@ Guide on enabling systemd if you are using WSL2 on Windows.
     wsl --update
     ```
 
-## 2. Install and launch an Ubuntu 22.04 instance
+## 2. Install and launch an Ubuntu 24.04.1 instance
 
-[Ubuntu 22.04.1 LTS on Microsoft Store](https://www.microsoft.com/store/productId/9PN20MSR04DW){:target="_blank"}
+[Ubuntu 24.04.1 LTS on Microsoft Store](https://www.microsoft.com/store/productId/9nz3klhxdjp5){:target="_blank"}
 
 ## 3. Enable systemd
 

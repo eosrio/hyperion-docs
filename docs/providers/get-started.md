@@ -1,6 +1,6 @@
 # Providers - Getting Started
 
-Hyperion runs exclusively in **Linux**, we recommend **Ubuntu 22.04**.
+Hyperion runs exclusively in **Linux**, we recommend **Ubuntu 24.04**.
 The infrastructure requires `systemd` to be **enabled**,
 if you are in **WSL2** please follow [this guide](install/wsl2.md) before the installation.
 
