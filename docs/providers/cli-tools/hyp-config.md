@@ -12,7 +12,7 @@ Commands typically follow the pattern:
 
 ## `connections` Commands
 
-This group of commands manages the main `config/connections.json` file. This file stores the connection details for essential infrastructure services that Hyperion relies on, such as RabbitMQ, Elasticsearch, Redis, and  MongoDB.
+This group of commands manages the main `config/connections.json` file. This file stores the connection details for essential infrastructure services that Hyperion relies on, such as RabbitMQ, Elasticsearch, Redis, and MongoDB.
 
 ### `connections init`
 
@@ -129,8 +129,6 @@ This command also needs the required connection details for this new chain (like
 
 Lists all configured chains found in the `config/chains/` directory. It displays details for each chain, such as chain name, configured endpoints, parser version, and status (configured or pending).
 
-
-
 **Usage:**
 ```bash
 ./hyp-config chains list [options]
@@ -193,8 +191,75 @@ Tests the configured HTTP and SHIP endpoints for a specific chain. It verifies:
 ./hyp-config chains test wax
 ```
 
----
+### `chains validate <shortName> [options]`
 
+Validates a chain configuration file against the Zod schema to ensure all required fields are present and have correct types. Can automatically fix missing or invalid fields using reference defaults.
+
+*   **Purpose**: To ensure a chain's configuration file meets Hyperion's requirements and has all necessary fields.
+*   **Behavior**: Validates the configuration and reports any issues. With the `--fix` option, it can automatically correct problems.
+
+**Usage:**
+```bash
+./hyp-config chains validate <shortName> [options]
+```
+
+**Arguments:**
+
+*   `<shortName>`: The alias of the chain configuration to validate.
+
+**Options:**
+
+*   `--fix`: Automatically fix missing or invalid fields using reference configuration and sensible defaults. Creates a backup before making changes.
+
+**Validation Features:**
+
+* **Schema Validation**: Validates the entire configuration structure using comprehensive Zod schemas
+* **Detailed Error Reporting**: Groups validation errors by configuration path for easy debugging
+* **Configuration Summary**: On successful validation, displays key configuration details
+* **JSON Syntax Checking**: Catches and reports JSON parsing errors
+* **Auto-Fix Capability**: Automatically adds missing fields with appropriate defaults
+
+**Auto-Fix Behavior:**
+When using the `--fix` option, the command will:
+
+1. Create a timestamped backup in `config/configuration_backups/`
+2. Apply values from the reference configuration (`config.ref.json`) where available
+3. Use sensible defaults for fields not present in the reference
+4. Save the fixed configuration and report all changes made
+
+**Examples:**
+
+```bash
+# Validate configuration only (shows errors if any)
+./hyp-config chains validate wax
+
+# Validate and automatically fix missing fields
+./hyp-config chains validate wax --fix
+```
+
+**Sample Output (with --fix):**
+
+```
+Validating chain config for wax...
+🔧 Attempting to fix configuration issues...
+📦 Backup created: config/configuration_backups/wax.config.backup.1748562368468.json
+   ✓ Fixed missing field: api.provider_logo = "" (default)
+   ✓ Fixed missing field: settings.ship_request_rev = "" (default)
+   ✓ Fixed missing field: settings.bypass_index_map = false (default)
+💾 Fixed configuration saved to config/chains/wax.config.json
+🎉 Successfully fixed 3 field(s)!
+✅ Chain config for wax is valid!
+
+📋 Configuration Summary:
+   Chain: wax
+   API Port: 7000
+   Stream Port: 1234
+   Indexer Enabled: true
+   API Enabled: true
+   Debug Mode: false
+```
+
+---
 
 ## `contracts` Commands
 
@@ -294,10 +359,133 @@ Adds or updates the state indexing configuration for multiple tables within a sp
 
 ---
 
+## Configuration Editing
+
+Edit and manage configuration values within chain configuration files with automatic validation against the reference configuration.
+
+### `get <chain> <configPath>`
+
+Retrieves a specific configuration value from a chain's configuration file. The configuration path is validated against the reference configuration to ensure it exists and is valid.
+
+**Usage:**
+
+```bash
+./hyp-config get <chain> <configPath>
+```
+
+**Arguments:**
+
+* `<chain>`: The short name of the chain whose configuration to read.
+* `<configPath>`: The dot-notation path to the configuration value (e.g., `indexer.start_on`, `scaling.readers`, `api.server_port`).
+
+**Examples:**
+
+```bash
+./hyp-config get wax indexer.start_on
+./hyp-config get eos scaling.readers
+./hyp-config get telos api.server_port
+```
+
+### `set <chain> <configPath> <value>`
+
+Sets a specific configuration value in a chain's configuration file. The configuration path and value type are validated against the reference configuration. Creates an automatic backup before making changes.
+
+**Usage:**
+
+```bash
+./hyp-config set <chain> <configPath> <value>
+```
+
+**Arguments:**
+
+* `<chain>`: The short name of the chain whose configuration to modify.
+* `<configPath>`: The dot-notation path to the configuration value.
+* `<value>`: The new value to set. Can be a string, number, boolean, or JSON for complex values.
+
+**Type Validation:** The value must match the expected type from the reference configuration:
+
+* **Numbers:** `1000`, `4096`
+* **Booleans:** `true`, `false`
+* **Strings:** `"example_string"`
+* **Arrays:** `[1,2,3]` or `["item1","item2"]`
+* **Objects:** `{"key":"value"}`
+
+**Examples:**
+
+```bash
+./hyp-config set wax indexer.start_on 1000
+./hyp-config set eos scaling.readers 4
+./hyp-config set telos api.enabled true
+./hyp-config set wax api.limits '{"get_actions": 2000}'
+```
+
+### `set-default <chain> <configPath>`
+
+Resets a specific configuration value to its default value from the reference configuration. Creates an automatic backup before making changes.
+
+**Usage:**
+
+```bash
+./hyp-config set-default <chain> <configPath>
+```
+
+**Arguments:**
+
+* `<chain>`: The short name of the chain whose configuration to reset.
+* `<configPath>`: The dot-notation path to the configuration value to reset.
+
+**Examples:**
+
+```bash
+./hyp-config set-default wax indexer.start_on
+./hyp-config set-default eos api.server_port
+./hyp-config set-default telos scaling.readers
+```
+
+### `list-paths <chain> [--filter <category>]`
+
+Lists all valid configuration paths available for modification. Useful for discovering available configuration options and their current values and types.
+
+**Usage:**
+
+```bash
+./hyp-config list-paths <chain> [options]
+```
+
+**Arguments:**
+
+* `<chain>`: The short name of the chain (used for command context, but paths are from reference config).
+
+**Options:**
+
+* `--filter <category>`: Filter paths by category (e.g., `api`, `indexer`, `scaling`, `features`).
+
+**Examples:**
+
+```bash
+./hyp-config list-paths wax
+./hyp-config list-paths wax --filter indexer
+./hyp-config list-paths wax --filter scaling
+./hyp-config list-paths wax --filter api
+```
+
+**Available Categories:**
+
+* `api` - API server configuration
+* `indexer` - Indexer process configuration  
+* `settings` - General settings
+* `scaling` - Performance and scaling options
+* `features` - Feature toggles
+* `blacklists` - Action and delta blacklists
+* `whitelists` - Action and delta whitelists
+* `prefetch` - Prefetch settings
+* `hub` - Hub configuration
+* `plugins` - Plugin settings
+* `alerts` - Alert system configuration
+
 ## Commands Alias
 
 The following commands are alias for the commands above.
-
 
 *   `list chains` (for `chains list`)
     *   Alias: `ls chains`
