@@ -1,0 +1,2488 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Scalable Full History API Solution for Antelope (former EOSIO) based blockchains.">
+      
+      
+      
+        <link rel="canonical" href="https://hyperion.docs.eosrio.io/4.0/providers/cli-tools/hyp-repair/">
+      
+      
+        <link rel="prev" href="../hyp-es-config/">
+      
+      
+        <link rel="next" href="../../update/">
+      
+      
+      <link rel="icon" href="../../../assets/img/icon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Index Repair (hyp-repair) - Hyperion Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M64%2032C28.7%2032%200%2060.7%200%2096v320c0%2035.3%2028.7%2064%2064%2064h224V368c0-26.5%2021.5-48%2048-48h112V96c0-35.3-28.7-64-64-64zm384%20320H336c-8.8%200-16%207.2-16%2016v112l32-32%2064-64z%22/%3E%3C/svg%3E');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M96%200C43%200%200%2043%200%2096v320c0%2053%2043%2096%2096%2096h320c17.7%200%2032-14.3%2032-32s-14.3-32-32-32v-64c17.7%200%2032-14.3%2032-32V32c0-17.7-14.3-32-32-32H96m0%20384h256v64H96c-17.7%200-32-14.3-32-32s14.3-32%2032-32m32-240c0-8.8%207.2-16%2016-16h192c8.8%200%2016%207.2%2016%2016s-7.2%2016-16%2016H144c-8.8%200-16-7.2-16-16m16%2048h192c8.8%200%2016%207.2%2016%2016s-7.2%2016-16%2016H144c-8.8%200-16-7.2-16-16s7.2-16%2016-16%22/%3E%3C/svg%3E');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%20512a256%20256%200%201%200%200-512%20256%20256%200%201%200%200%20512m-40-176h24v-64h-24c-13.3%200-24-10.7-24-24s10.7-24%2024-24h48c13.3%200%2024%2010.7%2024%2024v88h8c13.3%200%2024%2010.7%2024%2024s-10.7%2024-24%2024h-80c-13.3%200-24-10.7-24-24s10.7-24%2024-24m40-208a32%2032%200%201%201%200%2064%2032%2032%200%201%201%200-64%22/%3E%3C/svg%3E');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M480%2032c0-12.9-7.8-24.6-19.8-29.6S434.5.2%20425.3%209.3L381.7%2053c-48%2048-113.1%2075-181%2075H64c-35.3%200-64%2028.7-64%2064v96c0%2035.3%2028.7%2064%2064%2064v128c0%2017.7%2014.3%2032%2032%2032h64c17.7%200%2032-14.3%2032-32V352h8.7c67.9%200%20133%2027%20181%2075l43.6%2043.6c9.2%209.2%2022.9%2011.9%2034.9%206.9s19.8-16.6%2019.8-29.6V300.3c18.6-8.8%2032-32.5%2032-60.4s-13.4-51.6-32-60.4zm-64%2076.7v262.6C357.2%20317.8%20280.5%20288%20200.7%20288H192v-96h8.7c79.8%200%20156.5-29.8%20215.3-83.3%22/%3E%3C/svg%3E');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M438.6%20105.4c12.5%2012.5%2012.5%2032.8%200%2045.3l-256%20256c-12.5%2012.5-32.8%2012.5-45.3%200l-128-128c-12.5-12.5-12.5-32.8%200-45.3s32.8-12.5%2045.3%200L160%20338.7l233.4-233.3c12.5-12.5%2032.8-12.5%2045.3%200z%22/%3E%3C/svg%3E');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%20512a256%20256%200%201%200%200-512%20256%20256%200%201%200%200%20512m-86.2-346.7c7.9-22.3%2029.1-37.3%2052.8-37.3h58.3c34.9%200%2063.1%2028.3%2063.1%2063.1%200%2022.6-12.1%2043.5-31.7%2054.8L280%20264.4c-.2%2013-10.9%2023.6-24%2023.6-13.3%200-24-10.7-24-24v-13.5c0-8.6%204.6-16.5%2012.1-20.8l44.3-25.4c4.7-2.7%207.6-7.7%207.6-13.1%200-8.4-6.8-15.1-15.1-15.1h-58.3c-3.4%200-6.4%202.1-7.5%205.3l-.4%201.2c-4.4%2012.5-18.2%2019-30.6%2014.6s-19-18.2-14.6-30.6l.4-1.2zM224%20352a32%2032%200%201%201%2064%200%2032%2032%200%201%201-64%200%22/%3E%3C/svg%3E');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M256%2032c14.2%200%2027.3%207.5%2034.5%2019.8l216%20368c7.3%2012.4%207.3%2027.7.2%2040.1S486.3%20480%20472%20480H40c-14.3%200-27.6-7.7-34.7-20.1s-7-27.8.2-40.1l216-368C228.7%2039.5%20241.8%2032%20256%2032m0%20128c-13.3%200-24%2010.7-24%2024v112c0%2013.3%2010.7%2024%2024%2024s24-10.7%2024-24V184c0-13.3-10.7-24-24-24m32%20224a32%2032%200%201%200-64%200%2032%2032%200%201%200%2064%200%22/%3E%3C/svg%3E');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M459.1%2052.4%20442.6%206.5c-1.9-3.9-6.1-6.5-10.5-6.5s-8.5%202.6-10.4%206.5l-16.5%2045.9-46%2016.8c-4.3%201.6-7.3%205.9-7.2%2010.4%200%204.5%203%208.7%207.2%2010.2l45.7%2016.8%2016.8%2045.8c1.5%204.4%205.8%207.5%2010.4%207.5s8.9-3.1%2010.4-7.5l16.5-45.8%2045.7-16.8c4.2-1.5%207.2-5.7%207.2-10.2%200-4.6-3-8.9-7.2-10.4zm-132.4%2053c-12.5-12.5-32.8-12.5-45.3%200l-2.9%202.9c-22-8-45.8-12.3-70.5-12.3C93.1%2096%200%20189.1%200%20304s93.1%20208%20208%20208%20208-93.1%20208-208c0-24.7-4.3-48.5-12.2-70.5l2.9-2.9c12.5-12.5%2012.5-32.8%200-45.3l-80-80zM200%20192c-57.4%200-104%2046.6-104%20104v8c0%208.8-7.2%2016-16%2016s-16-7.2-16-16v-8c0-75.1%2060.9-136%20136-136h8c8.8%200%2016%207.2%2016%2016s-7.2%2016-16%2016z%22/%3E%3C/svg%3E');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M416%20398.9c58.5-41.1%2096-104.1%2096-174.9C512%20100.3%20397.4%200%20256%200S0%20100.3%200%20224c0%2070.7%2037.5%20133.8%2096%20174.9V464c0%2026.5%2021.5%2048%2048%2048h48v-48c0-8.8%207.2-16%2016-16s16%207.2%2016%2016v48h64v-48c0-8.8%207.2-16%2016-16s16%207.2%2016%2016v48h48c26.5%200%2048-21.5%2048-48v-65.1M96%20256a64%2064%200%201%201%20128%200%2064%2064%200%201%201-128%200m256-64a64%2064%200%201%201%200%20128%2064%2064%200%201%201%200-128%22/%3E%3C/svg%3E');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M320%200c17.7%200%2032%2014.3%2032%2032v64h120c39.8%200%2072%2032.2%2072%2072v272c0%2039.8-32.2%2072-72%2072H168c-39.8%200-72-32.2-72-72V168c0-39.8%2032.2-72%2072-72h120V32c0-17.7%2014.3-32%2032-32M208%20384c-8.8%200-16%207.2-16%2016s7.2%2016%2016%2016h32c8.8%200%2016-7.2%2016-16s-7.2-16-16-16zm96%200c-8.8%200-16%207.2-16%2016s7.2%2016%2016%2016h32c8.8%200%2016-7.2%2016-16s-7.2-16-16-16zm96%200c-8.8%200-16%207.2-16%2016s7.2%2016%2016%2016h32c8.8%200%2016-7.2%2016-16s-7.2-16-16-16zM264%20256a40%2040%200%201%200-80%200%2040%2040%200%201%200%2080%200m152%2040a40%2040%200%201%200%200-80%2040%2040%200%201%200%200%2080M48%20224h16v192H48c-26.5%200-48-21.5-48-48v-96c0-26.5%2021.5-48%2048-48m544%200c26.5%200%2048%2021.5%2048%2048v96c0%2026.5-21.5%2048-48%2048h-16V224z%22/%3E%3C/svg%3E');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M288%200H128c-17.7%200-32%2014.3-32%2032s14.3%2032%2032%2032v132.8c0%2011.8-3.3%2023.5-9.5%2033.5L10.3%20406.2C3.6%20417.2%200%20429.7%200%20442.6%200%20480.9%2031.1%20512%2069.4%20512h309.2c38.3%200%2069.4-31.1%2069.4-69.4%200-12.8-3.6-25.4-10.3-36.4L329.5%20230.4c-6.2-10.1-9.5-21.7-9.5-33.5V64c17.7%200%2032-14.3%2032-32S337.7%200%20320%200zm-96%20196.8V64h64v132.8c0%2023.7%206.6%2046.9%2019%2067.1l34.5%2056.1h-171l34.5-56.1c12.4-20.2%2019-43.4%2019-67.1%22/%3E%3C/svg%3E');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3C%21--%21%20Font%20Awesome%20Free%206.7.2%20by%20%40fontawesome%20-%20https%3A//fontawesome.com%20License%20-%20https%3A//fontawesome.com/license/free%20%28Icons%3A%20CC%20BY%204.0%2C%20Fonts%3A%20SIL%20OFL%201.1%2C%20Code%3A%20MIT%20License%29%20Copyright%202024%20Fonticons%2C%20Inc.--%3E%3Cpath%20d%3D%22M0%20216C0%20149.7%2053.7%2096%20120%2096h8c17.7%200%2032%2014.3%2032%2032s-14.3%2032-32%2032h-8c-30.9%200-56%2025.1-56%2056v8h64c35.3%200%2064%2028.7%2064%2064v64c0%2035.3-28.7%2064-64%2064H64c-35.3%200-64-28.7-64-64V216m256%200c0-66.3%2053.7-120%20120-120h8c17.7%200%2032%2014.3%2032%2032s-14.3%2032-32%2032h-8c-30.9%200-56%2025.1-56%2056v8h64c35.3%200%2064%2028.7%2064%2064v64c0%2035.3-28.7%2064-64%2064h-64c-35.3%200-64-28.7-64-64V216%22/%3E%3C/svg%3E');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-N6WF1VPFSH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-N6WF1VPFSH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-N6WF1VPFSH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Index Repair (hyp-repair) - Hyperion Documentation" >
+      
+        <meta  property="og:description"  content="Scalable Full History API Solution for Antelope (former EOSIO) based blockchains." >
+      
+        <meta  property="og:image"  content="https://hyperion.docs.eosrio.io/4.0/assets/images/social/providers/cli-tools/hyp-repair.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://hyperion.docs.eosrio.io/4.0/providers/cli-tools/hyp-repair/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Index Repair (hyp-repair) - Hyperion Documentation" >
+      
+        <meta  name="twitter:description"  content="Scalable Full History API Solution for Antelope (former EOSIO) based blockchains." >
+      
+        <meta  name="twitter:image"  content="https://hyperion.docs.eosrio.io/4.0/assets/images/social/providers/cli-tools/hyp-repair.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#index-repair-cli-hyp-repair" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Hyperion Documentation" class="md-header__button md-logo" aria-label="Hyperion Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/img/simplified_logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hyperion Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Index Repair (hyp-repair)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/eosrio/hyperion-history-api" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eosrio/hyperion-history-api
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../get-started/" class="md-tabs__link">
+          
+  
+  
+  Providers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../dev/howtouse/" class="md-tabs__link">
+          
+  
+  
+  Users / Developers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../api/v2/" class="md-tabs__link">
+          
+  
+  
+  API Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Hyperion Documentation" class="md-nav__button md-logo" aria-label="Hyperion Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/img/simplified_logo.svg" alt="logo">
+
+    </a>
+    Hyperion Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/eosrio/hyperion-history-api" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eosrio/hyperion-history-api
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Providers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Providers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../get-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hyperion Installation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hyperion Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/wsl2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WSL2 Pre-configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/auto_install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Automated Install Script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/manual_install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manual Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/lxd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LXD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hyperion Configuration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Hyperion Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/hyperion_configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/connections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Connections Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/chain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chain Config Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/qry_connection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Connect Provider to QRY
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hyperion CLI Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Hyperion CLI Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hyp-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Config Tool (hyp-config)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hyp-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Indexer Control (hyp-control)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hyp-es-config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Elasticsearch Config Tool (hyp-es-config)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Index Repair (hyp-repair)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index Repair (hyp-repair)
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites &amp; Preparation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repair-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      .repair/ Directory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-scan-for-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Scan for Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Scan for Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scan-chainname" class="md-nav__link">
+    <span class="md-ellipsis">
+      scan &lt;chainName&gt;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-scan-chainname" class="md-nav__link">
+    <span class="md-ellipsis">
+      quick-scan &lt;chainName&gt;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#output-path-forked-blocksjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      &lt;output-path&gt;-forked-blocks.json
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-path-missing-blocksjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      &lt;output-path&gt;-missing-blocks.json:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-analyze-scan-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Analyze Scan Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2: Analyze Scan Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-filepath" class="md-nav__link">
+    <span class="md-ellipsis">
+      view &lt;filePath&gt;
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-repair-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Repair Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3: Repair Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-repairing-forked-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Repairing Forked Blocks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Repairing Forked Blocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repair-chainname-filepath" class="md-nav__link">
+    <span class="md-ellipsis">
+      repair &lt;chainName&gt; &lt;filePath&gt;
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-fill-missing-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Fill Missing Blocks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Fill Missing Blocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fill-missing-chainname-filepath" class="md-nav__link">
+    <span class="md-ellipsis">
+      fill-missing &lt;chainName&gt; &lt;filePath&gt;
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-verify-repair" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Verify Repair
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important Considerations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../update/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Updating
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Troubleshooting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../help/kibana/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kibana
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../help/rabbit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RabbitMQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../help/mongodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MongoDB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Plugins
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Plugins
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plugins/explorer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lightweight Explorer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Users / Developers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Users / Developers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/howtouse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Stream Client (v3.6+)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Stream Client (v3.6+)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/stream_client/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/stream_client/getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/stream_client/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Client Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/stream_client/streaming-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Streaming Actions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/stream_client/streaming-deltas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Streaming Table Deltas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/stream_client/data-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Handling Stream Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/stream_client/block-ranges/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Block Range Parameters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/stream_client/browser-usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Browser Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/stream_client/error-handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Error Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/endpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Endpoint List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    v2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    v1 compatible
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites &amp; Preparation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repair-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      .repair/ Directory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-scan-for-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Scan for Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 1: Scan for Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scan-chainname" class="md-nav__link">
+    <span class="md-ellipsis">
+      scan &lt;chainName&gt;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-scan-chainname" class="md-nav__link">
+    <span class="md-ellipsis">
+      quick-scan &lt;chainName&gt;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#output-path-forked-blocksjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      &lt;output-path&gt;-forked-blocks.json
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-path-missing-blocksjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      &lt;output-path&gt;-missing-blocks.json:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-analyze-scan-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Analyze Scan Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2: Analyze Scan Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-filepath" class="md-nav__link">
+    <span class="md-ellipsis">
+      view &lt;filePath&gt;
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-repair-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Repair Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3: Repair Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-repairing-forked-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Repairing Forked Blocks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Repairing Forked Blocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repair-chainname-filepath" class="md-nav__link">
+    <span class="md-ellipsis">
+      repair &lt;chainName&gt; &lt;filePath&gt;
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-fill-missing-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Fill Missing Blocks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Fill Missing Blocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fill-missing-chainname-filepath" class="md-nav__link">
+    <span class="md-ellipsis">
+      fill-missing &lt;chainName&gt; &lt;filePath&gt;
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-verify-repair" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Verify Repair
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important Considerations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="index-repair-cli-hyp-repair">Index Repair CLI (<code>hyp-repair</code>)<a class="headerlink" href="#index-repair-cli-hyp-repair" title="Permanent link">&para;</a></h1>
+<p>The <code>hyp-repair</code> command-line interface (CLI) is a specialized tool for diagnosing and repairing potential data integrity issues within Hyperion's Elasticsearch block indices. Primarily, it addresses two common problems:</p>
+<ol>
+<li><strong>Forked Blocks:</strong> Blocks that were indexed but whose <code>prev_id</code> does not correctly link to the <code>block_id</code> of the preceding block number in the index. This often happens due to brief network forks where the indexer might initially follow a non-canonical chain segment. While Hyperion's live indexer attempts to handle forks automatically, past issues or interruptions might leave orphaned blocks.</li>
+<li><strong>Missing Blocks:</strong> Gaps in the sequence of indexed blocks, where specific block numbers are entirely absent from the Elasticsearch <code>*-block-*</code> indices. This can occur due to indexer interruptions, network issues during indexing, or incomplete historical processing.</li>
+</ol>
+<div class="admonition attention">
+<p class="admonition-title">Use Cases</p>
+<p>This tool is typically used when:</p>
+<ul>
+<li>You suspect data inconsistency due to past indexing interruptions or known issues.</li>
+<li>You want to verify the integrity of your indexed block sequence.</li>
+<li>You need to recover from a situation where the live indexer's fork handling might not have fully corrected an issue.</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>You can also check missed blocks in the V2 Healthcheck <code>/v2/health</code></p>
+</div>
+<h2 id="prerequisites-preparation">Prerequisites &amp; Preparation<a class="headerlink" href="#prerequisites-preparation" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Hyperion Installation:</strong> Ensure you are running commands from the root directory of your Hyperion installation (e.g., <code>~/hyperion-history-api</code>).</li>
+<li><strong>Elasticsearch Connection:</strong> The tool needs direct access to your Elasticsearch cluster as configured in <code>config/connections.json</code>.</li>
+<li><strong>Nodeos Connection:</strong> For <code>scan</code> and <code>repair</code> commands involving fork validation, the tool needs access to the chain's Nodeos HTTP endpoint configured in <code>config/connections.json</code> to fetch canonical block information.</li>
+<li><strong>Indexer Control Port Connection:</strong> For the <code>fill-missing</code> and <code>repair</code> commands (which trigger re-indexing ranges), the tool needs WebSocket access to the running Hyperion Indexer's control port (configured in <code>config/connections.json</code> under the chain's <code>control_port</code>, default <code>7002</code>).</li>
+<li><strong>Backup Elasticsearch (Optional):</strong> Before running commands that <em>modify</em> data (<code>repair</code>, <code>fill-missing</code>), creating an Elasticsearch snapshot is recommended as a safety measure.</li>
+</ol>
+<h2 id="workflow-overview">Workflow Overview<a class="headerlink" href="#workflow-overview" title="Permanent link">&para;</a></h2>
+<p>The general workflow for using <code>hyp-repair</code> is:</p>
+<ol>
+<li><strong>Scan:</strong> Identify potential issues (forks or missing blocks) within a specified block range.<ul>
+<li><code>scan</code>: Performs a detailed scan comparing indexed blocks against each other (previous block ID linkage) and optionally against a live nodeos RPC endpoint to detect forks and inconsistencies.</li>
+<li><code>quick-scan</code>: Performs a faster scan focused only on identifying missing block number ranges using a binary search approach on indexed data.
+   These commands output JSON files detailing the found discrepancies.</li>
+</ul>
+</li>
+<li><strong>Analyze:</strong> Review the output files generated by the scan to understand the scope of the issues.</li>
+<li><strong>Repair/Fill:</strong> Execute commands to fix the identified issues (delete forked data, trigger re-indexing of missing ranges).<ul>
+<li><code>repair</code>: Deletes forked/incorrect data from various Hyperion indices (blocks, actions, deltas, etc.) based on a "forked blocks" JSON file generated by <code>scan</code>. It then triggers the Hyperion indexer (via its control port) to re-fetch and re-index the correct data for these ranges.</li>
+<li><code>fill-missing</code>: Triggers the Hyperion indexer to fetch and index blocks for ranges identified as missing, based on a "missing blocks" JSON file generated by <code>scan</code> or <code>quick-scan</code>.</li>
+</ul>
+</li>
+<li><strong>Verify:</strong> Re-scan the affected range to confirm the repairs were successful.</li>
+</ol>
+<h2 id="repair-directory"><code>.repair/</code> Directory<a class="headerlink" href="#repair-directory" title="Permanent link">&para;</a></h2>
+<p>The <code>hyp-repair</code> tool, when run in <code>scan</code> or <code>quick-scan</code> mode, will typically save its findings (lists of forked or missing block ranges) into JSON files within a <code>.repair/</code> directory created at the root of your Hyperion project. These files are then used as input for the <code>repair</code> and <code>fill-missing</code> commands.</p>
+<hr />
+<h2 id="step-1-scan-for-issues">Step 1: Scan for Issues<a class="headerlink" href="#step-1-scan-for-issues" title="Permanent link">&para;</a></h2>
+<h3 id="scan-chainname"><code>scan &lt;chainName&gt;</code><a class="headerlink" href="#scan-chainname" title="Permanent link">&para;</a></h3>
+<p>Performs a comprehensive scan of the indexed blocks for the specified chain to detect forked blocks and missing block number sequences. It compares <code>block_id</code> with <code>prev_id</code> of subsequent blocks and can validate against a live nodeos RPC endpoint.</p>
+<ul>
+<li><strong>Purpose</strong>: To generate a detailed report (JSON file) of blocks that are part of a fork or block ranges that are missing.</li>
+<li><strong>Behavior</strong>:<ul>
+<li>Reads blocks from Elasticsearch in batches.</li>
+<li>Compares <code>block_id</code> of a block with the <code>prev_id</code> of the next block in sequence.</li>
+<li>If an inconsistency is found, it consults the chain's configured nodeos HTTP API endpoint to determine the canonical block.</li>
+<li>Identifies ranges of purely missing block numbers.</li>
+<li>Outputs findings to JSON files (e.g., <code>.repair/&lt;chain&gt;-&lt;start&gt;-&lt;end&gt;-forked-blocks.json</code>, <code>.repair/&lt;chain&gt;-&lt;start&gt;-&lt;end&gt;-missing-blocks.json</code>).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code>./hyp-repair<span class="w"> </span>scan<span class="w"> </span>&lt;chainName&gt;<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+</code></pre></div></p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><code>&lt;chainName&gt;</code>: The alias of the chain to scan.</li>
+</ul>
+<p><strong>Options:</strong></p>
+<ul>
+<li><code>-f, --first &lt;blockNumber&gt;</code>: The block number to start the scan from. Defaults to the first block found in the index.</li>
+<li><code>-l, --last &lt;blockNumber&gt;</code>: The block number to end the scan at. Defaults to the last block found in the index.</li>
+<li><code>-b, --batch &lt;size&gt;</code>: The number of blocks to fetch from Elasticsearch in each batch during the scan. Default is <code>2000</code>.</li>
+<li><code>-o, --out-file &lt;baseFilePath&gt;</code>: Base path and filename for the output JSON files (without extension). Defaults to <code>./.repair/&lt;chain&gt;-&lt;first&gt;-&lt;last&gt;</code>.</li>
+</ul>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Full scan (forks &amp; missing) for &#39;eos&#39; chain using entire indexed range and default batch size</span>
+./hyp-repair<span class="w"> </span>scan<span class="w"> </span>eos
+
+<span class="c1"># Scan the WAX chain from block 100,000,000 to 110,000,000</span>
+./hyp-repair<span class="w"> </span>scan<span class="w"> </span>wax<span class="w"> </span>-f<span class="w"> </span><span class="m">100000000</span><span class="w"> </span>-l<span class="w"> </span><span class="m">110000000</span>
+
+<span class="c1"># Scan with custom output file base name and batch size</span>
+./hyp-repair<span class="w"> </span>scan<span class="w"> </span>wax<span class="w"> </span>--first<span class="w"> </span><span class="m">100000000</span><span class="w"> </span>--last<span class="w"> </span><span class="m">150000000</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">5000</span><span class="w"> </span>--out-file<span class="w"> </span>/tmp/wax-repair-scan
+</code></pre></div>
+<em>After the scan, check the <code>.repair/</code> directory or your specified output path for the JSON report files.</em></p>
+<h3 id="quick-scan-chainname"><code>quick-scan &lt;chainName&gt;</code><a class="headerlink" href="#quick-scan-chainname" title="Permanent link">&para;</a></h3>
+<p>Performs a faster scan focused solely on identifying <strong>ranges of missing block numbers</strong> by checking for sequence continuity. It <strong>does not</strong> validate block IDs against a live node or detect forks.</p>
+<ul>
+<li><strong>Purpose</strong>: To quickly find gaps in the indexed block sequence. Useful as a first pass or if forks are not suspected.</li>
+<li><strong>Behavior</strong>:<ul>
+<li>Uses a binary search-like approach on Elasticsearch to find block number gaps.</li>
+<li>Outputs findings to a JSON file (e.g., <code>.repair/&lt;chain&gt;-&lt;start&gt;-&lt;end&gt;-missing-blocks.json</code>).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code>./hyp-repair<span class="w"> </span>quick-scan<span class="w"> </span>&lt;chainName&gt;<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+</code></pre></div></p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><code>&lt;chainName&gt;</code>: The alias of the chain to scan.</li>
+</ul>
+<p><strong>Options:</strong></p>
+<ul>
+<li><code>-f, --first &lt;blockNumber&gt;</code>: The block number to start the scan from. Defaults to the first block found in the index.</li>
+<li><code>-l, --last &lt;blockNumber&gt;</code>: The block number to end the scan at. Defaults to the last block found in the index.</li>
+<li><code>-o, --out-file &lt;baseFilePath&gt;</code>: Base path and filename for the output JSON files (without extension). Defaults to <code>./.repair/&lt;chain&gt;-&lt;first&gt;-&lt;last&gt;</code>.</li>
+</ul>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Quick scan (missing blocks only) for &#39;eos&#39; chain</span>
+./hyp-repair<span class="w"> </span>quick-scan<span class="w"> </span>eos
+
+<span class="c1"># Quick scan with custom output</span>
+./hyp-repair<span class="w"> </span>quick-scan<span class="w"> </span>eos<span class="w"> </span>--first<span class="w"> </span><span class="m">1</span><span class="w"> </span>--last<span class="w"> </span><span class="m">200000000</span><span class="w"> </span>--out-file<span class="w"> </span>/repairs/eos-missing
+</code></pre></div></p>
+<h3 id="results">Results<a class="headerlink" href="#results" title="Permanent link">&para;</a></h3>
+<h4 id="output-path-forked-blocksjson"><code>&lt;output-path&gt;-forked-blocks.json</code><a class="headerlink" href="#output-path-forked-blocksjson" title="Permanent link">&para;</a></h4>
+<p>Lists ranges where block linkage (<code>prev_id</code> -&gt; <code>block_id</code>) is broken. Includes the block IDs identified as non-canonical within that range. Generated only by <code>scan</code>.
+    <div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123458</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;forked_block_id_1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;forked_block_id_2&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></p>
+<p><br></p>
+<h4 id="output-path-missing-blocksjson"><code>&lt;output-path&gt;-missing-blocks.json</code>:<a class="headerlink" href="#output-path-missing-blocksjson" title="Permanent link">&para;</a></h4>
+<p>Lists ranges of consecutive missing block numbers.
+    <div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10001</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10005</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div></p>
+<hr />
+<h2 id="step-2-analyze-scan-results">Step 2: Analyze Scan Results<a class="headerlink" href="#step-2-analyze-scan-results" title="Permanent link">&para;</a></h2>
+<p>Review the generated JSON files to understand the extent of missing or forked data.</p>
+<h3 id="view-filepath"><code>view &lt;filePath&gt;</code><a class="headerlink" href="#view-filepath" title="Permanent link">&para;</a></h3>
+<p>Use the <code>view</code> command for a formatted table output:</p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code>./hyp-repair<span class="w"> </span>view<span class="w"> </span>&lt;filePath&gt;
+</code></pre></div></p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><code>&lt;filePath&gt;</code>: Path to the JSON report file.</li>
+</ul>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># View missing blocks file</span>
+./hyp-repair<span class="w"> </span>view<span class="w"> </span>.repair/wax-100000000-150000000-missing-blocks.json
+
+<span class="c1"># View forked blocks file</span>
+./hyp-repair<span class="w"> </span>view<span class="w"> </span>.repair/wax-100000000-150000000-forked-blocks.json
+</code></pre></div></p>
+<hr />
+<h2 id="step-3-repair-issues">Step 3: Repair Issues<a class="headerlink" href="#step-3-repair-issues" title="Permanent link">&para;</a></h2>
+<h3 id="31-repairing-forked-blocks">3.1 Repairing Forked Blocks<a class="headerlink" href="#31-repairing-forked-blocks" title="Permanent link">&para;</a></h3>
+<h4 id="repair-chainname-filepath"><code>repair &lt;chainName&gt; &lt;filePath&gt;</code><a class="headerlink" href="#repair-chainname-filepath" title="Permanent link">&para;</a></h4>
+<p>Repairs forked blocks based on a JSON file generated by the <code>scan</code> command. This command will:</p>
+<ol>
+<li>It reads the <code>-forked-blocks.json</code> file.</li>
+<li>For each range, it <strong>deletes</strong> the identified non-canonical block IDs from the <code>*-block-*</code> index in Elasticsearch.</li>
+<li>It <strong>deletes</strong> all associated actions, deltas, and state table entries (accounts, voters, etc.) within the block number range (<code>start</code> to <code>end</code>) of the fork from <em>all relevant indices</em>.</li>
+<li>After deletions, it instructs the indexer (via its control port) to re-fetch and re-index the block range (<code>start</code> to <code>end</code>), effectively replacing the forked data with the canonical data.</li>
+</ol>
+<p><br></p>
+<ul>
+<li><strong>Purpose</strong>: To correct instances where Hyperion has indexed non-canonical blocks due to forks.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Data Deletion</p>
+<p>This command <strong>permanently deletes data</strong> from your Elasticsearch indices. Always use <code>--dry</code> first and ensure you have backups.</p>
+</div>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code>./hyp-repair<span class="w"> </span>repair<span class="w"> </span>&lt;chainName&gt;<span class="w"> </span>&lt;filePath&gt;<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+</code></pre></div></p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><code>&lt;chainName&gt;</code>: The alias of the chain.</li>
+<li><code>&lt;filePath&gt;</code>: Path to the JSON file containing the forked block ranges (generated by <code>hyp-repair scan</code>).</li>
+</ul>
+<p><strong>Options:</strong></p>
+<ul>
+<li><code>-d, --dry</code>: Dry run. Shows what data <em>would be</em> deleted but does not perform any deletions or trigger re-indexing. <strong>Highly recommended for the first run.</strong></li>
+<li><code>-h, --host &lt;hostAddress&gt;</code>: The hostname or IP address and port of the Hyperion indexer's control port (e.g., <code>localhost:7002</code> or <code>ws://indexer.internal:7002</code>). If only host is given, it assumes the default control port for that chain.</li>
+<li><code>-t, --check-tasks</code>: Checks if previous ES delete_by_query tasks are still running. Lists active Elasticsearch tasks.</li>
+</ul>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Dry run: See what would be repaired for WAX using a specific report file</span>
+./hyp-repair<span class="w"> </span>repair<span class="w"> </span>wax<span class="w"> </span>./.repair/wax-100000000-110000000-forked-blocks.json<span class="w"> </span>--dry
+
+<span class="c1"># Actual repair (after verifying dry run output):</span>
+./hyp-repair<span class="w"> </span>repair<span class="w"> </span>wax<span class="w"> </span>./.repair/wax-100000000-110000000-forked-blocks.json<span class="w"> </span>-h<span class="w"> </span>localhost:7002
+</code></pre></div></p>
+<hr />
+<h3 id="32-fill-missing-blocks">3.2 Fill Missing Blocks<a class="headerlink" href="#32-fill-missing-blocks" title="Permanent link">&para;</a></h3>
+<h4 id="fill-missing-chainname-filepath"><code>fill-missing &lt;chainName&gt; &lt;filePath&gt;</code><a class="headerlink" href="#fill-missing-chainname-filepath" title="Permanent link">&para;</a></h4>
+<p>Instructs the Hyperion indexer (via its control port) to fetch and index blocks for ranges identified as missing. This uses a JSON file generated by <code>hyp-repair scan</code> or <code>hyp-repair quick-scan</code>.</p>
+<ul>
+<li><strong>Purpose</strong>: To fill gaps in Hyperion's indexed block data.</li>
+<li><strong>Behavior</strong>: Sends commands to the indexer's control port to process the missing block ranges.</li>
+</ul>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code>./hyp-repair<span class="w"> </span>fill-missing<span class="w"> </span>&lt;chainName&gt;<span class="w"> </span>&lt;filePath&gt;<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+</code></pre></div></p>
+<p><strong>Arguments:</strong></p>
+<ul>
+<li><code>&lt;chainName&gt;</code>: The short name of the chain.</li>
+<li><code>&lt;filePath&gt;</code>: Path to the JSON file containing the missing block ranges.</li>
+</ul>
+<p><strong>Options:</strong></p>
+<ul>
+<li><code>-d, --dry</code>: Dry run. Simulates the process and indicates what would be done, but does not actually send commands to the indexer to fill blocks.</li>
+<li><code>-h, --host &lt;hostAddress&gt;</code>: The hostname or IP address and port of the Hyperion indexer's control port.</li>
+</ul>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Dry run: See which missing block ranges would be processed for &#39;telos&#39;</span>
+./hyp-repair<span class="w"> </span>fill-missing<span class="w"> </span>telos<span class="w"> </span>./.repair/telos_missing_scan-missing-blocks.json<span class="w"> </span>--dry
+
+<span class="c1"># Actual fill operation:</span>
+./hyp-repair<span class="w"> </span>fill-missing<span class="w"> </span>telos<span class="w"> </span>./.repair/telos_missing_scan-missing-blocks.json<span class="w"> </span>-h<span class="w"> </span>localhost:7012<span class="w"> </span><span class="c1"># Assuming Telos control port is 7012</span>
+</code></pre></div></p>
+<p><em>Monitor the Hyperion indexer logs to observe the progress of filling missing blocks.</em></p>
+<h2 id="step-4-verify-repair">Step 4: Verify Repair<a class="headerlink" href="#step-4-verify-repair" title="Permanent link">&para;</a></h2>
+<div class="admonition success">
+<p class="admonition-title">Verify the results</p>
+<p>Run the scan again to verify that there are no more missing blocks or forks.</p>
+</div>
+<p>After the <code>fill-missing</code> or <code>repair</code> commands complete and the indexer has processed the requested ranges, re-run the <code>scan</code> or <code>quick-scan</code> command on the same block range(s) to confirm that no further issues are detected.</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># Example re-scan</span>
+./hyp-repair<span class="w"> </span>scan<span class="w"> </span>wax<span class="w"> </span>--first<span class="w"> </span><span class="m">100000000</span><span class="w"> </span>--last<span class="w"> </span><span class="m">150000000</span>
+</code></pre></div>
+If the scan reports no errors, the repair was successful.</p>
+<hr />
+<h2 id="important-considerations">Important Considerations<a class="headerlink" href="#important-considerations" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Resource Intensive</strong>: Both scanning (especially full scans) and repairing (deleting and re-indexing) can be resource-intensive on your Elasticsearch cluster and the Nodeos instance. Plan these operations during periods of low load if possible.</li>
+<li><strong>Time</strong>: Repairing large ranges or filling many missing blocks can take a significant amount of time.</li>
+<li><strong><code>--dry</code> Runs</strong>: it is recommended to perform a <code>--dry</code> run for <code>repair</code> and <code>fill-missing</code> before executing them destructively to understand the scope of changes.</li>
+<li><strong>Log Monitoring</strong>: Closely monitor Hyperion indexer logs and Elasticsearch logs during any repair or fill operations.</li>
+</ul>
+<p><br>
+<br></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../hyp-es-config/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Elasticsearch Config Tool (hyp-es-config)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Elasticsearch Config Tool (hyp-es-config)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../update/" class="md-footer__link md-footer__link--next" aria-label="Next: Updating">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Updating
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Hyperion History API Documentation
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/eosrio/hyperion-history-api" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/eosrio/hyperion-docs" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/eosriobrazil" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://t.me/EOSHyperion" target="_blank" rel="noopener" title="t.me" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M248 8C111.033 8 0 119.033 0 256s111.033 248 248 248 248-111.033 248-248S384.967 8 248 8m114.952 168.66c-3.732 39.215-19.881 134.378-28.1 178.3-3.476 18.584-10.322 24.816-16.948 25.425-14.4 1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25 5.342-39.5 3.652-3.793 67.107-61.51 68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608 69.142-14.845 10.194-26.894 9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7 18.45-13.7 108.446-47.248 144.628-62.3c68.872-28.647 83.183-33.623 92.511-33.789 2.052-.034 6.639.474 9.61 2.885a10.45 10.45 0 0 1 3.53 6.716 43.8 43.8 0 0 1 .417 9.769"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "toc.follow", "navigation.footer", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
