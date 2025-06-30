@@ -4,7 +4,7 @@ This section describes how to manually install Hyperion and its environment. If 
 installation, this is the way to go.
 
 !!! warning
-    If you are running more than one node (Leap/Savanna), you can now configure the failover option directly in the `connections.json` file. Please refer to the section detailing the new parameters by clicking [here](../../setup/connections)
+    If you are running more than one node (Leap/Savanna), you can now configure the failover option directly in the `connections.json` file. Please refer to the section detailing the new parameters by clicking [here](../setup/connections.md)
 
 
 !!! info
