@@ -2220,7 +2220,7 @@
 </code></pre></div></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If you remove an existing <code>connections.json</code> file but you already have chain files configured, those chains will now have the <code>pending</code> status. To solve this, after creating a new <code>connections.json</code> file, you can run the <code>chains new</code> command with <code>--use-pending</code> to link this chain again to the new <code>connections.json</code> file and change the chain status to configured again. Please refer to the <a href="./#chains-new-shortname-http-http_endpoint-ship-ship_endpoint">chains new Section</a> below for a more in-depth explanation
+<p>If you remove an existing <code>connections.json</code> file but you already have chain files configured, those chains will now have the <code>pending</code> status. To solve this, after creating a new <code>connections.json</code> file, you can run the <code>chains new</code> command with <code>--use-pending</code> to link this chain again to the new <code>connections.json</code> file and change the chain status to configured again. Please refer to the <a href="#chains-new-shortname-http-http_endpoint-ship-ship_endpoint">chains new Section</a> below for a more in-depth explanation
 <div class="highlight"><pre><span></span><code><span class="sb">`</span>./hyp-config<span class="w"> </span>chains<span class="w"> </span>new<span class="w"> </span>&lt;shortName&gt;<span class="w"> </span>--http<span class="w"> </span>&lt;http_endpoint&gt;<span class="w"> </span>--ship<span class="w"> </span>&lt;ship_endpoint&gt;<span class="w"> </span>--use-pending<span class="sb">`</span><span class="w"> </span>
 </code></pre></div></p>
 </div>

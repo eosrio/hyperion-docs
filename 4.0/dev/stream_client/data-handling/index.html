@@ -1891,8 +1891,8 @@
 <h1 id="handling-stream-data">Handling Stream Data<a class="headerlink" href="#handling-stream-data" title="Permanent link">&para;</a></h1>
 <p>Once you've initiated a stream for actions or table deltas using the Hyperion Stream Client, you need a way to process the incoming data. The client offers two primary mechanisms for this: </p>
 <ul>
-<li>the <strong><a href="./#11-event-driven-api-streamonmessage">Event-Driven API</a></strong> (<code>stream.on('message', ...)</code>)</li>
-<li>or the <strong><a href="./#12-asynciterator-pattern-for-awaitof">AsyncIterator Pattern</a></strong> (<code>for await...of</code>).</li>
+<li>the <strong><a href="#11-event-driven-api-streamonmessage">Event-Driven API</a></strong> (<code>stream.on('message', ...)</code>)</li>
+<li>or the <strong><a href="#12-asynciterator-pattern-for-awaitof">AsyncIterator Pattern</a></strong> (<code>for await...of</code>).</li>
 </ul>
 <p>This guide also details the structure of the data messages you'll receive.</p>
 <h2 id="1-data-consumption-methods">1. Data Consumption Methods<a class="headerlink" href="#1-data-consumption-methods" title="Permanent link">&para;</a></h2>
@@ -2155,7 +2155,7 @@ The stream objects are also Async Iterables.</p>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Streaming Actions</strong>: Learn the specifics of requesting action streams in <a href="../streaming-actions/">Streaming Actions</a>.</li>
-<li><strong>Streaming Table Deltas</strong>: Understand how to stream table state changes in <a href="./streaming-table-deltas.md">Streaming Table Deltas</a>.</li>
+<li><strong>Streaming Table Deltas</strong>: Understand how to stream table state changes in <a href="../streaming-deltas/">Streaming Table Deltas</a>.</li>
 <li><strong>Error Handling</strong>: Review best practices in <a href="../error-handling/">Error Handling</a>.</li>
 </ul>
 
