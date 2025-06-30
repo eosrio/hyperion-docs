@@ -2,102 +2,142 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://hyperion.docs.eosrio.io/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/api/v1/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/api/v2/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/dev/endpoint/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/dev/howtouse/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/dev/stream_client/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hyperion.docs.eosrio.io/dev/stream_client/</loc>
+         <lastmod>2025-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hyperion.docs.eosrio.io/dev/stream_client/block-ranges/</loc>
+         <lastmod>2025-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hyperion.docs.eosrio.io/dev/stream_client/browser-usage/</loc>
+         <lastmod>2025-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hyperion.docs.eosrio.io/dev/stream_client/configuration/</loc>
+         <lastmod>2025-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hyperion.docs.eosrio.io/dev/stream_client/data-handling/</loc>
+         <lastmod>2025-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hyperion.docs.eosrio.io/dev/stream_client/error-handling/</loc>
+         <lastmod>2025-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hyperion.docs.eosrio.io/dev/stream_client/getting-started/</loc>
+         <lastmod>2025-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hyperion.docs.eosrio.io/dev/stream_client/streaming-actions/</loc>
+         <lastmod>2025-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hyperion.docs.eosrio.io/dev/stream_client/streaming-deltas/</loc>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/providers/get-started/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hyperion.docs.eosrio.io/providers/repair/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/providers/update/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hyperion.docs.eosrio.io/providers/cli-tools/hyp-config/</loc>
+         <lastmod>2025-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hyperion.docs.eosrio.io/providers/cli-tools/hyp-control/</loc>
+         <lastmod>2025-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hyperion.docs.eosrio.io/providers/cli-tools/hyp-es-config/</loc>
+         <lastmod>2025-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hyperion.docs.eosrio.io/providers/cli-tools/hyp-repair/</loc>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/providers/help/faq/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/providers/help/kibana/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hyperion.docs.eosrio.io/providers/help/mongodb/</loc>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/providers/help/rabbit/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/providers/install/auto_install/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/providers/install/docker/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/providers/install/lxd/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/providers/install/manual_install/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/providers/install/wsl2/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hyperion.docs.eosrio.io/providers/plugins/explorer/</loc>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/providers/setup/chain/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/providers/setup/connections/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
     </url>
     <url>
          <loc>https://hyperion.docs.eosrio.io/providers/setup/hyperion_configuration/</loc>
-         <lastmod>2024-04-14</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2025-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://hyperion.docs.eosrio.io/providers/setup/qry_connection/</loc>
+         <lastmod>2025-06-30</lastmod>
     </url>
 </urlset>
