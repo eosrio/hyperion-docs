@@ -97,6 +97,8 @@ theme:
 
 extra:
   generator: false
+  version:
+    provider: mike
   analytics:
     provider: google
     property: G-N6WF1VPFSH
