@@ -83,7 +83,7 @@ Removes the existing `connections.json` file. Before deletion, a backup of the c
 ```
 
 !!! warning
-    If you remove an existing `connections.json` file but you already have chain files configured, those chains will now have the `pending` status. To solve this, after creating a new `connections.json` file, you can run the `chains new` command with `--use-pending` to link this chain again to the new `connections.json` file and change the chain status to configured again. Please refer to the [chains new Section](./#chains-new-shortname-http-http_endpoint-ship-ship_endpoint) below for a more in-depth explanation
+    If you remove an existing `connections.json` file but you already have chain files configured, those chains will now have the `pending` status. To solve this, after creating a new `connections.json` file, you can run the `chains new` command with `--use-pending` to link this chain again to the new `connections.json` file and change the chain status to configured again. Please refer to the [chains new Section](#chains-new-shortname-http-http_endpoint-ship-ship_endpoint) below for a more in-depth explanation
     ```bash
     `./hyp-config chains new <shortName> --http <http_endpoint> --ship <ship_endpoint> --use-pending` 
     ```

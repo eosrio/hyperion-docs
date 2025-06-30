@@ -319,7 +319,7 @@ Once the basic setup is running and verified, you can enable advanced features b
     }
     ```
 
-*   See the [Stream Client Guide](../../dev/stream_client.md) for usage.
+*   See the [Stream Client Guide](../../dev/stream_client/index.md) for usage.
 
 ###   **Plugins**
 

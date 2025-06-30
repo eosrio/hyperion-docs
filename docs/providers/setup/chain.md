@@ -1,4 +1,4 @@
-[:fontawesome-solid-arrow-left-long: Hyperion Configuration](hyperion_configuration.md#add-new-chain)
+[:fontawesome-solid-arrow-left-long: Hyperion Configuration](hyperion_configuration.md#21-add-a-new-chain-configuration)
 # Chain Configuration Reference `config/chains/<chain>.config.json`
 
 This file contains all the specific settings for **one particular blockchain** that Hyperion will index. You will typically create and manage the basic structure of this file using the `./hyp-config chains new ...` command, but **you must review and customize this file** to tailor Hyperion's behavior, performance, and features for your specific needs and the characteristics of the chain being indexed.
@@ -479,5 +479,5 @@ For a complete example showing all default values, refer to the reference file [
 }
 ````
 
-[:fontawesome-solid-arrow-left-long: Hyperion Configuration](hyperion_configuration.md#add-new-chain){ .md-button }
+[:fontawesome-solid-arrow-left-long: Hyperion Configuration](hyperion_configuration.md#21-add-a-new-chain-configuration){ .md-button }
 [Connect to QRY Hub :fontawesome-solid-arrow-right-long:](qry_connection.md){ .md-button }

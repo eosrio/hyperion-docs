@@ -246,7 +246,7 @@ This approach maps directly to the client's ES Module entry point (e.g., `lib/es
 
 ## Next Steps
 
-*   **Client Configuration**: Learn about all the options for `new HyperionStreamClient()` in [Client Configuration](./configuration.md).
-*   **Streaming Actions**: Dive into the details of requesting action streams in [Streaming Actions](./streaming-actions.md).
-*   **Streaming Table Deltas**: Understand how to stream table changes in [Streaming Table Deltas](./streaming-table-deltas.md).
-*   **Handling Stream Data**: Explore methods for processing data in [Handling Stream Data](./data-handling.md).
+*   **Client Configuration**: Learn about all the options for `new HyperionStreamClient()` in [Client Configuration](configuration.md).
+*   **Streaming Actions**: Dive into the details of requesting action streams in [Streaming Actions](streaming-actions.md).
+*   **Streaming Table Deltas**: Understand how to stream table changes in [Streaming Table Deltas](streaming-deltas.md).
+*   **Handling Stream Data**: Explore methods for processing data in [Handling Stream Data](data-handling.md).

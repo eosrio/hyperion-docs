@@ -219,7 +219,7 @@ this object by listening to its events:
       true).
       See [Handling Stream Data](./data-handling.md) for more on `ActionContent`.
 
-> For cleaner sequential processing of the data check the [AsyncIterator Pattern](../data-handling/#12-asynciterator-pattern-for-awaitof)
+> For cleaner sequential processing of the data check the [AsyncIterator Pattern](data-handling.md#12-asynciterator-pattern-for-awaitof)
 
 * **`stream.on("error", (error: any) => { ... })`**:
   Fired if an error occurs that is specific to this stream (e.g., the server terminates the stream due to an issue).

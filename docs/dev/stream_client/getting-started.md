@@ -134,9 +134,9 @@ Congratulations! You've successfully streamed data using the Hyperion Stream Cli
 
 From here, you can explore:
 
-*   **[Streaming Actions]((./streaming-actions.md))**: Learn more on how to monitor action traces.
-*   **[Streaming Table Deltas](./streaming-deltas.md)**: Learn how to monitor changes in contract tables.
-*   **Advanced Filtering**: Dive deeper into the `filters` option for [**Streaming Actions**](./streaming-actions.md) and [**Streaming Table Deltas**](./streaming-deltas.md).
-*   **[Full Configuration Options](./configuration.md)**: See all available settings.
-*   **[Error Handling](./error-handling.md)**: See common error scenarios and best practices.
+*   **[Streaming Actions](streaming-actions.md)**: Learn more on how to monitor action traces.
+*   **[Streaming Table Deltas](streaming-deltas.md)**: Learn how to monitor changes in contract tables.
+*   **Advanced Filtering**: Dive deeper into the `filters` option for [**Streaming Actions**](streaming-actions.md) and [**Streaming Table Deltas**](streaming-deltas.md).
+*   **[Full Configuration Options](configuration.md)**: See all available settings.
+*   **[Error Handling](error-handling.md)**: See common error scenarios and best practices.
 <br><br><br>

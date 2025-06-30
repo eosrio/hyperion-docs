@@ -1,4 +1,4 @@
-[:fontawesome-solid-arrow-left-long: Hyperion Configuration](hyperion_configuration.md#initialize-connections)
+[:fontawesome-solid-arrow-left-long: Hyperion Configuration](hyperion_configuration.md#11-initialize-connectionsjson)
 # Connections Configuration Reference `config/connections.json`
 
 The `config/connections.json` file is the central place where Hyperion defines how to connect to its essential infrastructure components (RabbitMQ, Elasticsearch, Redis, MongoDB) and the specific Antelope blockchain nodes it needs to interact with.
@@ -238,5 +238,5 @@ See [references/connections.ref.json on Github](https://github.com/eosrio/hyperi
 }
 ````
 
-[:fontawesome-solid-arrow-left-long: Hyperion Configuration](hyperion_configuration.md#initialize-connections){ .md-button }
+[:fontawesome-solid-arrow-left-long: Hyperion Configuration](hyperion_configuration.md#11-initialize-connectionsjson){ .md-button }
 [Chain Config Reference :fontawesome-solid-arrow-right-long:](chain.md){ .md-button }

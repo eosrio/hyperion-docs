@@ -17,14 +17,14 @@
     [Getting Started](providers/get-started.md){ .md-button .md-button--primary}
     [Configuring](providers/setup/hyperion_configuration.md){ .md-button }
     [Updating](providers/update.md){ .md-button }
-    [Repairing](providers/repair.md){ .md-button }
+    [Repairing](providers/cli-tools/hyp-repair.md){ .md-button }
 
 !!! quote ""
     ### For **Developers**
     ---
 
     [Getting Started](dev/howtouse.md){ .md-button .md-button--primary}
-    [Stream Client](dev/stream_client.md){ .md-button }
+    [Stream Client](dev/stream_client/index.md){ .md-button }
     [Endpoints List](dev/endpoint.md){ .md-button }
     
 

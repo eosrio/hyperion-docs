@@ -122,6 +122,6 @@ Understanding these parameters allows you to precisely control the data window f
 
 ## Next Steps
 
-*   **Streaming Actions**: See how these parameters are used in [Streaming Actions](./streaming-actions.md).
-*   **Streaming Table Deltas**: See their application in [Streaming Table Deltas](./streaming-table-deltas.md).
+*   **Streaming Actions**: See how these parameters are used in [Streaming Actions](streaming-actions.md).
+*   **Streaming Table Deltas**: See their application in [Streaming Table Deltas](streaming-deltas.md).
 *   **Handling Stream Data**: Learn how to process the data you receive in [Handling Stream Data](./data-handling.md).
