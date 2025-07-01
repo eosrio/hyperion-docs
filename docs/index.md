@@ -41,9 +41,10 @@
     [V1 Compatible](api/v1.md){ .md-button }
 
 
-### Official plugins:
+### Ecosystem Resources:
 
-- [Hyperion Lightweight Explorer](https://github.com/eosrio/hyperion-explorer-plugin){:target="_blank"}
+- [Hyperion Lightweight Explorer](https://github.com/eosrio/hyperion-explorer){:target="_blank"}
+- [Hyperion Delphi Oracle](https://github.com/eosrio/hyperion-delphioracle-plugin){:target="_blank"}
 
 ## 1. Overview
 
@@ -86,6 +87,7 @@ A robust message queuing system. Used as a buffer and transport layer between th
 
 ### 3.3 Redis
 An in-memory data store used for:
+
 *   **API Response Caching:** Temporarily storing results of frequent API queries.
 *   **Preemptive Transaction Caching:** Storing recent transaction details for fast lookups via `v2/history/get_transaction` and `check_transaction`.
 *   **API Usage Statistics:** Tracking API endpoint usage rates.
@@ -95,16 +97,19 @@ An in-memory data store used for:
 ### 3.4 Elasticsearch Cluster
 
 The primary datastore for **indexed historical data**. It stores processed action traces, state deltas, and block headers.
-*   **Role:** Enables powerful search and aggregation capabilities for historical queries (e.g., `get_actions`, `get_deltas`).
+  
+* **Role:** Enables powerful search and aggregation capabilities for historical queries (e.g., `get_actions`, `get_deltas`).
 *   **Requirement:** Essential for all Hyperion history functionalities.
 *   **Recommendation:** Requires significant RAM (32GB+ per node recommended), CPU, and fast storage (SSD/NVMe recommended for ingest nodes, HDDs can be used for cold storage nodes). Multi-node clusters are highly recommended for production.
 
 ### 3.5 MongoDB
 
 This MongoDB integration complements Elasticsearch by focusing on **current state data** rather than historical actions, enabling efficient state queries without scanning history.
-*   **Recommendation:** Requires adequate RAM, CPU, and Disk I/O, particularly if indexing large amounts of contract state.
+  
+* **Recommendation:** Requires adequate RAM, CPU, and Disk I/O, particularly if indexing large amounts of contract state.
 
 **System Contract State Storage:**
+
 - Stores searchable state data for Antelope system contracts like token balances, proposals, and voter information
 - Maintains three primary collections by default:
     - `accounts`: Stores token balances with indexes for code, scope, and symbol
@@ -142,9 +147,9 @@ This MongoDB integration complements Elasticsearch by focusing on **current stat
 
 **Dynamic Contract Schema Support:**
 
-- Either automatically creates indexes based on contract ABIs
-- Or allows for manual index configuration for custom query patterns
-- Supports text search indexes for specific fields when configured
+- Automatic ABI-based index creation 
+- Allows for manual index configuration for custom query patterns
+- Optional text search indexes for specific fields
 
 
 ### 3.6 Hyperion Indexer
@@ -154,15 +159,24 @@ A Node.js application responsible for fetching data from SHIP, deserializing it,
 ### 3.7 Hyperion API Server
 A Node.js (Fastify framework) application that serves the HTTP API endpoints (v1 and v2). It queries Elasticsearch, MongoDB, Redis, and the Antelope node as needed. It also manages the Swagger documentation UI and handles WebSocket connections for live streaming. Typically run in cluster mode using PM2 for scalability and resilience.
 
-### 3.8 Hyperion Stream Client (Optional)
-A client library (for Web and Node.js) simplifying connection to the real-time streaming endpoints offered by enabled Hyperion providers. 
+
+## 4. Ecosystem
+
+### 4.1 Hyperion Stream Client
+A client library (for Web and Node.js) simplifying connection to the real-time streaming endpoints offered by enabled Hyperion providers.
 
 See [Stream Client Documentation](https://hyperion.docs.eosrio.io/dev/stream_client/).
 
-### 3.9 Hyperion Plugins (Optional)
-Hyperion features an extensible plugin architecture. Plugins can add custom data handlers, API routes, or other functionalities. Managed via the `hpm` (hyperion plugin manager) command-line tool.
- 
-* **Example:** [Hyperion Lightweight Explorer](https://github.com/eosrio/hyperion-explorer-plugin){:target="_blank"}
 
+### 4.2 Hyperion Explorer
+
+Standalone version of the Hyperion Lightweight Explorer, replaces the deprecated plugin.
+
+[Deployment and instructions](https://github.com/eosrio/hyperion-explorer){:target="_blank"}
+
+### 4.3 Hyperion Plugins
+Hyperion features an extensible plugin architecture. Plugins can add custom data handlers, API routes, or other functionalities. Managed via the `hpm` (hyperion plugin manager) command-line tool.
+
+* **Example:** [Hyperion Delphi Oracle](https://github.com/eosrio/hyperion-delphioracle-plugin){:target="_blank"}
 
 <br>

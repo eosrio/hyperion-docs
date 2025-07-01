@@ -4,11 +4,11 @@ This section describes how to manually install Hyperion and its environment. If 
 installation, this is the way to go.
 
 !!! warning
-    If you are running more than one node (Leap/Savanna), you can now configure the failover option directly in the `connections.json` file. Please refer to the section detailing the new parameters by clicking [here](../setup/connections.md)
+    If you are running more than one SHIP node, you can now configure the failover option directly in the `connections.json` file. Please refer to the section detailing the new parameters by clicking [here](../setup/connections.md)
 
 
 !!! info
-    Review the guidelines for configuring Hyperion for Provider Registration on Qry, a new decentralized ecosystem that provides access to a variety of data services and APIs. Follow the steps outlined in [Config Provider](../../providers/setup/qry_connection.md) steps
+    Review the guidelines for configuring Hyperion for Provider Registration on QRY, a new decentralized ecosystem that provides access to a variety of data services and APIs. Follow the steps outlined in [Config Provider](../../providers/setup/qry_connection.md) steps
 
 !!! attention
     Recommended OS: Ubuntu 24.04
@@ -17,14 +17,14 @@ installation, this is the way to go.
 
 Below you can find the list of all Hyperion's dependencies:
 
-- [Elasticsearch 8.7+](https://www.elastic.co/downloads/elasticsearch){:target="_blank"}  - **Required** for historical data indexing.
-- [Kibana 8.7+](https://www.elastic.co/downloads/kibana){:target="_blank"} - Optional, for visualizing Elasticsearch data.
-- [RabbitMQ](https://www.rabbitmq.com){:target="_blank"} (v 3.12+) - **Required** for message queuing between indexer stages.
-- [Redis](https://redis.io/topics/quickstart){:target="_blank"}  - **Required** for caching and inter-process communication.
-- [MongoDB Community Server](https://www.mongodb.com/try/download/community){:target="_blank"} - **Conditionally Required**. Needed *only* if enabling state tracking features (`features.tables.*` or `features.contract_state.enabled` in chain config). See MongoDB section below for details.
-- [Node.js v22](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions){:target="_blank"} - **Required** runtime environment.
-- [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/){:target="_blank"} - **Required** process manager for Node.js applications.
-- [NODEOS (spring 1.1.2 or leap 5.0.3 recommended)](https://github.com/AntelopeIO/leap/releases/tag/v5.0.3){:target="_blank"} - **Required** Antelope node with State History Plugin (SHIP) enabled.
+- [Elasticsearch 8.7+](https://www.elastic.co/downloads/elasticsearch){:target="_blank"} | **Required** for historical data indexing.
+- [Kibana 8.7+](https://www.elastic.co/downloads/kibana){:target="_blank"} | Optional, for visualizing Elasticsearch data.
+- [RabbitMQ 4.1+](https://github.com/rabbitmq/rabbitmq-server/releases){:target="_blank"} | **Required** for message queuing between indexer stages.
+- [Redis](https://redis.io/topics/quickstart){:target="_blank"}  | **Required** for caching and inter-process communication.
+- [MongoDB Community Server](https://www.mongodb.com/try/download/community){:target="_blank"} | **Conditionally Required**. Needed *only* if enabling state tracking features (`features.tables.*` or `features.contract_state.enabled` in chain config). See MongoDB section below for details.
+- [Node.js 22+](https://nodejs.org/en/download){:target="_blank"} | **Required** runtime environment.
+- [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/){:target="_blank"} | **Required** process manager for Node.js applications.
+- [NODEOS (spring 1.2.0 or leap 5.0.3)](https://github.com/AntelopeIO/spring/releases){:target="_blank"} | **Required** Antelope node with State History Plugin (SHIP) enabled.
 
 On the next steps you will install and configure each one of them.
 
@@ -381,8 +381,6 @@ node -v # should print `v22.11.0`
 npm -v # should print `10.9.0`
 ```
 
-!!! attention
-    Make sure to configure npm not to use sudo when installing global packages.
 
 ## PM2
 
@@ -398,18 +396,22 @@ npm install pm2@latest -g
 pm2 startup
 ```
 
-## EOSIO
+## Antelope Nodeos
 
+### AntelopeIO Spring
+
+Get the latest version from the [repository](https://github.com/AntelopeIO/spring/releases){:target="_blank"}
+
+```
+wget https://github.com/AntelopeIO/spring/releases/download/v1.2.0/antelope-spring_1.2.0_amd64.deb
+sudo apt install ./antelope-spring_1.2.0_amd64.deb
+```
 
 ### Leap
+
 ```
 wget https://github.com/AntelopeIO/leap/releases/download/v5.0.3/leap_5.0.3_amd64.deb
 sudo apt install ./leap_5.0.3_amd64.deb
-```
-
-### Savana/Spring
-```
-Adicionar repositorio
 ```
 
 
