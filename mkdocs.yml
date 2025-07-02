@@ -35,7 +35,6 @@ nav:
           - Automated Install Script: providers/install/auto_install.md
           - Manual Installation: providers/install/manual_install.md
           - Docker: providers/install/docker.md
-          - LXD: providers/install/lxd.md
       - Hyperion Configuration:
           - Configuration: providers/setup/hyperion_configuration.md
           - Connections Reference: providers/setup/connections.md

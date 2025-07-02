@@ -32,7 +32,8 @@
     Testing/Development environment:
 
     [Running Docker](providers/install/docker.md){ .md-button}
-    [Running LXD](providers/install/lxd.md){ .md-button}
+
+[//]: # (    [Running LXD]&#40;providers/install/lxd.md&#41;{ .md-button})
 
 !!! quote ""
     ### **API Reference**

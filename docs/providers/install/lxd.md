@@ -1,178 +1,301 @@
-# Configuring Hyperion with LXD
+[//]: # (# Configuring Hyperion with LXD)
 
-We host a [LXD](https://linuxcontainers.org/lxd/introduction/) image containing a pre-configured Hyperion instance.
-Please follow the instructions below to get started.
+[//]: # ()
+[//]: # (We host a [LXD]&#40;https://linuxcontainers.org/lxd/introduction/&#41; image containing a pre-configured Hyperion instance.)
 
-For those unfamiliar with LXD, it is a native Linux containerization tool developed by Canonical, the company behind Ubuntu. Thus, it is very well-supported in recent Ubuntu distributions.
+[//]: # (Please follow the instructions below to get started.)
 
-!!! windows "WSL2"
-    For Windows installation using WSL2, refer to [this guide](wsl2.md) before proceeding to make sure **`systemd` is enabled.**
+[//]: # ()
+[//]: # (For those unfamiliar with LXD, it is a native Linux containerization tool developed by Canonical, the company behind Ubuntu. Thus, it is very well-supported in recent Ubuntu distributions.)
 
-## 1. Install LXD
+[//]: # ()
+[//]: # (!!! windows "WSL2")
 
-LXD is pre-installed on Ubuntu Server cloud images, but if it's not available, you can install it using Snap with the following command:
+[//]: # (    For Windows installation using WSL2, refer to [this guide]&#40;wsl2.md&#41; before proceeding to make sure **`systemd` is enabled.**)
 
-!!! linux "Linux Terminal"
-    ```shell
-    sudo snap install lxd
-    ```
+[//]: # ()
+[//]: # (## 1. Install LXD)
 
-!!! tip "non-Snap installations"
-    For other Linux distributions or non-Snap installations, please refer to the [documentation](https://linuxcontainers.org/lxd/getting-started-cli/#installing-a-package).
+[//]: # ()
+[//]: # (LXD is pre-installed on Ubuntu Server cloud images, but if it's not available, you can install it using Snap with the following command:)
 
-## 2. Initialize LXD
+[//]: # ()
+[//]: # (!!! linux "Linux Terminal")
 
-After installation, you must initialize LXD, which involves configuring the network interface, storage, and other things. For this process, run the command below. The prompt will ask some questions, it's fine to use the default values, just hit ++enter++ to proceed.
+[//]: # (    ```shell)
 
-When asked about the **default pool size**, you can use the default value or set it to a higher value if you have enough disk space. Later on, it's easy to expand to add more storage, but keep in mind **you can't shrink an existing pool**.
+[//]: # (    sudo snap install lxd)
 
-!!! linux "Linux Terminal"
-    ```shell
-    sudo lxd init
-    ```
+[//]: # (    ```)
 
-## 3. Download Hyperion image and configuration
-Now that LXD is running, you need to download the Hyperion image from our repository and then launch the image. You also need to download the device configuration file, which will be used to configure the ports exposed by the container.
+[//]: # ()
+[//]: # (!!! tip "non-Snap installations")
 
-!!! linux "Linux Terminal"
-    ```shell
-    wget https://images.eosrio.io/hyperion_3.3.9-5.tar.zst
-    wget https://raw.githubusercontent.com/eosrio/hyperion-lxd/main/hyperion-devices.yaml
-    ```
+[//]: # (    For other Linux distributions or non-Snap installations, please refer to the [documentation]&#40;https://linuxcontainers.org/lxd/getting-started-cli/#installing-a-package&#41;.)
 
-!!! tip
-    This process may take a few minutes, the size of the image is approximately 2.0GB
+[//]: # ()
+[//]: # (## 2. Initialize LXD)
 
+[//]: # ()
+[//]: # (After installation, you must initialize LXD, which involves configuring the network interface, storage, and other things. For this process, run the command below. The prompt will ask some questions, it's fine to use the default values, just hit ++enter++ to proceed.)
 
+[//]: # ()
+[//]: # (When asked about the **default pool size**, you can use the default value or set it to a higher value if you have enough disk space. Later on, it's easy to expand to add more storage, but keep in mind **you can't shrink an existing pool**.)
 
-## 4. Import the Hyperion image
+[//]: # ()
+[//]: # (!!! linux "Linux Terminal")
 
-!!! info "Note"
-    Now, you are going to use the LXC (Client), which is part of LXD (Daemon). This command is used to manage resources, and you can learn more about it by typing:
+[//]: # (    ```shell)
 
-    ```shell
-    lxc --help
-    ```
+[//]: # (    sudo lxd init)
 
-!!! tip
-    In some environments you may need to use **`sudo`** to run the `lxc` command.
+[//]: # (    ```)
 
-!!! linux "Linux Terminal"
-    Now that you have the image downloaded, you can import it to LXD storage using the command below:
+[//]: # ()
+[//]: # (## 3. Download Hyperion image and configuration)
 
-    ```shell
-    lxc image import hyperion_3.3.9-5.tar.zst --alias hyperion-starter
-    ```
+[//]: # (Now that LXD is running, you need to download the Hyperion image from our repository and then launch the image. You also need to download the device configuration file, which will be used to configure the ports exposed by the container.)
 
-    When the image import is complete, you can check if it's present by running the command:
+[//]: # ()
+[//]: # (!!! linux "Linux Terminal")
 
-    ```shell
-    lxc image ls
-    ```
+[//]: # (    ```shell)
 
-!!! tip "Tip 2" 
-    Feel free to delete the downloaded file `hyperion_3.3.9-5.tar.zst` after importing the image.
+[//]: # (    wget https://images.eosrio.io/hyperion_3.3.9-5.tar.zst)
 
-    ```shell
-    rm hyperion_3.3.9-5.tar.zst
-    ```
+[//]: # (    wget https://raw.githubusercontent.com/eosrio/hyperion-lxd/main/hyperion-devices.yaml)
 
-## 5. Create the Hyperion container
+[//]: # (    ```)
 
-Now let's create the container with the image. We provided the configuration file [`hyperion-devices.yaml`](https://raw.githubusercontent.com/eosrio/hyperion-lxd/main/hyperion-devices.yaml){:target="_blank"} to configure the ports exposed by the container. You can pass it to the launch command below to streamline the configuration. Feel free to modify the `listen` port values in the file if you need to. **Just keep the `connect` ports as they are.**
+[//]: # ()
+[//]: # (!!! tip)
 
-!!! linux "Linux Terminal"
-    ```shell
-    lxc launch hyperion-starter hyperion-1 < hyperion-devices.yaml
-    ```
+[//]: # (    This process may take a few minutes, the size of the image is approximately 2.0GB)
 
-!!! tip
-    If you want to change any device configuration after the container has been started you can use the `lxc config device ...` command
+[//]: # ()
+[//]: # ()
+[//]: # ()
+[//]: # (## 4. Import the Hyperion image)
 
-You can verify our created instance with the command 
+[//]: # ()
+[//]: # (!!! info "Note")
 
-```shell
-lxc ls
-```
+[//]: # (    Now, you are going to use the LXC &#40;Client&#41;, which is part of LXD &#40;Daemon&#41;. This command is used to manage resources, and you can learn more about it by typing:)
 
-You can also test if everything is working properly by accessing [http://localhost:7000/v2/health](http://localhost:7000/v2/health){:target="_blank"} to get a response from the Hyperion API.
+[//]: # ()
+[//]: # (    ```shell)
 
-## 6. Accessing the container
+[//]: # (    lxc --help)
 
-At this point the container should be running and you are ready to use Hyperion, you can open a shell inside it with:
+[//]: # (    ```)
 
-!!! linux "Linux Terminal"
-    ```shell
-    lxc exec hyperion-1 -- bash -c 'sudo su - ubuntu'
-    ```
+[//]: # ()
+[//]: # (!!! tip)
 
-    You can use the `pm2 ls` command in the terminal to see the status of the two Hyperion microservices (API and Indexer) and whether they are online or offline.
+[//]: # (    In some environments you may need to use **`sudo`** to run the `lxc` command.)
 
-    Check PM2 logs to see if the indexer is running:
-    ```shell
-    pm2 logs
-    ```
-    ++ctrl+c++ to exit seeing the logs.
+[//]: # ()
+[//]: # (!!! linux "Linux Terminal")
 
-    <a id='elasticpass'></a>
-    Check your elastic password, you will need it to login to Kibana:
-    ```shell
-    cat ~/elastic.pass
-    ```
+[//]: # (    Now that you have the image downloaded, you can import it to LXD storage using the command below:)
 
-!!! tip
-    Using [Fish](https://fishshell.com/){:target="_blank"}, you can create an alias like the example below:
-    ```shell
-    alias hyperion-shell="lxc exec hyperion-1 -- bash -c 'sudo su - ubuntu'"
-    funcsave hyperion-shell
-    ```
-    This way, you just need to type `hyperion-shell` and you're inside the container with everything you need configured.
+[//]: # ()
+[//]: # (    ```shell)
 
-??? abstract "What's inside the container?"
-    inside the container you will find:
+[//]: # (    lxc image import hyperion_3.3.9-5.tar.zst --alias hyperion-starter)
 
-    - ElasticSearch
-    - RabbitMq
-    - Redis
-    - Hyperion-API
-    - Hyperion-Indexer
-    - Nodeos(Leap)
+[//]: # (    ```)
 
+[//]: # ()
+[//]: # (    When the image import is complete, you can check if it's present by running the command:)
 
-## 7. Accessing the services
+[//]: # ()
+[//]: # (    ```shell)
 
-Our default device configuration includes proxies for Kibana, RabbitMQ Management and the Hyperion API.
-They can be accessed at:
+[//]: # (    lxc image ls)
 
-- Kibana: [http://localhost:5601](http://localhost:5601){:target="_blank"}
-    - Username: elastic
-    - Password: see [`cat ~/elastic.pass`](#elasticpass)
-- RabbitMQ Management: [http://localhost:15672](http://localhost:15672){:target="_blank"}
-    - Username: hyperion-lxd
-    - Password: changeme123
-- Hyperion API: [http://localhost:7000](http://localhost:7000){:target="_blank"}
+[//]: # (    ```)
 
-If you are a developer, you can access the hyperion swagger at [http://localhost:7000/v2/docs](http://localhost:7000/v2/docs){:target="_blank"}
+[//]: # ()
+[//]: # (!!! tip "Tip 2" )
 
-## Next steps
-Feel free to change configurations as you like. All configurations files are located in `~/hyperion` or `~/nodeos`
+[//]: # (    Feel free to delete the downloaded file `hyperion_3.3.9-5.tar.zst` after importing the image.)
 
-For more details, please refer to the [Hyperion Configuration Section :fontawesome-solid-arrow-right-long:](../setup/hyperion_configuration.md).
+[//]: # ()
+[//]: # (    ```shell)
 
-<br>
-## Stopping the instance
+[//]: # (    rm hyperion_3.3.9-5.tar.zst)
 
-First, use the command to `exit` the container shell and then stop the instance:
+[//]: # (    ```)
 
-!!! linux "Linux Terminal"
-    ```shell
-    lxc stop hyperion-1
-    ```
-## Deleting
+[//]: # ()
+[//]: # (## 5. Create the Hyperion container)
 
-!!! linux "Linux Terminal"
-    ```shell
-    lxc delete hyperion-1
-    ```
+[//]: # ()
+[//]: # (Now let's create the container with the image. We provided the configuration file [`hyperion-devices.yaml`]&#40;https://raw.githubusercontent.com/eosrio/hyperion-lxd/main/hyperion-devices.yaml&#41;{:target="_blank"} to configure the ports exposed by the container. You can pass it to the launch command below to streamline the configuration. Feel free to modify the `listen` port values in the file if you need to. **Just keep the `connect` ports as they are.**)
 
-<br>
+[//]: # ()
+[//]: # (!!! linux "Linux Terminal")
+
+[//]: # (    ```shell)
+
+[//]: # (    lxc launch hyperion-starter hyperion-1 < hyperion-devices.yaml)
+
+[//]: # (    ```)
+
+[//]: # ()
+[//]: # (!!! tip)
+
+[//]: # (    If you want to change any device configuration after the container has been started you can use the `lxc config device ...` command)
+
+[//]: # ()
+[//]: # (You can verify our created instance with the command )
+
+[//]: # ()
+[//]: # (```shell)
+
+[//]: # (lxc ls)
+
+[//]: # (```)
+
+[//]: # ()
+[//]: # (You can also test if everything is working properly by accessing [http://localhost:7000/v2/health]&#40;http://localhost:7000/v2/health&#41;{:target="_blank"} to get a response from the Hyperion API.)
+
+[//]: # ()
+[//]: # (## 6. Accessing the container)
+
+[//]: # ()
+[//]: # (At this point the container should be running and you are ready to use Hyperion, you can open a shell inside it with:)
+
+[//]: # ()
+[//]: # (!!! linux "Linux Terminal")
+
+[//]: # (    ```shell)
+
+[//]: # (    lxc exec hyperion-1 -- bash -c 'sudo su - ubuntu')
+
+[//]: # (    ```)
+
+[//]: # ()
+[//]: # (    You can use the `pm2 ls` command in the terminal to see the status of the two Hyperion microservices &#40;API and Indexer&#41; and whether they are online or offline.)
+
+[//]: # ()
+[//]: # (    Check PM2 logs to see if the indexer is running:)
+
+[//]: # (    ```shell)
+
+[//]: # (    pm2 logs)
+
+[//]: # (    ```)
+
+[//]: # (    ++ctrl+c++ to exit seeing the logs.)
+
+[//]: # ()
+[//]: # (    <a id='elasticpass'></a>)
+
+[//]: # (    Check your elastic password, you will need it to login to Kibana:)
+
+[//]: # (    ```shell)
+
+[//]: # (    cat ~/elastic.pass)
+
+[//]: # (    ```)
+
+[//]: # ()
+[//]: # (!!! tip)
+
+[//]: # (    Using [Fish]&#40;https://fishshell.com/&#41;{:target="_blank"}, you can create an alias like the example below:)
+
+[//]: # (    ```shell)
+
+[//]: # (    alias hyperion-shell="lxc exec hyperion-1 -- bash -c 'sudo su - ubuntu'")
+
+[//]: # (    funcsave hyperion-shell)
+
+[//]: # (    ```)
+
+[//]: # (    This way, you just need to type `hyperion-shell` and you're inside the container with everything you need configured.)
+
+[//]: # ()
+[//]: # (??? abstract "What's inside the container?")
+
+[//]: # (    inside the container you will find:)
+
+[//]: # ()
+[//]: # (    - ElasticSearch)
+
+[//]: # (    - RabbitMq)
+
+[//]: # (    - Redis)
+
+[//]: # (    - Hyperion-API)
+
+[//]: # (    - Hyperion-Indexer)
+
+[//]: # (    - Nodeos&#40;Leap&#41;)
+
+[//]: # ()
+[//]: # ()
+[//]: # (## 7. Accessing the services)
+
+[//]: # ()
+[//]: # (Our default device configuration includes proxies for Kibana, RabbitMQ Management and the Hyperion API.)
+
+[//]: # (They can be accessed at:)
+
+[//]: # ()
+[//]: # (- Kibana: [http://localhost:5601]&#40;http://localhost:5601&#41;{:target="_blank"})
+
+[//]: # (    - Username: elastic)
+
+[//]: # (    - Password: see [`cat ~/elastic.pass`]&#40;#elasticpass&#41;)
+
+[//]: # (- RabbitMQ Management: [http://localhost:15672]&#40;http://localhost:15672&#41;{:target="_blank"})
+
+[//]: # (    - Username: hyperion-lxd)
+
+[//]: # (    - Password: changeme123)
+
+[//]: # (- Hyperion API: [http://localhost:7000]&#40;http://localhost:7000&#41;{:target="_blank"})
+
+[//]: # ()
+[//]: # (If you are a developer, you can access the hyperion swagger at [http://localhost:7000/v2/docs]&#40;http://localhost:7000/v2/docs&#41;{:target="_blank"})
+
+[//]: # ()
+[//]: # (## Next steps)
+
+[//]: # (Feel free to change configurations as you like. All configurations files are located in `~/hyperion` or `~/nodeos`)
+
+[//]: # ()
+[//]: # (For more details, please refer to the [Hyperion Configuration Section :fontawesome-solid-arrow-right-long:]&#40;../setup/hyperion_configuration.md&#41;.)
+
+[//]: # ()
+[//]: # (<br>)
+
+[//]: # (## Stopping the instance)
+
+[//]: # ()
+[//]: # (First, use the command to `exit` the container shell and then stop the instance:)
+
+[//]: # ()
+[//]: # (!!! linux "Linux Terminal")
+
+[//]: # (    ```shell)
+
+[//]: # (    lxc stop hyperion-1)
+
+[//]: # (    ```)
+
+[//]: # (## Deleting)
+
+[//]: # ()
+[//]: # (!!! linux "Linux Terminal")
+
+[//]: # (    ```shell)
+
+[//]: # (    lxc delete hyperion-1)
+
+[//]: # (    ```)
+
+[//]: # ()
+[//]: # (<br>)
