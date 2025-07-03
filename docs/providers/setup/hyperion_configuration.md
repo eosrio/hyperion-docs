@@ -77,7 +77,7 @@ This command performs several actions:
 
 ### 2.2 Customize Chain Configuration
 
-!!! attention "Tailor Hyperion for your specific needs"
+!!! tip "Tailor Hyperion for your specific needs"
     The newly created `config/chains/<short-name>.config.json` file contains default settings. **You MUST review and edit this file** if you need to tailor Hyperion's behavior for your specific needs.
 
 Key sections to review and potentially modify:
@@ -304,7 +304,7 @@ Once the basic setup is running and verified, you can enable advanced features b
 
 - Configure your reverse proxy (like NGINX) to handle WebSocket upgrades for the `/stream/` path.
 
-!!! note "NGINX"
+???+ abstract "NGINX"
     ```nginx
     # Example NGINX location block for streaming
     location /stream/ {
@@ -340,3 +340,5 @@ With Hyperion configured and running, you can now:
 [API Reference :fontawesome-solid-arrow-right-long:](../../api/v2.md){ .md-button }
 [Developer Guide :fontawesome-solid-arrow-right-long:](../../dev/howtouse.md){ .md-button }
 [Troubleshooting Guides :fontawesome-solid-arrow-right-long:](../help/kibana.md){ .md-button }
+
+<br>

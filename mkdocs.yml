@@ -50,8 +50,8 @@ nav:
           - Kibana: providers/help/kibana.md
           - RabbitMQ: providers/help/rabbit.md
           - MongoDB: providers/help/mongodb.md
-      - Plugins:
-          - Lightweight Explorer: providers/plugins/explorer.md
+      - Ecosystem:
+          - Lightweight Block Explorer: providers/plugins/explorer.md
   - Users / Developers:
       - Getting Started: dev/howtouse.md
       - Stream Client (v3.6+):

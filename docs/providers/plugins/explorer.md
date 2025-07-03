@@ -1,6 +1,9 @@
-# Hyperion Explorer
+# Hyperion Block Explorer
 
-Standalone version of the Hyperion Lightweight Explorer, replaces the deprecated plugin https://github.com/eosrio/hyperion-explorer-plugin
+* [Hyperion Explorer Repository](https://github.com/eosrio/hyperion-explorer){:target="_blank"}
+
+Hyperion lightweight Explorer is a user-friendly block explorer focused on speed and reliability.
+
 
 - **Requires Hyperion v3.5.2 or above**
 
