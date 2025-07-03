@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../assets/img/icon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
@@ -639,18 +639,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-verify-installation" class="md-nav__link">
+  <a href="#4-post-installation-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Verify installation
+      4. Post-Installation Steps
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-proceed-with-the-configuration" class="md-nav__link">
+  <a href="#5-troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Proceed with the configuration
+      5. Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logs-and-diagnostics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logs and Diagnostics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-proceed-with-the-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Proceed with the configuration
     </span>
   </a>
   
@@ -701,29 +734,6 @@
   
   <span class="md-ellipsis">
     Docker
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lxd/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    LXD
     
   </span>
   
@@ -1756,18 +1766,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-verify-installation" class="md-nav__link">
+  <a href="#4-post-installation-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Verify installation
+      4. Post-Installation Steps
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-proceed-with-the-configuration" class="md-nav__link">
+  <a href="#5-troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Proceed with the configuration
+      5. Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logs-and-diagnostics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logs and Diagnostics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-proceed-with-the-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Proceed with the configuration
     </span>
   </a>
   
@@ -1816,39 +1859,149 @@ please proceed with the <a href="../manual_install/">manual setup</a></p>
 <div class="highlight"><pre><span></span><code>wget<span class="w"> </span>-qO-<span class="w"> </span>https://github.com/eosrio/hyperion-auto-setup/raw/main/install.tar.gz<span class="w"> </span><span class="p">|</span><span class="w"> </span>tar<span class="w"> </span>-xvz
 </code></pre></div>
 <h3 id="3-install-by-running">3. Install by running<a class="headerlink" href="#3-install-by-running" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>./install.sh
+</code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>The installation script may ask you for the sudo password.</p>
 </div>
-<div class="highlight"><pre><span></span><code>./install.sh
-</code></pre></div>
-<h3 id="4-verify-installation">4. Verify installation<a class="headerlink" href="#4-verify-installation" title="Permanent link">&para;</a></h3>
+<details class="note">
+<summary>What Gets Installed</summary>
+<p>The installation script automatically sets up the following components:</p>
+<p><strong><h2>1. System Tools</strong> (<code>setup-tools.sh</code>)</h2></p>
 <ul>
-<li><strong>Elasticsearch</strong> will be listening on port <strong>9200/9300</strong></li>
-<li><strong>Redis</strong> will be listening on port <strong>6379</strong></li>
-<li><strong>RabbitMQ</strong> will be listening on port <strong>5672/15672/25672</strong></li>
+<li><strong>jq</strong>: JSON processor for configuration parsing</li>
+<li><strong>curl</strong>: HTTP client for downloading packages</li>
+<li><strong>git</strong>: Version control system</li>
+<li><strong>unzip</strong>: Archive extraction utility</li>
+<li><strong>gnupg</strong>: GPG tools for package verification</li>
+<li><strong>lsb-release</strong>: Linux distribution information</li>
+<li><strong>net-tools</strong>: Network utilities</li>
+<li><strong>apt-transport-https</strong>: HTTPS transport for APT</li>
 </ul>
-<div class="admonition key">
-<p class="admonition-title">Elasticsearch password</p>
+<p><strong><h2>2. Node.js Environment</strong> (<code>setup-nodejs.sh</code>)</h2></p>
+<ul>
+<li><strong>FNM (Fast Node Manager)</strong>: Node.js version manager</li>
+<li><strong>Node.js 24.x</strong>: Latest LTS version (or 22.16+ if compatible)</li>
+<li><strong>npm</strong>: Node.js package manager</li>
+<li>Configures shell environment for FNM</li>
+</ul>
+<p><strong><h2> 3. Process Manager</strong> (<code>setup-pm2.sh</code>)</h2></p>
+<ul>
+<li><strong>PM2</strong>: Production process manager for Node.js applications</li>
+<li>Configures PM2 startup service for automatic application restart</li>
+<li>Sets up system-level PM2 daemon</li>
+</ul>
+<p><strong><h2> 4. Database Systems</h2></strong></p>
+<p><strong><h3> Elasticsearch</strong> (<code>setup-elasticsearch.sh</code>)</h3></p>
+<ul>
+<li><strong>Elasticsearch 9.x</strong>: Search and analytics engine (accepts v8/v9)</li>
+<li>Configures security settings and certificates</li>
+<li>Generates elastic user password (saved to <code>elastic.pass</code>)</li>
+<li>Enables and starts Elasticsearch service</li>
+</ul>
+<p><strong><h3> MongoDB</strong> (<code>setup-mongodb.sh</code>)</h3></p>
+<ul>
+<li><strong>MongoDB 8.x</strong>: Document database for configuration and metadata</li>
+<li>Adds official MongoDB APT repository</li>
+<li>Enables and starts MongoDB service</li>
+<li>Creates version tracking file</li>
+</ul>
+<p><strong><h3> Redis</strong> (<code>setup-redis.sh</code>)</h3></p>
+<ul>
+<li><strong>Redis 8.x</strong>: In-memory data store for caching (accepts v7+)</li>
+<li>Adds official Redis APT repository</li>
+<li>Enables and starts Redis service</li>
+<li>Creates version tracking file</li>
+</ul>
+<p><strong><h2> 5. Message Queue</strong> (<code>setup-rabbitmq.sh</code>)</h2></p>
+<ul>
+<li><strong>RabbitMQ</strong>: Message broker for distributed processing</li>
+<li><strong>Erlang</strong>: Required runtime environment</li>
+<li>Enables RabbitMQ management plugin</li>
+<li>Creates dedicated vhost and user:<ul>
+<li>VHost: <code>hyperion</code></li>
+<li>User: <code>hyperion_user</code></li>
+<li>Password: <code>hyperion_password</code></li>
+</ul>
+</li>
+<li>Configures proper permissions and administrator access</li>
+</ul>
+<p><strong><h2> 6. Hyperion History API</strong> (<code>setup-hyperion.sh</code>)</h2></p>
+<ul>
+<li>Clones the official Hyperion repository to <code>~/hyperion</code></li>
+<li>Installs Node.js dependencies via npm</li>
+<li>Ready for configuration and deployment</li>
+</ul>
+</details>
+<hr />
+<h2 id="4-post-installation-steps">4. Post-Installation Steps<a class="headerlink" href="#4-post-installation-steps" title="Permanent link">&para;</a></h2>
+<p>After successful installation:</p>
+<ol>
+<li>
+<p><strong>Navigate to Hyperion directory</strong>:
+   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/hyperion
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Configure Hyperion</strong>: Follow the <a href="https://hyperion.docs.eosrio.io/providers/setup/hyperion_configuration/">official configuration documentation</a> for detailed setup instructions</p>
+</li>
+<li>
+<p><strong>Start Services</strong>: Ensure all services are running:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>elasticsearch
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>mongod
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>redis-server
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>rabbitmq-server
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Access Credentials</strong>:</p>
+<ul>
+<li>Elasticsearch password: stored in <code>~/hyperion-installer/elastic.pass</code></li>
+<li>RabbitMQ: <code>hyperion_user</code> / <code>hyperion_password</code></li>
+</ul>
+</li>
+</ol>
+<details class="key" open="open">
+<summary>Elasticsearch password</summary>
 <p>The <strong>elastic</strong> account password will be saved on the <code>~/.hyperion-installer/elastic.pass</code> file, please save this on a safe location, as you might need it later on. If you need to reset this password you can do it with the following command:
   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>/usr/share/elasticsearch/bin/elasticsearch-reset-password<span class="w"> </span>-u<span class="w"> </span>elastic<span class="w"> </span>-a<span class="w"> </span>-s<span class="w"> </span>-b
 </code></pre></div></p>
-</div>
+</details>
+<details class="note" open="open">
+<summary>RabbitMQ Management UI</summary>
+<p><strong>RabbitMQ</strong> Management UI will be available on port 15672</p>
 <ul>
-<li><strong>RabbitMQ Management UI</strong> will be available on <a href="http://localhost:15672" target="_blank">http://localhost:15672</a><ul>
 <li>user: <code>hyperion_user</code></li>
 <li>password: <code>hyperion_password</code></li>
 <li>vhost: <code>hyperion</code></li>
 <li><em>changing your credentials is recommended, specially if opening access to the management interface is planned</em></li>
 </ul>
+</details>
+<h2 id="5-troubleshooting">5. Troubleshooting<a class="headerlink" href="#5-troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Unsupported OS</strong>: Only Ubuntu 22.04 and 24.04 are supported</li>
+<li><strong>Insufficient Permissions</strong>: Ensure your user has sudo access</li>
+<li><strong>Network Issues</strong>: Check internet connectivity for package downloads</li>
+<li><strong>Port Conflicts</strong>: Default ports used:<ul>
+<li>Elasticsearch: 9200, 9300</li>
+<li>MongoDB: 27017</li>
+<li>Redis: 6379</li>
+<li>RabbitMQ: 5672, 15672</li>
+</ul>
 </li>
 </ul>
-<p>To check if Hyperion was successfully built after the auto install script, verify if <code>launcher.js</code> was generated
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/hyperion
-stat<span class="w"> </span>launcher.js
-</code></pre></div></p>
-<h3 id="5-proceed-with-the-configuration">5. Proceed with the configuration<a class="headerlink" href="#5-proceed-with-the-configuration" title="Permanent link">&para;</a></h3>
+<h3 id="logs-and-diagnostics">Logs and Diagnostics<a class="headerlink" href="#logs-and-diagnostics" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Service logs: <code>sudo journalctl -u &lt;service-name&gt;</code></li>
+<li>Elasticsearch logs: <code>/var/log/elasticsearch/</code></li>
+<li>MongoDB logs: <code>/var/log/mongodb/</code></li>
+<li>RabbitMQ logs: <code>/var/log/rabbitmq/</code></li>
+</ul>
+<h2 id="6-proceed-with-the-configuration">6. Proceed with the configuration<a class="headerlink" href="#6-proceed-with-the-configuration" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="../../setup/hyperion_configuration/">Hyperion Configuration <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l73.4 73.4H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h370.7l-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg></span></a></p>
+<p><br></p>
 
 
 
@@ -1992,7 +2145,7 @@ stat<span class="w"> </span>launcher.js
       <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "toc.follow", "navigation.footer", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
         <script src="../../../javascripts/extra.js"></script>
       

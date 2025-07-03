@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../assets/img/icon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
@@ -624,29 +624,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../install/lxd/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    LXD
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -877,6 +854,15 @@
   <a href="#contract-state" class="md-nav__link">
     <span class="md-ellipsis">
       Contract State
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Features
     </span>
   </a>
   
@@ -1897,6 +1883,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#other-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Features
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1980,51 +1975,62 @@
 <ul>
 <li><code>enabled</code>: (<code>true</code>|<code>false</code>) - Whether to launch API server instances for this chain via PM2. Default: <code>true</code>.</li>
 <li><code>pm2_scaling</code>: (integer) - Number of API server instances to launch in cluster mode via PM2. Adjust based on expected load and CPU cores. Default: <code>1</code>.</li>
-<li><code>chain_name</code>: (string) - Display name for the chain used in API responses and documentation (e.g., "WAX Mainnet").</li>
-<li><code>server_addr</code>: (string) - IP address the API server should bind to (e.g., <code>"127.0.0.1"</code> for local only, <code>"0.0.0.0"</code> for all interfaces). Default: <code>"127.0.0.1"</code>.</li>
-<li><code>server_port</code>: (integer) - Port number for the HTTP API server. Default: <code>7000</code>.</li>
-<li><code>stream_port</code>: (integer) - Port number for the WebSocket streaming server (if <code>features.streaming.enable</code> is true). Default: <code>1234</code>.</li>
+<li><code>chain_name</code>: (string) - <strong>Required</strong>. Display name for the chain used in API responses and documentation (e.g., "WAX Mainnet").</li>
+<li><code>server_addr</code>: (string) - <strong>Required</strong>. IP address the API server should bind to (e.g., <code>"127.0.0.1"</code> for local only, <code>"0.0.0.0"</code> for all interfaces). Default: <code>"127.0.0.1"</code>.</li>
+<li><code>server_port</code>: (integer) - <strong>Required</strong>. Port number for the HTTP API server. Default: <code>7000</code>.</li>
+<li><code>stream_port</code>: (integer) - <strong>Required</strong>. Port number for the WebSocket streaming server (if <code>features.streaming.enable</code> is true). Default: <code>1234</code>.</li>
 <li><code>stream_scroll_limit</code>: (integer) - Maximum number of historical documents (actions/deltas) allowed in a single streaming request scroll query. <code>-1</code> disables the limit. Default: <code>-1</code>.</li>
 <li><code>stream_scroll_batch</code>: (integer) - Number of documents to fetch per Elasticsearch scroll request during historical streaming. Default: <code>500</code>.</li>
-<li><code>server_name</code>: (string) - Publicly accessible domain name and port for this API (e.g., <code>"wax.hyperion.example.com:443"</code>). Used in documentation links. Default: <code>"127.0.0.1:7000"</code>.</li>
-<li><code>provider_name</code>: (string) - Name of the entity providing this Hyperion instance. Used in documentation. Default: <code>"Example Provider"</code>.</li>
-<li><code>provider_url</code>: (string) - URL associated with the provider. Used in documentation. Default: <code>"https://example.com"</code>.</li>
-<li><code>chain_logo_url</code>: (string) - URL to a logo image for the chain. Used in documentation.</li>
+<li><code>server_name</code>: (string) - <strong>Required</strong>. Publicly accessible domain name and port for this API (e.g., <code>"wax.hyperion.example.com:443"</code>). Used in documentation links. Default: <code>"127.0.0.1:7000"</code>.</li>
+<li><code>provider_name</code>: (string) - <strong>Required</strong>. Name of the entity providing this Hyperion instance. Used in documentation. Default: <code>"Example Provider"</code>.</li>
+<li><code>provider_url</code>: (string) - <strong>Required</strong>. URL associated with the provider. Used in documentation. Default: <code>"https://example.com"</code>.</li>
+<li><code>provider_logo</code>: (string) - URL to a logo image for the provider. Used in documentation.</li>
+<li><code>chain_logo_url</code>: (string) - <strong>Required</strong>. URL to a logo image for the chain. Used in documentation.</li>
 <li><code>chain_api</code>: (string) - Override the default Nodeos HTTP endpoint (defined in <code>connections.json</code>) specifically for <code>/v1/chain</code> requests handled by this API instance. Leave empty (<code>""</code>) to use the default.</li>
 <li><code>push_api</code>: (string) - Define a separate Nodeos endpoint specifically for handling <code>push_transaction</code> requests. Useful for directing write operations to dedicated nodes. Leave empty (<code>""</code>) to use the <code>chain_api</code> or the default from <code>connections.json</code>.</li>
-<li><code>explorer</code>: (object) - Configuration for the integrated lightweight explorer plugin.<ul>
+<li><code>explorer</code>: (object) - Configuration for the block explorer API.<ul>
 <li><code>home_redirect</code>: (<code>true</code>|<code>false</code>) - Redirect the API root <code>/</code> to <code>/explorer</code>. Default: <code>false</code>.</li>
-<li><code>upstream</code>: (string) - URL to proxy explorer requests to (if using a separate explorer service). Requires <code>@fastify/http-proxy</code>. Leave empty if serving locally.</li>
-<li><code>theme</code>: (string) - Name of a custom theme file (e.g., <code>mytheme</code>) located in <code>hyperion-history-api/explorer/themes/mytheme.theme.mjs</code>.</li>
+<li><code>upstream</code>: (string) - <strong>Required</strong> URL to Hyperion explorer server.</li>
+<li><code>theme</code>: (string) - explorer theme for this chain (e.g., <code>vaulta</code>) Check the <a href="https://github.com/eosrio/hyperion-explorer/tree/master/themes" target="_blank">themes folder</a> on the explorer repository.</li>
+<li><code>oracle</code>: (object) - Oracle data configuration for displaying price information.<ul>
+<li><code>custom_mode</code>: (string) - Custom oracle mode configuration.</li>
+<li><code>pair</code>: (string) - Trading pair to display (e.g., "WAXUSDT").</li>
+<li><code>contract</code>: (string) - Oracle contract name.</li>
+<li><code>table</code>: (string) - Oracle data table name.</li>
+<li><code>path</code>: (string) - Data path within oracle results.</li>
+<li><code>type</code>: (string) - Oracle data type.</li>
+<li><code>factor</code>: (number) - Multiplication factor for price display.</li>
 </ul>
 </li>
-<li><code>enable_caching</code>: (<code>true</code>|<code>false</code>) - Enable Redis caching for API responses. Default: <code>true</code>.</li>
-<li><code>cache_life</code>: (integer) - Default cache expiration time in seconds. Default: <code>1</code>.</li>
+</ul>
+</li>
+<li><code>enable_caching</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Enable Redis caching for API responses. Default: <code>true</code>.</li>
+<li><code>cache_life</code>: (integer) - <strong>Required</strong>. Default cache expiration time in seconds. Default: <code>1</code>.</li>
 <li>
-<p><code>limits</code>: (object) - Maximum number of results returned per page for various API endpoints. Helps prevent excessively large responses.</p>
+<p><code>limits</code>: (object) - <strong>Required</strong>. Maximum number of results returned per page for various API endpoints. Helps prevent excessively large responses.</p>
 <ul>
-<li><code>get_table_rows</code>: (integer);</li>
-<li><code>get_top_holders</code>: (integer);</li>
-<li><code>get_links</code>: (integer);</li>
-<li><code>get_actions</code>: (integer);</li>
-<li><code>get_blocks</code>: (integer);</li>
-<li><code>get_created_accounts</code>: (integer);</li>
-<li><code>get_deltas</code>: (integer);</li>
-<li><code>get_key_accounts</code>: (integer);</li>
-<li><code>get_proposals</code>: (integer);</li>
-<li><code>get_tokens</code>: (integer);</li>
-<li><code>get_transfers</code>: (integer);</li>
-<li><code>get_voters</code>: (integer);</li>
-<li><code>get_trx_actions</code>: (integer);</li>
+<li><code>get_table_rows</code>: (integer) - Limit for table row queries.</li>
+<li><code>get_top_holders</code>: (integer) - Limit for top token holders queries.</li>
+<li><code>get_links</code>: (integer) - Limit for permission link queries.</li>
+<li><code>get_actions</code>: (integer) - Limit for action history queries.</li>
+<li><code>get_blocks</code>: (integer) - Limit for block queries.</li>
+<li><code>get_created_accounts</code>: (integer) - Limit for created accounts queries.</li>
+<li><code>get_deltas</code>: (integer) - Limit for state delta queries.</li>
+<li><code>get_key_accounts</code>: (integer) - Limit for key-to-account queries.</li>
+<li><code>get_proposals</code>: (integer) - Limit for proposal queries.</li>
+<li><code>get_tokens</code>: (integer) - Limit for token queries.</li>
+<li><code>get_transfers</code>: (integer) - Limit for transfer queries.</li>
+<li><code>get_voters</code>: (integer) - Limit for voter queries.</li>
+<li><code>get_trx_actions</code>: (integer) - Limit for transaction action queries.</li>
 </ul>
 </li>
 <li>
-<p><code>access_log</code>: (<code>true</code>|<code>false</code>) - Enable logging of API requests to <code>logs/&lt;chain&gt;/api.access.log</code>. Default: <code>false</code>.</p>
+<p><code>access_log</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Enable logging of API requests to <code>logs/&lt;chain&gt;/api.access.log</code>. Default: <code>false</code>.</p>
 </li>
 <li><code>chain_api_error_log</code>: (<code>true</code>|<code>false</code>) - Log errors received when proxying requests to the Nodeos <code>chain_api</code>. Default: <code>false</code>.</li>
 <li><code>log_errors</code>: (<code>true</code>|<code>false</code>) - Log internal API server errors. Default: <code>false</code>.</li>
 <li><code>custom_core_token</code>: (string) - Override the default core token symbol (e.g., "EOS", "WAX") used for display purposes (e.g., legacy key conversion).</li>
-<li><code>disable_rate_limit</code>: (<code>true</code>|<code>false</code>) - Disable API rate limiting (requires <code>@fastify/rate-limit</code>). Default: <code>false</code>.</li>
+<li><code>disable_rate_limit</code>: (<code>true</code>|<code>false</code>) - Disable API rate limiting. Default: <code>false</code>.</li>
 <li><code>rate_limit_rpm</code>: (integer) - Maximum requests per minute per IP address. Default: <code>1000</code>.</li>
 <li><code>rate_limit_allow</code>: (array) - List of IP addresses exempt from rate limiting.</li>
 <li><code>disable_tx_cache</code>: (<code>true</code>|<code>false</code>) - Disable the Redis cache specifically for <code>get_transaction</code> lookups. Default: <code>false</code>.</li>
@@ -2036,46 +2042,27 @@
 </li>
 <li><code>node_max_old_space_size</code>: (integer) - Max heap size (in MB) for the Node.js API server process (<code>--max-old-space-size</code>). Default: <code>1024</code>.</li>
 <li><code>node_trace_deprecation</code>: (<code>true</code>|<code>false</code>) - Enable Node.js deprecation tracing (<code>--trace-deprecation</code>). Default: <code>false</code>.</li>
-<li>
-<p><code>node_trace_warnings</code>: (<code>true</code>|<code>false</code>) - Enable Node.js warning tracing (<code>--trace-warnings</code>). Default: <code>false</code>.</p>
-</li>
-<li>
-<p><code>"chain_name": "EXAMPLE Chain"</code></p>
-</li>
-<li><code>"server_addr": "127.0.0.1"</code></li>
-<li><code>"server_port": 7000</code></li>
-<li><code>"server_name": "127.0.0.1:7000"</code></li>
-<li><code>"provider_name": "Example Provider"</code></li>
-<li><code>"provider_url": "https://example.com"</code></li>
-<li><code>"chain_logo_url": ""</code></li>
-<li><code>"enable_caching": true</code> ⇒ Set API cache</li>
-<li><code>"cache_life": 1</code> ⇒ Define the cache life</li>
-<li><code>"limits"</code> ⇒ Set API response limits</li>
-<li><code>"get_actions": 1000</code></li>
-<li><code>"get_voters": 100</code></li>
-<li><code>"get_links": 1000</code></li>
-<li><code>"get_deltas": 1000</code></li>
-<li><code>"access_log": false</code> ⇒ Enable log API access.</li>
-<li><code>"enable_explorer": false</code></li>
+<li><code>node_trace_warnings</code>: (<code>true</code>|<code>false</code>) - Enable Node.js warning tracing (<code>--trace-warnings</code>). Default: <code>false</code>.</li>
 </ul>
 <h2 id="indexer-process-configuration">Indexer Process Configuration<a class="headerlink" href="#indexer-process-configuration" title="Permanent link">&para;</a></h2>
 <p>Settings controlling the behavior of the Hyperion Indexer process(es) for this chain.</p>
 <p><code>indexer</code>:</p>
 <ul>
 <li><code>enabled</code>: (<code>true</code>|<code>false</code>) - Whether to launch indexer instances for this chain via PM2. Default: <code>true</code>.</li>
-<li><code>start_on</code>: (integer) - Block number to start indexing from. <code>0</code> or <code>1</code> starts from the earliest available block in SHIP. Useful for catching up or partial history. Default: <code>0</code>.</li>
-<li><code>stop_on</code>: (integer) - Block number to stop indexing at. <code>0</code> disables the stop block. Default: <code>0</code>.</li>
-<li><code>rewrite</code>: (<code>true</code>|<code>false</code>) - If <code>true</code>, forces the indexer to re-process blocks within the <code>start_on</code>/<code>stop_on</code> range, even if they were previously indexed. Useful for repairs or reprocessing after configuration changes. Default: <code>false</code>.</li>
-<li><code>purge_queues</code>: (<code>true</code>|<code>false</code>) - If <code>true</code>, clears all RabbitMQ queues associated with this chain before the indexer starts. Useful for ensuring a clean start, especially after configuration changes or errors. Default: <code>false</code>.</li>
-<li><code>live_reader</code>: (<code>true</code>|<code>false</code>) - Instructs the reader process to continuously request blocks from SHIP, aiming to stay near the head of the chain. Default: <code>false</code>. Should generally be <code>true</code> for ongoing indexing.</li>
-<li><code>live_only_mode</code>: (<code>true</code>|<code>false</code>) - If <code>true</code>, disables historical range processing and only reads live blocks sequentially. Requires <code>live_reader: true</code>. Default: <code>false</code>.</li>
-<li><code>abi_scan_mode</code>: (<code>true</code>|<code>false</code>) - Optimizes the indexer for quickly scanning the chain history solely to capture contract ABIs. Disables trace and most delta processing. Recommended for the <em>first run</em> on a new chain to ensure ABIs are available for later deserialization. <strong>Must be manually set back to <code>false</code></strong> for normal history indexing. Default: <code>true</code>.</li>
-<li><code>fetch_block</code>: (<code>true</code>|<code>false</code>) - Request block header information from SHIP. Required for most operations. Default: <code>true</code>.</li>
-<li><code>fetch_traces</code>: (<code>true</code>|<code>false</code>) - Request action trace information from SHIP. Required for action history. Default: <code>true</code>.</li>
-<li><code>disable_reading</code>: (<code>true</code>|<code>false</code>) - Completely disable the SHIP reader process(es). Useful if you only want to run deserializer/indexer workers to process existing data in queues. Default: <code>false</code>.</li>
-<li><code>disable_indexing</code>: (<code>true</code>|<code>false</code>) - Disable the final indexing stage (writing to Elasticsearch/MongoDB). Useful for debugging the deserialization stage. Default: <code>false</code>.</li>
-<li><code>process_deltas</code>: (<code>true</code>|<code>false</code>) - Process state deltas received from SHIP. Required for state features. Default: <code>true</code>.</li>
-<li><code>disable_delta_rm</code>: (<code>true</code>|<code>false</code>) - Disable the background process that marks older versions of state rows as deleted in Elasticsearch delta indices. Can save resources but may lead to inaccurate historical delta queries. Default: <code>true</code>.</li>
+<li><code>start_on</code>: (integer) - <strong>Required</strong>. Block number to start indexing from. <code>0</code> starts from the earliest available block in SHIP or the last indexed block on Elasticsearch.  Useful for catching up or partial history. Default: <code>0</code>.</li>
+<li><code>stop_on</code>: (integer) - <strong>Required</strong>. Block number to stop indexing at. <code>0</code> disables the stop block. Default: <code>0</code>.</li>
+<li><code>rewrite</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. If <code>true</code>, forces the indexer to re-process blocks within the <code>start_on</code>/<code>stop_on</code> range, even if they were previously indexed. Useful for repairs or reprocessing after configuration changes. Default: <code>false</code>.</li>
+<li><code>purge_queues</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. If <code>true</code>, clears all RabbitMQ queues associated with this chain before the indexer starts. Useful for ensuring a clean start, especially after configuration changes or errors. Default: <code>false</code>.</li>
+<li><code>live_reader</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Instructs the reader process to continuously request blocks from SHIP, aiming to stay near the head of the chain. Default: <code>false</code>. Should generally be <code>true</code> for ongoing indexing.</li>
+<li><code>live_only_mode</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. If <code>true</code>, disables historical range processing and only reads live blocks sequentially. Requires <code>live_reader: true</code>. Default: <code>false</code>.</li>
+<li><code>abi_scan_mode</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Optimizes the indexer for quickly scanning the chain history solely to capture contract ABIs. Disables trace and most delta processing. Recommended for the <em>first run</em> on a new chain to ensure ABIs are available for later deserialization. <strong>Must be manually set back to <code>false</code></strong> for normal history indexing. Default: <code>true</code>.</li>
+<li><code>fetch_block</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Request block header information from SHIP. Required for most operations. Default: <code>true</code>.</li>
+<li><code>fetch_traces</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Request action trace information from SHIP. Required for action history. Default: <code>true</code>.</li>
+<li><code>fetch_deltas</code>: (<code>true</code>|<code>false</code>) - Request state delta information from SHIP. Required for state tracking and delta features. Default: <code>true</code>.</li>
+<li><code>disable_reading</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Completely disable the SHIP reader process(es). Useful if you only want to run deserializer/indexer workers to process existing data in queues. Default: <code>false</code>.</li>
+<li><code>disable_indexing</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Disable the final indexing stage (writing to Elasticsearch/MongoDB). Useful for debugging the deserialization stage. Default: <code>false</code>.</li>
+<li><code>process_deltas</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Process state deltas received from SHIP. Required for state features. Default: <code>true</code>.</li>
+<li><code>max_inline</code>: (integer) - Maximum depth of inline actions to process. Helps limit processing load on chains with deeply nested inline actions. Default: not set.</li>
 <li><code>node_max_old_space_size</code>: (integer) - Max heap size (in MB) for the Node.js Indexer master process. Default: <code>4096</code>.</li>
 <li><code>node_trace_deprecation</code>: (<code>true</code>|<code>false</code>) - Enable Node.js deprecation tracing. Default: <code>false</code>.</li>
 <li><code>node_trace_warnings</code>: (<code>true</code>|<code>false</code>) - Enable Node.js warning tracing. Default: <code>false</code>.</li>
@@ -2084,42 +2071,53 @@
 <p>Core operational settings for this chain's Hyperion instance.</p>
 <p><code>settings:</code></p>
 <ul>
-<li><code>preview</code>: (<code>true</code>|<code>false</code>) - Preview mode, prints worker map and exit. Default: <code>false</code></li>
+<li><code>preview</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Preview mode, prints worker map and exit. Default: <code>false</code></li>
 <li><code>chain</code>: (string) - <strong>Required</strong>. Short alias for the chain (e.g., <code>wax</code>, <code>eos</code>). <strong>Must match</strong> the key used in <code>config/connections.json</code>.</li>
-<li><code>eosio_alias</code>: (string) - The account name considered the "system" account (e.g., <code>eosio</code>, <code>wax</code>). Used for filtering some default system actions/deltas. Default: <code>"eosio"</code>.</li>
-<li><code>parser</code>: (string) - Version of the SHIP data parser to use. Should match the version used by your Nodeos SHIP plugin (e.g., <code>"3.2"</code> for Leap 3.2+). Default: <code>"3.2"</code>.</li>
-<li><code>auto_stop</code>: (integer) - Automatically stop the Indexer (master process) after X seconds of inactivity (no new blocks received). <code>0</code> disables auto-stop. Default: <code>0</code>.</li>
-<li><code>index_version</code>: (string) - A suffix appended to Elasticsearch index names (e.g., <code>wax-action-v1</code>). Allows for versioning or separating different index sets. Default: <code>"v1"</code>.</li>
-<li><code>debug</code>: (<code>true</code>|<code>false</code>) - Enable verbose debug logging. Default: <code>false</code>.</li>
-<li><code>rate_monitoring</code>: (<code>true</code>|<code>false</code>) - Print internal processing rates (blocks/s, actions/s, etc.) to the console. Default: <code>true</code>.</li>
-<li><code>bp_logs</code>: (<code>true</code>|<code>false</code>) - Enable specific logging related to block producers (requires <code>bp_monitoring</code>). Default: <code>false</code>.</li>
+<li><code>eosio_alias</code>: (string) - <strong>Deprecated</strong>. Use <code>system_contract</code> instead. The account name considered the "system" account (e.g., <code>eosio</code>, <code>wax</code>).</li>
+<li><code>system_contract</code>: (string) - The account name considered the "system" account (e.g., <code>eosio</code>). Used for filtering some default system actions/deltas. Default: <code>"eosio"</code>.</li>
+<li><code>parser</code>: (string) - <strong>Required</strong>. Version of the SHIP data parser to use. Should match the version used by your Nodeos SHIP plugin (e.g., <code>"3.2"</code> for Leap 3.2+). Default: <code>"3.2"</code>.</li>
+<li><code>auto_stop</code>: (integer) - <strong>Required</strong>. Automatically stop the Indexer (master process) after X seconds of inactivity (no new blocks received). <code>0</code> disables auto-stop. Default: <code>0</code>.</li>
+<li><code>index_version</code>: (string) - <strong>Required</strong>. A suffix appended to Elasticsearch index names (e.g., <code>wax-action-v1</code>). Allows for versioning or separating different index sets. Default: <code>"v1"</code>.</li>
+<li><code>debug</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Enable verbose debug logging. Default: <code>false</code>.</li>
+<li><code>rate_monitoring</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Print internal processing rates (blocks/s, actions/s, etc.) to the console. Default: <code>true</code>.</li>
+<li><code>bp_logs</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Enable specific logging related to block producers (requires <code>bp_monitoring</code>). Default: <code>false</code>.</li>
 <li><code>bp_monitoring</code>: (<code>true</code>|<code>false</code>) - Enable monitoring and logging of missed blocks and producer schedule changes. Default: <code>false</code>.</li>
 <li><code>ipc_debug_rate</code>: (integer) - Interval (in milliseconds) for logging inter-process communication statistics. <code>0</code> disables it. Default: <code>60000</code>.</li>
-<li><code>allow_custom_abi</code>: (<code>true</code>|<code>false</code>) - Allow loading ABIs from local files (<code>src/indexer/custom-abi/&lt;chain&gt;/&lt;contract&gt;-&lt;start&gt;-&lt;end&gt;.json</code>) which override on-chain ABIs for specific block ranges. Default: <code>false</code>.</li>
-<li><code>rate_monitoring</code>: (<code>true</code>|<code>false</code>) - Enable internal performance rate monitoring logs. Default: <code>true</code>.</li>
-<li><code>max_ws_payload_mb</code>: (integer) - Maximum allowed WebSocket message size (in MB) when connecting to SHIP. Default: <code>256</code>.</li>
-<li><code>ds_profiling</code>: (<code>true</code>|<code>false</code>) - Enable detailed profiling of the deserialization process (writes to <code>ds_profiling.csv</code>). Default: <code>false</code>.</li>
-<li><code>auto_mode_switch</code>: (<code>true</code>|<code>false</code>) - Allow the indexer master process to automatically switch <code>abi_scan_mode</code> off after its initial run. Default: <code>false</code>.</li>
-<li><code>hot_warm_policy</code>: (<code>true</code>|<code>false</code>) - Enable basic Elasticsearch hot/warm index lifecycle management routing (requires corresponding ILM policy setup in Elasticsearch). Default: <code>false</code>.</li>
-<li><code>custom_policy</code>: (string) - Name of a custom Elasticsearch Index Lifecycle Management (ILM) policy to apply to indices. Requires setup in Elasticsearch. Default: <code>""</code>.</li>
+<li><code>allow_custom_abi</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Allow loading ABIs from local files (<code>src/indexer/custom-abi/&lt;chain&gt;/&lt;contract&gt;-&lt;start&gt;-&lt;end&gt;.json</code>) which override on-chain ABIs for specific block ranges. Default: <code>false</code>.</li>
+<li><code>max_ws_payload_mb</code>: (integer) - <strong>Required</strong>. Maximum allowed WebSocket message size (in MB) when connecting to SHIP. Default: <code>256</code>.</li>
+<li><code>ds_profiling</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Enable detailed profiling of the deserialization process (writes to <code>ds_profiling.csv</code>). Default: <code>false</code>.</li>
+<li><code>auto_mode_switch</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Allow the indexer master process to automatically switch <code>abi_scan_mode</code> off after its initial run. Default: <code>false</code>.</li>
 <li><code>use_global_agent</code>: (<code>true</code>|<code>false</code>) - Use <code>global-agent</code> for proxy support in outgoing HTTP/HTTPS requests (e.g., to Nodeos). Requires <code>global-agent</code> configuration via environment variables. Default: <code>false</code>.</li>
-<li><code>index_partition_size</code>: (integer) - The block number range size used for partitioning time-series indices (actions, deltas). E.g., <code>10000000</code> creates indices like <code>chain-action-v1-000001</code>, <code>chain-action-v1-000002</code>. Affects index management and query performance. Default: <code>10000000</code>.</li>
-<li><code>es_replicas</code>: (integer) - Number of replicas to configure for Elasticsearch indices created by Hyperion. <code>0</code> means no replicas. Default: <code>0</code>.</li>
+<li><code>process_prefix</code>: (string) - Prefix for process names in PM2. Useful for distinguishing multiple Hyperion instances.</li>
+<li><code>ignore_snapshot</code>: (<code>true</code>|<code>false</code>) - Ignore snapshot data when available from SHIP. Default: <code>false</code>.</li>
+<li><code>ship_request_rev</code>: (string) - Specific revision request for SHIP protocol. Leave empty for default.</li>
+<li><code>index_partition_size</code>: (integer) - <strong>Required</strong>. The block number range size used for partitioning time-series indices (actions, deltas). E.g., <code>10000000</code> creates indices like <code>chain-action-v1-000001</code>, <code>chain-action-v1-000002</code>. Affects index management and query performance. Default: <code>10000000</code>.</li>
+<li><code>max_retained_blocks</code>: (integer) - Maximum number of blocks to retain in Elasticsearch before old indices are deleted. Must be a multiple of <code>index_partition_size</code>. <code>0</code> disables automatic cleanup. Default: <code>0</code>.</li>
+<li><code>es_replicas</code>: (integer) - <strong>Required</strong>. Number of replicas to configure for Elasticsearch indices created by Hyperion. <code>0</code> means no replicas. Default: <code>0</code>.</li>
+<li><code>tiered_index_allocation</code>: (object) - Configure tiered index allocation for Elasticsearch hot/warm architecture.<ul>
+<li><code>enabled</code>: (<code>true</code>|<code>false</code>) - Enable tiered allocation. Default: <code>false</code>.</li>
+<li><code>max_age_days</code>: (integer) - Maximum age in days before moving to warm tier.</li>
+<li><code>max_age_blocks</code>: (integer) - Maximum age in blocks before moving to warm tier.</li>
+<li><code>require_node_attributes</code>: (object) - Required node attributes for allocation.</li>
+<li><code>include_node_attributes</code>: (object) - Preferred node attributes for allocation.</li>
+<li><code>exclude_node_attributes</code>: (object) - Node attributes to exclude from allocation.</li>
+</ul>
+</li>
 </ul>
 <h2 id="blacklists-whitelists-filtering">Blacklists &amp; Whitelists - Filtering<a class="headerlink" href="#blacklists-whitelists-filtering" title="Permanent link">&para;</a></h2>
 <p>Define rules to include or exclude specific actions or deltas from being indexed.</p>
-<p><strong>Format:</strong> Rules use the format <code>"chain::contract::action"</code> or <code>"chain::contract::*"</code>. For deltas, use <code>"chain::contract::table"</code>. The <code>chain</code> part <strong>must match</strong> <code>settings.chain</code>.</p>
+<p><strong>Format:</strong> Rules use the format <code>contract::action</code> or <code>contract::*</code>. For deltas, use <code>contract::table</code>.</p>
 <ul>
 <li><strong><code>blacklists</code></strong>:<ul>
-<li><code>actions</code>: (array) - List of action patterns to <strong>exclude</strong>.</li>
-<li><code>deltas</code>: (array) - List of delta patterns to <strong>exclude</strong>.</li>
+<li><code>actions</code>: (array) - <strong>Required</strong>. List of action patterns to <strong>exclude</strong>. Default: <code>[]</code></li>
+<li><code>deltas</code>: (array) - <strong>Required</strong>. List of delta patterns to <strong>exclude</strong>. Default: <code>[]</code></li>
 </ul>
 </li>
 <li><strong><code>whitelists</code></strong>:<ul>
-<li><code>actions</code>: (array) - List of action patterns to <strong>include</strong>. If non-empty, <em>only</em> matching actions are indexed.</li>
-<li><code>deltas</code>: (array) - List of delta patterns to <strong>include</strong>. If non-empty, <em>only</em> matching deltas are indexed.</li>
-<li><code>max_depth</code>: (integer) - Maximum inline action depth to check against whitelists. Default: <code>10</code>.</li>
-<li><code>root_only</code>: (<code>true</code>|<code>false</code>) - If <code>true</code>, only check root-level actions against the whitelist. If <code>false</code>, check inline actions as well. Default: <code>false</code>.</li>
+<li><code>actions</code>: (array) - <strong>Required</strong>. List of action patterns to <strong>include</strong>. If non-empty, <em>only</em> matching actions are indexed. Default: <code>[]</code></li>
+<li><code>deltas</code>: (array) - <strong>Required</strong>. List of delta patterns to <strong>include</strong>. If non-empty, <em>only</em> matching deltas are indexed. Default: <code>[]</code></li>
+<li><code>max_depth</code>: (integer) - <strong>Required</strong>. Maximum inline action depth to check against whitelists. Default: <code>10</code>.</li>
+<li><code>root_only</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. If <code>true</code>, only check root-level actions against the whitelist. If <code>false</code>, check inline actions as well. Default: <code>false</code>.</li>
 </ul>
 </li>
 </ul>
@@ -2129,41 +2127,43 @@
 </div>
 <h2 id="scaling-performance-resource-tuning">Scaling - Performance &amp; Resource Tuning<a class="headerlink" href="#scaling-performance-resource-tuning" title="Permanent link">&para;</a></h2>
 <p>Parameters controlling the number of worker processes and queue behavior, critical for tuning performance and resource usage.</p>
+<p><code>scaling:</code></p>
 <ul>
-<li><code>readers</code>: (integer) - Number of parallel SHIP reader processes to fetch block ranges. Default: <code>1</code>.</li>
-<li><code>ds_queues</code>: (integer) - Number of separate RabbitMQ queues for deserialization tasks. Default: <code>1</code>.</li>
-<li><code>ds_threads</code>: (integer) - Number of deserializer worker processes <em>per</em> deserializer queue. Default: <code>1</code>.</li>
-<li><code>ds_pool_size</code>: (integer) - Number of blocks buffered in memory by each deserializer thread before processing. Higher values increase RAM usage but can smooth out processing bursts. Default: <code>1</code>.</li>
-<li><code>indexing_queues</code>: (integer) - Number of separate RabbitMQ queues for the final indexing stage (writing to ES/Mongo). Default: <code>1</code>.</li>
-<li><code>ad_idx_queues</code>: (integer) - Number of indexer worker processes <em>per</em> action/delta indexing queue. Default: <code>1</code>.</li>
-<li><code>dyn_idx_queues</code>: (integer) - Number of indexer worker processes <em>per</em> dynamic state table indexing queue. Default: <code>1</code>.</li>
-<li><code>max_autoscale</code>: (integer) - Maximum number of <em>additional</em> reader processes the master can spawn if queues back up. Default: <code>4</code>.</li>
-<li><code>batch_size</code>: (integer) - Number of blocks requested in a single range by a reader process during catch-up. Default: <code>5000</code>.</li>
-<li><code>resume_trigger</code>: (integer) - Queue size threshold below which a paused component (like readers) will resume. Default: <code>5000</code>.</li>
-<li><code>auto_scale_trigger</code>: (integer) - Queue size threshold that triggers the master to potentially spawn additional reader processes (up to <code>max_autoscale</code>). Default: <code>20000</code>.</li>
-<li><code>block_queue_limit</code>: (integer) - Maximum number of blocks allowed in the reader-to-deserializer queues before readers pause. Default: <code>10000</code>.</li>
-<li><code>max_queue_limit</code>: (integer) - Global maximum size for <em>any</em> single processing queue before components feeding it might pause. Default: <code>100000</code>.</li>
-<li><code>routing_mode</code>: (<code>"round_robin"</code>|<code>"heatmap"</code>) - Algorithm for distributing blocks from readers to deserializer queues. <code>"round_robin"</code> distributes evenly. <code>"heatmap"</code> attempts to send blocks with similar action patterns to the same queue (can improve deserialization caching but might lead to uneven load). Default: <code>"round_robin"</code>.</li>
-<li><code>polling_interval</code>: (integer) - Interval (in milliseconds) at which the master process checks queue sizes for scaling decisions. Default: <code>10000</code>.</li>
+<li><code>readers</code>: (integer) - <strong>Required</strong>. Number of parallel SHIP reader processes to fetch block ranges. Default: <code>1</code>.</li>
+<li><code>ds_queues</code>: (integer) - <strong>Required</strong>. Number of separate RabbitMQ queues for deserialization tasks. Default: <code>1</code>.</li>
+<li><code>ds_threads</code>: (integer) - <strong>Required</strong>. Number of deserializer worker processes <em>per</em> deserializer queue. Default: <code>1</code>.</li>
+<li><code>ds_pool_size</code>: (integer) - <strong>Required</strong>. Number of blocks buffered in memory by each deserializer thread before processing. Higher values increase RAM usage but can smooth out processing bursts. Default: <code>1</code>.</li>
+<li><code>indexing_queues</code>: (integer) - <strong>Required</strong>. Number of separate RabbitMQ queues for the final indexing stage (writing to ES/Mongo). Default: <code>1</code>.</li>
+<li><code>ad_idx_queues</code>: (integer) - <strong>Required</strong>. Number of indexer worker processes <em>per</em> action/delta indexing queue. Default: <code>1</code>.</li>
+<li><code>dyn_idx_queues</code>: (integer) - <strong>Required</strong>. Number of indexer worker processes <em>per</em> dynamic state table indexing queue. Default: <code>1</code>.</li>
+<li><code>max_autoscale</code>: (integer) - <strong>Required</strong>. Maximum number of <em>additional</em> reader processes the master can spawn if queues back up. Default: <code>4</code>.</li>
+<li><code>batch_size</code>: (integer) - <strong>Required</strong>. Number of blocks requested in a single range by a reader process during catch-up. Default: <code>5000</code>.</li>
+<li><code>resume_trigger</code>: (integer) - <strong>Required</strong>. Queue size threshold below which a paused component (like readers) will resume. Default: <code>5000</code>.</li>
+<li><code>auto_scale_trigger</code>: (integer) - <strong>Required</strong>. Queue size threshold that triggers the master to potentially spawn additional reader processes (up to <code>max_autoscale</code>). Default: <code>20000</code>.</li>
+<li><code>block_queue_limit</code>: (integer) - <strong>Required</strong>. Maximum number of blocks allowed in the reader-to-deserializer queues before readers pause. Default: <code>10000</code>.</li>
+<li><code>max_queue_limit</code>: (integer) - <strong>Required</strong>. Global maximum size for <em>any</em> single processing queue before components feeding it might pause. Default: <code>100000</code>.</li>
+<li><code>routing_mode</code>: (<code>"round_robin"</code>|<code>"heatmap"</code>) - <strong>Required</strong>. Algorithm for distributing blocks from readers to deserializer queues. <code>"round_robin"</code> distributes evenly. <code>"heatmap"</code> attempts to send blocks with similar action patterns to the same queue (can improve deserialization caching but might lead to uneven load). Default: <code>"round_robin"</code>.</li>
+<li><code>polling_interval</code>: (integer) - <strong>Required</strong>. Interval (in milliseconds) at which the master process checks queue sizes for scaling decisions. Default: <code>10000</code>.</li>
 </ul>
 <h2 id="features-flags">Features Flags<a class="headerlink" href="#features-flags" title="Permanent link">&para;</a></h2>
 <p><code>features</code>: </p>
 <h4 id="streaming">Streaming<a class="headerlink" href="#streaming" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong><code>streaming</code></strong>:<ul>
-<li><code>enable</code>: (<code>true</code>|<code>false</code>) - Enable the WebSocket live streaming API. Default: <code>false</code>.</li>
-<li><code>traces</code>: (<code>true</code>|<code>false</code>) - Stream action traces. Default: <code>false</code>.</li>
-<li><code>deltas</code>: (<code>true</code>|<code>false</code>) - Stream state deltas. Default: <code>false</code>.</li>
+<li><code>enable</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Enable the WebSocket live streaming API. Default: <code>false</code>.</li>
+<li><code>traces</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Stream action traces. Default: <code>false</code>.</li>
+<li><code>deltas</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Stream state deltas. Default: <code>false</code>.</li>
 </ul>
 </li>
 </ul>
 <h4 id="tables">Tables<a class="headerlink" href="#tables" title="Permanent link">&para;</a></h4>
 <ul>
 <li><strong><code>tables</code></strong>: Enable indexing of specific system table states into MongoDB. <strong>Requires MongoDB.</strong><ul>
-<li><code>proposals</code>: (<code>true</code>|<code>false</code>) - Index <code>eosio.msig</code> proposals state. Default: <code>true</code>.</li>
-<li><code>accounts</code>: (<code>true</code>|<code>false</code>) - Index token balances state (<code>accounts</code> table in token contracts). Default: <code>true</code>.</li>
-<li><code>voters</code>: (<code>true</code>|<code>false</code>) - Index <code>eosio</code> voters table state. Default: <code>true</code>.
-*</li>
+<li><code>permissions</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Index account permissions state. Default: <code>true</code>.</li>
+<li><code>proposals</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Index <code>eosio.msig</code> proposals state. Default: <code>true</code>.</li>
+<li><code>accounts</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Index token balances state (<code>accounts</code> table in token contracts). Default: <code>true</code>.</li>
+<li><code>voters</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Index <code>eosio</code> voters table state. Default: <code>true</code>.</li>
+<li><code>user_resources</code>: (<code>true</code>|<code>false</code>) - Index user resource allocation state. Default: <code>false</code>.</li>
 </ul>
 </li>
 </ul>
@@ -2172,15 +2172,15 @@
 <li>
 <p><strong><code>contract_state</code></strong>: Enable indexing of arbitrary contract table states into MongoDB. <strong>Requires MongoDB.</strong></p>
 <ul>
-<li><code>enabled</code>: (<code>true</code>|<code>false</code>) - Master switch for this feature. Default: <code>false</code>.</li>
-<li>
-<p><code>contracts</code>: (object) - Defines which contracts and tables to index state for. Managed via <code>./hyp-config contracts ...</code>.</p>
+<li><code>enabled</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Master switch for this feature. Default: <code>false</code>.</li>
+<li><code>contracts</code>: (object) - <strong>Required</strong>. Defines which contracts and tables to index state for. Managed via <code>./hyp-config contracts ...</code>.</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="nt">&quot;contracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;eosio.token&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Contract account name</span>
 <span class="w">    </span><span class="nt">&quot;accounts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Table name</span>
 <span class="w">      </span><span class="nt">&quot;auto_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// Auto-create basic Mongo indexes?</span>
 <span class="w">      </span><span class="nt">&quot;indices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Custom Mongo indexes</span>
-<span class="w">        </span><span class="nt">&quot;balance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="c1">// Field name: direction (1=asc, -1=desc)</span>
+<span class="w">        </span><span class="nt">&quot;balance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="c1">// Field name: direction (1=asc, -1=desc, &quot;text&quot;, &quot;date&quot;, &quot;2dsphere&quot;)</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="nt">&quot;stat&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... more tables ... */</span><span class="w"> </span><span class="p">}</span>
@@ -2190,31 +2190,32 @@
 </code></pre></div>
 </li>
 </ul>
-</li>
-<li>
-<p><code>index_deltas</code>: (<code>true</code>|<code>false</code>) - Index state deltas to Elasticsearch (for <code>/v2/history/get_deltas</code>). Default: <code>true</code>.</p>
-</li>
-<li><code>index_transfer_memo</code>: (<code>true</code>|<code>false</code>) - Include the <code>memo</code> field within the <code>@transfer</code> data of indexed actions. Increases index size. Default: <code>true</code>.</li>
-<li><code>index_all_deltas</code>: (<code>true</code>|<code>false</code>) - Index <em>all</em> state deltas, regardless of whitelists/blacklists (if <code>index_deltas</code> is true). Default: <code>true</code>.</li>
-<li><code>deferred_trx</code>: (<code>true</code>|<code>false</code>) - Index information about deferred transactions. Default: <code>false</code>.</li>
-<li><code>failed_trx</code>: (<code>true</code>|<code>false</code>) - Index information about failed transactions. Default: <code>false</code>.</li>
-<li><code>resource_limits</code>: (<code>true</code>|<code>false</code>) - Index account resource limits state (<code>userres</code> table). Default: <code>false</code>.</li>
-<li><code>resource_usage</code>: (<code>true</code>|<code>false</code>) - Index account resource usage state (<code>userres</code> table). Default: <code>false</code>.</li>
+<h4 id="other-features">Other Features<a class="headerlink" href="#other-features" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>index_deltas</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Index state deltas to Elasticsearch (for <code>/v2/history/get_deltas</code>). Default: <code>true</code>.</li>
+<li><code>index_transfer_memo</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Include the <code>memo</code> field within the <code>@transfer</code> data of indexed actions. Increases index size. Default: <code>true</code>.</li>
+<li><code>index_all_deltas</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Index <em>all</em> state deltas, regardless of whitelists/blacklists (if <code>index_deltas</code> is true). Default: <code>true</code>.</li>
+<li><code>deferred_trx</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Index information about deferred transactions. Default: <code>false</code>.</li>
+<li><code>failed_trx</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Index information about failed transactions. Default: <code>false</code>.</li>
+<li><code>resource_limits</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Index account resource limits state (<code>userres</code> table). Default: <code>false</code>.</li>
+<li><code>resource_usage</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Index account resource usage state (<code>userres</code> table). Default: <code>false</code>.</li>
+<li><code>contract_console</code>: (<code>true</code>|<code>false</code>) - Index contract console output for debugging purposes. Default: <code>false</code>.</li>
 </ul>
 <h2 id="prefetch-internal-buffer-sizes">Prefetch - Internal Buffer Sizes<a class="headerlink" href="#prefetch-internal-buffer-sizes" title="Permanent link">&para;</a></h2>
 <p>Configure internal buffer sizes between processing stages. Defaults are usually sufficient.</p>
 <p><code>prefetch:</code></p>
 <ul>
-<li><code>read</code>: (integer) - Max blocks buffered by reader before sending to deserializer queue. Default: <code>50</code>.</li>
-<li><code>block</code>: (integer) - Max blocks buffered by deserializer before sending to indexer queue. Default: <code>100</code>.</li>
-<li><code>index</code>: (integer) - Max items buffered by indexer worker before writing to ES/Mongo. Default: <code>500</code>.</li>
+<li><code>read</code>: (integer) - <strong>Required</strong>. Max blocks buffered by reader before sending to deserializer queue. Default: <code>50</code>.</li>
+<li><code>block</code>: (integer) - <strong>Required</strong>. Max blocks buffered by deserializer before sending to indexer queue. Default: <code>100</code>.</li>
+<li><code>index</code>: (integer) - <strong>Required</strong>. Max items buffered by indexer worker before writing to ES/Mongo. Default: <code>500</code>.</li>
 </ul>
 <h2 id="hub-qry-hub-integration-optional">Hub - QRY Hub Integration (Optional)<a class="headerlink" href="#hub-qry-hub-integration-optional" title="Permanent link">&para;</a></h2>
 <p>Settings for connecting this Hyperion instance to the <a href="https://hub.qry.network/" target="_blank">QRY Hub</a>.</p>
 <p><code>hub:</code></p>
 <ul>
-<li><code>enabled</code>: (<code>true</code>|<code>false</code>) - Enable connection to the QRY Hub. Default: <code>false</code>.</li>
-<li><code>instance_key</code>: (string) - Your unique instance private key obtained from QRY provider registration. <strong>Required if enabled.</strong></li>
+<li><code>enabled</code>: (<code>true</code>|<code>false</code>) - <strong>Required</strong>. Enable connection to the QRY Hub. Default: <code>false</code>.</li>
+<li><code>instance_key</code>: (string) - <strong>Required</strong>. Your unique instance private key obtained from QRY provider registration. <strong>Required if enabled.</strong></li>
+<li><code>hub_url</code>: (string) - Override the default QRY Hub URL if using a custom hub instance.</li>
 <li><code>custom_indexer_controller</code>: (string) - Override the default address (<code>localhost:&lt;control_port&gt;</code>) the API server uses to connect to the indexer's control port for status updates needed by the Hub.</li>
 </ul>
 <h2 id="plugin-configuration">Plugin Configuration<a class="headerlink" href="#plugin-configuration" title="Permanent link">&para;</a></h2>
@@ -2288,14 +2289,8 @@
 <span class="w">    </span><span class="nt">&quot;disable_tx_cache&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;tx_cache_expiration_sec&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;v1_chain_cache&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_block&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;ttl&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_info&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;ttl&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span>
-<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_block&quot;</span><span class="p">,</span><span class="nt">&quot;ttl&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_info&quot;</span><span class="p">,</span><span class="nt">&quot;ttl&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">}</span>
 <span class="w">    </span><span class="p">],</span>
 <span class="w">    </span><span class="nt">&quot;node_max_old_space_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;node_trace_deprecation&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
@@ -2312,10 +2307,10 @@
 <span class="w">    </span><span class="nt">&quot;abi_scan_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;fetch_block&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;fetch_traces&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;fetch_deltas&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;disable_reading&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;disable_indexing&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;process_deltas&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;disable_delta_rm&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;node_max_old_space_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4096</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;node_trace_deprecation&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;node_trace_warnings&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
@@ -2323,7 +2318,6 @@
 <span class="w">  </span><span class="nt">&quot;settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;preview&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;chain&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eos&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;eosio_alias&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eosio&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;parser&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3.2&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;auto_stop&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;index_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v1&quot;</span><span class="p">,</span>
@@ -2336,10 +2330,9 @@
 <span class="w">    </span><span class="nt">&quot;max_ws_payload_mb&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;ds_profiling&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;auto_mode_switch&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;hot_warm_policy&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;custom_policy&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;use_global_agent&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;index_partition_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10000000</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;max_retained_blocks&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;es_replicas&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">  </span><span class="p">},</span>
 <span class="w">  </span><span class="nt">&quot;blacklists&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -2378,9 +2371,13 @@
 <span class="w">    </span><span class="nt">&quot;tables&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;proposals&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">      </span><span class="nt">&quot;accounts&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;voters&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">      </span><span class="nt">&quot;voters&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;permissions&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;user_resources&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
 <span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="nt">&quot;contract_state&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">    </span><span class="nt">&quot;contract_state&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;contracts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="nt">&quot;index_deltas&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;index_transfer_memo&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;index_all_deltas&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
@@ -2430,7 +2427,10 @@
 <span class="w">      </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">&quot;sourceEmail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sender@example.com&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;destinationEmails&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;receiverA@example.com&quot;</span><span class="p">,</span><span class="s2">&quot;receiverB@example.com&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;destinationEmails&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;receiverA@example.com&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;receiverB@example.com&quot;</span>
+<span class="w">        </span><span class="p">],</span>
 <span class="w">        </span><span class="nt">&quot;smtp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;smtp-relay.gmail.com (UPDATE THIS)&quot;</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">465</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">&quot;tls&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
@@ -2586,7 +2586,7 @@
       <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "toc.follow", "navigation.footer", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
         <script src="../../../javascripts/extra.js"></script>
       

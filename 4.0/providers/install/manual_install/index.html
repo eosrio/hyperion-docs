@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../assets/img/icon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
@@ -995,28 +995,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#eosio" class="md-nav__link">
+  <a href="#antelope-nodeos" class="md-nav__link">
     <span class="md-ellipsis">
-      EOSIO
+      Antelope Nodeos
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="EOSIO">
+    <nav class="md-nav" aria-label="Antelope Nodeos">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#leap" class="md-nav__link">
+  <a href="#antelopeio-spring" class="md-nav__link">
     <span class="md-ellipsis">
-      Leap
+      AntelopeIO Spring
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#savanaspring" class="md-nav__link">
+  <a href="#leap" class="md-nav__link">
     <span class="md-ellipsis">
-      Savana/Spring
+      Leap
     </span>
   </a>
   
@@ -1076,29 +1076,6 @@
   
   <span class="md-ellipsis">
     Docker
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lxd/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    LXD
     
   </span>
   
@@ -2464,28 +2441,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#eosio" class="md-nav__link">
+  <a href="#antelope-nodeos" class="md-nav__link">
     <span class="md-ellipsis">
-      EOSIO
+      Antelope Nodeos
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="EOSIO">
+    <nav class="md-nav" aria-label="Antelope Nodeos">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#leap" class="md-nav__link">
+  <a href="#antelopeio-spring" class="md-nav__link">
     <span class="md-ellipsis">
-      Leap
+      AntelopeIO Spring
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#savanaspring" class="md-nav__link">
+  <a href="#leap" class="md-nav__link">
     <span class="md-ellipsis">
-      Savana/Spring
+      Leap
     </span>
   </a>
   
@@ -2547,11 +2524,11 @@
 installation, this is the way to go.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If you are running more than one node (Leap/Savanna), you can now configure the failover option directly in the <code>connections.json</code> file. Please refer to the section detailing the new parameters by clicking <a href="../../setup/connections/">here</a></p>
+<p>If you are running more than one SHIP node, you can now configure the failover option directly in the <code>connections.json</code> file. Please refer to the section detailing the new parameters by clicking <a href="../../setup/connections/">here</a></p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Review the guidelines for configuring Hyperion for Provider Registration on Qry, a new decentralized ecosystem that provides access to a variety of data services and APIs. Follow the steps outlined in <a href="../../setup/qry_connection/">Config Provider</a> steps</p>
+<p>Review the guidelines for configuring Hyperion for Provider Registration on QRY, a new decentralized ecosystem that provides access to a variety of data services and APIs. Follow the steps outlined in <a href="../../setup/qry_connection/">Config Provider</a> steps</p>
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
@@ -2560,14 +2537,14 @@ installation, this is the way to go.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <p>Below you can find the list of all Hyperion's dependencies:</p>
 <ul>
-<li><a href="https://www.elastic.co/downloads/elasticsearch" target="_blank">Elasticsearch 8.7+</a>  - <strong>Required</strong> for historical data indexing.</li>
-<li><a href="https://www.elastic.co/downloads/kibana" target="_blank">Kibana 8.7+</a> - Optional, for visualizing Elasticsearch data.</li>
-<li><a href="https://www.rabbitmq.com" target="_blank">RabbitMQ</a> (v 3.12+) - <strong>Required</strong> for message queuing between indexer stages.</li>
-<li><a href="https://redis.io/topics/quickstart" target="_blank">Redis</a>  - <strong>Required</strong> for caching and inter-process communication.</li>
-<li><a href="https://www.mongodb.com/try/download/community" target="_blank">MongoDB Community Server</a> - <strong>Conditionally Required</strong>. Needed <em>only</em> if enabling state tracking features (<code>features.tables.*</code> or <code>features.contract_state.enabled</code> in chain config). See MongoDB section below for details.</li>
-<li><a href="https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions" target="_blank">Node.js v22</a> - <strong>Required</strong> runtime environment.</li>
-<li><a href="http://pm2.keymetrics.io/docs/usage/quick-start/" target="_blank">PM2</a> - <strong>Required</strong> process manager for Node.js applications.</li>
-<li><a href="https://github.com/AntelopeIO/leap/releases/tag/v5.0.3" target="_blank">NODEOS (spring 1.1.2 or leap 5.0.3 recommended)</a> - <strong>Required</strong> Antelope node with State History Plugin (SHIP) enabled.</li>
+<li><a href="https://www.elastic.co/downloads/elasticsearch" target="_blank">Elasticsearch 8.7+</a> | <strong>Required</strong> for historical data indexing.</li>
+<li><a href="https://www.elastic.co/downloads/kibana" target="_blank">Kibana 8.7+</a> | Optional, for visualizing Elasticsearch data.</li>
+<li><a href="https://github.com/rabbitmq/rabbitmq-server/releases" target="_blank">RabbitMQ 4.1+</a> | <strong>Required</strong> for message queuing between indexer stages.</li>
+<li><a href="https://redis.io/topics/quickstart" target="_blank">Redis</a>  | <strong>Required</strong> for caching and inter-process communication.</li>
+<li><a href="https://www.mongodb.com/try/download/community" target="_blank">MongoDB Community Server</a> | <strong>Conditionally Required</strong>. Needed <em>only</em> if enabling state tracking features (<code>features.tables.*</code> or <code>features.contract_state.enabled</code> in chain config). See MongoDB section below for details.</li>
+<li><a href="https://nodejs.org/en/download" target="_blank">Node.js 22+</a> | <strong>Required</strong> runtime environment.</li>
+<li><a href="http://pm2.keymetrics.io/docs/usage/quick-start/" target="_blank">PM2</a> | <strong>Required</strong> process manager for Node.js applications.</li>
+<li><a href="https://github.com/AntelopeIO/spring/releases" target="_blank">NODEOS (spring 1.2.0 or leap 5.0.3)</a> | <strong>Required</strong> Antelope node with State History Plugin (SHIP) enabled.</li>
 </ul>
 <p>On the next steps you will install and configure each one of them.</p>
 <div class="admonition note">
@@ -2826,10 +2803,6 @@ node<span class="w"> </span>-v<span class="w"> </span><span class="c1"># should 
 <span class="c1"># verifies the right npm version is in the environment</span>
 npm<span class="w"> </span>-v<span class="w"> </span><span class="c1"># should print `10.9.0`</span>
 </code></pre></div>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>Make sure to configure npm not to use sudo when installing global packages.</p>
-</div>
 <h2 id="pm2">PM2<a class="headerlink" href="#pm2" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>pm2@latest<span class="w"> </span>-g
 </code></pre></div>
@@ -2837,13 +2810,15 @@ npm<span class="w"> </span>-v<span class="w"> </span><span class="c1"># should p
 <h5 id="1-configure-for-system-startup">1. Configure for system startup<a class="headerlink" href="#1-configure-for-system-startup" title="Permanent link">&para;</a></h5>
 <div class="highlight"><pre><span></span><code>pm2<span class="w"> </span>startup
 </code></pre></div>
-<h2 id="eosio">EOSIO<a class="headerlink" href="#eosio" title="Permanent link">&para;</a></h2>
+<h2 id="antelope-nodeos">Antelope Nodeos<a class="headerlink" href="#antelope-nodeos" title="Permanent link">&para;</a></h2>
+<h3 id="antelopeio-spring">AntelopeIO Spring<a class="headerlink" href="#antelopeio-spring" title="Permanent link">&para;</a></h3>
+<p>Get the latest version from the <a href="https://github.com/AntelopeIO/spring/releases" target="_blank">repository</a></p>
+<div class="highlight"><pre><span></span><code>wget https://github.com/AntelopeIO/spring/releases/download/v1.2.0/antelope-spring_1.2.0_amd64.deb
+sudo apt install ./antelope-spring_1.2.0_amd64.deb
+</code></pre></div>
 <h3 id="leap">Leap<a class="headerlink" href="#leap" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>wget https://github.com/AntelopeIO/leap/releases/download/v5.0.3/leap_5.0.3_amd64.deb
 sudo apt install ./leap_5.0.3_amd64.deb
-</code></pre></div>
-<h3 id="savanaspring">Savana/Spring<a class="headerlink" href="#savanaspring" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>Adicionar repositorio
 </code></pre></div>
 <h3 id="configuration_5">Configuration<a class="headerlink" href="#configuration_5" title="Permanent link">&para;</a></h3>
 <p>Add the following configuration to the <code>config.ini</code> file:</p>
@@ -3006,7 +2981,7 @@ npm<span class="w"> </span>ci
       <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "toc.follow", "navigation.footer", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
         <script src="../../../javascripts/extra.js"></script>
       

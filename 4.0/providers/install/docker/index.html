@@ -16,11 +16,11 @@
         <link rel="prev" href="../manual_install/">
       
       
-        <link rel="next" href="../lxd/">
+        <link rel="next" href="../../setup/hyperion_configuration/">
       
       
       <link rel="icon" href="../../../assets/img/icon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
@@ -877,29 +877,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lxd/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    LXD
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -2200,7 +2177,7 @@
 <h3 id="installing-elasticsearch-and-kibana">Installing Elasticsearch and Kibana<a class="headerlink" href="#installing-elasticsearch-and-kibana" title="Permanent link">&para;</a></h3>
 <p>Hyperion depends on Elasticsearch for indexing and searching data. Starting with this version, we recommend that the installation and management of Elasticsearch and Kibana be done using the official Elastic method, ensuring greater flexibility and ease of maintenance.</p>
 <p>Execute the command below to install locally:</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://elastic.co/start-local<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://elastic.co/start-local<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/xpack.license.self_generated.type=trial/xpack.license.self_generated.type=basic/g&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </code></pre></div>
 <p>This command will create a folder called <code>elastic-start-local</code> with all the necessary files, including:</p>
 <ul>
@@ -2240,12 +2217,13 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/eosri
 <div class="admonition warning">
 <p class="admonition-title">Directory Structure</p>
 <p>Your directory structure should look like this:
-<div class="highlight"><pre><span></span><code>/your_parent_directory/
-├── elastic-start-local/   # Elasticsearch installation
-└── hyperion-docker/       # Hyperion Docker repository
-</code></pre></div>
-This structure is required for the <code>start.sh</code> script to work correctly.</p>
+```</p>
 </div>
+<p>/your_parent_directory/
+    ├── elastic-start-local/   # Elasticsearch installation
+    └── hyperion-docker/       # Hyperion Docker repository
+    <code>``
+    This structure is required for the</code>start.sh` script to work correctly.</p>
 <h4 id="2-verify-docker-is-running">2. Verify Docker is running<a class="headerlink" href="#2-verify-docker-is-running" title="Permanent link">&para;</a></h4>
 <p>Make sure Docker is running by executing the following command in the terminal:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>ps
@@ -2357,9 +2335,9 @@ docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> 
 <div class="admonition tip">
 <p class="admonition-title">Testing connections</p>
 <p>You can test connections to each service using appropriate tools:
-* For Elasticsearch: <code>curl -u elastic:your_password http://host:9200</code>
+<em>For Elasticsearch: <code>curl -u elastic:your_password http://host:9200</code>
 * For RabbitMQ: <code>curl -u rabbitmq:rabbitmq http://host:15672/api/overview</code>
-* For Redis: Use <code>redis-cli -h host -p 6379 ping</code>
+</em>For Redis: Use <code>redis-cli -h host -p 6379 ping</code>
 * For MongoDB: Use <code>mongosh --host host --port 27017</code></p>
 </div>
 <p>For issues related to Elasticsearch/Kibana, consult the official Elastic documentation:</p>
@@ -2434,13 +2412,13 @@ docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> 
         
         
           
-          <a href="../lxd/" class="md-footer__link md-footer__link--next" aria-label="Next: LXD">
+          <a href="../../setup/hyperion_configuration/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuration">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                LXD
+                Configuration
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2526,7 +2504,7 @@ docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> 
       <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "toc.follow", "navigation.footer", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
         <script src="../../../javascripts/extra.js"></script>
       

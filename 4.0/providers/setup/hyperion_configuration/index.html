@@ -13,14 +13,14 @@
         <link rel="canonical" href="https://hyperion.docs.eosrio.io/4.0/providers/setup/hyperion_configuration/">
       
       
-        <link rel="prev" href="../../install/lxd/">
+        <link rel="prev" href="../../install/docker/">
       
       
         <link rel="next" href="../connections/">
       
       
       <link rel="icon" href="../../../assets/img/icon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
@@ -614,29 +614,6 @@
   
   <span class="md-ellipsis">
     Docker
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../install/lxd/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    LXD
     
   </span>
   
@@ -2306,7 +2283,7 @@
 <div class="highlight"><pre><span></span><code>./hyp-config<span class="w"> </span>chains<span class="w"> </span>new<span class="w"> </span>&lt;short-name&gt;<span class="w"> </span>--http<span class="w"> </span>&lt;node-http-url&gt;<span class="w"> </span>--ship<span class="w"> </span>&lt;node-ship-url&gt;
 
 <span class="c1"># Example for WAX Mainnet:</span>
-./hyp-config<span class="w"> </span>chains<span class="w"> </span>new<span class="w"> </span>eos<span class="w"> </span>--http<span class="w"> </span><span class="s2">&quot;http://127.0.0.1:8888&quot;</span><span class="w"> </span>--ship<span class="w"> </span><span class="s2">&quot;ws://127.0.0.1:8080</span>
+./hyp-config<span class="w"> </span>chains<span class="w"> </span>new<span class="w"> </span>eos<span class="w"> </span>--http<span class="w"> </span><span class="s2">&quot;http://127.0.0.1:8888&quot;</span><span class="w"> </span>--ship<span class="w"> </span><span class="s2">&quot;ws://127.0.0.1:8080&quot;</span>
 </code></pre></div>
 <p>This command performs several actions:</p>
 <ol>
@@ -2403,7 +2380,7 @@
 <li><strong>Indexing During Run:</strong> If state features are enabled <em>before</em> the indexer starts processing the relevant blocks, it should populate the MongoDB state tables automatically as it processes the deltas.</li>
 </ul>
 <h2 id="step-4-running-hyperion-services">Step 4: Running Hyperion Services<a class="headerlink" href="#step-4-running-hyperion-services" title="Permanent link">&para;</a></h2>
-<p>Hyperion uses the <strong>PM2</strong> process manager. The primary way to manage services is via the ecosystem configuration file. </p>
+<p>Hyperion uses the <strong>PM2</strong> process manager. The primary way to manage services is via the ecosystem configuration file.</p>
 <p>We provide scripts to simplify the process of starting and stopping your Hyperion Indexer or API instance.</p>
 <h3 id="41-starting-individual-components-using-convenience-scripts">4.1 Starting Individual Components (using convenience scripts)<a class="headerlink" href="#41-starting-individual-components-using-convenience-scripts" title="Permanent link">&para;</a></h3>
 <p>You can use the provided scripts to start specific components for a single chain:</p>
@@ -2475,8 +2452,8 @@ curl<span class="w"> </span>-Ss<span class="w"> </span><span class="s2">&quot;ht
 <p>If you enabled state features, test relevant <code>/v2/state</code> endpoints (e.g., <code>get_tokens</code>, <code>get_voters</code>, <code>get_table_rows</code>).</p>
 <h3 id="55-check-data-stores-optional">5.5 Check Data Stores (Optional)<a class="headerlink" href="#55-check-data-stores-optional" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Use Kibana (if installed) to explore Elasticsearch indices (<code>&lt;chain&gt;-action-*</code>, <code>&lt;chain&gt;-delta-*</code>, etc.). </li>
-<li>Use <code>redis-cli</code> or <strong>RedisCommander</strong> (if installed via Docker) to inspect cached data. </li>
+<li>Use Kibana (if installed) to explore Elasticsearch indices (<code>&lt;chain&gt;-action-*</code>, <code>&lt;chain&gt;-delta-*</code>, etc.).</li>
+<li>Use <code>redis-cli</code> or <strong>RedisCommander</strong> (if installed via Docker) to inspect cached data.</li>
 <li>Use <code>mongosh</code> to inspect MongoDB databases (<code>hyperion_&lt;chain&gt;</code>) and collections (<code>accounts</code>, <code>voters</code>, <code>proposals</code>, <code>&lt;contract&gt;-&lt;table&gt;</code>).</li>
 </ul>
 <h2 id="step-6-configure-advanced-features-optional">Step 6: Configure Advanced Features (Optional)<a class="headerlink" href="#step-6-configure-advanced-features-optional" title="Permanent link">&para;</a></h2>
@@ -2575,7 +2552,7 @@ curl<span class="w"> </span>-Ss<span class="w"> </span><span class="s2">&quot;ht
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../install/lxd/" class="md-footer__link md-footer__link--prev" aria-label="Previous: LXD">
+          <a href="../../install/docker/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Docker">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2585,7 +2562,7 @@ curl<span class="w"> </span>-Ss<span class="w"> </span><span class="s2">&quot;ht
                 Previous
               </span>
               <div class="md-ellipsis">
-                LXD
+                Docker
               </div>
             </div>
           </a>
@@ -2684,7 +2661,7 @@ curl<span class="w"> </span>-Ss<span class="w"> </span><span class="s2">&quot;ht
       <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "toc.follow", "navigation.footer", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
         <script src="../../../javascripts/extra.js"></script>
       
