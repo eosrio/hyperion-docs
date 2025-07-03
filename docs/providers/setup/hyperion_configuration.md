@@ -10,7 +10,6 @@ We will primarily use the `hyp-config` command-line tool provided with Hyperion.
 !!! warning "New failover option"
     Check [Connections Reference](connections.md) to add the new <u>failover</u> option.
 
-
 ## Step 1: Configure Infrastructure Connections
 
 Hyperion needs to know how to connect to shared infrastructure components like Elasticsearch, RabbitMQ, Redis, and optionally MongoDB.
@@ -32,7 +31,6 @@ The initialization command will create a `connections.json` file that follows th
 
 !!! note "MongoDB setup"
     If you skip MongoDB setup here but later enable state features, you will need to manually edit `config/connections.json` to add the MongoDB connection details.
-
 
 ### 1.2 Test Connections
 
@@ -67,7 +65,7 @@ Use the `chains new` command, providing a short alias for your chain (e.g., `wax
 ./hyp-config chains new <short-name> --http <node-http-url> --ship <node-ship-url>
 
 # Example for WAX Mainnet:
-./hyp-config chains new eos --http "http://127.0.0.1:8888" --ship "ws://127.0.0.1:8080
+./hyp-config chains new eos --http "http://127.0.0.1:8888" --ship "ws://127.0.0.1:8080"
 ```
 
 This command performs several actions:
@@ -169,7 +167,7 @@ Use the `hyp-config` contracts commands to specify which contract tables should 
 
 ### 3.3 Synchronize State Data
 
-- **Initial Sync:** If you enable state indexing _after_ the indexer has already processed blocks containing the relevant contract data, the MongoDB state tables might be incomplete. You will need to run a manual synchronization using the `hyp-control` tool _after_ starting the indexer (See Step 4).
+- **Initial Sync:** If you enable state indexing *after* the indexer has already processed blocks containing the relevant contract data, the MongoDB state tables might be incomplete. You will need to run a manual synchronization using the `hyp-control` tool *after* starting the indexer (See Step 4).
 
 ```bash
 # After indexer is running and connected via control port
@@ -179,11 +177,11 @@ Use the `hyp-config` contracts commands to specify which contract tables should 
 ./hyp-control sync proposals <chain-name> # If features.tables.proposals = true
 ```
 
-- **Indexing During Run:** If state features are enabled _before_ the indexer starts processing the relevant blocks, it should populate the MongoDB state tables automatically as it processes the deltas.
+- **Indexing During Run:** If state features are enabled *before* the indexer starts processing the relevant blocks, it should populate the MongoDB state tables automatically as it processes the deltas.
 
 ## Step 4: Running Hyperion Services
 
-Hyperion uses the **PM2** process manager. The primary way to manage services is via the ecosystem configuration file. 
+Hyperion uses the **PM2** process manager. The primary way to manage services is via the ecosystem configuration file.
 
 We provide scripts to simplify the process of starting and stopping your Hyperion Indexer or API instance.
 
@@ -191,15 +189,15 @@ We provide scripts to simplify the process of starting and stopping your Hyperio
 
 You can use the provided scripts to start specific components for a single chain:
 
-* To **run the indexer**, execute `./run.sh [chain name]-indexer`
+- To **run the indexer**, execute `./run.sh [chain name]-indexer`
 
-* To **run the api**, execute `./run.sh [chain name]-api`
+- To **run the api**, execute `./run.sh [chain name]-api`
 
 !!! example "Examples"
     ```bash
     # Start indexer for "wax" chain:
     ./run.sh wax-indexer
-    
+
     # Start API server(s) for "wax" chain:
     ./run.sh wax-api
     ```
@@ -215,7 +213,7 @@ Use the `stop.sh` script to stop an instance or the `pm2` trigger:
     ```bash
     # Stop API for "wax" chain:
     ./stop.sh wax-api
-    
+
     # Stop indexer for "eos" chain (allows graceful queue flush):
     ./stop.sh eos-indexer
     # OR
@@ -276,8 +274,8 @@ If you enabled state features, test relevant `/v2/state` endpoints (e.g., `get_t
 
 ### 5.5 Check Data Stores (Optional)
 
-- Use Kibana (if installed) to explore Elasticsearch indices (`<chain>-action-*`, `<chain>-delta-*`, etc.). 
-- Use `redis-cli` or **RedisCommander** (if installed via Docker) to inspect cached data. 
+- Use Kibana (if installed) to explore Elasticsearch indices (`<chain>-action-*`, `<chain>-delta-*`, etc.).
+- Use `redis-cli` or **RedisCommander** (if installed via Docker) to inspect cached data.
 - Use `mongosh` to inspect MongoDB databases (`hyperion_<chain>`) and collections (`accounts`, `voters`, `proposals`, `<contract>-<table>`).
 
 ## Step 6: Configure Advanced Features (Optional)
@@ -286,7 +284,7 @@ Once the basic setup is running and verified, you can enable advanced features b
 
 ### **Live Streaming**
 
-* Enable flags under `features.streaming.`
+- Enable flags under `features.streaming.`
 
 ```json
 {
@@ -300,11 +298,11 @@ Once the basic setup is running and verified, you can enable advanced features b
 }
 ```
 
-* By default, the stream api will be available on the port 1234, this can be configured by the `api.stream_port` property in the chain config file.
-* Once you're done configuring, just restart both the indexer and api.
-* A quick test using `curl 127.0.0.1:1234/stream/` should result in the output `{"code":0,"message":"Transport unknown"}` meaning the port is ready for websocket connections. Alternatively, you can check the api logs after restart for a `Websocket manager loaded!` message
+- By default, the stream api will be available on the port 1234, this can be configured by the `api.stream_port` property in the chain config file.
+- Once you're done configuring, just restart both the indexer and api.
+- A quick test using `curl 127.0.0.1:1234/stream/` should result in the output `{"code":0,"message":"Transport unknown"}` meaning the port is ready for websocket connections. Alternatively, you can check the api logs after restart for a `Websocket manager loaded!` message
 
-* Configure your reverse proxy (like NGINX) to handle WebSocket upgrades for the `/stream/` path.
+- Configure your reverse proxy (like NGINX) to handle WebSocket upgrades for the `/stream/` path.
 
 !!! note "NGINX"
     ```nginx
@@ -319,25 +317,25 @@ Once the basic setup is running and verified, you can enable advanced features b
     }
     ```
 
-*   See the [Stream Client Guide](../../dev/stream_client/index.md) for usage.
+- See the [Stream Client Guide](../../dev/stream_client/index.md) for usage.
 
-###   **Plugins**
+### **Plugins**
 
-*   Install and manage plugins using the `./hpm` tool (Refer to `hpm --help` and future plugin documentation).
-*   Enable and configure installed plugins under the `plugins` section in your chain config file.
+- Install and manage plugins using the `./hpm` tool (Refer to `hpm --help` and future plugin documentation).
+- Enable and configure installed plugins under the `plugins` section in your chain config file.
 
 ### **QRY Hub Integration**
 
-*   Enable and configure connection under the `hub` section in your chain config file.
-*   See the [Connect to QRY Guide](qry_connection.md).
+- Enable and configure connection under the `hub` section in your chain config file.
+- See the [Connect to QRY Guide](qry_connection.md).
 
 ## Next Steps
 
 With Hyperion configured and running, you can now:
 
-*   Explore the full [API Reference](../../api/v2.md) in the Swagger UI (`/v2/docs`).
-*   Learn how to query the API effectively in the [Developer Guide](../../dev/howtouse.md).
-*   Consult the [Troubleshooting Guides](../help/kibana.md) if you encounter issues.
+- Explore the full [API Reference](../../api/v2.md) in the Swagger UI (`/v2/docs`).
+- Learn how to query the API effectively in the [Developer Guide](../../dev/howtouse.md).
+- Consult the [Troubleshooting Guides](../help/kibana.md) if you encounter issues.
 
 [API Reference :fontawesome-solid-arrow-right-long:](../../api/v2.md){ .md-button }
 [Developer Guide :fontawesome-solid-arrow-right-long:](../../dev/howtouse.md){ .md-button }

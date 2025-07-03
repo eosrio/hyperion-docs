@@ -40,8 +40,6 @@ The **third layer**, which we can understand as `Infrastructure Services`, inclu
 2. RabbitMQ
 3. MongoDB
 
-
-
 The **fourth layer** (new) is composed of Elasticsearch and Kibana, which are installed separately using the official Elastic method. This change allows for greater flexibility and alignment with best practices recommended by Elastic.
 
 ??? note "Infrastructure Diagram"
@@ -72,11 +70,10 @@ Ensure that Docker and Docker Compose are installed on your system.
 
 Hyperion depends on Elasticsearch for indexing and searching data. Starting with this version, we recommend that the installation and management of Elasticsearch and Kibana be done using the official Elastic method, ensuring greater flexibility and ease of maintenance.
 
-
 Execute the command below to install locally:
 
 ```bash
-curl -fsSL https://elastic.co/start-local | sh
+curl -fsSL https://elastic.co/start-local | sed 's/xpack.license.self_generated.type=trial/xpack.license.self_generated.type=basic/g' | sh
 ```
 
 This command will create a folder called `elastic-start-local` with all the necessary files, including:
@@ -125,7 +122,7 @@ cd hyperion-docker
 !!! warning "Directory Structure"
     Your directory structure should look like this:
     ```
-    /your_parent_directory/
+/your_parent_directory/
     ├── elastic-start-local/   # Elasticsearch installation
     └── hyperion-docker/       # Hyperion Docker repository
     ```
@@ -233,7 +230,7 @@ The `connections.json` file is crucial for the proper functioning of Hyperion as
 
 !!! important "Host Configuration"
     The default configuration assumes that:
-    
+
     * RabbitMQ and Redis are running as Docker services named "rabbitmq" and "redis" respectively
     * Elasticsearch and MongoDB are accessible via `host.docker.internal` (which resolves to the host machine from inside Docker containers)
 
@@ -274,9 +271,9 @@ Here's how to modify the configuration for different scenarios:
 
 !!! tip "Testing connections"
     You can test connections to each service using appropriate tools:
-    * For Elasticsearch: `curl -u elastic:your_password http://host:9200`
+    *For Elasticsearch: `curl -u elastic:your_password http://host:9200`
     * For RabbitMQ: `curl -u rabbitmq:rabbitmq http://host:15672/api/overview`
-    * For Redis: Use `redis-cli -h host -p 6379 ping`
+    *For Redis: Use `redis-cli -h host -p 6379 ping`
     * For MongoDB: Use `mongosh --host host --port 27017`
 
 For issues related to Elasticsearch/Kibana, consult the official Elastic documentation:
@@ -289,8 +286,6 @@ For issues related to Hyperion:
 * Check if all layers are working correctly
 * Check if the Elasticsearch credentials are configured correctly in the `connections.json` file
 * Check the service logs using `docker compose logs -f`
-
-
 
 ## Next steps
 
