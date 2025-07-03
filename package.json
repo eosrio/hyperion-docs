@@ -1,7 +1,7 @@
 {
   "name": "hyperion-docs",
   "description": "Hyperion History API Documentation",
-  "version": "3.6.0",
+  "version": "4.0.0",
   "scripts": {
     "activate": "bash -c 'source ./.venv/bin/activate'",
     "start": "python -m mkdocs serve",
