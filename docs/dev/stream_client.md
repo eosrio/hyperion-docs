@@ -5,7 +5,7 @@ It allows developers to receive real-time data streams of actions and deltas fro
 
 ### Supported Environments
 
-- Node.js v16 and up
+- Node.js v18 and up
     - ES Module
     - CommonJS
 - Browsers

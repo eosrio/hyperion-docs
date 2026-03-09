@@ -39,6 +39,7 @@ with its default value and an example of real usage.
   the logging
 - `"allow_custom_abi": false` ⇒ allow using custom ABIs from the custom-abi/<CHAIN_NAME> folder, they must match the
   pattern <contract>-<start_block>-<end_block>.json. Those ABIs will overwrite on-chain data for the given range.
+- `"auto_mode_switch": false` ⇒ Automatically restart the indexer in data mode after ABI scan completes. **Set to `true` for first-time indexing** — see [Indexer Troubleshooting](../help/indexer.md#indexer-stuck-after-abi-scan) if the indexer appears stuck after ABI scan.
 
 ### 3. Blacklists
 

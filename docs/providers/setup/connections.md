@@ -6,11 +6,14 @@
 
 ### RabbitMQ parameters
 
-- `"host":"127.0.0.1:5672"`
-- `"api":"127.0.0.1:15672"`
+- `"host":"127.0.0.1:5672"` — AMQP protocol port
+- `"api":"127.0.0.1:15672"` — Management API port (used for queue purging)
 - `"user":"my_user"`
 - `"pass":"my_password"`
-- `"vhost":"hyperion"`
+- `"vhost":"/hyperion"` — RabbitMQ virtual host name
+
+!!! warning "VHost naming"
+    When RabbitMQ is configured with `RABBITMQ_DEFAULT_VHOST=/hyperion`, the vhost name **includes the leading `/`**. Use the exact name as shown by `rabbitmqctl list_vhosts`. A mismatched vhost will cause `Expected ConnectionOpenOk; got <ConnectionClose>` errors. See [Indexer Troubleshooting](../help/indexer.md#amqp-connection-refused) for details.
 
 ### Elasticsearch parameters
 
@@ -24,6 +27,18 @@
 
 - `"host":"127.0.0.1"`
 - `"port":"6379"`
+
+### MongoDB parameters
+
+- `"enabled": false` ⇒ Enable MongoDB for table delta state tracking
+- `"host": "127.0.0.1"`
+- `"port": 27017`
+- `"database_prefix": "hyperion"`
+- `"user": ""`
+- `"pass": ""`
+
+!!! warning "MongoDB must be reachable"
+    Even with `enabled: false`, the indexer **will attempt to connect** to MongoDB on startup and exit if the connection fails. Ensure MongoDB is running and accessible at the configured host and port. See [Indexer Troubleshooting](../help/indexer.md#mongodb-connection-failed) for details.
 
 ### Chain Parameters
 
@@ -60,7 +75,7 @@ In this example we have a connection.json file with:
     "api": "127.0.0.1:15672",
     "user": "admin",
     "pass": "123456",
-    "vhost": "hyperion"
+    "vhost": "/hyperion"
   },
   "elasticsearch": {
     "protocol": "http",

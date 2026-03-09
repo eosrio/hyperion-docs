@@ -44,6 +44,8 @@ nav:
       - Updating: providers/update.md
       - Index Repair: providers/repair.md
       - Troubleshooting:
+          - Indexer: providers/help/indexer.md
+          - Elasticsearch: providers/help/elasticsearch.md
           - Kibana: providers/help/kibana.md
           - RabbitMQ: providers/help/rabbit.md
   - Users / Developers:

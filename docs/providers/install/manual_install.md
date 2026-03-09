@@ -17,13 +17,13 @@ installation, this is the way to go.
 
 Below you can find the list of all Hyperion's dependencies:
 
-- [Elasticsearch 8.7+](https://www.elastic.co/downloads/elasticsearch){:target="_blank"}
-- [Kibana 8.7+](https://www.elastic.co/downloads/kibana){:target="_blank"}
-- [RabbitMQ](https://www.rabbitmq.com){:target="_blank"} (v 3.12+)
+- [Elasticsearch 9.x](https://www.elastic.co/downloads/elasticsearch){:target="_blank"}
+- [Kibana 9.x](https://www.elastic.co/downloads/kibana){:target="_blank"}
+- [RabbitMQ](https://www.rabbitmq.com){:target="_blank"} (v 4.x+)
 - [Redis](https://redis.io/topics/quickstart){:target="_blank"}
-- [Node.js v22](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions){:target="_blank"}
+- [Node.js v22+](https://nodejs.org/en/download){:target="_blank"}
 - [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/){:target="_blank"}
-- [NODEOS (spring 1.1.2 or leap 5.0.3)](https://github.com/AntelopeIO/leap/releases/tag/v5.0.3){:target="_blank"}
+- [NODEOS (Spring 1.2.2+ or Leap 5.0.3)](https://github.com/AntelopeIO/spring/releases){:target="_blank"}
 
 On the next steps you will install and configure each one of them.
 
@@ -67,7 +67,7 @@ The memory lock option will prevent any Elasticsearch heap memory from being swa
 
 !!! note
     A different approach is to
-    [disable swapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.14/setup-configuration-memory.html#setup-configuration-memory){:target="_blank"}
+    [disable swapping](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-configuration-memory.html#setup-configuration-memory){:target="_blank"}
     on your system.
 
 !!! success "Testing"
@@ -152,15 +152,14 @@ The expected result should be something like this:
   "cluster_name": "CLUSTER_NAME",
   "cluster_uuid": "FFl8DNcOQV-dVk3p1JDNMA",
   "version": {
-    "number": "7.14.1",
-    "build_flavor": "default",
+    "number": "9.3.1",
     "build_type": "deb",
-    "build_hash": "606a173",
-    "build_date": "2021-08-26T00:43:15.323135Z",
+    "build_hash": "...",
+    "build_date": "...",
     "build_snapshot": false,
-    "lucene_version": "8.9.0",
-    "minimum_wire_compatibility_version": "6.8.0",
-    "minimum_index_compatibility_version": "6.0.0-beta1"
+    "lucene_version": "10.2.1",
+    "minimum_wire_compatibility_version": "8.18.0",
+    "minimum_index_compatibility_version": "8.0.0"
   },
   "tagline": "You Know, for Search"
 }
@@ -197,17 +196,17 @@ Keep track of these passwords, we’ll need them again soon.
 ## Kibana
 
 Follow the detailed installation instructions on the official
-[Kibana documentation](https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb){:target="_blank"}. Return to this documentation before
+[Kibana documentation](https://www.elastic.co/guide/en/kibana/current/deb.html#deb){:target="_blank"}. Return to this documentation before
 running it.
 
 !!! info
-    Kibana is not started automatically after installation. We recomend running it with
-    [systemd](https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-running-systemd){:target="_blank"}.
+    Kibana is not started automatically after installation. We recommend running it with
+    [systemd](https://www.elastic.co/guide/en/kibana/current/deb.html#deb-running-systemd){:target="_blank"}.
 
 !!! note
     Like on Elasticsearch, it is very important to know the Kibana
-    [directory layout](https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-layout){:target="_blank"} and to understand how the
-    [configuration](https://www.elastic.co/guide/en/kibana/7.14/deb.html#deb-configuring){:target="_blank"} works.
+    [directory layout](https://www.elastic.co/guide/en/kibana/current/deb.html#deb-layout){:target="_blank"} and to understand how the
+    [configuration](https://www.elastic.co/guide/en/kibana/current/deb.html#deb-configuring){:target="_blank"} works.
 
 ### Configuration
 
@@ -239,7 +238,7 @@ sudo systemctl enable kibana.service
 ## RabbitMQ
 
 !!! attention
-    From Hyperion 3.3.10, RabbitMQ version 3.12+ is required.
+    From Hyperion 4.x, RabbitMQ version 4.x+ is recommended. RabbitMQ 3.12+ is the minimum supported version.
 
 Follow the detailed installation instructions on the
 official [RabbitMQ documentation](https://www.rabbitmq.com/install-debian.html#installation-methods){:target="_blank"}.
@@ -321,10 +320,10 @@ source ~/.bashrc
 fnm use --install-if-missing 22
 
 # verifies the right Node.js version is in the environment
-node -v # should print `v22.11.0`
+node -v # should print `v22.x.x`
 
 # verifies the right npm version is in the environment
-npm -v # should print `10.9.0`
+npm -v
 ```
 
 !!! attention
@@ -344,26 +343,34 @@ npm install pm2@latest -g
 pm2 startup
 ```
 
-## EOSIO
+## Antelope Node (EOSIO)
 
+You need either **Leap** or **Spring** (Savanna consensus) to serve state history to Hyperion.
 
-### Leap
-```
+### Leap (legacy)
+
+```bash
 wget https://github.com/AntelopeIO/leap/releases/download/v5.0.3/leap_5.0.3_amd64.deb
 sudo apt install ./leap_5.0.3_amd64.deb
 ```
 
-### Savana/Spring
-```
-Adicionar repositorio
+### Spring (Savanna consensus)
+
+Spring is the successor to Leap, featuring the Savanna consensus algorithm. Use Spring 1.2.2+ for production deployments.
+
+```bash
+wget https://github.com/AntelopeIO/spring/releases/download/v1.2.2/spring_1.2.2_amd64.deb
+sudo apt install ./spring_1.2.2_amd64.deb
 ```
 
+!!! info
+    Check the latest Spring releases at [github.com/AntelopeIO/spring/releases](https://github.com/AntelopeIO/spring/releases){:target="_blank"}
 
 ### Configuration
 
 Add the following configuration to the `config.ini` file:
 
-```
+```ini
 state-history-dir = "state-history"
 trace-history = true
 chain-state-history = true
@@ -371,6 +378,12 @@ state-history-endpoint = 127.0.0.1:8080
 plugin = eosio::chain_api_plugin
 plugin = eosio::state_history_plugin
 ```
+
+!!! warning "Spring config.ini restrictions"
+    Spring v1.2.2+ enforces stricter separation between genesis parameters and runtime configuration.
+    Resource limit parameters (e.g., `max-block-net-usage`, `max-block-cpu-usage-threshold-us`) **must** be
+    defined in `genesis.json`, not `config.ini`. Placing them in `config.ini` will cause `nodeos` to crash
+    at startup with `Unknown option`.
 
 ## Hyperion
 
