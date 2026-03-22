@@ -253,7 +253,10 @@ Plugins are optional. Follow the documentation on the required plugin page.
 
 Official Plugins:
 
-- [Hyperion Explorer](https://github.com/eosrio/hyperion-explorer-plugin/tree/develop){:target="_blank"}
+- [Hyperion Explorer](https://github.com/eosrio/hyperion-explorer){:target="_blank"} — see [Explorer Setup](../explorer.md) for installation instructions
+
+!!! warning "Deprecated"
+    The old [hyperion-explorer-plugin](https://github.com/eosrio/hyperion-explorer-plugin){:target="_blank"} has been replaced by the standalone [hyperion-explorer](https://github.com/eosrio/hyperion-explorer){:target="_blank"} repository.
 
 !!! warning "Experimental Feature"
-Running 3rd-party plugins could be dangerous, please make sure you review the published code before installing
+    Running 3rd-party plugins could be dangerous, please make sure you review the published code before installing

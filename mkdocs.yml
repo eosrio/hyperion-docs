@@ -41,6 +41,7 @@ nav:
           - Connections Reference: providers/setup/connections.md
           - Chain Config Reference: providers/setup/chain.md
           - Connect Provider to QRY: providers/setup/qry_connection.md
+      - Explorer Setup: providers/explorer.md
       - Updating: providers/update.md
       - Index Repair: providers/repair.md
       - Troubleshooting:

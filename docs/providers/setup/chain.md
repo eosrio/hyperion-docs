@@ -21,7 +21,10 @@ with its default value and an example of real usage.
   - `"get_links": 1000`
   - `"get_deltas": 1000`
 - `"access_log": false` ⇒ Enable log API access.
-- `"enable_explorer": false`
+- `"explorer"` ⇒ Explorer configuration (see [Explorer Setup](../explorer.md))
+    - `"upstream": "http://127.0.0.1:4777"` ⇒ URL of the Explorer SSR server
+    - `"theme": "default"` ⇒ Theme name (matches `<name>.theme.mjs` in explorer/themes/)
+    - `"home_redirect": true` ⇒ Redirect API root to `/explorer/`
 
 ### 2. Settings
 
@@ -152,7 +155,11 @@ to `chains/eos.config.json`. The next step is to edit the file as the following:
       "get_deltas": 1000
     },
     "access_log": false,
-    "enable_explorer": false
+    "explorer": {
+      "upstream": "http://127.0.0.1:4777",
+      "theme": "default",
+      "home_redirect": true
+    }
   },
   "settings": {
     "preview": false,
