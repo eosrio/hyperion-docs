@@ -21,7 +21,7 @@ Below you can find the list of all Hyperion's dependencies:
 - [Kibana 9.x](https://www.elastic.co/downloads/kibana){:target="_blank"}
 - [RabbitMQ](https://www.rabbitmq.com){:target="_blank"} (v 4.x+)
 - [Redis](https://redis.io/topics/quickstart){:target="_blank"}
-- [MongoDB 7.x+](https://www.mongodb.com/docs/manual/installation/){:target="_blank"}
+- [MongoDB 8.x+](https://www.mongodb.com/docs/manual/installation/){:target="_blank"}
 - [Node.js v22+](https://nodejs.org/en/download){:target="_blank"}
 - [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/){:target="_blank"}
 - [NODEOS (Spring 1.2.2+ or Leap 5.0.3)](https://github.com/AntelopeIO/spring/releases){:target="_blank"}
@@ -319,12 +319,12 @@ Quick install for Ubuntu 24.04:
 
 ```bash
 # Import the MongoDB public GPG key
-curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
-  sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
+curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | \
+  sudo gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg --dearmor
 
 # Add the MongoDB repository
-echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/7.0 multiverse" | \
-  sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse" | \
+  sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
 
 # Install MongoDB
 sudo apt update
