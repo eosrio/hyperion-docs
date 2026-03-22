@@ -30,15 +30,15 @@
 
 ### MongoDB parameters
 
-- `"enabled": false` ⇒ Enable MongoDB for table delta state tracking
+!!! attention
+    MongoDB is **required** starting from Hyperion 4.x.
+
+- `"enabled": true` ⇒ Must be `true` for Hyperion 4.x (MongoDB is mandatory)
 - `"host": "127.0.0.1"`
 - `"port": 27017`
-- `"database_prefix": "hyperion"`
-- `"user": ""`
-- `"pass": ""`
-
-!!! warning "MongoDB must be reachable"
-    Even with `enabled: false`, the indexer **will attempt to connect** to MongoDB on startup and exit if the connection fails. Ensure MongoDB is running and accessible at the configured host and port. See [Indexer Troubleshooting](../help/indexer.md#mongodb-connection-failed) for details.
+- `"database_prefix": "hyperion"` ⇒ Databases are created as `{prefix}_{chain}` (e.g., `hyperion_eos`)
+- `"user": ""` ⇒ MongoDB username (leave empty if no authentication)
+- `"pass": ""` ⇒ MongoDB password
 
 ### Chain Parameters
 
@@ -61,7 +61,8 @@ In this example we have a connection.json file with:
 - Local Elasticsearch
     - no user
     - no password
-- Local Reddis
+- Local Redis
+- Local MongoDB (no auth)
 - State History connections: 
     - Remote EOS Mainnet
     - Remote sample chain
@@ -89,6 +90,14 @@ In this example we have a connection.json file with:
   "redis": {
     "host": "127.0.0.1",
     "port": "6379"
+  },
+  "mongodb": {
+    "enabled": true,
+    "host": "127.0.0.1",
+    "port": 27017,
+    "database_prefix": "hyperion",
+    "user": "",
+    "pass": ""
   },
   "chains": {
     "eos": {

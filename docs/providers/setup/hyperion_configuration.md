@@ -24,8 +24,8 @@ First, let's initialize our configuration. Just run:
 ```
 
 !!! note
-    This command will also check the connection to Elasticsearch, Rabbitmq and Redis. Make sure everything is up and
-    running.
+    This command will check the connection to Elasticsearch, RabbitMQ, Redis and MongoDB. Make sure everything is up and
+    running. The wizard will prompt you for each service's host, credentials, and connection details.
 
 You can use `./hyp-config connections test` to test connectivity at any point and `./hyp-config connections reset` to back up and remove the current configuration.
 
@@ -161,6 +161,51 @@ curl -Ss "http://127.0.0.1:7000/v2/history/get_deltas?limit=1" | jq
     [![get_deltas](../../assets/img/get_deltas.png)](../../assets/img/get_deltas.png)
 
 You can check the **Swagger UI** at: `http://127.0.0.1:7000/v2/docs` for more information on all the available endpoints
+
+## State Synchronization (MongoDB)
+
+Hyperion stores chain state in MongoDB collections: `accounts`, `permissions`, `proposals`, and `voters`. These collections are populated automatically during indexing, but you can also rebuild them on demand using the sync commands.
+
+!!! info
+    The sync commands connect directly to the chain API and rebuild the MongoDB collections from current chain state. They are safe to run at any time and use upsert operations, so they won't duplicate data.
+
+### Available Sync Commands
+
+| Command | Description |
+|---------|-------------|
+| `./hyp-sync permissions <chain>` | Rebuilds permissions including linked actions |
+| `./hyp-sync accounts <chain>` | Synchronizes account balances and metadata |
+| `./hyp-sync voters <chain>` | Rebuilds voter registrations and delegations |
+| `./hyp-sync proposals <chain>` | Indexes active multisig proposals |
+| `./hyp-sync contract-state <chain>` | Syncs custom contract table state (requires `features.contract_state` config) |
+
+!!! tip "When to run sync commands"
+    - After upgrading Hyperion to a new version
+    - After recovering from indexer errors
+    - To rebuild state after database maintenance
+    - When setting up a new chain and you want immediate state without waiting for the indexer to catch up
+
+### Custom Contract State Indexing
+
+You can configure Hyperion to index specific contract tables into MongoDB. Add the contract configuration to your chain config under `features.contract_state.contracts`:
+
+```json
+"features": {
+    "contract_state": {
+        "contracts": {
+            "eosio.token": {
+                "tables": {
+                    "accounts": {
+                        "autoIndex": true
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+Use `./hyp-config contracts add-single <chain> <account> <table> <autoIndex>` to add contracts via CLI.
 
 ## Enabling Streaming
 

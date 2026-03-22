@@ -21,6 +21,7 @@ Below you can find the list of all Hyperion's dependencies:
 - [Kibana 9.x](https://www.elastic.co/downloads/kibana){:target="_blank"}
 - [RabbitMQ](https://www.rabbitmq.com){:target="_blank"} (v 4.x+)
 - [Redis](https://redis.io/topics/quickstart){:target="_blank"}
+- [MongoDB 7.x+](https://www.mongodb.com/docs/manual/installation/){:target="_blank"}
 - [Node.js v22+](https://nodejs.org/en/download){:target="_blank"}
 - [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/){:target="_blank"}
 - [NODEOS (Spring 1.2.2+ or Leap 5.0.3)](https://github.com/AntelopeIO/spring/releases){:target="_blank"}
@@ -306,6 +307,50 @@ Change the `supervised` configuration from `supervised no` to  `supervised syste
 ```bash
 sudo systemctl restart redis.service
 ```
+
+## MongoDB
+
+!!! attention
+    MongoDB is **required** starting from Hyperion 4.x. It is used for state queries (accounts, permissions, proposals, voters) and custom contract state indexing.
+
+Follow the official [MongoDB installation guide](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/){:target="_blank"} for Ubuntu.
+
+Quick install for Ubuntu 24.04:
+
+```bash
+# Import the MongoDB public GPG key
+curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
+  sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
+
+# Add the MongoDB repository
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/7.0 multiverse" | \
+  sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+
+# Install MongoDB
+sudo apt update
+sudo apt install -y mongodb-org
+```
+
+### Configuration
+
+##### 1. Start MongoDB
+
+```bash
+sudo systemctl start mongod
+sudo systemctl enable mongod
+```
+
+##### 2. Verify it's running
+
+```bash
+mongosh --eval 'db.runCommand({ ping: 1 })'
+```
+
+!!! note
+    By default, MongoDB runs without authentication. For production deployments, you should enable authentication and create a dedicated user. See the [MongoDB Security Checklist](https://www.mongodb.com/docs/manual/administration/security-checklist/){:target="_blank"}.
+
+!!! tip
+    The `hyp-config connections init` wizard will prompt you for MongoDB host, port, user, and password. If running locally with defaults, you can press ENTER to accept all defaults.
 
 ## NodeJS
 
