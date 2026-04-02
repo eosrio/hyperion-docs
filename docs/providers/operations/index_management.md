@@ -148,6 +148,24 @@ For each index that exceeds the threshold, the manager applies the configured al
 !!! note
     Tiered allocation only applies to **action** and **delta** indices. Block indices are not affected.
 
+## Why Not Use Elasticsearch ILM?
+
+Elasticsearch ships with its own [Index Lifecycle Management (ILM)](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-lifecycle-management.html){:target="_blank"} that can handle rollover, shrink, and delete operations. While ILM is a powerful general-purpose tool, Hyperion's built-in lifecycle manager is specifically designed around how Hyperion organizes and queries blockchain data.
+
+Here's why Hyperion manages its own index lifecycle:
+
+| | Hyperion Lifecycle Manager | Elasticsearch ILM |
+|---|---|---|
+| **Partition awareness** | Understands Hyperion's block-range partitioning scheme. Pruning decisions are based on block numbers, not index age or document count | Operates on generic rollover triggers (size, age, doc count) with no knowledge of block ranges |
+| **Block-based retention** | Retention is defined in blocks (`max_retained_blocks`), which maps directly to chain history depth | Retention is defined in time or size, making it hard to guarantee a specific block range |
+| **Coordinated cleanup** | Prunes action, delta, and block indices together in a single cycle, keeping them aligned | Each index type would need a separate ILM policy, with no coordination between them |
+| **Health API integration** | Pruning status is exposed on `/v2/health` with ETA and retention info. The `first_indexed_block` cache is automatically invalidated after pruning | No integration with Hyperion's health endpoint. Stale `first_indexed_block` values could be served until cache expires |
+| **Tiered allocation by block age** | Can move indices based on how far behind the chain head they are (`max_age_blocks`), which is more meaningful for blockchain data | Only supports time-based age triggers, which don't account for chain halt or catch-up scenarios |
+| **No license requirements** | Works with any Elasticsearch distribution, including the free/open versions | Some ILM features require a paid Elastic license |
+
+!!! tip
+    If you are already using Elasticsearch ILM for other workloads, you can still use it alongside Hyperion's lifecycle manager — just make sure your ILM policies **do not** target Hyperion's indices (e.g., `<chain>-action-*`, `<chain>-delta-*`, `<chain>-block-*`). Let the Hyperion lifecycle manager handle those.
+
 ## Configuration Reference
 
 All index lifecycle settings are placed under the `settings` section of your chain config file:
@@ -164,3 +182,4 @@ All index lifecycle settings are placed under the `settings` section of your cha
 | `tiered_index_allocation.exclude_node_attributes` | `object` | — | Excluded node attributes for allocation targets |
 
 See the [Chain Configuration Reference](../setup/chain.md) for the complete list of settings.
+
