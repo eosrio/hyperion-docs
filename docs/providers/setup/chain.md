@@ -43,6 +43,10 @@ with its default value and an example of real usage.
 - `"allow_custom_abi": false` ⇒ allow using custom ABIs from the custom-abi/<CHAIN_NAME> folder, they must match the
   pattern <contract>-<start_block>-<end_block>.json. Those ABIs will overwrite on-chain data for the given range.
 - `"auto_mode_switch": false` ⇒ Automatically restart the indexer in data mode after ABI scan completes. **Set to `true` for first-time indexing** — see [Indexer Troubleshooting](../help/indexer.md#indexer-stuck-after-abi-scan) if the indexer appears stuck after ABI scan.
+- `"index_partition_size": 10000000` ⇒ Number of blocks per Elasticsearch index partition. **Do not change after indexing has started.** See [Index Lifecycle Management](../operations/index_management.md)
+- `"max_retained_blocks": 0` ⇒ Maximum blocks to retain on Elasticsearch. Older data is automatically pruned. Set to `0` to disable. See [Index Lifecycle Management](../operations/index_management.md)
+- `"es_replicas": 0` ⇒ Number of Elasticsearch index replicas
+- `"tiered_index_allocation"` ⇒ Tiered storage allocation rules for Elasticsearch indices. See [Index Lifecycle Management](../operations/index_management.md)
 
 ### 3. Blacklists
 
@@ -173,7 +177,10 @@ to `chains/eos.config.json`. The next step is to edit the file as the following:
     "bp_logs": false,
     "bp_monitoring": false,
     "ipc_debug_rate": 60000,
-    "allow_custom_abi": false
+    "allow_custom_abi": false,
+    "index_partition_size": 10000000,
+    "max_retained_blocks": 0,
+    "es_replicas": 0
   },
   "blacklists": {
     "actions": [],

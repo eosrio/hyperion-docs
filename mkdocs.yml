@@ -49,6 +49,8 @@ nav:
           - Elasticsearch: providers/help/elasticsearch.md
           - Kibana: providers/help/kibana.md
           - RabbitMQ: providers/help/rabbit.md
+  - Operations:
+      - Index Lifecycle Management: providers/operations/index_management.md
   - Users / Developers:
       - Getting Started: dev/howtouse.md
       - Stream Client: dev/stream_client.md
