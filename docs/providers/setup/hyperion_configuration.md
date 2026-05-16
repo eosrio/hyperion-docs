@@ -173,11 +173,12 @@ Hyperion stores chain state in MongoDB collections: `accounts`, `permissions`, `
 
 | Command | Description |
 |---------|-------------|
-| `./hyp-sync permissions <chain>` | Rebuilds permissions including linked actions |
-| `./hyp-sync accounts <chain>` | Synchronizes account balances and metadata |
-| `./hyp-sync voters <chain>` | Rebuilds voter registrations and delegations |
-| `./hyp-sync proposals <chain>` | Indexes active multisig proposals |
-| `./hyp-sync contract-state <chain>` | Syncs custom contract table state (requires `features.contract_state` config) |
+| `./hyp-control sync permissions <chain>` | Rebuilds permissions including linked actions |
+| `./hyp-control sync accounts <chain>` | Synchronizes account balances and metadata |
+| `./hyp-control sync voters <chain>` | Rebuilds voter registrations and delegations |
+| `./hyp-control sync proposals <chain>` | Indexes active multisig proposals |
+| `./hyp-control sync contract-state <chain>` | Syncs custom contract table state (requires `features.contract_state` config) |
+| `./hyp-control sync all <chain>` | Runs voters, accounts, proposals, and contract-state in sequence |
 
 !!! tip "When to run sync commands"
     - After upgrading Hyperion to a new version
