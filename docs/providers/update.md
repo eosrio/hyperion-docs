@@ -14,6 +14,6 @@ npm ci
 After the rebuild, you need to restart the indexer and api.
 ```shell
 cd ~/hyperion
-./run.sh [chain name]-indexer
-./run.sh [chain name]-api
+./run [chain name]-indexer
+./run [chain name]-api
 ```

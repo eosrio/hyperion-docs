@@ -55,22 +55,22 @@ You should see an output similar to:
 
 ## Running Hyperion
 
-We provide scripts to simplify the process of starting and stopping your Hyperion Indexer or API instance.
+We provide scripts to simplify the process of starting and stopping your Hyperion Indexer or API instance. By default these use **pm2**.
 
 ### Starting
 
-To run the indexer, execute `./run.sh [chain name]-indexer`
+To run the indexer, execute `./run [chain name]-indexer`
 
-To run the api, execute `./run.sh [chain name]-api`
+To run the api, execute `./run [chain name]-api`
 
 !!! example "Examples"
     Starting indexer for **"eos"** chain:
     ```
-    ./run.sh eos-indexer
+    ./run eos-indexer
     ```
     Starting API for **"test"** chain:
     ```
-    ./run.sh test-api
+    ./run test-api
     ```
 
 !!! note
@@ -79,21 +79,44 @@ To run the api, execute `./run.sh [chain name]-api`
 
 ### Stopping
 
-Use the stop.sh script to stop an instance as follows:
+Use the `./stop` script to stop an instance as follows:
 
 !!! example "Examples"
     Stop API for EOS mainnet:
     ```
-    ./stop.sh eos-api
+    ./stop eos-api
     ```
     Stop indexer for WAX mainnet:
     ```
-    ./stop.sh wax-indexer
+    ./stop wax-indexer
     ```
 
 !!! note
     You need to pass the name of the chain you previously created followed by indexer or api to indicate the instance
-    you want to stop.
+    you want to stop. Stopping the indexer performs a graceful controller shutdown (clean flush), never a hard kill.
+
+### Running without pm2 (systemd)
+
+pm2 is the default and recommended supervisor. Operators who prefer **not** to
+use pm2 can run Hyperion under **systemd** instead — pm2 users are unaffected.
+
+Install the unit templates from the repo's `systemd/` directory (see
+`systemd/README.md`), then either drive `systemctl` directly or run the same
+`./run` / `./stop` commands with the `HYP_NO_PM2` environment variable set,
+which routes them to systemd:
+
+!!! example "Examples"
+    ```
+    HYP_NO_PM2=1 ./run wax-indexer     # -> systemctl start hyperion-indexer@wax
+    HYP_NO_PM2=1 ./stop wax-api        # -> systemctl stop  hyperion-api@wax
+    ```
+
+!!! warning "Single-instance API without pm2"
+    Without pm2 the API runs as a **single instance** — pm2's cluster-mode
+    multi-worker scaling is not reproduced and `api.pm2_scaling` becomes a
+    no-op. If you need a multi-instance API, keep pm2 (the default) or front
+    several `hyperion-api@<chain>` units with a reverse proxy. The indexer is
+    unaffected — it manages its own workers and stops gracefully either way.
 
 !!! attention  
     The stop script won't stop Hyperion Indexer immediately, it will first flush the queues. Be aware that this
