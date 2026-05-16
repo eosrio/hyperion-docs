@@ -33,6 +33,15 @@ installation, this is the way to go.
     - Upgrade the host to Ubuntu 24.04+ (glibc ≥ 2.38) — recommended.
     - Run Hyperion in a container with a glibc ≥ 2.38 base image
       (e.g. `node:22-trixie-slim` / Debian 13, or an Ubuntu 24.04 base).
+    - **Stay on Ubuntu 22.04** by pinning the last glibc-2.35-compatible
+      build, [`uWebSockets.js` v20.52.0](https://github.com/uNetworking/uWebSockets.js/releases/tag/v20.52.0).
+      After every build / `npm ci` (which restores the pinned v20.67.0),
+      force-install it again:
+      ```bash
+      npm install --no-save github:uNetworking/uWebSockets.js#v20.52.0
+      ```
+      Trades newer `uWebSockets.js` fixes for compatibility; must be
+      re-applied after each rebuild.
     - Build `uWebSockets.js` from source on the target host against its
       local glibc (unsupported by upstream, but the documented escape hatch:
       *"you can always build your own binaries on older Linux systems"*).
