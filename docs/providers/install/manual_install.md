@@ -10,8 +10,32 @@ installation, this is the way to go.
 !!! info
     Review the guidelines for configuring Hyperion for Provider Registration on Qry, a new decentralized ecosystem that provides access to a variety of data services and APIs. Follow the steps outlined in [Config Provider](../../providers/setup/qry_connection.md) steps
 
-!!! attention
-    Recommended OS: Ubuntu 24.04
+!!! warning "OS requirement: glibc ≥ 2.38 (Ubuntu 24.04+)"
+    Recommended OS: **Ubuntu 24.04** (or any Linux with **glibc ≥ 2.38**).
+
+    This is a **hard requirement**, not just a recommendation. The API/stream
+    server and the indexer controller load the `uWebSockets.js` native binary,
+    and its prebuilt binaries are compiled against **GLIBC_2.38**. On older
+    distributions the process fails to start with an unhandled rejection like:
+
+    ```
+    Error: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.38' not found
+      (required by .../node_modules/uWebSockets.js/uws_linux_x64_127.node)
+    ```
+
+    (The accompanying "uWS.js supports only Node.js versions 20, 22, 24 and 25"
+    line is a generic fallback message — the `GLIBC_2.38 not found` line is the
+    real cause. Node.js version is unrelated.)
+
+    **Ubuntu 22.04 ships glibc 2.35 and will not run Hyperion** with the
+    prebuilt binaries. If you cannot upgrade the OS, options are:
+
+    - Upgrade the host to Ubuntu 24.04+ (glibc ≥ 2.38) — recommended.
+    - Run Hyperion in a container with a glibc ≥ 2.38 base image
+      (e.g. `node:22-trixie-slim` / Debian 13, or an Ubuntu 24.04 base).
+    - Build `uWebSockets.js` from source on the target host against its
+      local glibc (unsupported by upstream, but the documented escape hatch:
+      *"you can always build your own binaries on older Linux systems"*).
 
 ## Dependencies
 
