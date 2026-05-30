@@ -51,6 +51,7 @@ nav:
           - RabbitMQ: providers/help/rabbit.md
   - Operations:
       - Index Lifecycle Management: providers/operations/index_management.md
+      - ABI Scanner: providers/operations/abi_scanner.md
   - Users / Developers:
       - Getting Started: dev/howtouse.md
       - Stream Client: dev/stream_client.md
