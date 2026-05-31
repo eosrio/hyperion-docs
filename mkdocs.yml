@@ -52,6 +52,11 @@ nav:
   - Operations:
       - Index Lifecycle Management: providers/operations/index_management.md
       - ABI Scanner: providers/operations/abi_scanner.md
+  - Tiered Storage:
+      - Overview & Architecture: tiered-storage/overview.md
+      - Component Reference: tiered-storage/components.md
+      - API Hydration & Config: tiered-storage/api-hydration.md
+      - Operator Runbook: tiered-storage/operations.md
   - Users / Developers:
       - Getting Started: dev/howtouse.md
       - Stream Client: dev/stream_client.md
