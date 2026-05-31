@@ -120,12 +120,14 @@ delta-proto --from-disk /path/to/state-history --abi-index wax-abi.ndjson \
 | `--abi-index <ndjson>` | Decode key. |
 | `--start` / `--end` / `--threads` | Range + parallelism. |
 | `--out <file>` | Output NDJSON (omit to measure pure decode throughput). |
+| **`--metadata-only`** | **COLD TIER**: drop the `data`/`value` row payload from the emitted docs (the payload `archive-server` reconstructs on demand via `POST /deltas`), keeping `block_num`/`code`/`scope`/`table`/`primary_key`/`payer`/`present`. The delta analog of `action-proto --metadata-only`. |
 
-!!! warning "Delta cold-tiering is not wired end-to-end yet"
-    `delta-proto` produces the docs, but the archive `/deltas` endpoint and the API
-    delta-hydration contract are **not finalized** — see
-    [API hydration § deltas](api-hydration.md). For now, deltas are reader/benchmark-only.
-    Only the action `/actions` contract is finalized in v4.5.
+!!! success "This is the producer of the cold delta tier"
+    Run it with `--metadata-only` over the range you want to freeze; load the NDJSON into
+    your `<chain>-delta-v1-*` indices (replacing the full docs for that range). The
+    **same** `archive-server` then serves the dropped row payload on demand via
+    [`POST /deltas`](#post-deltas-the-delta-batch-contract). See
+    [API hydration § delta hydration](api-hydration.md#delta-hydration) for the consumer side.
 
 ---
 
@@ -135,7 +137,9 @@ The keystone. Fronts **one frozen block range** and serves `act.data` on demand 
 the `trace_history` index → log offset, inflating the block, parsing the traces, and
 decoding `act.data` against the contract ABI active at that block. A pool of worker threads
 each own their file handles, an ABI registry, and a small per-thread block cache (so
-repeated/nearby requests skip the re-inflate).
+repeated/nearby requests skip the re-inflate). The **same process also serves `POST /deltas`**
+from the `chain_state_history` log in the same `--from-disk` dir, on a parallel delta reader +
+cache — so one archive per frozen range answers both `/actions` and `/deltas`.
 
 ```bash
 archive-server \
@@ -146,17 +150,22 @@ archive-server \
 
 | Flag | Default | Meaning |
 |---|---|---|
-| `--from-disk <dir>` | — | Frozen state-history dir (must contain `trace_history.{log,index}`). |
+| `--from-disk <dir>` | — | Frozen state-history dir (must contain `trace_history.{log,index}`; `chain_state_history.{log,index}` is **optional** and enables `POST /deltas`). |
 | `--abi-index <ndjson>` | — | abi-scanner output (decode key). |
 | `--port <p>` | `8080` | TCP port. |
 | `--threads <n>` | `8` | Worker threads serving requests. |
 
 On startup it reads `first_block` from the first log entry header and `last_block` from the
-index length, then logs:
+index length, then logs the action range and (if the delta log is present) the delta range:
 
 ```text
 [archive-server] serving blocks [<first>..<last>] on http://0.0.0.0:8080 with 8 worker(s)
+[archive-server]   delta blocks [<first>..<last>] (chain_state_history)
 ```
+
+If the `--from-disk` dir has no `chain_state_history` log, the archive still serves actions and
+the `GET` endpoints normally; only `POST /deltas` is disabled (it returns `503`) and the second
+line reads `delta blocks: none — POST /deltas disabled`.
 
 The `[first_block..last_block]` range is what each API archive entry's
 `first_block`/`last_block` must cover.
@@ -174,9 +183,10 @@ The `[first_block..last_block]` range is what each API archive entry's
 | `GET /health` | Returns `ok` (text/plain). Liveness probe. |
 | `GET /action?block_num=<N>&global_sequence=<G>` | One action: decode `act.data`, return one JSON object (incl. a `decode_us` timing field). |
 | `GET /block/<N>` | All `action_traces` of block N as a JSON array. |
-| **`POST /actions`** | **Batch hydration** — the endpoint the Hyperion API uses. |
+| **`POST /actions`** | **Batch action hydration** — the endpoint the Hyperion API uses for `act.data`. |
+| **`POST /deltas`** | **Batch delta hydration** — the delta analog, served from `chain_state_history` in the same `--from-disk` dir. Returns `503` if that log is absent. |
 | any non-GET/non-POST | `405`. |
-| `POST` to any path other than `/actions` | `404`. |
+| `POST` to any path other than `/actions` or `/deltas` | `404`. |
 
 ### POST /actions — the batch contract (the one the API uses)
 
@@ -251,6 +261,76 @@ curl -s -X POST http://archive-01:8080/actions \
   -H 'Content-Type: application/json' \
   -d '[{"block_num":123456789,"global_sequence":"987654321"},{"block_num":1,"global_sequence":1}]'
 ```
+
+### POST /deltas — the delta batch contract
+
+The delta analog of `POST /actions`, served by the **same** process from the
+`chain_state_history` log. It hydrates cold-tier `contract_row` payloads for many delta hits in
+one round-trip. The same engine and per-request discipline apply: items are grouped by
+`block_num` so each distinct block is read + inflated + walked **exactly once** through a
+per-thread delta cache, and the response preserves request order. If the archive was started
+without a `chain_state_history` log, every `POST /deltas` returns `503`.
+
+**Request** — `Content-Type: application/json`, a JSON **array**:
+
+```json
+[
+  {"block_num": 49, "code": "eosio.token", "scope": "eosio", "table": "accounts", "primary_key": "5459781"},
+  {"block_num": 49, "code": "eosio.token", "scope": "eosio", "table": "accounts", "primary_key": 1},
+  {"block_num": 1,  "code": "eosio.token", "scope": "eosio", "table": "accounts", "primary_key": "1"}
+]
+```
+
+- `block_num` is a JSON **number** (`u64`, range-checked against `[first_block..last_block]`).
+- `code` and `table` are Antelope **name strings** (resolved to `u64` for the decode).
+- `scope` is matched by its **name string**, so arbitrary (non-name-bijective) integer scopes
+  work — it is intentionally not resolved to a `u64`.
+- `primary_key` is accepted as a JSON **number OR a decimal string** (both parsed to `u64`;
+  strings preserve precision for keys above `2^53`).
+
+**Response** — `200`, `{"deltas":[ ... ]}` in the **same order** as the request:
+
+```json
+{"deltas":[
+  {"block_num":49,"code":"eosio.token","scope":"eosio","table":"accounts","primary_key":"5459781","data":{"balance":"100.0000 EOS"},"found":true},
+  {"block_num":49,"code":"eosio.token","scope":"eosio","table":"accounts","primary_key":"1","value":"00aa…","found":true},
+  {"block_num":1,"code":"eosio.token","scope":"eosio","table":"accounts","primary_key":"1","found":false}
+]}
+```
+
+- **found + decoded**: carries `data` — the decoded row JSON object.
+- **found + undecodable**: carries `value` — the raw row bytes as **lowercase** hex (matching
+  `delta-proto`, the validated producer of the cold doc, so a hydrated `value` is byte-identical
+  to a hot doc). Note this is **lowercase**, whereas an undecodable action `data` from
+  `/actions` is uppercase `{"hex":"…"}`.
+- **not-found**: carries **neither** `data` nor `value` (`found:false`). Returned when the block
+  is outside the archived range, the block has no `contract_row` delta for that
+  `(code, scope, table, primary_key)`, or the per-request work bound was hit first.
+- The echoed key (`block_num`, `code`, `scope`, `table`, `primary_key`) is always present;
+  `primary_key` is echoed as a **string** (the canonical Hyperion delta-doc form), so large
+  `u64` keys round-trip without precision loss.
+
+**Errors & work-bound** (identical to `/actions`):
+
+| Status | When |
+|---|---|
+| `400 {"error":...}` | Malformed/unreadable body, non-array top-level, a bad item shape, or a `code`/`table` that isn't a valid Antelope name. |
+| `413 {"error":...}` | More than **20000** items, **or** body larger than **64 MiB**. |
+| `503 {"error":...}` | The archive has no `chain_state_history` log (delta serving disabled). |
+
+The per-request decode work is bounded exactly as for `/actions`: at most **4096 distinct
+blocks** resolved and a **~2-second wall-clock deadline**; any items not reached come back as
+`"found":false` (best-effort, contract-safe).
+
+`curl` smoke test:
+
+```bash
+curl -s -X POST http://archive-01:8080/deltas \
+  -H 'Content-Type: application/json' \
+  -d '[{"block_num":49,"code":"eosio.token","scope":"eosio","table":"accounts","primary_key":"5459781"},{"block_num":1,"code":"eosio.token","scope":"eosio","table":"accounts","primary_key":"1"}]'
+```
+
+See [API hydration § delta hydration](api-hydration.md#delta-hydration) for the consumer side.
 
 ---
 
@@ -347,12 +427,16 @@ Full details and the contributing guide are in the
 ## Status
 
 !!! note "Implementation status — as of this release"
-    - **archive-server** (including `POST /actions`) and the **API hydration layer** are
-      **built and compile-clean** (`cargo check` and `tsc --noEmit` both pass) and have
-      **passed an adversarial multi-agent review**. The per-request work bound on
-      `POST /actions` and the API-side archive-entry validation described above were both
+    - **archive-server** (including `POST /actions` **and `POST /deltas`**) and the **API
+      hydration layer** are **built and compile-clean** (`cargo check` and `tsc --noEmit` both
+      pass) and have **passed an adversarial multi-agent review**. The per-request work bound on
+      both batch endpoints and the API-side archive-entry validation described above were both
       findings from that review.
-    - The full **API → Elasticsearch → archive round-trip** is being integration-tested on
-      the local reference Docker stack: **in progress / pending maintainer sign-off**.
-    - **Delta hydration is a deliberate no-op / TODO.** Only the action `/actions` contract
-      is finalized in v4.5; `delta-proto` is reader/benchmark-only for now.
+    - **Delta cold-tiering is live.** `delta-proto --metadata-only` produces the cold delta
+      index, the same `archive-server` serves `POST /deltas`, and the API `hydrateDeltas`
+      splices the payload back. `POST /deltas` and `hydrateDeltas` were **live-verified
+      read-only against a WAX node** versus a `delta-proto` oracle (byte-identical decoded +
+      raw-`value` rows, ordering, `400`/`413`, and the work-bound all pass).
+    - The full **API → Elasticsearch → archive round-trip** — for **both** actions and deltas —
+      is being integration-tested on the local reference Docker stack: **in progress / pending
+      maintainer sign-off**.

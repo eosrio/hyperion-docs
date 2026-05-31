@@ -169,8 +169,8 @@ The archive groups the request by `block_num` so each distinct block is read, in
 !!! warning "Integration testing in progress"
     The full **API → Elasticsearch → archive** round-trip is being integration-tested on the local reference Docker stack. This is **in progress / pending maintainer sign-off**. Validate on a staging chain before a production rollout.
 
-!!! note "Delta hydration is a deliberate no-op / TODO"
-    Only the action `POST /actions` contract is finalized. The reader (`delta-proto`) and the API scaffolding exist, but the archive `/deltas` endpoint and the delta-hydration wire contract are **not** finalized. If `api.archives.deltas` is configured, the API logs a TODO and leaves delta values untouched — it does not guess a contract. See [API hydration](api-hydration.md) for the details.
+!!! success "Deltas are supported too"
+    Deltas are cold-tiered exactly like actions: `delta-proto --metadata-only` produces the cold delta index (dropping the row `data`/`value` payload), the **same** `archive-server` serves `POST /deltas` from the `chain_state_history` log in the same `--from-disk` dir, and the API `hydrateDeltas` splices the payload back into cold delta hits. `POST /deltas` and `hydrateDeltas` were **live-verified read-only against a WAX node**; the full Docker-stack round-trip is the one outstanding integration item (for both actions and deltas). See [API hydration § delta hydration](api-hydration.md#delta-hydration) for the contract and details.
 
 ## See also
 

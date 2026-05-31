@@ -5,7 +5,7 @@ How the Hyperion API transparently re-fetches cold-tier `act.data` from an archi
 Introduced in **Hyperion v4.5**, hydration is **strictly additive and opt-in**: a deployment that does not configure `api.archives` behaves byte-for-byte exactly as before.
 
 !!! info "Status — built, reviewed, integration pending"
-    The archive-server (including `POST /actions`) and this API hydration layer are **built and compile-clean** — both `cargo check` and `tsc --noEmit` pass — and have **passed an adversarial multi-agent review**. The full API → Elasticsearch → archive round-trip is being integration-tested on the local reference Docker stack: **in progress / pending maintainer sign-off**. Delta hydration is a deliberate no-op / TODO — only the action `/actions` contract is finalized. See [Operations](operations.md) for the broader rollout status.
+    The archive-server (including `POST /actions` **and `POST /deltas`**) and this API hydration layer are **built and compile-clean** — both `cargo check` and `tsc --noEmit` pass — and have **passed an adversarial multi-agent review**. Both `POST /deltas` and the real `hydrateDeltas` have additionally been **live-verified read-only against a WAX node** (see [Delta hydration](#delta-hydration)). The full API → Elasticsearch → archive round-trip (for **both** actions and deltas) is being integration-tested on the local reference Docker stack: **in progress / pending maintainer sign-off**. See [Operations](operations.md) for the broader rollout status.
 
 ## What it does
 
@@ -22,7 +22,7 @@ Hydration is wired into three routes:
 
 - `GET /v2/history/get_actions`
 - `GET /v2/history/get_transaction`
-- `GET /v2/history/get_deltas` (delta hydration is a **no-op / TODO** — see below)
+- `GET /v2/history/get_deltas` (cold delta payloads are hydrated by `hydrateDeltas` — see [Delta hydration](#delta-hydration))
 
 !!! tip "Hydration never fails a request"
     Hydration is **strictly best-effort**. Any archive timeout, non-200 status, malformed body, or order/length mismatch is logged via `hLog` and the affected hits are simply left without `act.data` — exactly the pre-hydration behavior. Hydration never fails the surrounding request.
@@ -42,7 +42,10 @@ Add an `archives` block under `api` in your chain config (`config/<chain>.config
       { "url": "http://archive-01:8080", "first_block": 1,         "last_block": 100000000 },
       { "url": "http://archive-02:8080", "first_block": 100000001, "last_block": 200000000 }
     ],
-    "deltas": []                // delta archive: /deltas contract not finalized (TODO no-op)
+    "deltas": [                 // delta archives: same shape as actions; serve POST /deltas
+      { "url": "http://archive-01:8080", "first_block": 1,         "last_block": 100000000 },
+      { "url": "http://archive-02:8080", "first_block": 100000001, "last_block": 200000000 }
+    ]
   }
 }
 ```
@@ -53,7 +56,7 @@ Add an `archives` block under `api` in your chain config (`config/<chain>.config
 | `timeout_ms` | number | `2000` | Per-archive HTTP request timeout. |
 | `max_batch` | number | `20000` | Items per `POST /actions`; **capped at 20000** even if set higher. |
 | `actions[]` | array | `[]` | The action archives. Each entry: `{ url, first_block, last_block }`. |
-| `deltas[]` | array | `[]` | Delta archives (TODO — not implemented end-to-end). |
+| `deltas[]` | array | `[]` | The delta archives. Each entry has the **same shape** as `actions[]` (`{ url, first_block, last_block }`). Typically the **same** `archive-server` URLs as `actions[]`, since one archive serves both `POST /actions` and `POST /deltas`. Empty/absent ⇒ delta hydration no-ops. |
 
 Each `ArchiveEntry`:
 
@@ -157,17 +160,46 @@ The registry source is `archive-registry.ts` and the hydration logic is `archive
 
     Only **above `2^53`** could a cold action fail to hydrate: it would come back as `found:false` with `act.data` absent — **never wrong data**. The durable fix (indexing `global_sequence` as a string / keyword) is a **breaking mapping change** and is intentionally deferred beyond the non-breaking v4.5 release.
 
-## Delta hydration — a deliberate no-op
+## Delta hydration
 
-`hydrateDeltas` (in `archive-hydration.ts`) is intentionally a **no-op / TODO**:
+`hydrateDeltas` (in `archive-hydration.ts`) is the real delta analog of `hydrateActions`: when a cold-tier delta hit has its payload dropped, it re-fetches the row from the owning delta archive's `POST /deltas` and splices it back in. It is wired into `get_deltas`.
 
-- When **no** delta archive is configured (`api.archives.deltas` empty / hydration off — the current expected state), it cleanly no-ops.
-- When a delta archive **is** configured, it logs a one-line TODO and **leaves delta values untouched** — because the `/deltas` wire contract is **not finalized**. The code refuses to guess a contract and risk corrupting responses.
+!!! note "Delta hydration is supported in v4.5"
+    Cold delta payloads are re-fetched on demand from the archive, exactly as action `act.data` is. Configure `api.archives.deltas` (same shape as `actions[]`, typically the same archive URLs) to enable it. When `api.archives.deltas` is empty / absent, delta hydration cleanly no-ops and cold delta docs simply lack their payload — byte-for-byte the pre-hydration behavior.
 
-The grouping/dispatch scaffolding (registry, per-archive grouping) is in place, so once the `/deltas` contract lands only the POST + assign step needs real wiring. The reader (`delta-proto`) already produces the docs; only the archive endpoint plus this assign step remain.
+### How a cold delta is detected
 
-!!! danger "Do not rely on delta hydration today"
-    Only the action `/actions` contract is finalized. Delta hydration is a deliberate placeholder and will not re-fetch cold delta payloads.
+A Hyperion delta `_source` carries its row payload as **either** a decoded `data` object **or** a raw `value` hex string. A **cold** (metadata-only) delta doc — produced by `delta-proto --metadata-only` — carries **NEITHER**. `hydrateDeltas` hydrates exactly the hits that have neither `data` nor `value` (and whose `block_num` maps to a configured delta archive). A hot delta that already carries `data` or `value` is skipped (untouched).
+
+### The `/deltas` wire contract
+
+```text
+POST <archive>/deltas
+  body: [{ "block_num": <number>, "code": "<name>", "scope": "<name>",
+           "table": "<name>", "primary_key": <u64 number | decimal string> }, ...]
+  200 : { "deltas": [ ...same order as request... ] }
+    found + decoded:     { block_num, code, scope, table, primary_key, "data": <decoded row JSON>, "found": true }
+    found + undecodable: { block_num, code, scope, table, primary_key, "value": "<lowercase hex>", "found": true }
+    not-found:           { block_num, code, scope, table, primary_key, "found": false }
+```
+
+- **Same caps and work-bound as `/actions`**: a malformed / non-array / bad-item body returns `400`; more than **20000** items or a body larger than **64 MiB** returns `413`; per request the archive resolves at most **4096 distinct blocks** and stops after a **~2-second** deadline, leaving unreached items `found:false`.
+- `scope` is matched by its **name string**, so arbitrary integer scopes work.
+- `primary_key` accepts a JSON **number or a decimal string** and is **echoed back as a string**, so large `u64` primary keys round-trip without precision loss — unlike the action `global_sequence > 2^53` caveat below, which applies to **actions only**.
+- Undecodable rows come back as **lowercase** hex under `value` (matching `delta-proto`, the validated producer of the cold doc), so a hydrated `value` is byte-identical to what a hot doc would carry. (Note: this is lowercase, whereas an undecodable action `data` hex from `/actions` is uppercase.)
+
+### Assignment back onto the hit
+
+`hydrateDeltas` collects cold delta hits, groups them by owning delta archive (`api.archives.deltas` via the `ArchiveRegistry`), batch-POSTs `/deltas` per archive **in parallel** (chunked at `max_batch`), and splices the result back **by request index**:
+
+- `found:true` + `data` ⇒ sets `hit._source.data` (decoded row JSON).
+- `found:true` + `value` ⇒ sets `hit._source.value` (raw hex).
+- `found:false` (or neither field) ⇒ the hit is left untouched (stays cold).
+
+Like `hydrateActions`, it is **strictly best-effort and never throws**: any archive timeout, non-200, malformed body, or order/length mismatch is logged via `hLog` and the affected hits are left without `data`/`value` — exactly the pre-hydration behavior. It is **non-breaking**: with no `api.archives.deltas` configured it is an effective no-op.
+
+!!! success "Live-verified read-only against a WAX node"
+    `POST /deltas` was live-tested read-only against a WAX node versus a `delta-proto` oracle: 68 decoded + 3 raw-`value` rows were byte-identical, including `scope != code` rows, primary keys above `2^53`, request ordering, the `400`/`413` errors, and the 4096-block / ~2-second work-bound. The real compiled `hydrateDeltas` hydrated cold delta hits to byte-identical `data` (a hot hit was left untouched, an out-of-range hit stayed cold, and a disabled registry was a no-op). The full local Docker-stack ES + API + archive round-trip is still the one outstanding integration item — for **both** actions and deltas.
 
 ## Storage levers (for context)
 
@@ -185,11 +217,11 @@ See the [Overview](overview.md) for how these fit the wider tiered-storage desig
 | File | Role |
 |---|---|
 | `src/api/helpers/archive-registry.ts` | `ArchiveRegistry` — config-built, range lookup with validation, `list()`. |
-| `src/api/helpers/archive-hydration.ts` | `hydrateActions` (real), `hydrateDeltas` (no-op/TODO). |
+| `src/api/helpers/archive-hydration.ts` | `hydrateActions` and `hydrateDeltas` (both real). |
 | `src/api/helpers/archive-query.ts` | `isHydrationDisabled` — the `?hydrate` param parser. |
 | `src/interfaces/hyperionConfig.ts` | `ArchivesConfig` / `ArchiveEntry` + Zod schema. |
 | `src/api/routes/v2-history/get_actions/*` | Hydration wired before the response loop; `hydrate` in OpenAPI schema. |
 | `src/api/routes/v2-history/get_transaction/*` | Hydration wired before the action loop. |
-| `src/api/routes/v2-history/get_deltas/*` | `hydrateDeltas` (no-op) wired; `hydrate` param consumed so it isn't an ES filter. |
+| `src/api/routes/v2-history/get_deltas/*` | `hydrateDeltas` wired before the response loop; `hydrate` param consumed so it isn't an ES filter. |
 
 All helper sources live under [`src/api/helpers/`](https://github.com/eosrio/hyperion-history-api/tree/main/src/api/helpers){:target="_blank"} in the [Hyperion history API repo](https://github.com/eosrio/hyperion-history-api){:target="_blank"}.

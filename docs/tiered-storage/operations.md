@@ -188,12 +188,70 @@ The archive's per-thread block cache makes repeated/nearby lookups within a batc
 
 ---
 
-## Step 7 — Deltas (not yet available)
+## Step 7 — Cold-tier the deltas (optional, same archive)
 
-Delta cold-tiering is **not wired end-to-end**. `delta-proto` produces delta docs and the API scaffolding exists, but the archive `/deltas` endpoint and the delta-hydration wire contract are **not finalized**.
+Deltas are cold-tiered exactly like actions: produce a metadata-only delta index with `delta-proto --metadata-only`, let the **same** `archive-server` serve `POST /deltas` from the same `--from-disk` dir, and add an `api.archives.deltas` block. This step is independent of and parallel to the action steps — do it if you also want to drop cold delta payloads.
 
-!!! warning "Do not rely on delta hydration yet"
-    If you configure `api.archives.deltas`, the API logs a one-line TODO and leaves delta values untouched — it refuses to guess a contract and risk corrupting responses. Only the action `/actions` contract is finalized. See [API hydration § delta hydration](api-hydration.md#delta-hydration-a-deliberate-no-op).
+### 7a — Produce + load the cold delta index
+
+Re-emit the frozen range as **metadata-only** delta docs. This drops the `data`/`value` row payload but keeps `block_num`/`code`/`scope`/`table`/`primary_key`/`payer`/`present` — everything searchable plus the key the archive needs to re-fetch the row. This is the delta analog of [Step 2](#step-2-produce-load-the-cold-tier-metadata-only-index):
+
+```bash
+delta-proto \
+  --from-disk /data/frozen/state-history \
+  --abi-index  wax-abi.ndjson \
+  --start 2 --end 99999999 --threads 8 \
+  --metadata-only \
+  --out /tmp/cold-deltas.ndjson
+```
+
+Load it into your `<chain>-delta-v1-*` indices, **replacing** the full docs for that range. Delta docs are keyed by `block-code-scope-table-pk` (the Hyperion `_id` rule), so re-loading the same range with metadata-only docs overwrites the full ones idempotently.
+
+### 7b — The same archive already serves /deltas
+
+You do **not** start a second process. The `archive-server` from [Step 3](#step-3-run-an-archive-server-over-the-frozen-range) reads `chain_state_history` from the **same** `--from-disk` dir as the trace log, and serves both `POST /actions` and `POST /deltas`. At startup it logs the delta range alongside the action range:
+
+```text
+[archive-server] serving blocks [2..99999999] on http://0.0.0.0:8080 with 8 worker(s)
+[archive-server]   delta blocks [2..99999999] (chain_state_history)
+```
+
+!!! note "The chain_state_history log is optional"
+    If the `--from-disk` dir has no `chain_state_history.{log,index}`, the archive still serves actions and the `GET` endpoints normally — only `POST /deltas` is disabled and returns `503`. The startup log then shows `delta blocks: none — POST /deltas disabled`.
+
+### 7c — Configure `api.archives.deltas`
+
+Add a `deltas` array — **same shape** as `actions`, typically the **same** archive URLs (one archive serves both):
+
+```jsonc
+"api": {
+  "archives": {
+    "enabled": true,
+    "timeout_ms": 2000,
+    "max_batch": 20000,
+    "actions": [
+      { "url": "http://archive-01:8080", "first_block": 2, "last_block": 99999999 }
+    ],
+    "deltas": [
+      { "url": "http://archive-01:8080", "first_block": 2, "last_block": 99999999 }
+    ]
+  }
+}
+```
+
+Restart the API. A `get_deltas` query that lands on a cold block now transparently re-fetches the row payload. Per-request opt-out with `?hydrate=false`, identical to actions.
+
+### Verify POST /deltas directly
+
+```bash
+# the batch endpoint the API uses (a real row + a bogus pk + an out-of-range block)
+curl -s -X POST http://archive-01:8080/deltas \
+  -H 'Content-Type: application/json' \
+  -d '[{"block_num":49,"code":"eosio.token","scope":"eosio","table":"accounts","primary_key":"5459781"},{"block_num":49,"code":"eosio.token","scope":"eosio","table":"accounts","primary_key":"999999999999"},{"block_num":999999999,"code":"eosio.token","scope":"eosio","table":"accounts","primary_key":"1"}]'
+# -> {"deltas":[ {... "data":{...}, "found":true}, {... "found":false}, {... "found":false} ]}
+```
+
+A decoded row carries `data` (decoded JSON); an undecodable row carries `value` (lowercase hex); a not-found row carries neither. `primary_key` is echoed as a string (so large `u64` keys round-trip without precision loss), and `scope` is matched by its name (arbitrary integer scopes work). The same caps apply as `/actions`: a 21000-item array or a >64 MiB body returns `413`, a non-array/garbage body returns `400`, and the per-request 4096-block / ~2-second work-bound leaves unreached items `found:false`. See [API hydration § delta hydration](api-hydration.md#delta-hydration).
 
 ---
 
@@ -207,8 +265,8 @@ Delta cold-tiering is **not wired end-to-end**. `delta-proto` produces delta doc
 ### Status — what is and isn't verified
 
 !!! note "Current status (pending maintainer sign-off)"
-    The `archive-server` (including `POST /actions`) and the API hydration layer are **built and compile-clean** — `cargo check` and `tsc --noEmit` both pass — and have **passed an adversarial multi-agent review**. The per-request work-bound (Step 6) and the inverted-range validation (Step 4) were findings from that review and are now in the code.
+    The `archive-server` (including `POST /actions` **and `POST /deltas`**) and the API hydration layer are **built and compile-clean** — `cargo check` and `tsc --noEmit` both pass — and have **passed an adversarial multi-agent review**. The per-request work-bound (Step 6) and the inverted-range validation (Step 4) were findings from that review and are now in the code.
 
-    The full **API → Elasticsearch → archive** round-trip is being integration-tested on the local reference Docker stack — **in progress / pending maintainer sign-off**. Validate on a staging chain before a production rollout.
+    Both `POST /deltas` and the real `hydrateDeltas` have additionally been **live-verified read-only against a WAX node** versus a `delta-proto` oracle (byte-identical decoded + raw-`value` rows, `scope != code`, primary keys above `2^53`, ordering, `400`/`413`, and the work-bound all pass). The action path is verified the same way.
 
-    Delta hydration is a **deliberate no-op / TODO**: only the action `/actions` contract is finalized.
+    The full **API → Elasticsearch → archive** round-trip — for **both** actions and deltas — is being integration-tested on the local reference Docker stack — **in progress / pending maintainer sign-off**. Validate on a staging chain before a production rollout.
