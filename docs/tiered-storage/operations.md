@@ -39,7 +39,7 @@ abi-scanner --from-disk /data/nodeos/state-history \
 For a node restored from a chain **snapshot**, you can get the complete current-ABI set from the single init-delta block. For historical decode across the whole range, the full scan above is what you want.
 
 !!! tip "Full ABI Scanner reference"
-    The abi-scanner has its own operator page covering the snapshot fast-path, SHiP fan-out, and resumable scans. See the [ABI Scanner](../providers/operations/abi_scanner.md) guide and the [abi-scanner README](https://github.com/eosrio/abi-scanner){:target="_blank"}.
+    The abi-scanner has its own operator page covering the snapshot fast-path, SHiP fan-out, and resumable scans. See the [ABI Scanner](../providers/operations/abi_scanner.md) guide and the [abi-scanner README](https://github.com/eosrio/hyperion-tools){:target="_blank"}.
 
 ---
 

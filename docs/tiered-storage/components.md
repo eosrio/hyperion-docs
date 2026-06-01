@@ -2,14 +2,14 @@
 
 Reference for the binaries and the bench stack that make up the cold-tier archive,
 introduced in **Hyperion v4.5**. All of them live in the
-[abi-scanner](https://github.com/eosrio/abi-scanner){:target="_blank"} repo and build
+[abi-scanner](https://github.com/eosrio/hyperion-tools){:target="_blank"} repo and build
 with a single `cargo build --release` (Rust 1.74+, **no C++/clang** — the pure-Rust
 [rs_abieos](https://github.com/eosrio/rs-abieos){:target="_blank"} backend is used). The
 API-side hydration layer ships in the main Hyperion repo and is documented separately in
 [API hydration](api-hydration.md).
 
 ```text
-github.com/eosrio/abi-scanner
+github.com/eosrio/hyperion-tools
 ├── abi-scanner        # ABI index builder (the decode key)
 ├── action-proto       # reader: action_traces -> NDJSON / ES (cold-tier emit lives here)
 ├── delta-proto        # reader: table-row deltas -> NDJSON
@@ -420,7 +420,7 @@ more points.
     WAX, more on data-heavy chains). Use either or both.
 
 Full details and the contributing guide are in the
-[abi-scanner bench README](https://github.com/eosrio/abi-scanner/tree/main/bench){:target="_blank"}.
+[abi-scanner bench README](https://github.com/eosrio/hyperion-tools/tree/main/bench){:target="_blank"}.
 
 ---
 

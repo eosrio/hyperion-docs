@@ -10,7 +10,7 @@ This section documents the system for operators:
 | Page | What it covers |
 |---|---|
 | **overview.md** (this page) | Architecture, motivation, the lossless property, measured facts, the wire contract, and the honest status. |
-| [Component reference](components.md) | Every binary in the [abi-scanner](https://github.com/eosrio/abi-scanner){:target="_blank"} repo (reader, archive-server, es-load, bench stack) — flags, endpoints, and the exact `POST /actions` wire contract. |
+| [Component reference](components.md) | Every binary in the [abi-scanner](https://github.com/eosrio/hyperion-tools){:target="_blank"} repo (reader, archive-server, es-load, bench stack) — flags, endpoints, and the exact `POST /actions` wire contract. |
 | [API hydration](api-hydration.md) | The API side built in the Hyperion repo: the `api.archives` config block, the `ArchiveRegistry`, the `?hydrate` param, multi-archive routing, and the known limitations. |
 | [Operations](operations.md) | Step-by-step: build the ABI index, freeze a range, run one (or many) archive servers, point the API at them, and verify. |
 
@@ -20,7 +20,7 @@ Three moving parts. From a frozen state-history range you (1) build an ABI index
 
 ```bash
 # (0) Build the tools (Rust toolchain 1.74+, no C++ needed — pure-Rust abieos).
-git clone https://github.com/eosrio/abi-scanner && cd abi-scanner
+git clone https://github.com/eosrio/hyperion-tools && cd hyperion-tools
 cargo build --release            # abi-scanner, action-proto, delta-proto, archive-server, es-load
 
 # (1) Build the ABI index for the chain (needed to decode act.data).
@@ -129,7 +129,7 @@ The headline correctness guarantee: **a hydrated cold response is byte-equivalen
 
 ## Components at a glance
 
-All five binaries live in the [abi-scanner](https://github.com/eosrio/abi-scanner){:target="_blank"} repo (`cargo build --release`). Full reference in the [component reference](components.md).
+All five binaries live in the [abi-scanner](https://github.com/eosrio/hyperion-tools){:target="_blank"} repo (`cargo build --release`). Full reference in the [component reference](components.md).
 
 | Binary | Role |
 |---|---|
@@ -177,5 +177,5 @@ The archive groups the request by `block_num` so each distinct block is read, in
 - [Component reference](components.md) — every binary, flag, and endpoint.
 - [API hydration](api-hydration.md) — the `api.archives` config, the API plumbing, and the known limitations.
 - [Operations](operations.md) — the full step-by-step operator runbook.
-- [github.com/eosrio/abi-scanner](https://github.com/eosrio/abi-scanner){:target="_blank"} — the reader / archive / bench repo.
+- [github.com/eosrio/hyperion-tools](https://github.com/eosrio/hyperion-tools){:target="_blank"} — the reader / archive / bench repo.
 - [github.com/eosrio/hyperion-history-api](https://github.com/eosrio/hyperion-history-api){:target="_blank"} — the Hyperion API repo (hydration layer).

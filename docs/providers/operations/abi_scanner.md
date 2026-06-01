@@ -1,6 +1,6 @@
 # ABI Scanner
 
-[**abi-scanner**](https://github.com/eosrio/abi-scanner){:target="_blank"} is a standalone, high-performance tool that extracts **every contract ABI version** (`setabi`) across a chain's history into a portable snapshot that drops straight into Hyperion's ABI index (`<chain>-abi-v1`).
+[**abi-scanner**](https://github.com/eosrio/hyperion-tools){:target="_blank"} is a standalone, high-performance tool that extracts **every contract ABI version** (`setabi`) across a chain's history into a portable snapshot that drops straight into Hyperion's ABI index (`<chain>-abi-v1`).
 
 It is a fast, off-the-critical-path alternative to seeding ABIs by running the indexer in `abi_scan_mode`.
 
@@ -47,8 +47,8 @@ The Elasticsearch document `_id` is `block + account` (e.g. `49eosio.token`), so
 A Rust toolchain (1.74+) is the only requirement — no C++/clang.
 
 ```bash
-git clone https://github.com/eosrio/abi-scanner
-cd abi-scanner
+git clone https://github.com/eosrio/hyperion-tools
+cd hyperion-tools
 cargo build --release
 # binary at target/release/abi-scanner
 ```
@@ -135,6 +135,6 @@ After ingesting, start (or restart) the indexer with `indexer.abi_scan_mode = fa
 
 ## Reference
 
-- Source & full README: [github.com/eosrio/abi-scanner](https://github.com/eosrio/abi-scanner){:target="_blank"}
+- Source & full README: [github.com/eosrio/hyperion-tools](https://github.com/eosrio/hyperion-tools){:target="_blank"}
 - Pure-Rust abieos backend: [github.com/eosrio/rs-abieos](https://github.com/eosrio/rs-abieos){:target="_blank"}
 - Multi-node SHiP fan-out: [github.com/eosrio/fleet-router](https://github.com/eosrio/fleet-router){:target="_blank"}
