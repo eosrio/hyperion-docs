@@ -103,6 +103,7 @@ Whitelist for actions and deltas
 - `"index_deltas": true` ⇒ Index common table deltas (see delta on definitions/mappings)
 - `"index_transfer_memo": true` ⇒ Index transfers memo
 - `"index_all_deltas": true` ⇒ Index all table deltas
+- `"index_deltas_deletions": false` ⇒ Also index row deletions (deltas with `present=0`) so they appear in `get_deltas` (query with `&present=0` for removals only). Off by default; enabling it adds index volume on high-churn tables and only affects blocks indexed afterwards — reindex the affected range to backfill past deletions.
 
 #### 7.1 Streaming
 
@@ -238,7 +239,8 @@ to `chains/eos.config.json`. The next step is to edit the file as the following:
     },
     "index_deltas": true,
     "index_transfer_memo": true,
-    "index_all_deltas": true
+    "index_all_deltas": true,
+    "index_deltas_deletions": false
   },
   "prefetch": {
     "read": 50,
