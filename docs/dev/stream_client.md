@@ -82,6 +82,14 @@ The `streamActions` method allows you to receive a stream of blockchain actions 
     - Block number can be either positive or negative - E.g.: **700** (start from block 700)
     - In case of negative block number, it will be subtracted from the HEAD - E.g.: **-150** (since 150 blocks ago)
     - Date format (ISO 8601) - `E.g. 2020-01-01T00:00:00.000Z`
+
+!!! warning "Server-side history replay limits (Hyperion ≥ 4.1.0)"
+    A `start_from` in the past triggers a **history replay** on the server, which is subject to
+    operator-configured limits: a per-replay document cap (`stream_scroll_limit`, default 50000) and a
+    per-process concurrency cap (`stream_max_concurrent_replays`, default 4). If the server is at
+    capacity your subscription is rejected with a "server busy" message — retry with backoff. For deep
+    history reads beyond the replay cap, prefer paginating the REST API (`get_actions` with bounds) and
+    use streaming for live data.
   
 ```typescript
 import {HyperionStreamClient, StreamClientEvents} from "@eosrio/hyperion-stream-client";
