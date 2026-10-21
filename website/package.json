@@ -1,0 +1,58 @@
+{
+  "name": "hyperion-docs-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "docusaurus start --host 127.0.0.1 --port 3045 --no-open",
+    "build": "docusaurus build && pagefind --site build",
+    "serve": "docusaurus serve --host 127.0.0.1 --port 3045 --no-open",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/*.test.mjs",
+    "reference:generate": "node scripts/generate-reference.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "check:migration": "node scripts/check-migration.mjs",
+    "deploy": "docusaurus deploy --skip-build"
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
+    "@fontsource-variable/inter": "5.3.0",
+    "@fontsource-variable/jetbrains-mono": "5.3.0",
+    "@mdx-js/react": "3.1.1",
+    "clsx": "2.1.1",
+    "prism-react-renderer": "2.4.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "3.10.2",
+    "@docusaurus/tsconfig": "3.10.2",
+    "@docusaurus/types": "3.10.2",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "cheerio": "1.0.0-rc.12",
+    "pagefind": "1.5.2",
+    "typescript": "6.0.3"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 safari versions"
+    ]
+  },
+  "overrides": {
+    "postcss-selector-parser": "7.1.7",
+    "serialize-javascript": "7.1.2",
+    "tinypool": "2.2.0",
+    "uuid": "11.1.1"
+  }
+}

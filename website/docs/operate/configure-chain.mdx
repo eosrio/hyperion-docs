@@ -1,0 +1,142 @@
+---
+title: Configure a chain
+slug: /providers/setup/hyperion_configuration/
+description: Initialize Hyperion connections, create a chain configuration and verify the generated paths.
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Configure a chain
+
+Initialize dependency connections and create a configuration for an Antelope chain. Run these commands from the root of your built Hyperion installation on its supported operating system.
+
+The [4.5 configuration CLI](https://github.com/eosrio/hyperion-history-api/blob/e1818923065d648a38009572d76badeab0684af1/src/cli/hyp-config.ts) creates and validates these files. Connection details belong in `config/connections.json`; chain behavior belongs in `config/chains/<chain>.config.json`.
+
+## Before you start
+
+Have a built installation, reachable dependencies, a chain RPC endpoint and a SHiP WebSocket endpoint. Confirm that both endpoints refer to the intended chain and that SHiP retains the range you need.
+
+The examples use a local RPC at `http://127.0.0.1:8888`, a local SHiP endpoint at `ws://127.0.0.1:8080`, and the local configuration name `mychain`. Replace these values for your environment. Keep credentials out of shared command transcripts.
+
+## Initialize dependency connections
+
+```bash
+./hyp-config connections init
+./hyp-config connections test
+```
+
+The initialization wizard collects connection details. The generated file is **`config/connections.json`**. Check the connection-test results for the dependencies your installation enables before continuing.
+
+Do not use a reset command to troubleshoot a connection error without first reviewing the existing configuration and its backup implications.
+
+## Create the chain configuration
+
+```bash
+./hyp-config chains new mychain \
+  --http "http://127.0.0.1:8888" \
+  --ship "ws://127.0.0.1:8080"
+```
+
+The current CLI group is `chains new`. Older documentation also shows the deprecated `new chain` command form.
+
+The CLI writes **`config/chains/mychain.config.json`** and adds the chain connection information to `config/connections.json`. Review both files before launching the indexer.
+
+## Validate and inspect
+
+```bash
+./hyp-config chains list
+./hyp-config chains validate mychain
+./hyp-config chains test mychain
+```
+
+Check the configured chain identity and endpoints, then inspect indexing options, API bind address, enabled capabilities and limits. Validation does not prove that your requested historical range is available.
+
+The [chain reference values](../reference/generated/configuration.md) show the committed template. Template values are distinct from effective runtime defaults.
+
+## Start the processes
+
+Choose the supervisor already configured for your installation. The default wrapper uses pm2. The systemd wrapper requires installed units and environment configuration before it is selected.
+
+<Tabs>
+<TabItem value="pm2" label="pm2" default>
+
+```bash
+./run mychain-indexer
+# In another terminal:
+./run mychain-api
+```
+
+The wrapper follows process logs after starting each process. Use a separate terminal for the API command.
+
+</TabItem>
+<TabItem value="systemd" label="systemd">
+
+First install and configure the units using the [source systemd guide](https://github.com/eosrio/hyperion-history-api/tree/79af10986bc0e2aa84cce3788aea202d23547818/systemd).
+
+```bash
+HYP_NO_PM2=1 ./run mychain-indexer
+HYP_NO_PM2=1 ./run mychain-api
+```
+
+Selecting the wrapper does not install units or grant service permissions.
+
+</TabItem>
+</Tabs>
+
+## Stopping
+
+Stop the indexer through its controller so it can settle work before exit:
+
+```bash
+./hyp-control indexer stop mychain
+./stop mychain-api
+```
+
+With installed systemd units, use `sudo systemctl stop hyperion-indexer@mychain` and `sudo systemctl stop hyperion-api@mychain`. The indexer unit invokes the graceful controller stop. Avoid force-killing workers during writes.
+
+## State synchronization (MongoDB)
+
+Run the synchronization commands for the state features consumers need:
+
+```bash
+./hyp-control sync accounts mychain
+./hyp-control sync permissions mychain
+./hyp-control sync voters mychain
+./hyp-control sync proposals mychain
+```
+
+Keep the indexer controller reachable: synchronization coordinates a pause and drain of active workers before writing state. A failed pause or unreachable controller aborts the operation.
+
+For configured custom tables, set `features.contract_state.enabled` and configure the contract/table mapping before `./hyp-control sync contract-state mychain eosio.token accounts`. The CLI supports `./hyp-config contracts add-single mychain eosio.token accounts true` for table configuration. Synchronization and subsequent live updates need the matching source and enabled state configuration; an indexed history tip does not establish complete current state.
+
+## Enabling streaming
+
+Set `features.streaming.enable` to `true` and enable the `traces` and/or `deltas` streams you intend to serve. Keep the API-to-indexer router address reachable through `WS_ROUTER_HOST` and `WS_ROUTER_PORT` in the chain connection. Restart the affected processes and verify a bounded subscription using the [Stream Client](/dev/stream_client/).
+
+## Protocol selection
+
+Omit `settings.protocol` to retain the default Antelope provider. Explicit provider selection uses `provider`, `package` and `profileId`; use the exact profile supplied by the installed protocol package. Executable provider changes require a controlled worker restart. See [protocol providers](/extend/protocols/) before changing the chain's data interpretation.
+
+## Archive hydration
+
+`api.archives.enabled` and `api.archives.actions` connect retained action metadata to cold payload services. Each entry supplies `url`, `first_block` and `last_block`. `hydrate=false` skips payload lookup for a request. Hydration does not supply missing membership, filtering or ordering fields. Delta archives are not an end-to-end serving path in the core implementation.
+
+## Plugins set up
+
+Use the [extension guide](/extend/overview/) to distinguish legacy plugin installation, protocol packages and declarative projections. Install the exact compatible component set and restart executable extensions through your normal process supervisor.
+
+## Confirm success
+
+Continue to [verify indexing and serving](verify-indexing.md). A process that starts successfully is only the first check: confirm dependency health, indexing progress, a query over known chain data and the state capabilities your consumers need.
+
+## If a check fails
+
+| Symptom | Inspect |
+|---|---|
+| Connections fail | Hostnames, ports, credentials, TLS configuration and service reachability in `config/connections.json`. |
+| The chain test fails | RPC/SHiP URLs, chain identity, SHiP availability and the requested source range. |
+| Generated files appear missing | Your working directory and the `config/` prefix; the CLI does not write these files to root `chains/`. |
+| API responds but expected history is absent | Indexing progress, selected chain, filters, retention and query bounds. |
+
+Change only the affected configuration and repeat its check before continuing. Preserve the evidence of what failed.

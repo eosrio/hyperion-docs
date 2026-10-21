@@ -1,0 +1,251 @@
+{
+  "baseline": "3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8",
+  "publicationReady": false,
+  "pages": [
+    {
+      "from": "/",
+      "to": "/",
+      "status": "migrated",
+      "doc": null
+    },
+    {
+      "from": "/dev/howtouse/",
+      "to": "/dev/howtouse/",
+      "status": "migrated",
+      "doc": "start/first-query.mdx"
+    },
+    {
+      "from": "/dev/stream_client/",
+      "to": "/dev/stream_client/",
+      "status": "migrated",
+      "doc": "build/streaming.md"
+    },
+    {
+      "from": "/dev/endpoint/",
+      "status": "migrated",
+      "to": "/dev/endpoint/",
+      "doc": "dev/endpoint.md"
+    },
+    {
+      "from": "/api/v1/",
+      "status": "migrated",
+      "to": "/api/v1/",
+      "doc": "api/v1.md"
+    },
+    {
+      "from": "/api/v2/",
+      "to": "/api/v2/",
+      "status": "migrated",
+      "doc": "api/v2.md"
+    },
+    {
+      "from": "/providers/get-started/",
+      "to": "/providers/get-started/",
+      "status": "migrated",
+      "doc": "operate/overview.md"
+    },
+    {
+      "from": "/providers/install/manual_install/",
+      "status": "migrated",
+      "to": "/providers/install/manual_install/",
+      "doc": "providers/install/manual_install.md"
+    },
+    {
+      "from": "/providers/install/auto_install/",
+      "status": "migrated",
+      "to": "/providers/install/auto_install/",
+      "doc": "providers/install/auto_install.md"
+    },
+    {
+      "from": "/providers/install/wsl2/",
+      "status": "migrated",
+      "to": "/providers/install/wsl2/",
+      "doc": "providers/install/wsl2.md"
+    },
+    {
+      "from": "/providers/install/docker/",
+      "status": "migrated",
+      "to": "/providers/install/docker/",
+      "doc": "providers/install/docker.md"
+    },
+    {
+      "from": "/providers/install/lxd/",
+      "status": "migrated",
+      "to": "/providers/install/lxd/",
+      "doc": "providers/install/lxd.md"
+    },
+    {
+      "from": "/providers/setup/hyperion_configuration/",
+      "to": "/providers/setup/hyperion_configuration/",
+      "status": "migrated",
+      "doc": "operate/configure-chain.mdx",
+      "anchorTargets": {
+        "initialize-connections": "initialize-dependency-connections",
+        "add-new-chain": "create-the-chain-configuration",
+        "check-your-chain-configuration": "validate-and-inspect",
+        "running-hyperion": "start-the-processes",
+        "starting": "start-the-processes",
+        "running-without-pm2-systemd": "start-the-processes",
+        "indexer": "start-the-processes",
+        "api": "start-the-processes",
+        "available-sync-commands": "state-synchronization-mongodb",
+        "custom-contract-state-indexing": "state-synchronization-mongodb"
+      }
+    },
+    {
+      "from": "/providers/setup/connections/",
+      "status": "migrated",
+      "to": "/providers/setup/connections/",
+      "doc": "reference/generated/connections.md",
+      "anchorTargets": {
+        "rabbitmq-parameters": "amqp",
+        "elasticsearch-parameters": "elasticsearch",
+        "redis-parameters": "redis",
+        "mongodb-parameters": "mongodb",
+        "chain-parameters": "chains",
+        "example": "amqp"
+      }
+    },
+    {
+      "from": "/providers/setup/chain/",
+      "to": "/providers/setup/chain/",
+      "status": "migrated",
+      "doc": "reference/generated/configuration.md",
+      "anchorTargets": {
+        "1-api-configuration": "api",
+        "2-settings": "settings",
+        "3-blacklists": "blacklists",
+        "4-whitelists": "whitelists",
+        "5-scaling-options": "scaling",
+        "6-indexer-configuration": "indexer",
+        "7-features": "features",
+        "71-streaming": "features",
+        "72-tables": "features",
+        "8-prefetch": "prefetch",
+        "example": "api"
+      }
+    },
+    {
+      "from": "/providers/setup/qry_connection/",
+      "status": "migrated",
+      "to": "/providers/setup/qry_connection/",
+      "doc": "providers/setup/qry_connection.md"
+    },
+    {
+      "from": "/providers/explorer/",
+      "status": "migrated",
+      "to": "/providers/explorer/",
+      "doc": "providers/explorer.md"
+    },
+    {
+      "from": "/providers/update/",
+      "status": "migrated",
+      "to": "/providers/update/",
+      "doc": "providers/update.md"
+    },
+    {
+      "from": "/providers/repair/",
+      "status": "migrated",
+      "to": "/providers/repair/",
+      "doc": "providers/repair.md"
+    },
+    {
+      "from": "/providers/operations/index_management/",
+      "status": "migrated",
+      "to": "/providers/operations/index_management/",
+      "doc": "providers/operations/index_management.md"
+    },
+    {
+      "from": "/providers/help/indexer/",
+      "status": "migrated",
+      "to": "/providers/help/indexer/",
+      "doc": "providers/help/indexer.md"
+    },
+    {
+      "from": "/providers/help/elasticsearch/",
+      "status": "migrated",
+      "to": "/providers/help/elasticsearch/",
+      "doc": "providers/help/elasticsearch.md"
+    },
+    {
+      "from": "/providers/help/kibana/",
+      "status": "migrated",
+      "to": "/providers/help/kibana/",
+      "doc": "providers/help/kibana.md"
+    },
+    {
+      "from": "/providers/help/rabbit/",
+      "status": "migrated",
+      "to": "/providers/help/rabbit/",
+      "doc": "providers/help/rabbit.md"
+    }
+  ],
+  "aliases": [
+    {
+      "from": "/next/build/query-actions/",
+      "to": "/build/query-actions/"
+    },
+    {
+      "from": "/next/build/streaming/",
+      "to": "/dev/stream_client/"
+    },
+    {
+      "from": "/next/extend/overview/",
+      "to": "/extend/overview/"
+    },
+    {
+      "from": "/next/operate/configure-chain/",
+      "to": "/providers/setup/hyperion_configuration/"
+    },
+    {
+      "from": "/next/operate/overview/",
+      "to": "/providers/get-started/"
+    },
+    {
+      "from": "/next/operate/verify-indexing/",
+      "to": "/operate/verify-indexing/"
+    },
+    {
+      "from": "/next/reference/generated/configuration/",
+      "to": "/providers/setup/chain/"
+    },
+    {
+      "from": "/next/reference/generated/get-account/",
+      "to": "/reference/generated/get-account/"
+    },
+    {
+      "from": "/next/reference/generated/get-actions/",
+      "to": "/reference/generated/get-actions/"
+    },
+    {
+      "from": "/next/reference/generated/get-transaction/",
+      "to": "/reference/generated/get-transaction/"
+    },
+    {
+      "from": "/next/reference/overview/",
+      "to": "/reference/overview/"
+    },
+    {
+      "from": "/next/releases/4.5/",
+      "to": "/releases/4.5/"
+    },
+    {
+      "from": "/next/releases/compatibility/",
+      "to": "/releases/compatibility/"
+    },
+    {
+      "from": "/next/start/first-query/",
+      "to": "/dev/howtouse/"
+    },
+    {
+      "from": "/next/start/overview/",
+      "to": "/start/overview/"
+    }
+  ],
+  "source": {
+    "branch": "release/4.5",
+    "commit": "e1818923065d648a38009572d76badeab0684af1"
+  },
+  "contentMigrationComplete": true,
+  "legacyAnchorCount": 410
+}

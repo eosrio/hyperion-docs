@@ -1,42 +1,44 @@
-name: Deploy Docs
-
+name: Publish Hyperion 4.5 docs
 on:
   push:
-    branches:
-      - main
-      - master
+    tags: ['4.5*', 'v4.5*']
   workflow_dispatch:
-
 permissions:
   contents: write
-
+concurrency:
+  group: hyperion-docs-publication
+  cancel-in-progress: false
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: website
     steps:
       - uses: actions/checkout@v4
-
-      - name: Configure Git Credentials
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - uses: actions/setup-python@v5
         with:
-          python-version: 3.x
-
-      - name: Cache MkDocs Material
-        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-
-      - uses: actions/cache@v4
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
         with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: ~/.cache
-          restore-keys: |
-            mkdocs-material-
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Deploy to GitHub Pages
-        run: mkdocs gh-deploy --force
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+      - name: Require a final 4.5 release tag for publication
+        run: '[[ "$GITHUB_REF_TYPE" == "tag" && "$RELEASE_TAG" =~ ^v?4\.5\.[0-9]+$ ]]'
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - run: npm run check:links
+      - run: npm run check:migration
+      - name: Publish the validated artifact to gh-pages
+        run: npm run deploy
+        env:
+          GIT_USER: github-actions[bot]
+          GIT_PASS: ${{ secrets.GITHUB_TOKEN }}
+          GIT_USER_NAME: github-actions[bot]
+          GIT_USER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          USE_SSH: 'false'
+          DEPLOYMENT_BRANCH: gh-pages

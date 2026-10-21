@@ -1,0 +1,5826 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Hyperion 4.5 core API",
+    "version": "4.5"
+  },
+  "x-hyperion-source": {
+    "repository": "https://github.com/eosrio/hyperion-history-api",
+    "branch": "release/4.5",
+    "commit": "e1818923065d648a38009572d76badeab0684af1",
+    "sourcePackageVersion": "4.0.7",
+    "kind": "all TypeScript core route declarations",
+    "runtimeRegistrationVerified": false,
+    "pluginRoutesIncluded": false,
+    "files": {
+      "src/api/helpers/functions.ts": "506e1cc42183a9e2432d89cf5caa4e7c671cc21472948e1d31e7f6eaf80a0263",
+      "src/api/routes/v2-history/get_actions/index.ts": "c189e9e98466121e6307c13cd27dc4d9019e0ce4228cf9bda1c263cfd4932264",
+      "src/api/routes/v1-chain/abi_bin_to_json/index.ts": "a49fce2b3ce830e9464849c59300726effbd39b0a33e720c4aa10ca741b9f882",
+      "src/api/routes/v1-chain/abi_json_to_bin/index.ts": "99eebb03ff8007dd434a99d822e2ee300e2ae9a449b6d52f9f792cea5f74e1e1",
+      "src/api/routes/v1-chain/get_abi/index.ts": "41cd2b2367c2e0f22e816d87808c21eb1601c2775333bea59af8b9b9ef5fdf7c",
+      "src/api/routes/v1-chain/get_account/index.ts": "80ca8c29266c1fb880586c4ae09775727d307be503df333a5e9a41895751c464",
+      "src/api/routes/v1-chain/get_activated_protocol_features/index.ts": "18269e91818eb6d96fde03ba1adbc9d2d3e214e3a5fd8107ee78dc620d9fb959",
+      "src/api/routes/v1-chain/get_block/index.ts": "f766544bd4fc1146bb6a3275727365a5797e702f9a4a022847a264e370b40802",
+      "src/api/routes/v1-chain/get_block_header_state/index.ts": "632caf4f91644f4fa30be7d72554e3e88b96fae7c16ed93e5137ce059a46a4a8",
+      "src/api/routes/v1-chain/get_code/index.ts": "94eeb7e3a938f5a5ec3f5a26d0bb22ef4da07b557987109eae768f31d0936ea6",
+      "src/api/routes/v1-chain/get_currency_balance/index.ts": "c6c029a8def206839de017356c7849d5c4dd38d3c6be3daf4129d50c58e1bfbb",
+      "src/api/routes/v1-chain/get_currency_stats/index.ts": "23efc416ba3a5ce366064f343263e9d55f043c930b340a66f58d7a7ce08bcbe9",
+      "src/api/routes/v1-chain/get_info/index.ts": "bcae7a6d9c6dd648e14bd72463a8d3079fdd5e09695f62e07edaff229cc2dd8a",
+      "src/api/routes/v1-chain/get_producers/index.ts": "b07e595a33a691eb5c59647caee3035af5f2b3a1bd4c34a5fff78dd2bebf5f6f",
+      "src/api/routes/v1-chain/get_raw_abi/index.ts": "8a8f6d6403403ec64aa50828a400ed9b7cda79a346fde22be4f8ed771b599a36",
+      "src/api/routes/v1-chain/get_raw_code_and_abi/index.ts": "25d0df1ba13c37545a9bad6dab6875c99d2e47d6851460cc79df1deef4993b05",
+      "src/api/routes/v1-chain/get_table_by_scope/index.ts": "55483bf78d19c498c722042efb1c47a333acf834fb788b3f8ae8bfb55373065a",
+      "src/api/routes/v1-chain/get_table_rows/index.ts": "fa3781267eef2a000181ffc777081faa3481c47ed7528228317b6fb600a5ef66",
+      "src/api/routes/v1-chain/push_transaction/index.ts": "0de2a7d78b74ac4dad4b2311afddf8196c9181dfbdf5180aad11ca448fdf9b8d",
+      "src/api/routes/v1-chain/push_transactions/index.ts": "42e2de95969ddbb812ccb5edd01c8aacc98b25dfd1c0e4df56dfe2ac8b8c0eda",
+      "src/api/routes/v1-chain/send_transaction/index.ts": "0de2a7d78b74ac4dad4b2311afddf8196c9181dfbdf5180aad11ca448fdf9b8d",
+      "src/api/routes/v1-history/get_actions/index.ts": "f3954724263d831d8b1f068dacdf363433e412230c049a56943f94e05e3ef275",
+      "src/api/routes/v1-history/get_controlled_accounts/index.ts": "2b1b71f6139ecadda0554049e4d1a4ddf4ceabe21aeb3d8058032d7ff042965c",
+      "src/api/routes/v1-history/get_key_accounts/index.ts": "d771dfff53cfe840a0ce4170a9dccbf3a0b3677413dde10f577a6444350bd1c6",
+      "src/api/routes/v1-history/get_transaction/index.ts": "ef7599ccbf0b485e9e533faac1c8ffe03d9cb76fdcebeaca854d2dd365876632",
+      "src/api/routes/v1-trace/get_block/index.ts": "fe732977870380b851d6d5e693d198d2f71f1fbcef6a79a9cce620a11d249ed1",
+      "src/api/routes/v2-history/check_transaction/index.ts": "e54d13040c6cce70d96647c122dc9d64c63c9233f83f4e2284032df72eda2530",
+      "src/api/routes/v2-history/get_abi_snapshot/index.ts": "5c8504fa7fd96d63c5b70cafcdfa8a56994177442e8dff9a4c5f9c5c6652a220",
+      "src/api/routes/v2-history/get_block/index.ts": "aebd33c168c483abd187581f71ce22653a2123e5a813cfd326858ead68162514",
+      "src/api/routes/v2-history/get_blocks/index.ts": "7efb21fec65cc3a407d06157b5c367c80a7d3e0a0affc367587d7f1d833d6f6f",
+      "src/api/routes/v2-history/get_created_accounts/index.ts": "2fedc0948db4f0e834eebd3f2007ace2f41b8c0d08c1680e29000437033b4aeb",
+      "src/api/routes/v2-history/get_creator/index.ts": "fe7e2e4f748136890f0efc60269708f3e833a9ba6201e930f8b167cbbac18f42",
+      "src/api/routes/v2-history/get_deltas/index.ts": "38ff3494bba76b8b4dac9dcf7984ec9b75b54724f990c9ff4997f8210fceb6fb",
+      "src/api/routes/v2-history/get_schedule/index.ts": "a9d2fe41df041a9e13bbb76896ab32711c3ef853f79b70fc520de21bb07cf8b8",
+      "src/api/routes/v2-history/get_table_state/index.ts": "38586b6879a29e6f7f755892552a77980ef84149feb6cd83bd5e839ae57bef54",
+      "src/api/routes/v2-history/get_transaction/index.ts": "b4f9871835b45b9df6ce2115082f068c5785ee45fa6e8b10c8072ead8396b708",
+      "src/api/routes/v2-state/get_account/index.ts": "348e3d06f0468203582632d9adaf0707fd8d6116956ace6c82acd9ae6539d322",
+      "src/api/routes/v2-state/get_key_accounts/index.ts": "cbce0f9b571c8e819339dda215ea1003e0b9284462f0b4f1b27263600b8fac74",
+      "src/api/routes/v2-state/get_links/index.ts": "3367992f28c4bb771703fd873fc725017de84b3f31e37b269704d19e01b2798b",
+      "src/api/routes/v2-state/get_proposals/index.ts": "71fdb30dbd527391d43e06a558ef224db98ced3b4d88391a913f5f571c3ce004",
+      "src/api/routes/v2-state/get_table_rows/index.ts": "7164484e4f2ac67b8dab6262f762b0e19e4f981922cc533ad7f2d8c926285cb7",
+      "src/api/routes/v2-state/get_tokens/index.ts": "b076ffb1d0d2677e531733f8644f996dad5916809e3cf5f6a49053813c4fcdb6",
+      "src/api/routes/v2-state/get_top_holders/index.ts": "6e73a4920d40a263b6c661278b853f0555dedee7849f9bf96c348faa92e545e1",
+      "src/api/routes/v2-state/get_voter_scopes/index.ts": "e486619329db243db69bd23af5f2755e53d3444dea93367b10ed080a439fdaf5",
+      "src/api/routes/v2-state/get_voters/index.ts": "3dcd791bebf8e13bcd40d8f1c4bedbbfb37ea8416c6b48fb7fb38f66566d3203",
+      "src/api/routes/v2-stats/get_action_usage/index.ts": "3e8c0f64aa2cbcb3058e8ef27931a9547ac271b6e3dc369de5254939df58387b",
+      "src/api/routes/v2-stats/get_api_usage/index.ts": "b5513d03a12590462a2a4cd3263a0247424a29dfeebe9e1027c3b67c59643882",
+      "src/api/routes/v2-stats/get_missed_blocks/index.ts": "36e38b282126ff3dbccb6375d2f7d96f82e5396802334f44c8382ea342661774",
+      "src/api/routes/v2-stats/get_resource_usage/index.ts": "a42221b2dd88f50c25a20eb5a9aa34b76bdd4733b359f04792986521a7eb517f",
+      "src/api/routes/v2-stats/get_trx_count/index.ts": "84a6afb68b97152e159ec960702a087114e835c6cf8164ba53c84240e17b763c",
+      "src/api/routes/v2/explorer_logo/index.ts": "abc496fbd01f6b472c829dadc36283d82a47da27a29e04b2b5aec70a43da98f7",
+      "src/api/routes/v2/explorer_metadata/index.ts": "42380dbd4dfa218bd385c4cf51c63779589ee62f326c6b4b27e2a7e19cb7db59",
+      "src/api/routes/v2/get_filters/index.ts": "572376a1fc33804c55944a71c44deeedeef042049cd3e2f830cb184296c84c5a",
+      "src/api/routes/v2/health/index.ts": "cbca007b6e3b74190c81f579c41f3967430c83f81d6703cfdfc57b0d42c3ef62",
+      "src/api/routes.ts": "77124716ebd4838a3540288e835e262a417ea6279ab57f91e2de1768544b2ffc",
+      "src/interfaces/hyperionConfig.ts": "5fc005ee82128ebd40ce68b183cff1ffba81e060e41a22c091ec197f046f4acd",
+      "references/config.ref.json": "3f3d13025d5ca1693ad43f8ea66b1571a6306f912509eab75dbc1bfb1956b713",
+      "references/connections.ref.json": "e600b48375d878109dfb4413b7c7c90a9b8d2a2434fb420e56661ff5596aa32b",
+      "package.json": "ac33d14cfc5b133f6e4cc945c7cd23bc2b331de1987cc59919e6999af7658357"
+    }
+  },
+  "components": {
+    "schemas": {
+      "WholeNumber": {
+        "title": "Integer",
+        "description": "Integer or String",
+        "anyOf": [
+          {
+            "type": "string",
+            "pattern": "^\\d+$"
+          },
+          {
+            "type": "integer"
+          }
+        ]
+      },
+      "Symbol": {
+        "type": "string",
+        "description": "A symbol composed of capital letters between 1-7.",
+        "pattern": "^([A-Z]{1,7})$",
+        "title": "Symbol"
+      },
+      "Signature": {
+        "type": "string",
+        "description": "String representation of an EOSIO compatible cryptographic signature",
+        "pattern": "^SIG_([RK]1|WA)_[1-9A-HJ-NP-Za-km-z]+$",
+        "title": "Signature"
+      },
+      "AccountName": {
+        "description": "String representation of an EOSIO compatible account name",
+        "anyOf": [
+          {
+            "type": "string",
+            "description": "String representation of privileged EOSIO name type",
+            "pattern": "^(eosio[\\.][a-z1-5]{1,6})([a-j]{1})?$",
+            "title": "NamePrivileged"
+          },
+          {
+            "type": "string",
+            "description": "String representation of basic EOSIO name type, must be 12 characters and contain only a-z and 0-5",
+            "pattern": "^([a-z]{1}[a-z1-5]{11})([a-j]{1})?$",
+            "title": "NameBasic"
+          },
+          {
+            "type": "string",
+            "description": "String representation of EOSIO bid name type, 1-12 characters and only a-z and 0-5 are allowed",
+            "pattern": "^([a-z1-5]{1,12})([a-j]{1})?$",
+            "title": "NameBid"
+          },
+          {
+            "type": "string",
+            "description": "String representation of EOSIO name type",
+            "pattern": "^([a-z1-5]{1}[a-z1-5\\.]{0,10}[a-z1-5]{1})([a-j]{1})?$",
+            "title": "NameCatchAll"
+          }
+        ],
+        "title": "Name"
+      },
+      "Expiration": {
+        "description": "Time that transaction must be confirmed by.",
+        "type": "string",
+        "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}$",
+        "title": "DateTime"
+      },
+      "BlockExtensions": {
+        "type": "array",
+        "items": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "title": "Extension"
+      },
+      "ActionItems": {
+        "type": "object",
+        "additionalProperties": false,
+        "minProperties": 5,
+        "required": [
+          "account",
+          "name",
+          "authorization",
+          "data",
+          "hex_data"
+        ],
+        "properties": {
+          "account": {
+            "$ref": "#/components/schemas/AccountName"
+          },
+          "name": {
+            "$ref": "#/components/schemas/AccountName"
+          },
+          "authorization": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "minProperties": 2,
+              "required": [
+                "actor",
+                "permission"
+              ],
+              "properties": {
+                "actor": {
+                  "$ref": "#/components/schemas/AccountName"
+                },
+                "permission": {
+                  "$ref": "#/components/schemas/AccountName"
+                }
+              },
+              "title": "Authority"
+            }
+          },
+          "data": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "hex_data": {
+            "type": "string"
+          }
+        },
+        "title": "Action"
+      }
+    }
+  },
+  "paths": {
+    "/v1/chain/abi_bin_to_json": {
+      "get": {
+        "operationId": "get_v1_chain_abi_bin_to_json",
+        "summary": "Returns an object containing rows from the specified table.",
+        "description": "Returns an object containing rows from the specified table.",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountName"
+            }
+          },
+          {
+            "name": "action",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountName"
+            }
+          },
+          {
+            "name": "binargs",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/abi_bin_to_json/index.ts",
+        "x-upstream-chain-api": true
+      },
+      "post": {
+        "operationId": "post_v1_chain_abi_bin_to_json",
+        "summary": "Returns an object containing rows from the specified table.",
+        "description": "Returns an object containing rows from the specified table.",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/abi_bin_to_json/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "$ref": "#/components/schemas/AccountName"
+                      },
+                      "action": {
+                        "$ref": "#/components/schemas/AccountName"
+                      },
+                      "binargs": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "binargs"
+                    ]
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/abi_json_to_bin": {
+      "get": {
+        "operationId": "get_v1_chain_abi_json_to_bin",
+        "summary": "Convert JSON object to binary",
+        "description": "Convert JSON object to binary",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountName"
+            }
+          },
+          {
+            "name": "action",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountName"
+            }
+          },
+          {
+            "name": "args",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/abi_json_to_bin/index.ts",
+        "x-upstream-chain-api": true
+      },
+      "post": {
+        "operationId": "post_v1_chain_abi_json_to_bin",
+        "summary": "Convert JSON object to binary",
+        "description": "Convert JSON object to binary",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/abi_json_to_bin/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "$ref": "#/components/schemas/AccountName"
+                      },
+                      "action": {
+                        "$ref": "#/components/schemas/AccountName"
+                      },
+                      "args": {
+                        "type": "object",
+                        "additionalProperties": true
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "args"
+                    ]
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/get_abi": {
+      "get": {
+        "operationId": "get_v1_chain_get_abi",
+        "summary": "Retrieves the ABI for a contract based on its account name",
+        "description": "Retrieves the ABI for a contract based on its account name",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [
+          {
+            "name": "account_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountName"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_abi/index.ts",
+        "x-upstream-chain-api": true
+      },
+      "post": {
+        "operationId": "post_v1_chain_get_abi",
+        "summary": "Retrieves the ABI for a contract based on its account name",
+        "description": "Retrieves the ABI for a contract based on its account name",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_abi/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "account_name": {
+                        "$ref": "#/components/schemas/AccountName"
+                      }
+                    },
+                    "required": [
+                      "account_name"
+                    ]
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/get_account": {
+      "get": {
+        "operationId": "get_v1_chain_get_account",
+        "summary": "Returns an object containing various details about a specific account on the blockchain.",
+        "description": "Returns an object containing various details about a specific account on the blockchain.",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [
+          {
+            "name": "account_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountName"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_account/index.ts",
+        "x-upstream-chain-api": true
+      },
+      "post": {
+        "operationId": "post_v1_chain_get_account",
+        "summary": "Returns an object containing various details about a specific account on the blockchain.",
+        "description": "Returns an object containing various details about a specific account on the blockchain.",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_account/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "account_name": {
+                        "$ref": "#/components/schemas/AccountName"
+                      }
+                    },
+                    "required": [
+                      "account_name"
+                    ]
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/get_activated_protocol_features": {
+      "get": {
+        "operationId": "get_v1_chain_get_activated_protocol_features",
+        "summary": "Retrieves the activated protocol features for producer node",
+        "description": "Retrieves the activated protocol features for producer node",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [
+          {
+            "name": "lower_bound",
+            "in": "query",
+            "required": false,
+            "description": "Lower bound",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "upper_bound",
+            "in": "query",
+            "required": false,
+            "description": "Upper bound",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "The limit, default is 10",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "search_by_block_num",
+            "in": "query",
+            "required": false,
+            "description": "Flag to indicate it is has to search by block number",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "reverse",
+            "in": "query",
+            "required": false,
+            "description": "Flag to indicate it has to search in reverse",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_activated_protocol_features/index.ts",
+        "x-upstream-chain-api": true
+      },
+      "post": {
+        "operationId": "post_v1_chain_get_activated_protocol_features",
+        "summary": "Retrieves the activated protocol features for producer node",
+        "description": "Retrieves the activated protocol features for producer node",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_activated_protocol_features/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "lower_bound": {
+                        "type": "integer",
+                        "description": "Lower bound"
+                      },
+                      "upper_bound": {
+                        "type": "integer",
+                        "description": "Upper bound"
+                      },
+                      "limit": {
+                        "type": "integer",
+                        "description": "The limit, default is 10"
+                      },
+                      "search_by_block_num": {
+                        "type": "boolean",
+                        "description": "Flag to indicate it is has to search by block number"
+                      },
+                      "reverse": {
+                        "type": "boolean",
+                        "description": "Flag to indicate it has to search in reverse"
+                      }
+                    }
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/get_block": {
+      "get": {
+        "operationId": "get_v1_chain_get_block",
+        "summary": "Returns an object containing various details about a specific block on the blockchain.",
+        "description": "Returns an object containing various details about a specific block on the blockchain.",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [
+          {
+            "name": "block_num_or_id",
+            "in": "query",
+            "required": true,
+            "description": "Provide a `block number` or a `block id`",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_block/index.ts",
+        "x-upstream-chain-api": true
+      },
+      "post": {
+        "operationId": "post_v1_chain_get_block",
+        "summary": "Returns an object containing various details about a specific block on the blockchain.",
+        "description": "Returns an object containing various details about a specific block on the blockchain.",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_block/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "block_num_or_id": {
+                        "description": "Provide a `block number` or a `block id`",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "block_num_or_id"
+                    ]
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/get_block_header_state": {
+      "get": {
+        "operationId": "get_v1_chain_get_block_header_state",
+        "summary": "Retrieves the block header state",
+        "description": "Retrieves the block header state",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [
+          {
+            "name": "block_num_or_id",
+            "in": "query",
+            "required": true,
+            "description": "Provide a block_number or a block_id",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_block_header_state/index.ts",
+        "x-upstream-chain-api": true
+      },
+      "post": {
+        "operationId": "post_v1_chain_get_block_header_state",
+        "summary": "Retrieves the block header state",
+        "description": "Retrieves the block header state",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_block_header_state/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "block_num_or_id": {
+                        "type": "string",
+                        "description": "Provide a block_number or a block_id"
+                      }
+                    },
+                    "required": [
+                      "block_num_or_id"
+                    ]
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/get_code": {
+      "get": {
+        "operationId": "get_v1_chain_get_code",
+        "summary": "Retrieves contract code",
+        "description": "Retrieves contract code",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [
+          {
+            "name": "account_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountName"
+            }
+          },
+          {
+            "name": "code_as_wasm",
+            "in": "query",
+            "required": true,
+            "description": "This must be 1 (true)",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_code/index.ts",
+        "x-upstream-chain-api": true
+      },
+      "post": {
+        "operationId": "post_v1_chain_get_code",
+        "summary": "Retrieves contract code",
+        "description": "Retrieves contract code",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_code/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "account_name": {
+                        "$ref": "#/components/schemas/AccountName"
+                      },
+                      "code_as_wasm": {
+                        "type": "integer",
+                        "default": 1,
+                        "description": "This must be 1 (true)"
+                      }
+                    },
+                    "required": [
+                      "account_name",
+                      "code_as_wasm"
+                    ]
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/get_currency_balance": {
+      "get": {
+        "operationId": "get_v1_chain_get_currency_balance",
+        "summary": "Retrieves the current balance",
+        "description": "Retrieves the current balance",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountName"
+            }
+          },
+          {
+            "name": "account",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountName"
+            }
+          },
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Symbol"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_currency_balance/index.ts",
+        "x-upstream-chain-api": true
+      },
+      "post": {
+        "operationId": "post_v1_chain_get_currency_balance",
+        "summary": "Retrieves the current balance",
+        "description": "Retrieves the current balance",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_currency_balance/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "$ref": "#/components/schemas/AccountName"
+                      },
+                      "account": {
+                        "$ref": "#/components/schemas/AccountName"
+                      },
+                      "symbol": {
+                        "$ref": "#/components/schemas/Symbol"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "account",
+                      "symbol"
+                    ]
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/get_currency_stats": {
+      "get": {
+        "operationId": "get_v1_chain_get_currency_stats",
+        "summary": "Retrieves currency stats",
+        "description": "Retrieves currency stats",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountName"
+            }
+          },
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": true,
+            "description": "token symbol",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_currency_stats/index.ts",
+        "x-upstream-chain-api": true
+      },
+      "post": {
+        "operationId": "post_v1_chain_get_currency_stats",
+        "summary": "Retrieves currency stats",
+        "description": "Retrieves currency stats",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_currency_stats/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "$ref": "#/components/schemas/AccountName"
+                      },
+                      "symbol": {
+                        "description": "token symbol",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "symbol"
+                    ]
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/get_info": {
+      "get": {
+        "operationId": "get_v1_chain_get_info",
+        "summary": "Returns an object containing various details about the blockchain.",
+        "description": "Returns an object containing various details about the blockchain.",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_info/index.ts",
+        "x-upstream-chain-api": true
+      },
+      "post": {
+        "operationId": "post_v1_chain_get_info",
+        "summary": "Returns an object containing various details about the blockchain.",
+        "description": "Returns an object containing various details about the blockchain.",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_info/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {}
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/get_producers": {
+      "get": {
+        "operationId": "get_v1_chain_get_producers",
+        "summary": "Retrieves producers list",
+        "description": "Retrieves producers list",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "total number of producers to retrieve",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lower_bound",
+            "in": "query",
+            "required": false,
+            "description": "In conjunction with limit can be used to paginate through the results. For example, limit=10 and lower_bound=10 would be page 2",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "json",
+            "in": "query",
+            "required": false,
+            "description": "return result in JSON format",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_producers/index.ts",
+        "x-upstream-chain-api": true
+      },
+      "post": {
+        "operationId": "post_v1_chain_get_producers",
+        "summary": "Retrieves producers list",
+        "description": "Retrieves producers list",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_producers/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "limit": {
+                        "type": "string",
+                        "description": "total number of producers to retrieve"
+                      },
+                      "lower_bound": {
+                        "type": "string",
+                        "description": "In conjunction with limit can be used to paginate through the results. For example, limit=10 and lower_bound=10 would be page 2"
+                      },
+                      "json": {
+                        "type": "boolean",
+                        "description": "return result in JSON format"
+                      }
+                    }
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/get_raw_abi": {
+      "get": {
+        "operationId": "get_v1_chain_get_raw_abi",
+        "summary": "Retrieves raw ABI for a contract based on account name",
+        "description": "Retrieves raw ABI for a contract based on account name",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [
+          {
+            "name": "account_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountName"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_raw_abi/index.ts",
+        "x-upstream-chain-api": true
+      },
+      "post": {
+        "operationId": "post_v1_chain_get_raw_abi",
+        "summary": "Retrieves raw ABI for a contract based on account name",
+        "description": "Retrieves raw ABI for a contract based on account name",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_raw_abi/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "account_name": {
+                        "$ref": "#/components/schemas/AccountName"
+                      }
+                    },
+                    "required": [
+                      "account_name"
+                    ]
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/get_raw_code_and_abi": {
+      "get": {
+        "operationId": "get_v1_chain_get_raw_code_and_abi",
+        "summary": "Retrieves raw code and ABI for a contract based on account name",
+        "description": "Retrieves raw code and ABI for a contract based on account name",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [
+          {
+            "name": "account_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/AccountName"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_raw_code_and_abi/index.ts",
+        "x-upstream-chain-api": true
+      },
+      "post": {
+        "operationId": "post_v1_chain_get_raw_code_and_abi",
+        "summary": "Retrieves raw code and ABI for a contract based on account name",
+        "description": "Retrieves raw code and ABI for a contract based on account name",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_raw_code_and_abi/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "account_name": {
+                        "$ref": "#/components/schemas/AccountName"
+                      }
+                    },
+                    "required": [
+                      "account_name"
+                    ]
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/get_table_by_scope": {
+      "get": {
+        "operationId": "get_v1_chain_get_table_by_scope",
+        "summary": "Retrieves table scope",
+        "description": "Retrieves table scope",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "description": "`name` of the contract to return table data for",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "table",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by table",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lower_bound",
+            "in": "query",
+            "required": false,
+            "description": "Filters results to return the first element that is not less than provided value in set",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "upper_bound",
+            "in": "query",
+            "required": false,
+            "description": "Filters results to return the first element that is greater than provided value in set",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Limit number of results returned.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "reverse",
+            "in": "query",
+            "required": false,
+            "description": "Reverse the order of returned results",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_table_by_scope/index.ts",
+        "x-upstream-chain-api": true
+      },
+      "post": {
+        "operationId": "post_v1_chain_get_table_by_scope",
+        "summary": "Retrieves table scope",
+        "description": "Retrieves table scope",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_table_by_scope/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "string",
+                        "description": "`name` of the contract to return table data for"
+                      },
+                      "table": {
+                        "type": "string",
+                        "description": "Filter results by table"
+                      },
+                      "lower_bound": {
+                        "type": "string",
+                        "description": "Filters results to return the first element that is not less than provided value in set"
+                      },
+                      "upper_bound": {
+                        "type": "string",
+                        "description": "Filters results to return the first element that is greater than provided value in set"
+                      },
+                      "limit": {
+                        "type": "integer",
+                        "description": "Limit number of results returned."
+                      },
+                      "reverse": {
+                        "type": "boolean",
+                        "description": "Reverse the order of returned results"
+                      }
+                    },
+                    "required": [
+                      "code"
+                    ]
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/get_table_rows": {
+      "get": {
+        "operationId": "get_v1_chain_get_table_rows",
+        "summary": "Returns an object containing rows from the specified table.",
+        "description": "Returns an object containing rows from the specified table.",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "description": "The name of the smart contract that controls the provided table",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "table",
+            "in": "query",
+            "required": true,
+            "description": "The name of the table to query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "required": true,
+            "description": "The account to which this data belongs",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "index_position",
+            "in": "query",
+            "required": false,
+            "description": "Position of the index used, accepted parameters `primary`, `secondary`, `tertiary`, `fourth`, `fifth`, `sixth`, `seventh`, `eighth`, `ninth` , `tenth`",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "key_type",
+            "in": "query",
+            "required": false,
+            "description": "Type of key specified by index_position (for example - `uint64_t` or `name`)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "encode_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "upper_bound",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lower_bound",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_table_rows/index.ts",
+        "x-upstream-chain-api": true
+      },
+      "post": {
+        "operationId": "post_v1_chain_get_table_rows",
+        "summary": "Returns an object containing rows from the specified table.",
+        "description": "Returns an object containing rows from the specified table.",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/get_table_rows/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "string",
+                        "description": "The name of the smart contract that controls the provided table"
+                      },
+                      "table": {
+                        "type": "string",
+                        "description": "The name of the table to query"
+                      },
+                      "scope": {
+                        "type": "string",
+                        "description": "The account to which this data belongs"
+                      },
+                      "index_position": {
+                        "type": "string",
+                        "description": "Position of the index used, accepted parameters `primary`, `secondary`, `tertiary`, `fourth`, `fifth`, `sixth`, `seventh`, `eighth`, `ninth` , `tenth`"
+                      },
+                      "key_type": {
+                        "type": "string",
+                        "description": "Type of key specified by index_position (for example - `uint64_t` or `name`)"
+                      },
+                      "encode_type": {
+                        "type": "string"
+                      },
+                      "upper_bound": {
+                        "type": "string"
+                      },
+                      "lower_bound": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "table",
+                      "scope"
+                    ]
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/push_transaction": {
+      "post": {
+        "operationId": "post_v1_chain_push_transaction",
+        "summary": "This method expects a transaction in JSON format and will attempt to apply it to the blockchain.",
+        "description": "This method expects a transaction in JSON format and will attempt to apply it to the blockchain.",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/push_transaction/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "signatures": {
+                    "type": "array",
+                    "description": "array of signatures required to authorize transaction",
+                    "items": {
+                      "$ref": "#/components/schemas/Signature"
+                    }
+                  },
+                  "compression": {
+                    "type": "boolean",
+                    "description": "Compression used, usually false"
+                  },
+                  "packed_context_free_data": {
+                    "type": "string",
+                    "description": "json to hex"
+                  },
+                  "packed_trx": {
+                    "type": "string",
+                    "description": "Transaction object json to hex"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/push_transactions": {
+      "post": {
+        "operationId": "post_v1_chain_push_transactions",
+        "summary": "This method expects a transaction in JSON format and will attempt to apply it to the blockchain.",
+        "description": "This method expects a transaction in JSON format and will attempt to apply it to the blockchain.",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/push_transactions/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "minProperties": 8,
+                  "required": [
+                    "expiration",
+                    "ref_block_num",
+                    "ref_block_prefix",
+                    "max_net_usage_words",
+                    "max_cpu_usage_ms",
+                    "delay_sec",
+                    "context_free_actions",
+                    "actions"
+                  ],
+                  "properties": {
+                    "expiration": {
+                      "$ref": "#/components/schemas/Expiration"
+                    },
+                    "ref_block_num": {
+                      "type": "integer"
+                    },
+                    "ref_block_prefix": {
+                      "type": "integer"
+                    },
+                    "max_net_usage_words": {
+                      "$ref": "#/components/schemas/WholeNumber"
+                    },
+                    "max_cpu_usage_ms": {
+                      "$ref": "#/components/schemas/WholeNumber"
+                    },
+                    "delay_sec": {
+                      "type": "integer"
+                    },
+                    "context_free_actions": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionItems"
+                      }
+                    },
+                    "actions": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ActionItems"
+                      }
+                    },
+                    "transaction_extensions": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/BlockExtensions"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/chain/send_transaction": {
+      "post": {
+        "operationId": "post_v1_chain_send_transaction",
+        "summary": "This method expects a transaction in JSON format and will attempt to apply it to the blockchain.",
+        "description": "This method expects a transaction in JSON format and will attempt to apply it to the blockchain.",
+        "tags": [
+          "chain"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-chain/send_transaction/index.ts",
+        "x-upstream-chain-api": true,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "signatures": {
+                    "type": "array",
+                    "description": "array of signatures required to authorize transaction",
+                    "items": {
+                      "$ref": "#/components/schemas/Signature"
+                    }
+                  },
+                  "compression": {
+                    "type": "boolean",
+                    "description": "Compression used, usually false"
+                  },
+                  "packed_context_free_data": {
+                    "type": "string",
+                    "description": "json to hex"
+                  },
+                  "packed_trx": {
+                    "type": "string",
+                    "description": "Transaction object json to hex"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/history/get_actions": {
+      "post": {
+        "operationId": "post_v1_history_get_actions",
+        "summary": "get actions",
+        "description": "legacy get actions query",
+        "tags": [
+          "history"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time": {
+                      "type": "number"
+                    },
+                    "last_irreversible_block": {
+                      "type": "number"
+                    },
+                    "actions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "account_action_seq": {
+                            "type": "string"
+                          },
+                          "global_action_seq": {
+                            "type": "string"
+                          },
+                          "block_num": {
+                            "type": "number"
+                          },
+                          "block_time": {
+                            "type": "string"
+                          },
+                          "action_trace": {
+                            "type": "object",
+                            "properties": {
+                              "action_ordinal": {
+                                "type": "number"
+                              },
+                              "creator_action_ordinal": {
+                                "type": "number"
+                              },
+                              "receipt": {
+                                "type": "object",
+                                "properties": {
+                                  "receiver": {
+                                    "type": "string"
+                                  },
+                                  "global_sequence": {
+                                    "type": "string"
+                                  },
+                                  "recv_sequence": {
+                                    "type": "string"
+                                  },
+                                  "auth_sequence": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "account": {
+                                          "type": "string"
+                                        },
+                                        "sequence": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "receiver": {
+                                "type": "string"
+                              },
+                              "act": {
+                                "type": "object",
+                                "properties": {
+                                  "account": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "authorization": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "additionalProperties": true
+                                    }
+                                  },
+                                  "data": {},
+                                  "hex_data": {
+                                    "type": "string"
+                                  },
+                                  "hex_encoder": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "trx_id": {
+                                "type": "string"
+                              },
+                              "block_num": {
+                                "type": "number"
+                              },
+                              "block_time": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v1-history/get_actions/index.ts",
+        "x-upstream-chain-api": false,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "account_name": {
+                    "description": "notified account",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 12
+                  },
+                  "pos": {
+                    "description": "action position (pagination)",
+                    "type": "integer"
+                  },
+                  "offset": {
+                    "description": "limit of [n] actions per page",
+                    "type": "integer"
+                  },
+                  "filter": {
+                    "description": "code:name filter",
+                    "type": "string",
+                    "minLength": 3
+                  },
+                  "sort": {
+                    "description": "sort direction",
+                    "enum": [
+                      "desc",
+                      "asc",
+                      "1",
+                      "-1"
+                    ],
+                    "type": "string"
+                  },
+                  "after": {
+                    "description": "filter after specified date (ISO8601)",
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "before": {
+                    "description": "filter before specified date (ISO8601)",
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "parent": {
+                    "description": "filter by parent global sequence",
+                    "type": "integer",
+                    "minimum": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/history/get_controlled_accounts": {
+      "post": {
+        "operationId": "post_v1_history_get_controlled_accounts",
+        "summary": "get controlled accounts by controlling accounts",
+        "description": "get controlled accounts by controlling accounts",
+        "tags": [
+          "accounts"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "controlled_accounts": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v1-history/get_controlled_accounts/index.ts",
+        "x-upstream-chain-api": false,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "controlling_account": {
+                    "description": "controlling account",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "controlling_account"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/history/get_key_accounts": {
+      "post": {
+        "operationId": "post_v1_history_get_key_accounts",
+        "summary": "get accounts by public key",
+        "description": "get accounts by public key",
+        "tags": [
+          "accounts"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "account_names": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v1-history/get_key_accounts/index.ts",
+        "x-upstream-chain-api": false,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "public_key": {
+                    "description": "public key",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "public_key"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/history/get_transaction": {
+      "post": {
+        "operationId": "post_v1_history_get_transaction",
+        "summary": "legacy get transaction by id",
+        "description": "get all actions belonging to the same transaction",
+        "tags": [
+          "history"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v1-history/get_transaction/index.ts",
+        "x-upstream-chain-api": false,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "transaction id",
+                    "type": "string"
+                  },
+                  "block_num_hint": {
+                    "description": "block number hint",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "id"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/trace_api/get_block": {
+      "post": {
+        "operationId": "post_v1_trace_get_block",
+        "summary": "get block traces",
+        "description": "get block traces",
+        "tags": [
+          "history"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "number": {
+                      "type": "integer"
+                    },
+                    "previous_id": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    },
+                    "producer": {
+                      "type": "string"
+                    },
+                    "transactions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "actions": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "receiver": {
+                                  "type": "string"
+                                },
+                                "account": {
+                                  "type": "string"
+                                },
+                                "action": {
+                                  "type": "string"
+                                },
+                                "authorization": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "account": {
+                                        "type": "string"
+                                      },
+                                      "permission": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                },
+                                "data": {
+                                  "additionalProperties": true
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v1-trace/get_block/index.ts",
+        "x-upstream-chain-api": false,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "block_num": {
+                    "description": "block number",
+                    "type": "integer"
+                  },
+                  "block_id": {
+                    "description": "block id",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/history/check_transaction": {
+      "get": {
+        "operationId": "get_v2_history_check_transaction",
+        "summary": "check if a transaction was included in a block",
+        "description": "check if a transaction was included in a block",
+        "tags": [
+          "history"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "description": "transaction id",
+            "schema": {
+              "type": "string",
+              "minLength": 64,
+              "maxLength": 64
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "block_num": {
+                      "type": "number"
+                    },
+                    "root_action": {
+                      "type": "object",
+                      "properties": {
+                        "account": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "authorization": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "actor": {
+                                "type": "string"
+                              },
+                              "permission": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "data": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "signatures": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-history/check_transaction/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/history/get_abi_snapshot": {
+      "get": {
+        "operationId": "get_v2_history_get_abi_snapshot",
+        "summary": "fetch abi at specific block",
+        "description": "fetch contract abi at specific block",
+        "tags": [
+          "history"
+        ],
+        "parameters": [
+          {
+            "name": "contract",
+            "in": "query",
+            "required": true,
+            "description": "contract account",
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12
+            }
+          },
+          {
+            "name": "block",
+            "in": "query",
+            "required": false,
+            "description": "target block",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "fetch",
+            "in": "query",
+            "required": false,
+            "description": "should fetch the ABI",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v2-history/get_abi_snapshot/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/history/get_actions": {
+      "get": {
+        "operationId": "get_v2_history_get_actions",
+        "summary": "get root actions",
+        "description": "get actions based on notified account. this endpoint also accepts generic filters based on indexed fields (e.g. act.authorization.actor=eosio or act.name=delegatebw), if included they will be combined with a AND operator",
+        "tags": [
+          "history"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "limit of [n] results per page",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "required": false,
+            "description": "skip [n] results",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "account",
+            "in": "query",
+            "required": false,
+            "description": "notified account",
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12
+            }
+          },
+          {
+            "name": "track",
+            "in": "query",
+            "required": false,
+            "description": "total results to track (count) [number or true]",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "description": "code:name filter",
+            "schema": {
+              "type": "string",
+              "minLength": 3
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "sort direction",
+            "schema": {
+              "enum": [
+                "desc",
+                "asc",
+                "1",
+                "-1"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "description": "filter after specified date (ISO8601)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "required": false,
+            "description": "filter before specified date (ISO8601)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "simple",
+            "in": "query",
+            "required": false,
+            "description": "simplified output mode",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "hot_only",
+            "in": "query",
+            "required": false,
+            "description": "search only the latest hot index",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "noBinary",
+            "in": "query",
+            "required": false,
+            "description": "exclude large binary data",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "checkLib",
+            "in": "query",
+            "required": false,
+            "description": "perform reversibility check",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "hydrate",
+            "in": "query",
+            "required": false,
+            "description": "hydrate cold-tier act.data from the configured archive (default: true). Set false to skip archive lookups.",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "simple_actions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "block": {
+                            "type": "number"
+                          },
+                          "timestamp": {
+                            "type": "string"
+                          },
+                          "irreversible": {
+                            "type": "boolean"
+                          },
+                          "contract": {
+                            "type": "string"
+                          },
+                          "action": {
+                            "type": "string"
+                          },
+                          "actors": {
+                            "type": "string"
+                          },
+                          "notified": {
+                            "type": "string"
+                          },
+                          "transaction_id": {
+                            "type": "string"
+                          },
+                          "data": {
+                            "additionalProperties": true
+                          }
+                        }
+                      }
+                    },
+                    "actions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "@timestamp": {
+                            "type": "string"
+                          },
+                          "timestamp": {
+                            "type": "string"
+                          },
+                          "block_num": {
+                            "type": "number"
+                          },
+                          "block_id": {
+                            "type": "string"
+                          },
+                          "trx_id": {
+                            "type": "string"
+                          },
+                          "act": {
+                            "type": "object",
+                            "properties": {
+                              "account": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "authorization": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "actor": {
+                                      "type": "string"
+                                    },
+                                    "permission": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "additionalProperties": true
+                          },
+                          "receipts": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "receiver": {
+                                  "type": "string"
+                                },
+                                "global_sequence": {
+                                  "type": "string"
+                                },
+                                "recv_sequence": {
+                                  "type": "string"
+                                },
+                                "auth_sequence": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "account": {
+                                        "type": "string"
+                                      },
+                                      "sequence": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "cpu_usage_us": {
+                            "type": "number"
+                          },
+                          "net_usage_words": {
+                            "type": "number"
+                          },
+                          "account_ram_deltas": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "account": {
+                                  "type": "string"
+                                },
+                                "delta": {
+                                  "type": "number"
+                                }
+                              },
+                              "additionalProperties": true
+                            }
+                          },
+                          "global_sequence": {
+                            "type": "string"
+                          },
+                          "producer": {
+                            "type": "string"
+                          },
+                          "parent": {
+                            "type": "number"
+                          },
+                          "action_ordinal": {
+                            "type": "number"
+                          },
+                          "creator_action_ordinal": {
+                            "type": "number"
+                          },
+                          "signatures": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-history/get_actions/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/history/get_block": {
+      "get": {
+        "operationId": "get_v2_history_get_block",
+        "summary": "get block by number",
+        "description": "get block by number",
+        "tags": [
+          "history"
+        ],
+        "parameters": [
+          {
+            "name": "block_num",
+            "in": "query",
+            "required": true,
+            "description": "block number",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "@timestamp": {
+                      "type": "string"
+                    },
+                    "block_num": {
+                      "type": "integer"
+                    },
+                    "block_id": {
+                      "type": "string"
+                    },
+                    "prev_id": {
+                      "type": "string"
+                    },
+                    "producer": {
+                      "type": "string"
+                    },
+                    "new_producers": {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    "schedule_version": {
+                      "type": "integer"
+                    },
+                    "cpu_usage": {
+                      "type": "integer"
+                    },
+                    "net_usage": {
+                      "type": "integer"
+                    },
+                    "trx_count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-history/get_block/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/history/get_blocks": {
+      "get": {
+        "operationId": "get_v2_history_get_blocks",
+        "summary": "get blocks with various filters",
+        "description": "get blocks with various filters",
+        "tags": [
+          "history"
+        ],
+        "parameters": [
+          {
+            "name": "block_num",
+            "in": "query",
+            "required": false,
+            "description": "specific block number (returns single block)",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "block_id",
+            "in": "query",
+            "required": false,
+            "description": "specific block id (returns single block)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "producer",
+            "in": "query",
+            "required": false,
+            "description": "filter by block producer",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trx_count",
+            "in": "query",
+            "required": false,
+            "description": "filter by transaction count",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "min_trx_count",
+            "in": "query",
+            "required": false,
+            "description": "minimum transaction count",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "max_trx_count",
+            "in": "query",
+            "required": false,
+            "description": "maximum transaction count",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "description": "filter after specified date as ISO string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "required": false,
+            "description": "filter before specified date as ISO string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "number of blocks to return (default: 10)",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "required": false,
+            "description": "number of blocks to skip (default: 0)",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "sort direction (asc, desc, 1, -1)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "blocks": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "@timestamp": {
+                            "type": "string"
+                          },
+                          "block_num": {
+                            "type": "integer"
+                          },
+                          "block_id": {
+                            "type": "string"
+                          },
+                          "prev_id": {
+                            "type": "string"
+                          },
+                          "producer": {
+                            "type": "string"
+                          },
+                          "new_producers": {
+                            "type": "object",
+                            "additionalProperties": true
+                          },
+                          "schedule_version": {
+                            "type": "integer"
+                          },
+                          "cpu_usage": {
+                            "type": "integer"
+                          },
+                          "net_usage": {
+                            "type": "integer"
+                          },
+                          "trx_count": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-history/get_blocks/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/history/get_created_accounts": {
+      "get": {
+        "operationId": "get_v2_history_get_created_accounts",
+        "summary": "get created accounts",
+        "description": "get all accounts created by one creator",
+        "tags": [
+          "accounts"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "limit of [n] results per page",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "required": false,
+            "description": "skip [n] results",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "account",
+            "in": "query",
+            "required": true,
+            "description": "creator account",
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "query_time": {
+                      "type": "number"
+                    },
+                    "accounts": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "timestamp": {
+                            "type": "string"
+                          },
+                          "trx_id": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-history/get_created_accounts/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/history/get_creator": {
+      "get": {
+        "operationId": "get_v2_history_get_creator",
+        "summary": "get account creator",
+        "description": "get account creator",
+        "tags": [
+          "accounts"
+        ],
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "required": true,
+            "description": "created account",
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "account": {
+                      "type": "string"
+                    },
+                    "creator": {
+                      "type": "string"
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    },
+                    "block_num": {
+                      "type": "integer"
+                    },
+                    "trx_id": {
+                      "type": "string"
+                    },
+                    "indirect_creator": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-history/get_creator/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/history/get_deltas": {
+      "get": {
+        "operationId": "get_v2_history_get_deltas",
+        "summary": "get state deltas",
+        "description": "get state deltas",
+        "tags": [
+          "history"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "limit of [n] results per page",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "required": false,
+            "description": "skip [n] results",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "description": "contract account",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "required": false,
+            "description": "table scope",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "table",
+            "in": "query",
+            "required": false,
+            "description": "table name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "payer",
+            "in": "query",
+            "required": false,
+            "description": "payer account",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "description": "filter after specified date (ISO8601)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "required": false,
+            "description": "filter before specified date (ISO8601)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "present",
+            "in": "query",
+            "required": false,
+            "description": "delta present flag",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "hydrate",
+            "in": "query",
+            "required": false,
+            "description": "hydrate cold-tier delta value/data from the configured delta archive (default: true). No-op unless a delta archive is configured (TODO).",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "deltas": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "timestamp": {
+                            "type": "string"
+                          },
+                          "present": {
+                            "type": "number"
+                          },
+                          "code": {
+                            "type": "string"
+                          },
+                          "scope": {
+                            "type": "string"
+                          },
+                          "table": {
+                            "type": "string"
+                          },
+                          "primary_key": {
+                            "type": "string"
+                          },
+                          "payer": {
+                            "type": "string"
+                          },
+                          "block_num": {
+                            "type": "number"
+                          },
+                          "block_id": {
+                            "type": "string"
+                          },
+                          "data": {
+                            "type": "object",
+                            "additionalProperties": true
+                          }
+                        },
+                        "additionalProperties": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-history/get_deltas/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/history/get_schedule": {
+      "get": {
+        "operationId": "get_v2_history_get_schedule",
+        "summary": "get producer schedule by version",
+        "description": "get producer schedule by version",
+        "tags": [
+          "history"
+        ],
+        "parameters": [
+          {
+            "name": "producer",
+            "in": "query",
+            "required": false,
+            "description": "search by producer",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "required": false,
+            "description": "search by signing key",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "description": "filter after specified date (ISO8601)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "required": false,
+            "description": "filter before specified date (ISO8601)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "required": false,
+            "description": "search mode (activated or proposed)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "description": "schedule version",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    },
+                    "block_num": {
+                      "type": "number"
+                    },
+                    "proposed_block_num": {
+                      "type": "number"
+                    },
+                    "version": {
+                      "type": "number"
+                    },
+                    "producers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "producer_name": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "block_signing_key": {
+                            "type": "string"
+                          },
+                          "legacy_key": {
+                            "type": "string"
+                          },
+                          "keys": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-history/get_schedule/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/history/get_table_state": {
+      "get": {
+        "operationId": "get_v2_history_get_table_state",
+        "summary": "get table state at a specific block height",
+        "description": "get table state at a specific block height",
+        "tags": [
+          "history"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "description": "search by contract",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "table",
+            "in": "query",
+            "required": true,
+            "description": "search by key",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "block_num",
+            "in": "query",
+            "required": false,
+            "description": "target block",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "after_key",
+            "in": "query",
+            "required": false,
+            "description": "last key for pagination",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "table": {
+                      "type": "string"
+                    },
+                    "block_num": {
+                      "type": "number"
+                    },
+                    "after_key": {
+                      "type": "string"
+                    },
+                    "next_key": {
+                      "type": "string"
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "scope": {
+                            "type": "string"
+                          },
+                          "primary_key": {
+                            "type": "string"
+                          },
+                          "payer": {
+                            "type": "string"
+                          },
+                          "timestamp": {
+                            "type": "string"
+                          },
+                          "block_num": {
+                            "type": "number"
+                          },
+                          "block_id": {
+                            "type": "string"
+                          },
+                          "present": {
+                            "type": "number"
+                          },
+                          "data": {
+                            "type": "object",
+                            "additionalProperties": true
+                          }
+                        },
+                        "additionalProperties": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-history/get_table_state/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/history/get_transaction": {
+      "get": {
+        "operationId": "get_v2_history_get_transaction",
+        "summary": "get transaction by id",
+        "description": "get all actions belonging to the same transaction",
+        "tags": [
+          "history"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "description": "transaction id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "block_hint",
+            "in": "query",
+            "required": false,
+            "description": "block hint to speed up tx recovery",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "hydrate",
+            "in": "query",
+            "required": false,
+            "description": "hydrate cold-tier act.data from the configured archive (default: true). Set false to skip archive lookups.",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v2-history/get_transaction/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/state/get_account": {
+      "get": {
+        "operationId": "get_v2_state_get_account",
+        "summary": "get account summary",
+        "description": "get account data",
+        "tags": [
+          "accounts"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "limit of [n] results per page",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "required": false,
+            "description": "skip [n] results",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "account",
+            "in": "query",
+            "required": true,
+            "description": "account name",
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "account": {
+                      "additionalProperties": true
+                    },
+                    "links": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "timestamp": {
+                            "type": "string"
+                          },
+                          "permission": {
+                            "type": "string"
+                          },
+                          "code": {
+                            "type": "string"
+                          },
+                          "action": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "tokens": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "symbol": {
+                            "type": "string"
+                          },
+                          "precision": {
+                            "type": "integer"
+                          },
+                          "amount": {
+                            "type": "number"
+                          },
+                          "contract": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "total_actions": {
+                      "type": "number"
+                    },
+                    "actions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "@timestamp": {
+                            "type": "string"
+                          },
+                          "timestamp": {
+                            "type": "string"
+                          },
+                          "block_num": {
+                            "type": "number"
+                          },
+                          "block_id": {
+                            "type": "string"
+                          },
+                          "trx_id": {
+                            "type": "string"
+                          },
+                          "act": {
+                            "type": "object",
+                            "properties": {
+                              "account": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "authorization": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "actor": {
+                                      "type": "string"
+                                    },
+                                    "permission": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "additionalProperties": true
+                          },
+                          "receipts": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "receiver": {
+                                  "type": "string"
+                                },
+                                "global_sequence": {
+                                  "type": "string"
+                                },
+                                "recv_sequence": {
+                                  "type": "string"
+                                },
+                                "auth_sequence": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "account": {
+                                        "type": "string"
+                                      },
+                                      "sequence": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "cpu_usage_us": {
+                            "type": "number"
+                          },
+                          "net_usage_words": {
+                            "type": "number"
+                          },
+                          "account_ram_deltas": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "account": {
+                                  "type": "string"
+                                },
+                                "delta": {
+                                  "type": "number"
+                                }
+                              },
+                              "additionalProperties": true
+                            }
+                          },
+                          "global_sequence": {
+                            "type": "string"
+                          },
+                          "producer": {
+                            "type": "string"
+                          },
+                          "parent": {
+                            "type": "number"
+                          },
+                          "action_ordinal": {
+                            "type": "number"
+                          },
+                          "creator_action_ordinal": {
+                            "type": "number"
+                          },
+                          "signatures": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-state/get_account/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/state/get_key_accounts": {
+      "get": {
+        "operationId": "get_v2_state_get_key_accounts",
+        "summary": "get accounts by public key",
+        "description": "get accounts by public key",
+        "tags": [
+          "accounts"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "limit of [n] results per page",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "required": false,
+            "description": "skip [n] results",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "public_key",
+            "in": "query",
+            "required": true,
+            "description": "public key",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "details",
+            "in": "query",
+            "required": false,
+            "description": "include permission details",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "public_key": {
+                      "type": "string"
+                    },
+                    "legacy_public_key": {
+                      "type": "string"
+                    },
+                    "account_names": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "permissions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "owner": {
+                            "type": "string"
+                          },
+                          "block_num": {
+                            "type": "integer"
+                          },
+                          "parent": {
+                            "type": "string"
+                          },
+                          "last_updated": {
+                            "type": "string"
+                          },
+                          "auth": {},
+                          "name": {
+                            "type": "string"
+                          },
+                          "present": {
+                            "type": "number"
+                          },
+                          "weight": {
+                            "type": "number"
+                          },
+                          "threshold": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-state/get_key_accounts/index.ts",
+        "x-upstream-chain-api": false
+      },
+      "post": {
+        "operationId": "post_v2_state_get_key_accounts",
+        "summary": "get accounts by public key",
+        "description": "get accounts by public key",
+        "tags": [
+          "accounts",
+          "state"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "account_names": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-state/get_key_accounts/index.ts",
+        "x-upstream-chain-api": false,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "public_key": {
+                    "description": "public key",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "public_key"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/state/get_links": {
+      "get": {
+        "operationId": "get_v2_state_get_links",
+        "summary": "get permission links",
+        "description": "get permission links",
+        "tags": [
+          "accounts"
+        ],
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "required": false,
+            "description": "account name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "description": "contract name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "action",
+            "in": "query",
+            "required": false,
+            "description": "method name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "permission",
+            "in": "query",
+            "required": false,
+            "description": "permission name",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "links": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "block_num": {
+                            "type": "number"
+                          },
+                          "timestamp": {
+                            "type": "string"
+                          },
+                          "account": {
+                            "type": "string"
+                          },
+                          "permission": {
+                            "type": "string"
+                          },
+                          "code": {
+                            "type": "string"
+                          },
+                          "action": {
+                            "type": "string"
+                          },
+                          "irreversible": {
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-state/get_links/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/state/get_proposals": {
+      "get": {
+        "operationId": "get_v2_state_get_proposals",
+        "summary": "get proposals",
+        "description": "get proposals",
+        "tags": [
+          "system"
+        ],
+        "parameters": [
+          {
+            "name": "proposer",
+            "in": "query",
+            "required": false,
+            "description": "filter by proposer",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "proposal",
+            "in": "query",
+            "required": false,
+            "description": "filter by proposal name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "account",
+            "in": "query",
+            "required": false,
+            "description": "filter by either requested or provided account",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "requested",
+            "in": "query",
+            "required": false,
+            "description": "filter by requested account",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "provided",
+            "in": "query",
+            "required": false,
+            "description": "filter by provided account",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "executed",
+            "in": "query",
+            "required": false,
+            "description": "filter by execution status",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "track",
+            "in": "query",
+            "required": false,
+            "description": "total results to track (count) [number or true]",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "required": false,
+            "description": "skip [n] actions (pagination)",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "limit of [n] actions per page",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "error": {
+                      "type": "string",
+                      "description": "Error message when a condition fails (MongoDB disabled or feature disabled)"
+                    },
+                    "proposals": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "proposal_name": {
+                            "type": "string"
+                          },
+                          "expiration": {
+                            "type": "string"
+                          },
+                          "earliest_exec_time": {
+                            "type": "string",
+                            "nullable": true
+                          },
+                          "block_num": {
+                            "type": "number"
+                          },
+                          "proposer": {
+                            "type": "string"
+                          },
+                          "executed": {
+                            "type": "boolean"
+                          },
+                          "primary_key": {
+                            "type": "string"
+                          },
+                          "trx": {
+                            "type": "object",
+                            "properties": {
+                              "expiration": {
+                                "type": "string"
+                              },
+                              "ref_block_num": {
+                                "type": "number"
+                              },
+                              "ref_block_prefix": {
+                                "type": "number"
+                              },
+                              "max_net_usage_words": {
+                                "type": "number"
+                              },
+                              "max_cpu_usage_ms": {
+                                "type": "number"
+                              },
+                              "delay_sec": {
+                                "type": "number"
+                              },
+                              "context_free_actions": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object"
+                                }
+                              },
+                              "actions": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "account": {
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "authorization": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "actor": {
+                                            "type": "string"
+                                          },
+                                          "permission": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "data": {
+                                      "type": "object",
+                                      "properties": {
+                                        "from": {
+                                          "type": "string"
+                                        },
+                                        "to": {
+                                          "type": "string"
+                                        },
+                                        "quantity": {
+                                          "type": "string"
+                                        },
+                                        "memo": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "transaction_extensions": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object"
+                                }
+                              }
+                            }
+                          },
+                          "requested_approvals": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "actor": {
+                                  "type": "string"
+                                },
+                                "permission": {
+                                  "type": "string"
+                                },
+                                "time": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "provided_approvals": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "actor": {
+                                  "type": "string"
+                                },
+                                "permission": {
+                                  "type": "string"
+                                },
+                                "time": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-state/get_proposals/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/state/get_table_rows": {
+      "get": {
+        "operationId": "get_v2_state_get_table_rows",
+        "summary": "get table rows",
+        "description": "get table rows from contract table",
+        "tags": [
+          "state"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "limit of [n] results per page",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "required": false,
+            "description": "skip [n] results",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "contract",
+            "in": "query",
+            "required": false,
+            "description": "contract name",
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          {
+            "name": "table",
+            "in": "query",
+            "required": false,
+            "description": "table name",
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          {
+            "name": "primary_key",
+            "in": "query",
+            "required": false,
+            "description": "filter by primary key",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "required": false,
+            "description": "filter by scope",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "block_id",
+            "in": "query",
+            "required": false,
+            "description": "filter by block ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "block_num",
+            "in": "query",
+            "required": false,
+            "description": "filter by block number",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "block_time",
+            "in": "query",
+            "required": false,
+            "description": "filter by block time",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "payer",
+            "in": "query",
+            "required": false,
+            "description": "filter by payer account",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "required": false,
+            "description": "JSON string containing dynamic filters to apply to table rows. Example: {\"is_active\":true,\"total_votes\":{\"$gt\":1000000}}. For date ranges: {\"creation_date\":{\"$gte\":\"2023-01-01T00:00:00Z\",\"$lte\":\"2023-12-31T23:59:59Z\"}}. Date strings are automatically converted to proper MongoDB date objects for comparison. Supports MongoDB query operators like $gt, $lt, $gte, $lte, $in, etc.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "description": "Field name to sort results by. Can be any field in the table rows.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort_direction",
+            "in": "query",
+            "required": false,
+            "description": "Sort direction: \"asc\" for ascending, \"desc\" for descending",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "asc"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "rows_count": {
+                      "type": "integer"
+                    },
+                    "sort_by": {
+                      "type": "string",
+                      "description": "Field used for sorting the results"
+                    },
+                    "sort_direction": {
+                      "type": "string",
+                      "description": "Direction of sorting (asc or desc)"
+                    },
+                    "rows": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "@pk": {
+                            "type": "string",
+                            "description": "Primary key value"
+                          },
+                          "@scope": {
+                            "type": "string",
+                            "description": "Scope of the table row"
+                          },
+                          "@block_id": {
+                            "type": "string",
+                            "description": "Block ID when the row was last modified"
+                          },
+                          "@block_num": {
+                            "type": "integer",
+                            "description": "Block number when the row was last modified"
+                          },
+                          "@block_time": {
+                            "type": "string",
+                            "description": "Block timestamp when the row was last modified"
+                          },
+                          "@payer": {
+                            "type": "string",
+                            "description": "Account name that paid for this row"
+                          }
+                        },
+                        "additionalProperties": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-state/get_table_rows/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/state/get_tokens": {
+      "get": {
+        "operationId": "get_v2_state_get_tokens",
+        "summary": "get all tokens",
+        "description": "get tokens from an account",
+        "tags": [
+          "accounts"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "limit of [n] results per page",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "required": false,
+            "description": "skip [n] results",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "account",
+            "in": "query",
+            "required": true,
+            "description": "account name",
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "account": {
+                      "type": "string"
+                    },
+                    "tokens": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "symbol": {
+                            "type": "string"
+                          },
+                          "precision": {
+                            "type": "number"
+                          },
+                          "amount": {
+                            "type": "number"
+                          },
+                          "contract": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-state/get_tokens/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/state/get_top_holders": {
+      "get": {
+        "operationId": "get_v2_state_get_top_holders",
+        "summary": "get top token holders",
+        "description": "get the list of top holders for a given token",
+        "tags": [
+          "accounts"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "limit of [n] results per page",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "required": false,
+            "description": "skip [n] results",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "contract",
+            "in": "query",
+            "required": true,
+            "description": "token contract account name",
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12
+            }
+          },
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": false,
+            "description": "filter by token symbol",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v2-state/get_top_holders/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/state/get_voter_scopes": {
+      "get": {
+        "operationId": "get_v2_state_get_voter_scopes",
+        "summary": "get filtered voters",
+        "description": "find voter accounts from a wildcard string",
+        "tags": [
+          "accounts"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "limit of [n] results per page",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "required": false,
+            "description": "skip [n] results",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "required": true,
+            "description": "search string",
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 12
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "scopes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-state/get_voter_scopes/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/state/get_voters": {
+      "get": {
+        "operationId": "get_v2_state_get_voters",
+        "summary": "get voters",
+        "description": "get voters",
+        "tags": [
+          "system"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "limit of [n] results per page",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "required": false,
+            "description": "skip [n] results",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "producer",
+            "in": "query",
+            "required": false,
+            "description": "filter by voted producer (comma separated)",
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "voter_count": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string",
+                      "description": "Error message when a condition fails (MongoDB disabled or feature disabled)"
+                    },
+                    "voters": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "account": {
+                            "type": "string"
+                          },
+                          "is_proxy": {
+                            "type": "boolean"
+                          },
+                          "weight": {
+                            "type": "number"
+                          },
+                          "staked": {
+                            "type": "number"
+                          },
+                          "last_vote_block": {
+                            "type": "number"
+                          },
+                          "producers": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-state/get_voters/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/stats/get_action_usage": {
+      "get": {
+        "operationId": "get_v2_stats_get_action_usage",
+        "summary": "get action and transaction stats for a given period",
+        "description": "get action and transaction stats for a given period",
+        "tags": [
+          "stats"
+        ],
+        "parameters": [
+          {
+            "name": "period",
+            "in": "query",
+            "required": true,
+            "description": "analysis period",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "description": "final date",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "unique_actors",
+            "in": "query",
+            "required": false,
+            "description": "compute unique actors",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "action_count": {
+                      "type": "string",
+                      "pattern": "^(0|[1-9][0-9]*)$",
+                      "description": "Exact decimal action count"
+                    },
+                    "tx_count": {
+                      "type": "number"
+                    },
+                    "unique_actors": {
+                      "type": "number"
+                    },
+                    "period": {
+                      "type": "string"
+                    },
+                    "from": {
+                      "type": "string"
+                    },
+                    "to": {
+                      "type": "string"
+                    },
+                    "cache_exp": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-stats/get_action_usage/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/stats/get_api_usage": {
+      "get": {
+        "operationId": "get_v2_stats_get_api_usage",
+        "summary": "get hyperion api usage statistics",
+        "description": "get hyperion api usage statistics",
+        "tags": [
+          "stats"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "responses": {
+                          "additionalProperties": true
+                        }
+                      }
+                    },
+                    "buckets": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "timestamp": {
+                            "type": "string"
+                          },
+                          "responses": {
+                            "additionalProperties": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-stats/get_api_usage/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/stats/get_missed_blocks": {
+      "get": {
+        "operationId": "get_v2_stats_get_missed_blocks",
+        "summary": "get missed blocks",
+        "description": "get missed blocks",
+        "tags": [
+          "stats"
+        ],
+        "parameters": [
+          {
+            "name": "producer",
+            "in": "query",
+            "required": false,
+            "description": "filter by producer",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "description": "filter after specified date (ISO8601)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "required": false,
+            "description": "filter before specified date (ISO8601)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "min_blocks",
+            "in": "query",
+            "required": false,
+            "description": "min. blocks threshold",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "stats": {
+                      "type": "object",
+                      "properties": {
+                        "by_producer": {}
+                      }
+                    },
+                    "events": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "@timestamp": {
+                            "type": "string"
+                          },
+                          "last_block": {
+                            "type": "number"
+                          },
+                          "schedule_version": {
+                            "type": "number"
+                          },
+                          "size": {
+                            "type": "number"
+                          },
+                          "producer": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-stats/get_missed_blocks/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/stats/get_resource_usage": {
+      "get": {
+        "operationId": "get_v2_stats_get_resource_usage",
+        "summary": "get resource usage stats for a specific action",
+        "description": "get resource usage stats for a specific action",
+        "tags": [
+          "stats"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "description": "contract",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "action",
+            "in": "query",
+            "required": true,
+            "description": "action name",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v2-stats/get_resource_usage/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/stats/get_trx_count": {
+      "get": {
+        "operationId": "get_v2_stats_get_trx_count",
+        "summary": "get transaction count statistics from block range",
+        "description": "get transaction count statistics from block range",
+        "tags": [
+          "stats"
+        ],
+        "parameters": [
+          {
+            "name": "start_block",
+            "in": "query",
+            "required": false,
+            "description": "start block number (inclusive)",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "end_block",
+            "in": "query",
+            "required": false,
+            "description": "end block number (inclusive)",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "description": "filter after specified date (ISO8601)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "required": false,
+            "description": "filter before specified date (ISO8601)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "producer",
+            "in": "query",
+            "required": false,
+            "description": "filter by specific producer",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group_by",
+            "in": "query",
+            "required": false,
+            "description": "group results by field (producer, hour, day)",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "producer",
+                "hour",
+                "day"
+              ]
+            }
+          },
+          {
+            "name": "validate_actions",
+            "in": "query",
+            "required": false,
+            "description": "validate transaction count against action count to detect missing actions (excludes eosio::onblock system actions)",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Declared response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query_time_ms": {
+                      "type": "number"
+                    },
+                    "cached": {
+                      "type": "boolean"
+                    },
+                    "hot_only": {
+                      "type": "boolean"
+                    },
+                    "lib": {
+                      "type": "number"
+                    },
+                    "last_indexed_block": {
+                      "type": "number"
+                    },
+                    "last_indexed_block_time": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "relation": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "total_trx_count": {
+                      "type": "integer",
+                      "description": "Total transaction count in the range"
+                    },
+                    "block_count": {
+                      "type": "integer",
+                      "description": "Number of blocks in the range"
+                    },
+                    "avg_trx_per_block": {
+                      "type": "number",
+                      "description": "Average transactions per block"
+                    },
+                    "start_block": {
+                      "type": "integer"
+                    },
+                    "end_block": {
+                      "type": "integer"
+                    },
+                    "grouped_stats": {
+                      "type": "object",
+                      "description": "Statistics grouped by specified field",
+                      "additionalProperties": true
+                    },
+                    "validation": {
+                      "type": "object",
+                      "description": "Validation results when validate_actions is true",
+                      "properties": {
+                        "total_action_count": {
+                          "type": "integer",
+                          "description": "Total actions found in action index (excluding eosio::onblock system actions)"
+                        },
+                        "transaction_count_from_blocks": {
+                          "type": "integer",
+                          "description": "Total transaction count from block index"
+                        },
+                        "is_valid": {
+                          "type": "boolean",
+                          "description": "Whether action count matches transaction count"
+                        },
+                        "missing_actions": {
+                          "type": "integer",
+                          "description": "Number of missing actions (negative if excess actions)"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-source-file": "src/api/routes/v2-stats/get_trx_count/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/explorer_logo": {
+      "get": {
+        "operationId": "get_v2_explorer_logo",
+        "summary": "explorer_logo",
+        "tags": [
+          "v2"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v2/explorer_logo/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/explorer_metadata": {
+      "get": {
+        "operationId": "get_v2_explorer_metadata",
+        "summary": "Explorer Metadata",
+        "description": "Get metadata for the Hyperion Explorer",
+        "tags": [
+          "explorer"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v2/explorer_metadata/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/get_filters": {
+      "get": {
+        "operationId": "get_v2_get_filters",
+        "summary": "Active Filters on the Indexer",
+        "tags": [
+          "status"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v2/get_filters/index.ts",
+        "x-upstream-chain-api": false
+      }
+    },
+    "/v2/health": {
+      "get": {
+        "operationId": "get_v2_health",
+        "summary": "API Service Health Report",
+        "tags": [
+          "status"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Response shape is not declared here; inspect the provider response and runtime API specification."
+          }
+        },
+        "x-source-file": "src/api/routes/v2/health/index.ts",
+        "x-upstream-chain-api": false
+      }
+    }
+  }
+}

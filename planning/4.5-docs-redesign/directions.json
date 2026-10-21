@@ -1,0 +1,45 @@
+{
+  "title": "Hyperion docs, redesigned for 4.5",
+  "question": "Compare three structures in the Hyperion and Rio Blocks visual system. These are first-viewport sketches, not an implemented docs site. The full content and migration proposal is in planning/4.5-docs-redesign/proposal.md.",
+  "options": [
+    {
+      "id": "handbook",
+      "kind": "assigned",
+      "label": "The Hyperion handbook",
+      "thesis": "One coherent reference with a persistent section rail, a calm reading column and an immediate way to start.",
+      "palette": ["#050505", "#f0f0f0", "#0094d2", "#14b8a6"],
+      "materials": ["Inter reading type", "hairline divisions", "code in JetBrains Mono"],
+      "viewport": "The docs shell is already open: section rail on the left, an introduction and task list in the center, local contents on the right.",
+      "risk": "The full navigation is visible before a new reader has chosen a task.",
+      "html": ".impeccable/mocks/decision/handbook.html",
+      "comp": ".impeccable/mocks/decision/handbook.png"
+    },
+    {
+      "id": "task-hub",
+      "kind": "dealt",
+      "label": "Start with a task",
+      "thesis": "A compact front door gives API developers, operators and plugin authors a direct route to working guidance.",
+      "palette": ["#050505", "#f0f0f0", "#0094d2", "#14b8a6"],
+      "materials": ["Inter reading type", "open rows", "worked request example"],
+      "viewport": "Task routes share the first viewport with a bounded history-query example; the full sidebar begins inside the chosen section.",
+      "risk": "The homepage adds one navigation step for readers who already know their destination.",
+      "html": ".impeccable/mocks/decision/task-hub.html",
+      "comp": ".impeccable/mocks/decision/task-hub.png"
+    },
+    {
+      "id": "release-hub",
+      "kind": "dealt",
+      "label": "The 4.5 release workspace",
+      "thesis": "A release-focused front page puts readiness, upgrade guidance and existing API docs side by side.",
+      "palette": ["#050505", "#f0f0f0", "#0094d2", "#f59e0b"],
+      "materials": ["Inter reading type", "release tables", "explicit preview labels"],
+      "viewport": "The version and its preview status lead, then two reading tracks: integrate with Hyperion or prepare an operator upgrade.",
+      "risk": "It needs a deliberate transition after 4.5 ships so the release does not permanently dominate discovery.",
+      "html": ".impeccable/mocks/decision/release-hub.html",
+      "comp": ".impeccable/mocks/decision/release-hub.png"
+    }
+  ],
+  "reroll": true,
+  "steer": true,
+  "buildPath": {"value": "code", "toggle": true}
+}

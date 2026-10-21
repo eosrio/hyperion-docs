@@ -1,0 +1,42 @@
+{
+  "light": {
+    "background": "#f6f6f3",
+    "colors": [
+      {
+        "color": "rgb(70, 70, 70)",
+        "selector": ".home-opening p",
+        "ratio": 8.72
+      },
+      {
+        "color": "rgb(80, 80, 75)",
+        "selector": ".task-row p",
+        "ratio": 7.49
+      },
+      {
+        "color": "rgb(0, 105, 154)",
+        "selector": ".text-action",
+        "ratio": 5.56
+      }
+    ]
+  },
+  "dark": {
+    "background": "#050505",
+    "colors": [
+      {
+        "color": "rgb(184, 184, 184)",
+        "selector": ".home-opening p",
+        "ratio": 10.27
+      },
+      {
+        "color": "rgb(170, 170, 170)",
+        "selector": ".task-row p",
+        "ratio": 8.77
+      },
+      {
+        "color": "rgb(92, 195, 240)",
+        "selector": ".text-action",
+        "ratio": 10.21
+      }
+    ]
+  }
+}
