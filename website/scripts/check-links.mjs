@@ -23,7 +23,10 @@ for (const [file, html] of documents) {
     if (!href || /^(https?:|mailto:|tel:|javascript:|data:)/.test(href)) continue;
     const url = new URL(href, base);
     let target = path.join(build, decodeURIComponent(url.pathname));
-    if (existsSync(target) && (await stat(target)).isDirectory()) target = path.join(target, 'index.html');
+    if (existsSync(target)) {
+      if ((await stat(target)).isDirectory()) target = path.join(target, 'index.html');
+      else if (url.pathname.endsWith('/')) {failures.push(`${path.relative(build, file)} -> ${href} (file URL has a trailing slash)`); continue;}
+    }
     if (!existsSync(target)) {failures.push(`${path.relative(build, file)} -> ${href} (missing path)`); continue;}
     const hash = decodeURIComponent(url.hash.slice(1));
     if (hash && documents.has(target) && !documents.get(target).includes(`id="${hash}"`)) failures.push(`${path.relative(build, file)} -> ${href} (missing anchor)`);

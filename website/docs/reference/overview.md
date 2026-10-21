@@ -23,7 +23,7 @@ The core also forwards `/v1/chain/*` requests to the configured chain RPC. These
 
 ## Download
 
-[Download the source-derived OpenAPI document](/reference/hyperion-source.openapi.json). It contains declared core operations and shared schemas. Runtime plugin routes and the upstream wildcard's complete node contract must be inspected on the provider.
+[Download the source-derived OpenAPI document](pathname:///reference/hyperion-source.openapi.json). It contains declared core operations and shared schemas. Runtime plugin routes and the upstream wildcard's complete node contract must be inspected on the provider.
 
 ## Historical endpoint names
 

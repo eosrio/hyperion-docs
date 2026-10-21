@@ -100,4 +100,4 @@ Check HTTP status before parsing JSON. Validation errors, unavailable dependenci
 
 ## Source
 
-[Route definition](https://github.com/eosrio/hyperion-history-api/blob/e1818923065d648a38009572d76badeab0684af1/src/api/routes/v2-stats/get_missed_blocks/index.ts) at `e1818923065d648a38009572d76badeab0684af1`. SHA-256: `36e38b282126ff3dbccb6375d2f7d96f82e5396802334f44c8382ea342661774`. [Download the core source OpenAPI](/reference/hyperion-source.openapi.json). Generated from the 4.5 source.
+[Route definition](https://github.com/eosrio/hyperion-history-api/blob/e1818923065d648a38009572d76badeab0684af1/src/api/routes/v2-stats/get_missed_blocks/index.ts) at `e1818923065d648a38009572d76badeab0684af1`. SHA-256: `36e38b282126ff3dbccb6375d2f7d96f82e5396802334f44c8382ea342661774`. [Download the core source OpenAPI](pathname:///reference/hyperion-source.openapi.json). Generated from the 4.5 source.
