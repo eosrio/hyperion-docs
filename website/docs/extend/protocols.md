@@ -34,6 +34,8 @@ ABI decoding requires the ABI that applies to the source block and action epoch.
 
 Extension-state routes covered by the readiness guard return HTTP 503 with code `protocol_projection_unavailable` and retry guidance. This includes affected contract-state, row-history and permission views. They do not silently fall back to a stale legacy projection. Ordinary retained-history availability is evaluated separately.
 
+A plugin can instead back `get_tokens`, `get_top_holders`, `get_voters`, `get_voter_scopes` or `get_links` with one of its owner-v2 projections. A backed route that is not ready answers 503 `stateful.query-unavailable`. See [plugin-backed core state routes](/extend/projections/#plugin-backed-core-state-routes) and the [Wire state plugin](/extend/projections/#wire-state-plugin).
+
 `/v2/state/get_account` stays available for extension providers because it reads no unqualified projection. It returns the node's account record, every balance the node reports in the system token contract (`<eosio_alias>.token`, named in `token_contracts`), and the account's actions from the metadata-only action search. Parts it cannot serve are named in `unavailable` and left out of the response rather than returned empty: `links` always, and `tokens` when the node balance call fails.
 
 ## Validate a deployment

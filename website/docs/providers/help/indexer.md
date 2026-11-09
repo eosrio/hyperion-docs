@@ -30,6 +30,10 @@ Inspect `indexer.abi_scan_mode` and `settings.auto_mode_switch`. ABI-scan mode f
 
 HTTP 503 `protocol_projection_unavailable` means the requested extension projection is not ready for serving; it is not an empty data result. Keep unaffected retained-history reads separate. Inspect the provider/profile identity, initialization inputs and ABI/source coverage before retrying the affected scope.
 
+If a route you expected a plugin to back still answers `protocol_projection_unavailable`, it has no backing. Check that the plugin is enabled for the API, that `features.stateful_owner_v2.maximumServingLagBlocks` is set and that no other plugin claims the same route.
+
+HTTP 503 `stateful.query-unavailable` on a backed route means its owner or view is not ready, or the view trails its finality target by more than `maximumServingLagBlocks`. HTTP 400 `invalid_state_request` means the backing refused the parameters themselves; retrying the same request will not help. See [plugin-backed core state routes](/extend/projections/#plugin-backed-core-state-routes).
+
 ## Source
 
 [Startup MongoDB check](https://github.com/eosrio/hyperion-history-api/blob/e1818923065d648a38009572d76badeab0684af1/src/indexer/modules/master.ts), [configuration mode handling](https://github.com/eosrio/hyperion-history-api/blob/e1818923065d648a38009572d76badeab0684af1/src/indexer/modules/config.ts), and [projection readiness](https://github.com/eosrio/hyperion-history-api/blob/e1818923065d648a38009572d76badeab0684af1/src/api/helpers/protocol-state-readiness.ts).
