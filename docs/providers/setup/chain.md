@@ -89,8 +89,12 @@ Whitelist for actions and deltas
 
 - `"start_on": 0` ⇒ Start indexing on block (0=disable)
 - `"stop_on": 0` ⇒ Stop indexing on block  (0=disable)
-- `"rewrite": false` ⇒ Force rewrite the target replay range
-- `"purge_queues": true` ⇒ Clear rabbitmq queues before starting the indexer
+- `"rewrite": false` ⇒ Force rewrite the target replay range. Without it, a start with `start_on` resumes at the
+  first block missing from the block index in that range, so a restart after a crash reads the gaps again
+- `"purge_queues": false` ⇒ Delete this chain's RabbitMQ queues before starting the indexer. With `true`, queues
+  that still hold messages are only deleted when the start rewrites its range (`rewrite: true`); otherwise
+  they are kept and the indexer logs each one, because they hold work for blocks the start does not read
+  again. `"force"` always deletes them. Leave it `false` unless you mean to discard queued work
 - `"live_reader": false` ⇒ Enable live reader
 - `"live_only_mode": false` ⇒ Only reads realtime data serially
 - `"abi_scan_mode": true` ⇒ Enable abi scan mode (<b>Indicated on the first run</b>)
@@ -219,7 +223,7 @@ to `chains/eos.config.json`. The next step is to edit the file as the following:
     "start_on": 1,
     "stop_on": 0,
     "rewrite": false,
-    "purge_queues": true,
+    "purge_queues": false,
     "live_reader": false,
     "live_only_mode": false,
     "abi_scan_mode": false,

@@ -98,15 +98,15 @@ With `auto_mode_switch: true`, the indexer will automatically:
 
 ## Purge Queues Fails on Startup
 
-**Symptom:** The indexer crashes on startup with:
+**Symptom:** The indexer exits on startup with:
 
 ```
-Error running master: TypeError: result is not iterable
+Failed to purge <chain> queues: RabbitMQ management API returned HTTP 404 listing queues of vhost "..."
 ```
 
-The error points to `ConnectionManager.purgeQueues`.
+Versions before 4.5 crashed instead with `TypeError: result is not iterable` in `ConnectionManager.purgeQueues`.
 
-**Cause:** When `purge_queues: true` is set in the indexer config, the indexer calls the RabbitMQ management API to list and delete existing queues. If the configured `vhost` does not exist in RabbitMQ, or the management API credentials are incorrect, RabbitMQ returns an error object instead of the expected queue array — causing the iteration error.
+**Cause:** When `purge_queues` is `true` or `"force"`, the indexer calls the RabbitMQ management API to list the chain's queues before deciding what to delete. If the configured `vhost` does not exist in RabbitMQ, or the management API credentials are incorrect, the listing fails.
 
 **Fix:**
 
@@ -125,4 +125,24 @@ The error points to `ConnectionManager.purgeQueues`.
 ```
 
 !!! tip "Workaround"
-    If you're running with a fresh RabbitMQ instance (no pre-existing queues), you can safely set `purge_queues: false` to skip this step entirely.
+    `purge_queues: false` skips this step entirely, and is the recommended setting.
+
+---
+
+## Queues Kept on Startup
+
+**Symptom:** With `purge_queues: true`, the indexer logs on startup:
+
+```
+[WARNING] purge_queues is on, but 1841 messages are waiting in <chain> queues and rewrite is off.
+[WARNING] The queues were kept: they hold work for blocks this start does not read again, so deleting them would lose it.
+```
+
+followed by one line per queue that still holds messages.
+
+**Cause:** The previous run stopped (a crash, a kill, or a restart by the supervisor) while blocks were still queued. A start without `rewrite` resumes at the first block missing from the block index, so blocks below that point are not read again. Their actions and deltas may still be waiting in the queues, and deleting them would lose those documents for good. The indexer keeps them and processes them as it starts.
+
+**Fix:** Nothing is needed; the queued work is indexed normally. To discard it on purpose:
+
+1. Rewrite the affected range from a known block: set `start_on` to that block and `rewrite: true`, or
+2. Set `purge_queues: "force"` for one start. Anything those messages held is lost unless that range is rewritten.
