@@ -1,0 +1,616 @@
+{
+  "pages": [
+    {
+      "path": "/next/build/query-actions/",
+      "doc": "build/query-actions",
+      "anchors": [
+        "filter-actions",
+        "read-a-bounded-historical-range",
+        "paginate-carefully",
+        "interpret-counts-and-coverage",
+        "related-guidance"
+      ],
+      "headings": [
+        {
+          "text": "Query action history",
+          "level": 1
+        },
+        {
+          "id": "filter-actions",
+          "text": "Filter actions",
+          "level": 2
+        },
+        {
+          "id": "read-a-bounded-historical-range",
+          "text": "Read a bounded historical range",
+          "level": 2
+        },
+        {
+          "id": "paginate-carefully",
+          "text": "Paginate carefully",
+          "level": 2
+        },
+        {
+          "id": "interpret-counts-and-coverage",
+          "text": "Interpret counts and coverage",
+          "level": 2
+        },
+        {
+          "id": "related-guidance",
+          "text": "Related guidance",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "path": "/next/build/streaming/",
+      "doc": "build/streaming",
+      "anchors": [
+        "establish-the-contract",
+        "build-a-recoverable-consumer",
+        "existing-client-documentation"
+      ],
+      "headings": [
+        {
+          "text": "Streaming and replay",
+          "level": 1
+        },
+        {
+          "id": "establish-the-contract",
+          "text": "Establish the contract",
+          "level": 2
+        },
+        {
+          "id": "build-a-recoverable-consumer",
+          "text": "Build a recoverable consumer",
+          "level": 2
+        },
+        {
+          "id": "existing-client-documentation",
+          "text": "Existing client documentation",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "path": "/next/extend/overview/",
+      "doc": "extend/overview",
+      "anchors": [
+        "choose-the-boundary",
+        "existing-plugins",
+        "the-45-sdk-and-protocol-work",
+        "validate-an-integration"
+      ],
+      "headings": [
+        {
+          "text": "Extend Hyperion",
+          "level": 1
+        },
+        {
+          "id": "choose-the-boundary",
+          "text": "Choose the boundary",
+          "level": 2
+        },
+        {
+          "id": "existing-plugins",
+          "text": "Existing plugins",
+          "level": 2
+        },
+        {
+          "id": "the-45-sdk-and-protocol-work",
+          "text": "The 4.5 SDK and protocol work",
+          "level": 2
+        },
+        {
+          "id": "validate-an-integration",
+          "text": "Validate an integration",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "path": "/next/operate/configure-chain/",
+      "doc": "operate/configure-chain",
+      "anchors": [
+        "before-you-start",
+        "initialize-dependency-connections",
+        "create-the-chain-configuration",
+        "validate-and-inspect",
+        "start-the-processes",
+        "confirm-success",
+        "if-a-check-fails"
+      ],
+      "headings": [
+        {
+          "text": "Configure a chain",
+          "level": 1
+        },
+        {
+          "id": "before-you-start",
+          "text": "Before you start",
+          "level": 2
+        },
+        {
+          "id": "initialize-dependency-connections",
+          "text": "Initialize dependency connections",
+          "level": 2
+        },
+        {
+          "id": "create-the-chain-configuration",
+          "text": "Create the chain configuration",
+          "level": 2
+        },
+        {
+          "id": "validate-and-inspect",
+          "text": "Validate and inspect",
+          "level": 2
+        },
+        {
+          "id": "start-the-processes",
+          "text": "Start the processes",
+          "level": 2
+        },
+        {
+          "id": "confirm-success",
+          "text": "Confirm success",
+          "level": 2
+        },
+        {
+          "id": "if-a-check-fails",
+          "text": "If a check fails",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "path": "/next/operate/overview/",
+      "doc": "operate/overview",
+      "anchors": [
+        "choose-your-starting-point",
+        "understand-the-services",
+        "configure-start-verify",
+        "plan-day-two-work"
+      ],
+      "headings": [
+        {
+          "text": "Run Hyperion",
+          "level": 1
+        },
+        {
+          "id": "choose-your-starting-point",
+          "text": "Choose your starting point",
+          "level": 2
+        },
+        {
+          "id": "understand-the-services",
+          "text": "Understand the services",
+          "level": 2
+        },
+        {
+          "id": "configure-start-verify",
+          "text": "Configure, start, verify",
+          "level": 2
+        },
+        {
+          "id": "plan-day-two-work",
+          "text": "Plan day-two work",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "path": "/next/operate/verify-indexing/",
+      "doc": "operate/verify-indexing",
+      "anchors": [
+        "check-the-api-and-dependencies",
+        "check-a-known-historical-range",
+        "check-state-independently",
+        "record-an-acceptance-result"
+      ],
+      "headings": [
+        {
+          "text": "Verify indexing and serving",
+          "level": 1
+        },
+        {
+          "id": "check-the-api-and-dependencies",
+          "text": "Check the API and dependencies",
+          "level": 2
+        },
+        {
+          "id": "check-a-known-historical-range",
+          "text": "Check a known historical range",
+          "level": 2
+        },
+        {
+          "id": "check-state-independently",
+          "text": "Check state independently",
+          "level": 2
+        },
+        {
+          "id": "record-an-acceptance-result",
+          "text": "Record an acceptance result",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "path": "/next/reference/generated/configuration/",
+      "doc": "reference/generated/configuration",
+      "anchors": [
+        "api",
+        "indexer",
+        "settings",
+        "blacklists",
+        "whitelists",
+        "scaling",
+        "features",
+        "prefetch",
+        "hub",
+        "plugins",
+        "alerts",
+        "source"
+      ],
+      "headings": [
+        {
+          "text": "Chain configuration values",
+          "level": 1
+        },
+        {
+          "id": "api",
+          "text": "api",
+          "level": 2
+        },
+        {
+          "id": "indexer",
+          "text": "indexer",
+          "level": 2
+        },
+        {
+          "id": "settings",
+          "text": "settings",
+          "level": 2
+        },
+        {
+          "id": "blacklists",
+          "text": "blacklists",
+          "level": 2
+        },
+        {
+          "id": "whitelists",
+          "text": "whitelists",
+          "level": 2
+        },
+        {
+          "id": "scaling",
+          "text": "scaling",
+          "level": 2
+        },
+        {
+          "id": "features",
+          "text": "features",
+          "level": 2
+        },
+        {
+          "id": "prefetch",
+          "text": "prefetch",
+          "level": 2
+        },
+        {
+          "id": "hub",
+          "text": "hub",
+          "level": 2
+        },
+        {
+          "id": "plugins",
+          "text": "plugins",
+          "level": 2
+        },
+        {
+          "id": "alerts",
+          "text": "alerts",
+          "level": 2
+        },
+        {
+          "id": "source",
+          "text": "Source",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "path": "/next/reference/generated/get-account/",
+      "doc": "reference/generated/get-account",
+      "anchors": [
+        "query-parameters",
+        "usage-notes",
+        "response",
+        "download-and-provenance"
+      ],
+      "headings": [
+        {
+          "text": "Get account",
+          "level": 1
+        },
+        {
+          "id": "query-parameters",
+          "text": "Query parameters",
+          "level": 2
+        },
+        {
+          "id": "usage-notes",
+          "text": "Usage notes",
+          "level": 2
+        },
+        {
+          "id": "response",
+          "text": "Response",
+          "level": 2
+        },
+        {
+          "id": "download-and-provenance",
+          "text": "Download and provenance",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "path": "/next/reference/generated/get-actions/",
+      "doc": "reference/generated/get-actions",
+      "anchors": [
+        "query-parameters",
+        "usage-notes",
+        "response",
+        "download-and-provenance"
+      ],
+      "headings": [
+        {
+          "text": "Get actions",
+          "level": 1
+        },
+        {
+          "id": "query-parameters",
+          "text": "Query parameters",
+          "level": 2
+        },
+        {
+          "id": "usage-notes",
+          "text": "Usage notes",
+          "level": 2
+        },
+        {
+          "id": "response",
+          "text": "Response",
+          "level": 2
+        },
+        {
+          "id": "download-and-provenance",
+          "text": "Download and provenance",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "path": "/next/reference/generated/get-transaction/",
+      "doc": "reference/generated/get-transaction",
+      "anchors": [
+        "query-parameters",
+        "usage-notes",
+        "response",
+        "download-and-provenance"
+      ],
+      "headings": [
+        {
+          "text": "Get transaction",
+          "level": 1
+        },
+        {
+          "id": "query-parameters",
+          "text": "Query parameters",
+          "level": 2
+        },
+        {
+          "id": "usage-notes",
+          "text": "Usage notes",
+          "level": 2
+        },
+        {
+          "id": "response",
+          "text": "Response",
+          "level": 2
+        },
+        {
+          "id": "download-and-provenance",
+          "text": "Download and provenance",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "path": "/next/reference/overview/",
+      "doc": "reference/overview",
+      "anchors": [
+        "core-endpoints",
+        "configuration",
+        "existing-reference",
+        "request-behavior"
+      ],
+      "headings": [
+        {
+          "text": "API and configuration reference",
+          "level": 1
+        },
+        {
+          "id": "core-endpoints",
+          "text": "Core endpoints",
+          "level": 2
+        },
+        {
+          "id": "configuration",
+          "text": "Configuration",
+          "level": 2
+        },
+        {
+          "id": "existing-reference",
+          "text": "Existing reference",
+          "level": 2
+        },
+        {
+          "id": "request-behavior",
+          "text": "Request behavior",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "path": "/next/releases/4.5/",
+      "doc": "releases/4.5",
+      "anchors": [
+        "whats-changing",
+        "plan-an-operator-upgrade",
+        "build-against-a-provider",
+        "follow-the-release-evidence"
+      ],
+      "headings": [
+        {
+          "text": "Hyperion 4.5 preview",
+          "level": 1
+        },
+        {
+          "id": "whats-changing",
+          "text": "What's changing",
+          "level": 2
+        },
+        {
+          "id": "plan-an-operator-upgrade",
+          "text": "Plan an operator upgrade",
+          "level": 2
+        },
+        {
+          "id": "build-against-a-provider",
+          "text": "Build against a provider",
+          "level": 2
+        },
+        {
+          "id": "follow-the-release-evidence",
+          "text": "Follow the release evidence",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "path": "/next/releases/compatibility/",
+      "doc": "releases/compatibility",
+      "anchors": [
+        "read-the-current-evidence",
+        "what-a-component-set-must-include",
+        "qualify-the-behavior",
+        "existing-installations"
+      ],
+      "headings": [
+        {
+          "text": "Compatibility and qualification",
+          "level": 1
+        },
+        {
+          "id": "read-the-current-evidence",
+          "text": "Read the current evidence",
+          "level": 2
+        },
+        {
+          "id": "what-a-component-set-must-include",
+          "text": "What a component set must include",
+          "level": 2
+        },
+        {
+          "id": "qualify-the-behavior",
+          "text": "Qualify the behavior",
+          "level": 2
+        },
+        {
+          "id": "existing-installations",
+          "text": "Existing installations",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "path": "/next/start/first-query/",
+      "doc": "start/first-query",
+      "anchors": [
+        "choose-a-provider",
+        "request-recent-actions",
+        "read-the-response",
+        "handle-a-failure",
+        "next-steps"
+      ],
+      "headings": [
+        {
+          "text": "Your first query",
+          "level": 1
+        },
+        {
+          "id": "choose-a-provider",
+          "text": "Choose a provider",
+          "level": 2
+        },
+        {
+          "id": "request-recent-actions",
+          "text": "Request recent actions",
+          "level": 2
+        },
+        {
+          "id": "read-the-response",
+          "text": "Read the response",
+          "level": 2
+        },
+        {
+          "id": "handle-a-failure",
+          "text": "Handle a failure",
+          "level": 2
+        },
+        {
+          "id": "next-steps",
+          "text": "Next steps",
+          "level": 2
+        }
+      ]
+    },
+    {
+      "path": "/next/start/overview/",
+      "doc": "start/overview",
+      "anchors": [
+        "from-the-chain-to-a-query",
+        "choose-a-task",
+        "understand-the-versions",
+        "check-what-your-provider-serves"
+      ],
+      "headings": [
+        {
+          "text": "How Hyperion works",
+          "level": 1
+        },
+        {
+          "id": "from-the-chain-to-a-query",
+          "text": "From the chain to a query",
+          "level": 2
+        },
+        {
+          "id": "choose-a-task",
+          "text": "Choose a task",
+          "level": 2
+        },
+        {
+          "id": "understand-the-versions",
+          "text": "Understand the versions",
+          "level": 2
+        },
+        {
+          "id": "check-what-your-provider-serves",
+          "text": "Check what your provider serves",
+          "level": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+---
+title: Your first query
+slug: /dev/howtouse/
+description: Request action history with curl or JavaScript and understand the result.
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Your first query
+
+Request recent token transfer actions from a Hyperion provider. You do not need to install an indexer to use an existing API.
+
+## Choose a provider
+
+Find a provider for your chain in the [provider directory](/dev/endpoint/), and confirm the base URL with its operator. Replace `https://your-provider.example` in the examples below. This hostname is a placeholder.
+
+## Request recent actions
+
+<Tabs groupId="request-language">
+<TabItem value="curl" label="cURL" default>
+
+```bash
+export HYPERION_URL="https://your-provider.example"
+curl --fail-with-body --get "$HYPERION_URL/v2/history/get_actions" \
+  --data-urlencode "filter=eosio.token:transfer" \
+  --data-urlencode "limit=10" \
+  --data-urlencode "sort=desc"
+```
+
+These commands use a POSIX shell. On PowerShell, call `curl.exe` with the complete URL or use the JavaScript example.
+
+</TabItem>
+<TabItem value="javascript" label="JavaScript">
+
+```javascript
+const base = new URL('https://your-provider.example');
+const url = new URL('/v2/history/get_actions', base);
+url.search = new URLSearchParams({
+  filter: 'eosio.token:transfer',
+  limit: '10',
+  sort: 'desc',
+}).toString();
+
+const response = await fetch(url, {
+  signal: AbortSignal.timeout(15_000),
+});
+if (!response.ok) {
+  throw new Error(`Hyperion HTTP ${response.status}: ${await response.text()}`);
+}
+const result = await response.json();
+if (!Array.isArray(result.actions)) {
+  throw new Error('The provider returned an unexpected actions response');
+}
+console.log(result.actions);
+```
+
+Run with a current Node.js runtime that provides `fetch`, or adapt it to your browser application. Handle errors in your application's normal error boundary.
+
+</TabItem>
+</Tabs>
+
+The `filter` value is `contract:action`. Use a contract and action that exist on your chain. Provider filters and retained history affect the result.
+
+## Read the response
+
+An ordinary history response includes an `actions` array. Each entry describes an indexed action and its transaction and block context. Metadata such as `last_indexed_block` and `lib` helps you interpret index progress and finality.
+
+This is an **illustrative response fragment**, not a complete provider response:
+
+```json
+{
+  "actions": [
+    {
+      "block_num": 100050,
+      "act": {
+        "account": "eosio.token",
+        "name": "transfer",
+        "data": {"from": "alice", "to": "bob", "quantity": "1.0000 TOKEN", "memo": "example"}
+      }
+    }
+  ]
+}
+```
+
+Do not assume that a successful response proves full chain coverage. An empty array can mean that no matching actions were indexed in the searched data; it does not prove that the event never happened.
+
+## Handle a failure
+
+- **HTTP error:** inspect the status and response body before retrying. Adjust invalid parameters; use bounded backoff for transient failures.
+- **Timeout or connection error:** confirm the provider URL and availability. Surface a useful error to the caller.
+- **Unexpected shape:** preserve the response for diagnosis and verify the provider's supported API contract.
+- **No matching actions:** confirm the chain, contract name, provider filters and indexed coverage.
+
+## Next steps
+
+Learn [filtering and historical pagination](../build/query-actions.md), then inspect the [source-derived endpoint reference](../reference/generated/get-actions.md).
