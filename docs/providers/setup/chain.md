@@ -53,6 +53,27 @@ with its default value and an example of real usage.
 - `"max_retained_blocks": 0` ⇒ Maximum blocks to retain on Elasticsearch. Older data is automatically pruned. Set to `0` to disable. See [Index Lifecycle Management](../operations/index_management.md)
 - `"es_replicas": 0` ⇒ Number of Elasticsearch index replicas
 - `"tiered_index_allocation"` ⇒ Tiered storage allocation rules for Elasticsearch indices. See [Index Lifecycle Management](../operations/index_management.md)
+- `"protocol_abi_history"` ⇒ Optional disk-backed ABI history for protocol-extension chains. Supplies an immutable, operator-pinned ABI catalog (and, optionally, local node logs, incremental sealed segments, document settling and proof-store rotation). Changing the pinned catalog requires a controlled worker and API restart.
+  - **Pinned catalog (required when `protocol_abi_history` is set):**
+    - `"interface_version": 1` ⇒ Schema marker (must be `1`)
+    - `"manifest"` ⇒ Path to the pinned genesis catalog manifest JSON
+    - `"manifest_sha256"` ⇒ 64-character lowercase hex SHA-256 of the exact manifest file bytes
+    - `"producer_profile_id"` ⇒ Exact `producerProfileId` recorded in the manifest
+    - `"node_revision"` ⇒ 40-character lowercase hex `nodeRevision` recorded in the manifest
+    - `"ship_abi_sha256"` ⇒ 64-character lowercase hex SHA-256 of the SHiP handshake JSON recorded in the manifest
+  - `"capture"` *(optional)* ⇒ Local read-only paths to the node's logs (`state_history_dir`, `blocks_dir`, `ship_abi`) so the indexer and API recompute covered block proofs directly from disk instead of reading Elasticsearch proof stores
+  - `"segments_dir"` *(optional)* ⇒ Directory where a catalog sealer (`range-server --seal`) writes incremental `hyperion-abi-history-segment-v1` segments that extend the pinned catalog. The ABI coordinator checks each new segment against its own commits before adopting it. Segment block IDs are kept in memory up to 4,194,304 blocks (32 bytes per block); past that limit, compact the chain into a new pinned catalog and restart. Every link of the catalog chain after the pinned manifest must remain present in this directory
+  - `"settle"` *(optional, indexer only)* ⇒ Replaces live block and action documents inside attested catalog ranges with the disk-backed documents produced by `range-server` (carrying schema-3 disk proof metadata so settled ranges no longer depend on Elasticsearch proof stores). Never overtakes within 128 blocks of the highest indexed block
+    - `"range_server"` *(required)* ⇒ Base URL of the `range-server` service (for example `"http://127.0.0.1:7180"`). Must use `https://` unless it points to a loopback address (`127.0.0.1`, `localhost`, or `::1`)
+    - `"max_blocks": 512` ⇒ Maximum blocks settled per step (`1` to `100000`)
+    - `"interval_ms": 5000` ⇒ Polling interval in milliseconds between settle checks (minimum `100`)
+    - `"repair_after_blocks": 1024` ⇒ Distance below the highest indexed block after which a missing live document is treated as a gap and written from the range server instead of waiting (minimum `128`)
+  - `"rotation"` *(optional, indexer only; requires `settle`)* ⇒ Rotates the four proof-store record indices (`<chain>-protocol-abi-frontier-records-v1`, `<chain>-protocol-abi-observations-v1`, `<chain>-protocol-source-bindings-v1`, `<chain>-protocol-native-actions-v1`) into a new generation (`-g<N>`; generation `0` keeps the original names) anchored at a settled catalog link end once the current generation grows past `max_bytes`. The control index (`<chain>-protocol-abi-frontier-v1`) is not generational. See [Catalog Sealer, Settling and Proof-Store Rotation](../help/indexer.md#catalog-sealer-settling-and-proof-store-rotation)
+    - `"max_bytes": 8589934592` ⇒ Size threshold in bytes (8 GiB default; minimum `1048576`) across the current generation's four indices before a new generation is built and switched in
+    - `"retire_margin_blocks": 1024` ⇒ Settling must be at least this many blocks past the switch block before the previous generation can be retired (minimum `128`)
+    - `"retire_after_ms": 600000` ⇒ Minimum age in milliseconds (10 minutes default; minimum `10000`) after a switch before the previous generation can be retired
+    - `"drop_previous": false` ⇒ **Off by default.** When `true`, the indexer automatically **deletes the Elasticsearch indices** of a retired generation (after a 15-second grace delay) and sweeps any older orphaned generation indices left behind by a restart. Leave `false` to have the indexer log the index names for manual deletion instead
+    - `"check_interval_ms": 60000` ⇒ Interval in milliseconds (60 seconds default; minimum `1000`) between rotation and retirement checks
 
 ### 3. Blacklists
 

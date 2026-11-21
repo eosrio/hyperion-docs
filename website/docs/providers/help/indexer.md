@@ -34,6 +34,17 @@ If a route you expected a plugin to back still answers `protocol_projection_unav
 
 HTTP 503 `stateful.query-unavailable` on a backed route means its owner or view is not ready, or the view trails its finality target by more than `maximumServingLagBlocks`. HTTP 400 `invalid_state_request` means the backing refused the parameters themselves; retrying the same request will not help. See [plugin-backed core state routes](/extend/projections/#plugin-backed-core-state-routes).
 
+## Catalog segment refused or settle stopped
+
+Neither an attestation refusal nor a settle refusal stops live indexing, but both stop `settled` and proof-store rotation from advancing past the affected block range. Do not delete proof-store indices while a refusal is active.
+
+- **Segment attestation refusal** (`[WARNING] Catalog segment <manifestSha256> (blocks <startBlock>-<endBlock>) disagrees with this indexer's ABI commits and is not adopted: <message>`): the coordinator refuses that `manifestSha256` for the rest of its run. Compare `range-server --seal`'s inputs (`--protocol`, `--ship-abi`, `--state-history`, `--blocks-dir`, `--catalog-dir`, node revision) with the indexer's protocol package and SHiP source, and check that `segments_dir` does not hold competing segments for the same base. Once fixed, remove the bad segment and any segments chained on top of it from `--seal-dir` / `segments_dir` and let `range-server --seal` reseal from the last good link; the coordinator attests the replacement automatically when it is the sole candidate for that base.
+- **Settle refusal** (`[WARNING] Catalog settle stopped at blocks <from>-<to>: <message>`): inspect the reason. Common causes are a body mismatch beyond `protocol` metadata (align `range-server` flags such as `--index-prefix`, `--index-version`, `--partition-size`, `--system-contract`, `--index-transfer-memo` and `--doc-profile-id` with the chain config), a live document in Elasticsearch with no matching disk document, a segment not yet adopted by the coordinator, or a repair ID already occupied by a document outside the range. Settling retries automatically on `settle.interval_ms` once the mismatch is resolved.
+
+## Proof store rotation and retirement
+
+With `settings.protocol_abi_history.rotation`, the indexer logs `Rotated proof stores to generation <N> ...` on each switch and `Proof store generation <prev> is retired and no longer read; delete <indices> to reclaim it` once settling is `retire_margin_blocks` past the switch block and `retire_after_ms` has elapsed. `drop_previous` is `false` by default; only set it to `true` when you want the indexer to delete those four Elasticsearch indices (and any older unreferenced generation indices left by a restart) automatically. See [disk ABI history, settling and proof-store rotation](/extend/protocols/#disk-abi-history-settling-and-proof-store-rotation).
+
 ## Source
 
 [Startup MongoDB check](https://github.com/eosrio/hyperion-history-api/blob/e1818923065d648a38009572d76badeab0684af1/src/indexer/modules/master.ts), [configuration mode handling](https://github.com/eosrio/hyperion-history-api/blob/e1818923065d648a38009572d76badeab0684af1/src/indexer/modules/config.ts), and [projection readiness](https://github.com/eosrio/hyperion-history-api/blob/e1818923065d648a38009572d76badeab0684af1/src/api/helpers/protocol-state-readiness.ts).

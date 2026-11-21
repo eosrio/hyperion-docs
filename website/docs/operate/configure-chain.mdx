@@ -116,7 +116,7 @@ Set `features.streaming.enable` to `true` and enable the `traces` and/or `deltas
 
 ## Protocol selection
 
-Omit `settings.protocol` to retain the default Antelope provider. Explicit provider selection uses `provider`, `package` and `profileId`; use the exact profile supplied by the installed protocol package. Executable provider changes require a controlled worker restart. See [protocol providers](/extend/protocols/) before changing the chain's data interpretation.
+Omit `settings.protocol` to retain the default Antelope provider. Explicit provider selection uses `provider`, `package` and `profileId`; use the exact profile supplied by the installed protocol package. Executable provider changes require a controlled worker restart. Protocol-extension chains can also configure `settings.protocol_abi_history` for a pinned disk catalog, sealed segments, document settling and proof-store rotation. See [protocol providers](/extend/protocols/) before changing the chain's data interpretation.
 
 ## Archive hydration
 
