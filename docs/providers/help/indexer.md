@@ -155,7 +155,7 @@ On protocol-extension chains with `settings.protocol_abi_history`, an operator c
 
 ### Running the catalog sealer (`range-server --seal`)
 
-Start `range-server` read-only against the node's `state-history` and `blocks` directories, pointing `--catalog-dir` at the directory holding the genesis catalog and its extensions:
+Start `range-server` read-only against the node's `state-history` and `blocks` directories, pointing `--catalog-dir` at the directory holding the genesis catalog and its extensions (`--genesis-catalog-sha256` may instead name a [compaction](#compacting-the-catalog-chain)):
 
 ```bash
 range-server --protocol <producer_profile_id> \
@@ -171,7 +171,52 @@ range-server --protocol <producer_profile_id> \
 
 - **What it writes and where:** By default, `--seal` writes incremental segments (`hyperion-abi-history-segment-v1`) into `<catalog-dir>/segments` (override with `--seal-dir`). Each sealed segment writes three files — `abi-history.<start>-<end>.ndjson` (sparse ABI epochs), `.ndjson.blocks.bin` (32-byte block IDs), and `.ndjson.manifest.json` (written last, naming its base link's `manifestSha256`, `endBlock`, and `lastBlockId`). Set `settings.protocol_abi_history.segments_dir` in the chain config to that same directory.
 - **When it seals:** Once `--seal-blocks` irreversible blocks (default `120`) follow the chain tip, or once the oldest unsealed irreversible block has waited `--seal-max-wait-ms` (default `60000` ms). The sealer polls the block log every `--seal-poll-ms` (default `500` ms) using `--seal-threads` (default `4`).
-- **Keep every link in `--catalog-dir`:** `range-server` discovers the chain under `--catalog-dir` (searched two levels deep) starting from `--genesis-catalog-sha256`, and Hyperion readers follow links in order from the pinned manifest through `segments_dir`. **Every link of the catalog chain must remain present in `--catalog-dir`** (and every segment after the pinned manifest in `segments_dir`). Deleting or moving an intermediate segment breaks chain verification and prevents the sealer and readers from advancing past the gap.
+- **Keep every link in `--catalog-dir`:** `range-server` discovers the chain under `--catalog-dir` (searched two levels deep) starting from `--genesis-catalog-sha256`, and Hyperion readers follow links in order from the pinned manifest through `segments_dir`. **Every link of the catalog chain must remain present in `--catalog-dir`** (and every segment after the pinned manifest in `segments_dir`). Deleting or moving an intermediate segment breaks chain verification and prevents the sealer and readers from advancing past the gap. Links at or below a pinned [compaction](#compacting-the-catalog-chain) are the exception: they are no longer read once every process is configured with it.
+
+### Compacting the catalog chain
+
+A sealer adds a segment about once a minute. Every process that starts verifies each segment since the pinned catalog and keeps its block IDs in memory, and `range-server` opens every link, so a long chain makes starts slower and eventually reaches the 4,194,304-block limit. A **compaction** is the chain through one of its links as a single complete catalog, byte for byte. Pinning it shortens the chain without replacing the proof stores and without indexing any block again.
+
+**1. Find where to compact.** The chain in the proof stores starts at a link end: the pinned catalog's end, or the anchor of the last rotation (`Rotated proof stores to generation <N> anchored at block <anchor>` in the indexer log, `anchor` in the coordinator's control record). The compaction must end at or below that block, so compact through the anchor. A deployment that never rotated is anchored at its pinned catalog's end and cannot move onto a compaction of a later link.
+
+**2. Write the compaction.** `abi-scanner` reads only the chain's files, not the node's logs:
+
+```bash
+abi-scanner --protocol <producer_profile_id> --compact \
+  --catalog-dir /path/to/catalogs \
+  --genesis-catalog-sha256 <currently_pinned_manifest_sha256> \
+  --chain-id <chain_id> \
+  --start 1 --end <anchor> \
+  --lineage <lineage_manifest_sha256> \
+  --out /path/to/catalogs/<new_directory>
+```
+
+- The chain is compacted through its newest link that ends at or below `--end`. The output is `abi-history.ndjson`, `abi-history.ndjson.blocks.bin` and `abi-history.ndjson.manifest.json`, in a directory that must not hold them yet. Write it inside `--catalog-dir` so `range-server` can find it. The command prints the new manifest's path and SHA-256 as one JSON line.
+- `--lineage` is the `manifest_sha256` Hyperion was configured with before its first compaction. It can be omitted when the chain is read from a manifest that is itself a compaction, or from the catalog Hyperion first pinned: the lineage is then kept or started there.
+- The manifest names the link it stands in for (`compacts`) and the lineage (`lineage`). Segments after that link continue the compaction unchanged, and the existing chain is not modified.
+
+**3. Pin it.** In the API and indexer chain configuration, point `manifest` and `manifest_sha256` at the compaction and set `lineage_sha256`:
+
+```json
+{
+  "protocol_abi_history": {
+    "manifest": "/path/to/catalogs/<new_directory>/abi-history.ndjson.manifest.json",
+    "manifest_sha256": "<compaction_manifest_sha256>",
+    "lineage_sha256": "<lineage_manifest_sha256>"
+  }
+}
+```
+
+The other settings stay as they are. The catalog keeps the identity of its lineage, so the proof stores, the coordinator's control record and the indexed documents stay valid.
+
+**4. Restart.** Restart the API, then stop the indexer, restart `range-server` with `--genesis-catalog-sha256 <compaction_manifest_sha256>`, and start the indexer.
+
+- A process on the old manifest and a process on the compaction give the same answers, so the API can move first. The old configuration is the rollback as long as the old catalog and its segments are still in place.
+- Move the sealer together with the indexer. The settler accepts a range only when the catalog that seals it is one the indexer's catalog holds, and for blocks at or below the compaction's end the two agree only when both read the compaction.
+- If the compaction ends past the anchor, the indexer refuses to start with `Retained ABI progress is anchored at catalog block <anchor>, ... (a pinned compaction must end at or below the anchor)` and replaces nothing. Compact through the anchor or an earlier link and try again.
+- A manifest that does not name the configured lineage is refused with `the pinned catalog is not a compaction of the configured lineage`.
+
+Once no process is configured with the old manifest, the segments at or below the compacted link are no longer read and can be archived. Repeat after later rotations: each compaction is written from the currently pinned one and keeps the same lineage.
 
 ### What the indexer logs
 
@@ -184,6 +229,7 @@ range-server --protocol <producer_profile_id> \
 - **Settling:**
   - Progress (summarized at most once a minute): `Catalog settled through block <to> (<written> written, <repaired> repaired, <unchanged> unchanged)`
   - Waiting on in-flight live documents (at most once a minute): `Catalog settle waits for <missing> live documents in blocks <from>-<to>`
+  - Settled documents written again and repaired: `Catalog settle found <N> settled blocks in <from>-<to> written again and made them disk-backed again (<written> written)`
   - Refusal (retried on `settle.interval_ms`, indexing continues): `[WARNING] Catalog settle stopped at blocks <from>-<to>: <message>`
   - Transient error (retried): `Catalog settle failed and will retry: <message>`
 - **Rotation, retirement and dropping:**
@@ -192,6 +238,20 @@ range-server --protocol <producer_profile_id> \
   - Retired and deleted with `drop_previous: true`: `Dropped retired proof store generation <prev>: <indices>`
   - Orphaned generation cleanup on check/restart with `drop_previous: true`: `Dropped proof store indices of generations no longer read: <indices>`
   - Transient error (retried, indexing continues): `Proof store rotation step failed and will retry: <message>`
+
+Settling does not assume a settled range stays settled. An action document at or below the settled block can be written again later (by index work that was still queued, by a repair or bulk reader, by a tool). Before each step the indexer reads which of those documents changed since it last looked and settles their blocks again. The first run after an upgrade reads every action document at or below the settled block once, 50,000 a step.
+
+A previous generation is retired only when all of these hold:
+
+- settling is `retire_margin_blocks` past the switch block and the switch is `retire_after_ms` old;
+- every action document at or below the settled block is disk-backed at that moment;
+- every proof record the unsettled blocks reference has been copied into the current generation (this waits while more than 50,000 blocks are unsettled).
+
+!!! note "Keep `rotation` configured once the stores have rotated"
+    Indexer processes find the current store generation by reading the coordinator's control record, which they only do when `rotation` is configured. Once the stores are past generation 0 the indexer refuses to start without it; to stop rotating, keep `rotation` and raise `max_bytes`. The API needs no `rotation` block: it follows generations whenever `segments_dir` is configured.
+
+!!! warning "`rotation` and `features.stateful_owner_v2` are mutually exclusive"
+    Projections read every source from the proof stores, whatever the catalog covers. The indexer refuses to start with both configured.
 
 !!! warning "`drop_previous` deletes Elasticsearch indices"
     `settings.protocol_abi_history.rotation.drop_previous` is `false` by default. When enabled, the indexer permanently deletes the four Elasticsearch proof-store indices of each retired generation (and any older unreferenced generation left behind by a restart). Keep it `false` until you have verified that settled documents serve cleanly from disk and you are ready to reclaim space automatically.
