@@ -1,0 +1,82 @@
+[
+  {
+    "name": "desktop",
+    "height": 900,
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:3045/",
+    "width": 1440
+  },
+  {
+    "name": "user-1280",
+    "height": 720,
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:3045/",
+    "width": 1280
+  },
+  {
+    "name": "mobile",
+    "height": 844,
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:3045/",
+    "width": 390
+  },
+  {
+    "name": "install-mobile",
+    "height": 844,
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:3045/providers/install/manual_install/",
+    "width": 390
+  },
+  {
+    "name": "api-mobile",
+    "height": 844,
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:3045/api/v2/#v2historyget_actions",
+    "width": 390
+  },
+  {
+    "name": "upgrade-desktop",
+    "height": 900,
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:3045/providers/update/",
+    "width": 1440
+  },
+  {
+    "name": "reference-desktop",
+    "height": 900,
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:3045/reference/generated/get-actions/",
+    "width": 1440
+  },
+  {
+    "name": "light-desktop",
+    "height": 900,
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:3045/",
+    "width": 1440
+  },
+  {
+    "name": "search-desktop",
+    "height": 900,
+    "overflow": false,
+    "theme": "light",
+    "url": "http://127.0.0.1:3045/",
+    "width": 1440
+  },
+  {
+    "name": "mobile-navigation",
+    "height": 844,
+    "overflow": false,
+    "theme": "dark",
+    "url": "http://127.0.0.1:3045/reference/cli/",
+    "width": 390
+  }
+]

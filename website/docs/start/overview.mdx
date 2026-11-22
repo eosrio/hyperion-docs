@@ -1,0 +1,45 @@
+---
+title: How Hyperion works
+description: Understand the path from Antelope chain data to Hyperion APIs.
+---
+
+# How Hyperion works
+
+Hyperion indexes Antelope blockchain history and exposes APIs for applications. You can query an existing provider or operate your own installation.
+
+If you are building an application, begin with [your first query](first-query.mdx). If you run infrastructure, start with [the operator guide](../operate/overview.md).
+
+## From the chain to a query
+
+<div className="system-flow" aria-label="Hyperion ingestion and serving stages">
+  <div><strong>Antelope node</strong><span>State History Plugin (SHiP)</span></div>
+  <div><strong>Workers &amp; queues</strong><span>Decode, filter and process</span></div>
+  <div><strong>Storage</strong><span>History, state and caches</span></div>
+  <div><strong>Hyperion API</strong><span>Applications and streams</span></div>
+</div>
+
+The indexer reads traces and deltas from a node's SHiP endpoint. Workers process this data through RabbitMQ. Elasticsearch stores history; other stores support state and caching according to the configured capabilities and release.
+
+An API can only return data available to its installation. Chain head, indexed history and indexed state can progress independently. A healthy process does not prove that a historical range or a contract table is complete.
+
+## Choose a task
+
+| Task | Start here |
+|---|---|
+| Retrieve actions or inspect a transaction | [Make a request](first-query.mdx) |
+| Filter and paginate history | [Query action history](../build/query-actions.md) |
+| Configure and verify an installation | [Run Hyperion](../operate/overview.md) |
+| Develop an extension | [Extension model and status](../extend/overview.md) |
+| Understand the 4.5 changes | [Hyperion 4.5](../releases/4.5.md) |
+
+## Understand the versions
+
+The Hyperion product release and API route version are independent. A Hyperion release can expose both `/v1` compatibility routes and `/v2` routes. A docs release menu does not change the endpoint you call.
+
+This documentation describes **Hyperion 4.5**. The source links in the API and configuration references identify the implementation behind each contract. See [the release notes](../releases/4.5.md) and [component compatibility](../releases/compatibility.md) when upgrading.
+
+## Check what your provider serves
+
+Before depending on a provider, confirm its chain, supported endpoints, retained history and enabled state or plugin capabilities. Keep its base URL in configuration and handle HTTP failures explicitly.
+
+The [provider directory](/dev/endpoint/) can help you find a starting point. Directory membership is not a guarantee of current availability or coverage.

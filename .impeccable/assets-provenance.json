@@ -1,0 +1,147 @@
+{
+  "baseline": "3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8",
+  "assets": [
+    {
+      "path": "website/static/assets/img/api.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/api.png",
+      "originalSha256": "a8222c4e9c08c7c2fca40e4bee254a69626d43b06f37ff35096544d3f181aae3",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/configured_chains.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/configured_chains.png",
+      "originalSha256": "6aa32035a2b269c13a52ead7ae4535d18c21c495f9a39a4025b0393c5361ee02",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/cover.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/cover.png",
+      "originalSha256": "da8ce0acbe2e365a77f67a83c948c1d5f0e987df567a6e4249a6457ca53f1493",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/docker-compose-file.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/docker-compose-file.png",
+      "originalSha256": "ac7da5d0904071a07914101f23e20dce4842c64e1d91d93c946b59a1c93ce57b",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/docker-create-network.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/docker-create-network.png",
+      "originalSha256": "99912c2f2d76a5d79c89358a329f6adff55d32c05721efe05aaf9c9e59668bb7",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/docker-ps.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/docker-ps.png",
+      "originalSha256": "9fab524ccef3d54213c5bdbefa8b786015e2b0f6b69d953f6b6db9ab85c7319d",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/favicon.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/favicon.png",
+      "originalSha256": "875108da34472b045cda4961539d47270a90124737f39c4c16841a526fc04443",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/get_actions.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/get_actions.png",
+      "originalSha256": "9fe97e3e436af3cf883a4ea616572d74db90f18218daa35e63ad3465e63620af",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/get_deltas.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/get_deltas.png",
+      "originalSha256": "b8b0aac17ba4763aab362a9882224cbe805747bf243936b1d7e8010745cb500d",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/healthcheck.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/healthcheck.png",
+      "originalSha256": "76e8266275ab031c45877cc8d9b5b9b96ba356b9a2894eb6d83c6fd95f88e8c6",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/hype.jpg",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/hype.jpg",
+      "originalSha256": "40d40415046497b86b3a4e46901714e22d3ba1d6b97927d8c9ef9abd4f9fbda5",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/icon.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/icon.png",
+      "originalSha256": "72328043beeda5fa827add10b98b8d43ca87e4863a4bb0bca5cf46ddc6819d9b",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/indexer.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/indexer.png",
+      "originalSha256": "291176e065eadf1d436ef5751628012f45bc4b52b8de7e88a6a686a5aa957a5c",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/infrastructure.svg",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/infrastructure.svg",
+      "originalSha256": "22b73160fb2b5f21801f58221aba0051357588a5a3590cec44a5130998b86257",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels",
+      "transformation": "Trailing whitespace removed before committing; SVG geometry unchanged. originalSha256 identifies the upstream source bytes."
+    },
+    {
+      "path": "website/static/assets/img/kibana1.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/kibana1.png",
+      "originalSha256": "de8f059dace98f3e85a0798052ca04e273673876bbed6652f68096d4db2b8cf3",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/kibana2.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/kibana2.png",
+      "originalSha256": "265d90e73ff8c97f7b31e4f94a8d35c94dde3e69e60e03a7e38a750ae1596a20",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/kibana3.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/kibana3.png",
+      "originalSha256": "0bfa8088c5060cba456daccee2c26ba8e4313d73d0dedbea6aef52808291a65d",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/kibana4.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/kibana4.png",
+      "originalSha256": "9a1fab7938f31372a0674e2989de96bfec488e2fce5855c5f55fcacdac536f52",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/kibana5.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/kibana5.png",
+      "originalSha256": "53bd0e613fa2228644a2e310cf880e1c68f309ef57fdd9035cb7c740603f4aa6",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/kibana6.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/kibana6.png",
+      "originalSha256": "95e007365e2d3f235a03b8cd09672de7acd7e8d29d68593154205aef1bcd23dd",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/pastes.jpg",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/pastes.jpg",
+      "originalSha256": "39765d45c3dcc58f86b0453ef4d88a5f3f29fac1bd62191b6cac973b868419a1",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/rabbit.png",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/rabbit.png",
+      "originalSha256": "e4878038a3ad73ec74544a0340a885e1cf9fae59350f0f76ba9b9fcf0b6b4c62",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    },
+    {
+      "path": "website/static/assets/img/simplified_logo.svg",
+      "origin": "https://github.com/eosrio/hyperion-docs/blob/3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8/docs/assets/img/simplified_logo.svg",
+      "originalSha256": "bd061495b7e48b9ba0c63290f67d10c9eff9a44e678bef7750f9c1822e137d27",
+      "kind": "pre-existing repository asset; retained URL; no generated pixels"
+    }
+  ],
+  "excludedMetadata": [
+    "docs/assets/img/.DS_Store: operating-system metadata, excluded from the new site source"
+  ]
+}

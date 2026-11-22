@@ -1,0 +1,1409 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-20T20:24:45.748Z",
+  "title": "Design System: Hyperion documentation",
+  "extensions": {
+    "sourceOfTruth": {
+      "tokens": "DESIGN.md YAML frontmatter",
+      "implementation": [
+        "website/src/css/custom.css",
+        "website/prism-themes.ts",
+        "website/src/pages/index.tsx",
+        "website/src/theme/SearchBar/index.tsx",
+        "website/src/theme/DocVersionBanner/index.tsx",
+        "website/docusaurus.config.ts",
+        "website/static/img/hyperion-mark.svg"
+      ],
+      "inherited": "Installed Docusaurus 3.10.2 theme-classic and Infima styles. Snippets preview appearance and do not supply React behavior."
+    },
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Primary",
+        "token": "{colors.primary}",
+        "tonalRamp": [
+          "#004363",
+          "#00537a",
+          "#005b86",
+          "#00699a",
+          "#0077b0",
+          "#007fbc",
+          "#0094d2"
+        ],
+        "tonalRampSource": "implemented-primary-scale",
+        "tonalRampNote": "Exact seven-step primary scale in custom.css. Source alpha is not changed."
+      },
+      "light-link": {
+        "role": "primary",
+        "displayName": "Light Link",
+        "token": "{colors.light-link}",
+        "tonalRamp": [
+          "#004363",
+          "#00537a",
+          "#005b86",
+          "#00699a",
+          "#0077b0",
+          "#007fbc",
+          "#0094d2"
+        ],
+        "tonalRampSource": "implemented-primary-scale",
+        "tonalRampNote": "Exact seven-step primary scale in custom.css. Source alpha is not changed."
+      },
+      "light-link-dark": {
+        "role": "primary",
+        "displayName": "Light Link Dark",
+        "token": "{colors.light-link-dark}",
+        "tonalRamp": [
+          "#004363",
+          "#00537a",
+          "#005b86",
+          "#00699a",
+          "#0077b0",
+          "#007fbc",
+          "#0094d2"
+        ],
+        "tonalRampSource": "implemented-primary-scale",
+        "tonalRampNote": "Exact seven-step primary scale in custom.css. Source alpha is not changed."
+      },
+      "light-link-darker": {
+        "role": "primary",
+        "displayName": "Light Link Darker",
+        "token": "{colors.light-link-darker}",
+        "tonalRamp": [
+          "#004363",
+          "#00537a",
+          "#005b86",
+          "#00699a",
+          "#0077b0",
+          "#007fbc",
+          "#0094d2"
+        ],
+        "tonalRampSource": "implemented-primary-scale",
+        "tonalRampNote": "Exact seven-step primary scale in custom.css. Source alpha is not changed."
+      },
+      "light-link-darkest": {
+        "role": "primary",
+        "displayName": "Light Link Darkest",
+        "token": "{colors.light-link-darkest}",
+        "tonalRamp": [
+          "#004363",
+          "#00537a",
+          "#005b86",
+          "#00699a",
+          "#0077b0",
+          "#007fbc",
+          "#0094d2"
+        ],
+        "tonalRampSource": "implemented-primary-scale",
+        "tonalRampNote": "Exact seven-step primary scale in custom.css. Source alpha is not changed."
+      },
+      "light-link-light": {
+        "role": "primary",
+        "displayName": "Light Link Light",
+        "token": "{colors.light-link-light}",
+        "tonalRamp": [
+          "#004363",
+          "#00537a",
+          "#005b86",
+          "#00699a",
+          "#0077b0",
+          "#007fbc",
+          "#0094d2"
+        ],
+        "tonalRampSource": "implemented-primary-scale",
+        "tonalRampNote": "Exact seven-step primary scale in custom.css. Source alpha is not changed."
+      },
+      "light-link-lighter": {
+        "role": "primary",
+        "displayName": "Light Link Lighter",
+        "token": "{colors.light-link-lighter}",
+        "tonalRamp": [
+          "#004363",
+          "#00537a",
+          "#005b86",
+          "#00699a",
+          "#0077b0",
+          "#007fbc",
+          "#0094d2"
+        ],
+        "tonalRampSource": "implemented-primary-scale",
+        "tonalRampNote": "Exact seven-step primary scale in custom.css. Source alpha is not changed."
+      },
+      "dark-link": {
+        "role": "primary",
+        "displayName": "Dark Link",
+        "token": "{colors.dark-link}",
+        "tonalRamp": [
+          "#0094d2",
+          "#20ade8",
+          "#39b6eb",
+          "#5cc3f0",
+          "#7bcff4",
+          "#9bdbf7",
+          "#c0eafa"
+        ],
+        "tonalRampSource": "implemented-primary-scale",
+        "tonalRampNote": "Exact seven-step primary scale in custom.css. Source alpha is not changed."
+      },
+      "dark-link-dark": {
+        "role": "primary",
+        "displayName": "Dark Link Dark",
+        "token": "{colors.dark-link-dark}",
+        "tonalRamp": [
+          "#0094d2",
+          "#20ade8",
+          "#39b6eb",
+          "#5cc3f0",
+          "#7bcff4",
+          "#9bdbf7",
+          "#c0eafa"
+        ],
+        "tonalRampSource": "implemented-primary-scale",
+        "tonalRampNote": "Exact seven-step primary scale in custom.css. Source alpha is not changed."
+      },
+      "dark-link-darker": {
+        "role": "primary",
+        "displayName": "Dark Link Darker",
+        "token": "{colors.dark-link-darker}",
+        "tonalRamp": [
+          "#0094d2",
+          "#20ade8",
+          "#39b6eb",
+          "#5cc3f0",
+          "#7bcff4",
+          "#9bdbf7",
+          "#c0eafa"
+        ],
+        "tonalRampSource": "implemented-primary-scale",
+        "tonalRampNote": "Exact seven-step primary scale in custom.css. Source alpha is not changed."
+      },
+      "dark-link-light": {
+        "role": "primary",
+        "displayName": "Dark Link Light",
+        "token": "{colors.dark-link-light}",
+        "tonalRamp": [
+          "#0094d2",
+          "#20ade8",
+          "#39b6eb",
+          "#5cc3f0",
+          "#7bcff4",
+          "#9bdbf7",
+          "#c0eafa"
+        ],
+        "tonalRampSource": "implemented-primary-scale",
+        "tonalRampNote": "Exact seven-step primary scale in custom.css. Source alpha is not changed."
+      },
+      "dark-link-lighter": {
+        "role": "primary",
+        "displayName": "Dark Link Lighter",
+        "token": "{colors.dark-link-lighter}",
+        "tonalRamp": [
+          "#0094d2",
+          "#20ade8",
+          "#39b6eb",
+          "#5cc3f0",
+          "#7bcff4",
+          "#9bdbf7",
+          "#c0eafa"
+        ],
+        "tonalRampSource": "implemented-primary-scale",
+        "tonalRampNote": "Exact seven-step primary scale in custom.css. Source alpha is not changed."
+      },
+      "dark-link-lightest": {
+        "role": "primary",
+        "displayName": "Dark Link Lightest",
+        "token": "{colors.dark-link-lightest}",
+        "tonalRamp": [
+          "#0094d2",
+          "#20ade8",
+          "#39b6eb",
+          "#5cc3f0",
+          "#7bcff4",
+          "#9bdbf7",
+          "#c0eafa"
+        ],
+        "tonalRampSource": "implemented-primary-scale",
+        "tonalRampNote": "Exact seven-step primary scale in custom.css. Source alpha is not changed."
+      },
+      "light-ground": {
+        "role": "neutral",
+        "displayName": "Light Ground",
+        "token": "{colors.light-ground}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00397 106.47)",
+          "oklch(26.43% 0.00397 106.47)",
+          "oklch(37.86% 0.00397 106.47)",
+          "oklch(49.29% 0.00397 106.47)",
+          "oklch(60.71% 0.00397 106.47)",
+          "oklch(72.14% 0.00397 106.47)",
+          "oklch(83.57% 0.00397 106.47)",
+          "oklch(95.00% 0.00397 106.47)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-panel": {
+        "role": "neutral",
+        "displayName": "Light Panel",
+        "token": "{colors.light-panel}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-inset": {
+        "role": "neutral",
+        "displayName": "Light Inset",
+        "token": "{colors.light-inset}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00664 106.52)",
+          "oklch(26.43% 0.00664 106.52)",
+          "oklch(37.86% 0.00664 106.52)",
+          "oklch(49.29% 0.00664 106.52)",
+          "oklch(60.71% 0.00664 106.52)",
+          "oklch(72.14% 0.00664 106.52)",
+          "oklch(83.57% 0.00664 106.52)",
+          "oklch(95.00% 0.00664 106.52)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-text": {
+        "role": "neutral",
+        "displayName": "Light Text",
+        "token": "{colors.light-text}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-heading": {
+        "role": "neutral",
+        "displayName": "Light Heading",
+        "token": "{colors.light-heading}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-secondary": {
+        "role": "neutral",
+        "displayName": "Light Secondary",
+        "token": "{colors.light-secondary}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-muted": {
+        "role": "neutral",
+        "displayName": "Light Muted",
+        "token": "{colors.light-muted}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00807 106.73)",
+          "oklch(26.43% 0.00807 106.73)",
+          "oklch(37.86% 0.00807 106.73)",
+          "oklch(49.29% 0.00807 106.73)",
+          "oklch(60.71% 0.00807 106.73)",
+          "oklch(72.14% 0.00807 106.73)",
+          "oklch(83.57% 0.00807 106.73)",
+          "oklch(95.00% 0.00807 106.73)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-rule": {
+        "role": "neutral",
+        "displayName": "Light Rule",
+        "token": "{colors.light-rule}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00809 106.56)",
+          "oklch(26.43% 0.00809 106.56)",
+          "oklch(37.86% 0.00809 106.56)",
+          "oklch(49.29% 0.00809 106.56)",
+          "oklch(60.71% 0.00809 106.56)",
+          "oklch(72.14% 0.00809 106.56)",
+          "oklch(83.57% 0.00809 106.56)",
+          "oklch(95.00% 0.00809 106.56)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-emphasis-300": {
+        "role": "neutral",
+        "displayName": "Light Emphasis 300",
+        "token": "{colors.light-emphasis-300}",
+        "tonalRamp": [
+          "oklch(15.00% 0.01098 106.64)",
+          "oklch(26.43% 0.01098 106.64)",
+          "oklch(37.86% 0.01098 106.64)",
+          "oklch(49.29% 0.01098 106.64)",
+          "oklch(60.71% 0.01098 106.64)",
+          "oklch(72.14% 0.01098 106.64)",
+          "oklch(83.57% 0.01098 106.64)",
+          "oklch(95.00% 0.01098 106.64)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-emphasis-600": {
+        "role": "neutral",
+        "displayName": "Light Emphasis 600",
+        "token": "{colors.light-emphasis-600}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-inline-code": {
+        "role": "neutral",
+        "displayName": "Light Inline Code",
+        "token": "{colors.light-inline-code}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00801 106.55)",
+          "oklch(26.43% 0.00801 106.55)",
+          "oklch(37.86% 0.00801 106.55)",
+          "oklch(49.29% 0.00801 106.55)",
+          "oklch(60.71% 0.00801 106.55)",
+          "oklch(72.14% 0.00801 106.55)",
+          "oklch(83.57% 0.00801 106.55)",
+          "oklch(95.00% 0.00801 106.55)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-menu-active": {
+        "role": "neutral",
+        "displayName": "Light Menu Active",
+        "token": "{colors.light-menu-active}",
+        "tonalRamp": [
+          "oklch(15.00% 0.13809 237.08)",
+          "oklch(26.43% 0.13809 237.08)",
+          "oklch(37.86% 0.13809 237.08)",
+          "oklch(49.29% 0.13809 237.08)",
+          "oklch(60.71% 0.13809 237.08)",
+          "oklch(72.14% 0.13809 237.08)",
+          "oklch(83.57% 0.13809 237.08)",
+          "oklch(95.00% 0.13809 237.08)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-menu-hover": {
+        "role": "neutral",
+        "displayName": "Light Menu Hover",
+        "token": "{colors.light-menu-hover}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 0.00)",
+          "oklch(26.43% 0.00000 0.00)",
+          "oklch(37.86% 0.00000 0.00)",
+          "oklch(49.29% 0.00000 0.00)",
+          "oklch(60.71% 0.00000 0.00)",
+          "oklch(72.14% 0.00000 0.00)",
+          "oklch(83.57% 0.00000 0.00)",
+          "oklch(95.00% 0.00000 0.00)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-scroll-track": {
+        "role": "neutral",
+        "displayName": "Light Scroll Track",
+        "token": "{colors.light-scroll-track}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00665 106.53)",
+          "oklch(26.43% 0.00665 106.53)",
+          "oklch(37.86% 0.00665 106.53)",
+          "oklch(49.29% 0.00665 106.53)",
+          "oklch(60.71% 0.00665 106.53)",
+          "oklch(72.14% 0.00665 106.53)",
+          "oklch(83.57% 0.00665 106.53)",
+          "oklch(95.00% 0.00665 106.53)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-scroll-thumb": {
+        "role": "neutral",
+        "displayName": "Light Scroll Thumb",
+        "token": "{colors.light-scroll-thumb}",
+        "tonalRamp": [
+          "oklch(15.00% 0.01119 106.66)",
+          "oklch(26.43% 0.01119 106.66)",
+          "oklch(37.86% 0.01119 106.66)",
+          "oklch(49.29% 0.01119 106.66)",
+          "oklch(60.71% 0.01119 106.66)",
+          "oklch(72.14% 0.01119 106.66)",
+          "oklch(83.57% 0.01119 106.66)",
+          "oklch(95.00% 0.01119 106.66)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-ground": {
+        "role": "neutral",
+        "displayName": "Dark Ground",
+        "token": "{colors.dark-ground}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-panel": {
+        "role": "neutral",
+        "displayName": "Dark Panel",
+        "token": "{colors.dark-panel}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-inset": {
+        "role": "neutral",
+        "displayName": "Dark Inset",
+        "token": "{colors.dark-inset}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-text": {
+        "role": "neutral",
+        "displayName": "Dark Text",
+        "token": "{colors.dark-text}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-secondary": {
+        "role": "neutral",
+        "displayName": "Dark Secondary",
+        "token": "{colors.dark-secondary}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-muted": {
+        "role": "neutral",
+        "displayName": "Dark Muted",
+        "token": "{colors.dark-muted}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-rule": {
+        "role": "neutral",
+        "displayName": "Dark Rule",
+        "token": "{colors.dark-rule}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-emphasis-300": {
+        "role": "neutral",
+        "displayName": "Dark Emphasis 300",
+        "token": "{colors.dark-emphasis-300}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-inline-code": {
+        "role": "neutral",
+        "displayName": "Dark Inline Code",
+        "token": "{colors.dark-inline-code}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-menu-active": {
+        "role": "neutral",
+        "displayName": "Dark Menu Active",
+        "token": "{colors.dark-menu-active}",
+        "tonalRamp": [
+          "oklch(15.00% 0.13809 237.08)",
+          "oklch(26.43% 0.13809 237.08)",
+          "oklch(37.86% 0.13809 237.08)",
+          "oklch(49.29% 0.13809 237.08)",
+          "oklch(60.71% 0.13809 237.08)",
+          "oklch(72.14% 0.13809 237.08)",
+          "oklch(83.57% 0.13809 237.08)",
+          "oklch(95.00% 0.13809 237.08)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-menu-hover": {
+        "role": "neutral",
+        "displayName": "Dark Menu Hover",
+        "token": "{colors.dark-menu-hover}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-scroll-thumb": {
+        "role": "neutral",
+        "displayName": "Dark Scroll Thumb",
+        "token": "{colors.dark-scroll-thumb}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-status": {
+        "role": "supporting",
+        "displayName": "Light Status",
+        "token": "{colors.light-status}",
+        "tonalRamp": [
+          "oklch(15.00% 0.08606 186.39)",
+          "oklch(26.43% 0.08606 186.39)",
+          "oklch(37.86% 0.08606 186.39)",
+          "oklch(49.29% 0.08606 186.39)",
+          "oklch(60.71% 0.08606 186.39)",
+          "oklch(72.14% 0.08606 186.39)",
+          "oklch(83.57% 0.08606 186.39)",
+          "oklch(95.00% 0.08606 186.39)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-status": {
+        "role": "supporting",
+        "displayName": "Dark Status",
+        "token": "{colors.dark-status}",
+        "tonalRamp": [
+          "oklch(15.00% 0.12302 182.50)",
+          "oklch(26.43% 0.12302 182.50)",
+          "oklch(37.86% 0.12302 182.50)",
+          "oklch(49.29% 0.12302 182.50)",
+          "oklch(60.71% 0.12302 182.50)",
+          "oklch(72.14% 0.12302 182.50)",
+          "oklch(83.57% 0.12302 182.50)",
+          "oklch(95.00% 0.12302 182.50)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "masthead-amber": {
+        "role": "detail",
+        "displayName": "Masthead Amber",
+        "token": "{colors.masthead-amber}",
+        "tonalRamp": [
+          "oklch(15.00% 0.16466 70.08)",
+          "oklch(26.43% 0.16466 70.08)",
+          "oklch(37.86% 0.16466 70.08)",
+          "oklch(49.29% 0.16466 70.08)",
+          "oklch(60.71% 0.16466 70.08)",
+          "oklch(72.14% 0.16466 70.08)",
+          "oklch(83.57% 0.16466 70.08)",
+          "oklch(95.00% 0.16466 70.08)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "search-backdrop": {
+        "role": "neutral",
+        "displayName": "Search Backdrop",
+        "token": "{colors.search-backdrop}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 0.00)",
+          "oklch(26.43% 0.00000 0.00)",
+          "oklch(37.86% 0.00000 0.00)",
+          "oklch(49.29% 0.00000 0.00)",
+          "oklch(60.71% 0.00000 0.00)",
+          "oklch(72.14% 0.00000 0.00)",
+          "oklch(83.57% 0.00000 0.00)",
+          "oklch(95.00% 0.00000 0.00)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-code-plain": {
+        "role": "syntax",
+        "displayName": "Light Code Plain",
+        "token": "{colors.light-code-plain}",
+        "tonalRamp": [
+          "oklch(15.00% 0.01320 253.04)",
+          "oklch(26.43% 0.01320 253.04)",
+          "oklch(37.86% 0.01320 253.04)",
+          "oklch(49.29% 0.01320 253.04)",
+          "oklch(60.71% 0.01320 253.04)",
+          "oklch(72.14% 0.01320 253.04)",
+          "oklch(83.57% 0.01320 253.04)",
+          "oklch(95.00% 0.01320 253.04)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-code-comment": {
+        "role": "syntax",
+        "displayName": "Light Code Comment",
+        "token": "{colors.light-code-comment}",
+        "tonalRamp": [
+          "oklch(15.00% 0.01090 106.79)",
+          "oklch(26.43% 0.01090 106.79)",
+          "oklch(37.86% 0.01090 106.79)",
+          "oklch(49.29% 0.01090 106.79)",
+          "oklch(60.71% 0.01090 106.79)",
+          "oklch(72.14% 0.01090 106.79)",
+          "oklch(83.57% 0.01090 106.79)",
+          "oklch(95.00% 0.01090 106.79)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-code-keyword": {
+        "role": "syntax",
+        "displayName": "Light Code Keyword",
+        "token": "{colors.light-code-keyword}",
+        "tonalRamp": [
+          "oklch(15.00% 0.10516 241.47)",
+          "oklch(26.43% 0.10516 241.47)",
+          "oklch(37.86% 0.10516 241.47)",
+          "oklch(49.29% 0.10516 241.47)",
+          "oklch(60.71% 0.10516 241.47)",
+          "oklch(72.14% 0.10516 241.47)",
+          "oklch(83.57% 0.10516 241.47)",
+          "oklch(95.00% 0.10516 241.47)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-code-string": {
+        "role": "syntax",
+        "displayName": "Light Code String",
+        "token": "{colors.light-code-string}",
+        "tonalRamp": [
+          "oklch(15.00% 0.17386 5.92)",
+          "oklch(26.43% 0.17386 5.92)",
+          "oklch(37.86% 0.17386 5.92)",
+          "oklch(49.29% 0.17386 5.92)",
+          "oklch(60.71% 0.17386 5.92)",
+          "oklch(72.14% 0.17386 5.92)",
+          "oklch(83.57% 0.17386 5.92)",
+          "oklch(95.00% 0.17386 5.92)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-code-number-function": {
+        "role": "syntax",
+        "displayName": "Light Code Number Function",
+        "token": "{colors.light-code-number-function}",
+        "tonalRamp": [
+          "oklch(15.00% 0.15435 296.08)",
+          "oklch(26.43% 0.15435 296.08)",
+          "oklch(37.86% 0.15435 296.08)",
+          "oklch(49.29% 0.15435 296.08)",
+          "oklch(60.71% 0.15435 296.08)",
+          "oklch(72.14% 0.15435 296.08)",
+          "oklch(83.57% 0.15435 296.08)",
+          "oklch(95.00% 0.15435 296.08)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-code-property": {
+        "role": "syntax",
+        "displayName": "Light Code Property",
+        "token": "{colors.light-code-property}",
+        "tonalRamp": [
+          "oklch(15.00% 0.08273 189.24)",
+          "oklch(26.43% 0.08273 189.24)",
+          "oklch(37.86% 0.08273 189.24)",
+          "oklch(49.29% 0.08273 189.24)",
+          "oklch(60.71% 0.08273 189.24)",
+          "oklch(72.14% 0.08273 189.24)",
+          "oklch(83.57% 0.08273 189.24)",
+          "oklch(95.00% 0.08273 189.24)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "light-code-deleted": {
+        "role": "syntax",
+        "displayName": "Light Code Deleted",
+        "token": "{colors.light-code-deleted}",
+        "tonalRamp": [
+          "oklch(15.00% 0.14923 20.01)",
+          "oklch(26.43% 0.14923 20.01)",
+          "oklch(37.86% 0.14923 20.01)",
+          "oklch(49.29% 0.14923 20.01)",
+          "oklch(60.71% 0.14923 20.01)",
+          "oklch(72.14% 0.14923 20.01)",
+          "oklch(83.57% 0.14923 20.01)",
+          "oklch(95.00% 0.14923 20.01)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-code-plain": {
+        "role": "syntax",
+        "displayName": "Dark Code Plain",
+        "token": "{colors.dark-code-plain}",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-code-comment": {
+        "role": "syntax",
+        "displayName": "Dark Code Comment",
+        "token": "{colors.dark-code-comment}",
+        "tonalRamp": [
+          "oklch(15.00% 0.02409 134.99)",
+          "oklch(26.43% 0.02409 134.99)",
+          "oklch(37.86% 0.02409 134.99)",
+          "oklch(49.29% 0.02409 134.99)",
+          "oklch(60.71% 0.02409 134.99)",
+          "oklch(72.14% 0.02409 134.99)",
+          "oklch(83.57% 0.02409 134.99)",
+          "oklch(95.00% 0.02409 134.99)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-code-keyword": {
+        "role": "syntax",
+        "displayName": "Dark Code Keyword",
+        "token": "{colors.dark-code-keyword}",
+        "tonalRamp": [
+          "oklch(15.00% 0.09692 228.24)",
+          "oklch(26.43% 0.09692 228.24)",
+          "oklch(37.86% 0.09692 228.24)",
+          "oklch(49.29% 0.09692 228.24)",
+          "oklch(60.71% 0.09692 228.24)",
+          "oklch(72.14% 0.09692 228.24)",
+          "oklch(83.57% 0.09692 228.24)",
+          "oklch(95.00% 0.09692 228.24)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-code-string": {
+        "role": "syntax",
+        "displayName": "Dark Code String",
+        "token": "{colors.dark-code-string}",
+        "tonalRamp": [
+          "oklch(15.00% 0.07103 45.49)",
+          "oklch(26.43% 0.07103 45.49)",
+          "oklch(37.86% 0.07103 45.49)",
+          "oklch(49.29% 0.07103 45.49)",
+          "oklch(60.71% 0.07103 45.49)",
+          "oklch(72.14% 0.07103 45.49)",
+          "oklch(83.57% 0.07103 45.49)",
+          "oklch(95.00% 0.07103 45.49)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-code-number": {
+        "role": "syntax",
+        "displayName": "Dark Code Number",
+        "token": "{colors.dark-code-number}",
+        "tonalRamp": [
+          "oklch(15.00% 0.06553 297.86)",
+          "oklch(26.43% 0.06553 297.86)",
+          "oklch(37.86% 0.06553 297.86)",
+          "oklch(49.29% 0.06553 297.86)",
+          "oklch(60.71% 0.06553 297.86)",
+          "oklch(72.14% 0.06553 297.86)",
+          "oklch(83.57% 0.06553 297.86)",
+          "oklch(95.00% 0.06553 297.86)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-code-property": {
+        "role": "syntax",
+        "displayName": "Dark Code Property",
+        "token": "{colors.dark-code-property}",
+        "tonalRamp": [
+          "oklch(15.00% 0.06419 198.45)",
+          "oklch(26.43% 0.06419 198.45)",
+          "oklch(37.86% 0.06419 198.45)",
+          "oklch(49.29% 0.06419 198.45)",
+          "oklch(60.71% 0.06419 198.45)",
+          "oklch(72.14% 0.06419 198.45)",
+          "oklch(83.57% 0.06419 198.45)",
+          "oklch(95.00% 0.06419 198.45)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-code-function": {
+        "role": "syntax",
+        "displayName": "Dark Code Function",
+        "token": "{colors.dark-code-function}",
+        "tonalRamp": [
+          "oklch(15.00% 0.06669 98.11)",
+          "oklch(26.43% 0.06669 98.11)",
+          "oklch(37.86% 0.06669 98.11)",
+          "oklch(49.29% 0.06669 98.11)",
+          "oklch(60.71% 0.06669 98.11)",
+          "oklch(72.14% 0.06669 98.11)",
+          "oklch(83.57% 0.06669 98.11)",
+          "oklch(95.00% 0.06669 98.11)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "dark-code-deleted": {
+        "role": "syntax",
+        "displayName": "Dark Code Deleted",
+        "token": "{colors.dark-code-deleted}",
+        "tonalRamp": [
+          "oklch(15.00% 0.10248 19.69)",
+          "oklch(26.43% 0.10248 19.69)",
+          "oklch(37.86% 0.10248 19.69)",
+          "oklch(49.29% 0.10248 19.69)",
+          "oklch(60.71% 0.10248 19.69)",
+          "oklch(72.14% 0.10248 19.69)",
+          "oklch(83.57% 0.10248 19.69)",
+          "oklch(95.00% 0.10248 19.69)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      },
+      "copy-success": {
+        "role": "supporting",
+        "displayName": "Copy Success",
+        "token": "{colors.copy-success}",
+        "tonalRamp": [
+          "oklch(15.00% 0.25830 142.50)",
+          "oklch(26.43% 0.25830 142.50)",
+          "oklch(37.86% 0.25830 142.50)",
+          "oklch(49.29% 0.25830 142.50)",
+          "oklch(60.71% 0.25830 142.50)",
+          "oklch(72.14% 0.25830 142.50)",
+          "oklch(83.57% 0.25830 142.50)",
+          "oklch(95.00% 0.25830 142.50)"
+        ],
+        "tonalRampSource": "synthesized-preview-only",
+        "tonalRampNote": "Eight OKLCH lightness samples for the panel swatch only. Not implemented tokens. Alpha, when present in the source token, is omitted in this synthetic preview ramp."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "display",
+        "token": "{typography.display}"
+      },
+      "headline": {
+        "displayName": "headline",
+        "token": "{typography.headline}"
+      },
+      "title": {
+        "displayName": "title",
+        "token": "{typography.title}"
+      },
+      "task-title": {
+        "displayName": "task title",
+        "token": "{typography.task-title}"
+      },
+      "body": {
+        "displayName": "body",
+        "token": "{typography.body}"
+      },
+      "reading": {
+        "displayName": "reading",
+        "token": "{typography.reading}"
+      },
+      "label": {
+        "displayName": "label",
+        "token": "{typography.label}"
+      },
+      "navigation": {
+        "displayName": "navigation",
+        "token": "{typography.navigation}"
+      },
+      "brand": {
+        "displayName": "brand",
+        "token": "{typography.brand}"
+      },
+      "mono": {
+        "displayName": "mono",
+        "token": "{typography.mono}"
+      },
+      "release-label": {
+        "displayName": "release label",
+        "token": "{typography.release-label}"
+      },
+      "search-input": {
+        "displayName": "search input",
+        "token": "{typography.search-input}"
+      }
+    },
+    "themes": {
+      "default": "dark",
+      "respectPrefersColorScheme": false,
+      "persistedChoice": true,
+      "light": {
+        "ground": "{colors.light-ground}",
+        "panel": "{colors.light-panel}",
+        "inset": "{colors.light-inset}",
+        "text": "{colors.light-text}",
+        "secondary": "{colors.light-secondary}",
+        "muted": "{colors.light-muted}",
+        "rule": "{colors.light-rule}",
+        "link": "{colors.light-link}",
+        "inlineCode": "{colors.light-inline-code}"
+      },
+      "dark": {
+        "ground": "{colors.dark-ground}",
+        "panel": "{colors.dark-panel}",
+        "inset": "{colors.dark-inset}",
+        "text": "{colors.dark-text}",
+        "secondary": "{colors.dark-secondary}",
+        "muted": "{colors.dark-muted}",
+        "rule": "{colors.dark-rule}",
+        "link": "{colors.dark-link}",
+        "inlineCode": "{colors.dark-inline-code}"
+      }
+    },
+    "shadows": [
+      {
+        "name": "dropdown",
+        "value": "0 10px 30px #0002",
+        "purpose": "Masthead menu overlay."
+      },
+      {
+        "name": "search-dialog",
+        "value": "0 25px 80px #0005",
+        "purpose": "Native modal search above its dimmed document backdrop."
+      },
+      {
+        "name": "ordinary-content",
+        "value": "none",
+        "purpose": "Masthead, code panels, admonitions and version notices use rules and tone."
+      }
+    ],
+    "motion": [
+      {
+        "name": "task-arrow",
+        "value": "transform .18s ease",
+        "purpose": "Translate the existing task arrow 3px right on hover."
+      },
+      {
+        "name": "inherited-fast",
+        "value": "200ms",
+        "purpose": "Infima state transitions; inherited by tabs, navigation, pagination and code controls."
+      },
+      {
+        "name": "inherited-ease",
+        "value": "cubic-bezier(0.08, 0.52, 0.52, 1)",
+        "purpose": "Infima default transition timing."
+      },
+      {
+        "name": "copy-reveal",
+        "value": "opacity 200ms ease-in-out",
+        "purpose": "Inherited code copy control reveal."
+      },
+      {
+        "name": "copy-feedback",
+        "value": "1000ms",
+        "purpose": "Inherited copied state duration."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation: none !important; transition: none !important; scroll-behavior: auto !important",
+        "purpose": "Global prefers-reduced-motion: reduce override."
+      },
+      {
+        "name": "mark",
+        "value": "none",
+        "purpose": "The checked-in SVG mark has no implemented animation."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide-container",
+        "value": "1441px",
+        "query": "min-width",
+        "purpose": "General content max-width becomes 1440px."
+      },
+      {
+        "name": "compact-masthead",
+        "value": "1200px",
+        "query": "max-width",
+        "purpose": "Reduced masthead padding, link size and homepage gutters; shortcut hint hides."
+      },
+      {
+        "name": "mobile-navigation",
+        "value": "996px",
+        "query": "max-width",
+        "purpose": "Docusaurus mobile navigation and 70px masthead; icon-only 38px search trigger."
+      },
+      {
+        "name": "narrow-content",
+        "value": "700px",
+        "query": "max-width",
+        "purpose": "Homepage columns stack; gutters, article title scale and dialog height/spacing adapt."
+      }
+    ],
+    "focus": {
+      "color": "{colors.primary}",
+      "width": "2px",
+      "offset": "4px",
+      "selector": ":focus-visible"
+    },
+    "syntax": {
+      "source": "website/prism-themes.ts",
+      "evidence": ".impeccable/review/syntax-contrast.json",
+      "minimumContrast": {
+        "light": 6.1,
+        "dark": 8.03
+      },
+      "scope": "Eight opaque token groups per theme against the actual code panel; not a full-site accessibility certification.",
+      "groups": [
+        {
+          "types": [
+            "plain",
+            "unmatched"
+          ],
+          "light": "{colors.light-code-plain}",
+          "dark": "{colors.dark-code-plain}"
+        },
+        {
+          "types": [
+            "comment",
+            "prolog",
+            "doctype",
+            "cdata"
+          ],
+          "light": "{colors.light-code-comment}",
+          "dark": "{colors.dark-code-comment}"
+        },
+        {
+          "types": [
+            "keyword",
+            "atrule",
+            "builtin",
+            "tag",
+            "selector",
+            "changed"
+          ],
+          "light": "{colors.light-code-keyword}",
+          "dark": "{colors.dark-code-keyword}"
+        },
+        {
+          "types": [
+            "string",
+            "attr-value",
+            "char",
+            "template-punctuation"
+          ],
+          "light": "{colors.light-code-string}",
+          "dark": "{colors.dark-code-string}"
+        },
+        {
+          "types": [
+            "number",
+            "boolean",
+            "constant",
+            "symbol",
+            "regex",
+            "inserted"
+          ],
+          "light": "{colors.light-code-number-function}",
+          "dark": "{colors.dark-code-number}"
+        },
+        {
+          "types": [
+            "property",
+            "attr-name",
+            "variable",
+            "entity",
+            "url"
+          ],
+          "light": "{colors.light-code-property}",
+          "dark": "{colors.dark-code-property}"
+        },
+        {
+          "types": [
+            "function",
+            "function-variable",
+            "class-name"
+          ],
+          "light": "{colors.light-code-number-function}",
+          "dark": "{colors.dark-code-function}"
+        },
+        {
+          "types": [
+            "deleted",
+            "important"
+          ],
+          "light": "{colors.light-code-deleted}",
+          "dark": "{colors.dark-code-deleted}"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "name": "Search trigger",
+      "kind": "button",
+      "refersTo": "search-trigger-dark",
+      "description": "Theme-bound outlined search trigger. The live implementation opens the labeled native dialog; this snippet previews appearance only.",
+      "html": "<button class=\"ds-search-trigger\" type=\"button\" aria-label=\"Search documentation\" aria-haspopup=\"dialog\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\"/><path d=\"m16 16 5 5\"/></svg><span>Search docs</span><kbd>Ctrl K</kbd></button>",
+      "css": ".ds-search-trigger{font-family:var(--ifm-font-family-base,'Inter Variable',Inter,system-ui,sans-serif);font-feature-settings:'cv11','ss01';display:flex;align-items:center;gap:9px;min-height:38px;padding:8px 10px;border:1px solid var(--docs-rule,#272727);border-radius:var(--ifm-global-radius,4px);background:var(--docs-panel,#0c0c0c);color:var(--docs-muted,#aaa);font-size:12px;line-height:1.8;cursor:pointer;}.ds-search-trigger svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.6;}.ds-search-trigger kbd{font-family:var(--ifm-font-family-monospace,'JetBrains Mono Variable','JetBrains Mono',monospace);font-size:11px;border:0;border-radius:0;box-shadow:none;background:transparent;padding:0;color:inherit;}.ds-search-trigger:hover{border-color:var(--docs-blue,#5cc3f0);}.ds-search-trigger:focus-visible{outline:2px solid #0094d2;outline-offset:4px;}@media(max-width:1200px){.ds-search-trigger kbd{display:none;}}@media(max-width:996px){.ds-search-trigger{width:38px;height:38px;padding:10px;margin:0 8px;}.ds-search-trigger span,.ds-search-trigger kbd{display:none;}}"
+    },
+    {
+      "name": "Search close button",
+      "kind": "button",
+      "refersTo": "search-close-dark",
+      "description": "Small inset close control. The source has no distinct hover fill; keyboard focus uses the global outline.",
+      "html": "<button class=\"ds-search-close\" type=\"button\" aria-label=\"Close search\">Esc</button>",
+      "css": ".ds-search-close{font-family:var(--ifm-font-family-base,'Inter Variable',Inter,system-ui,sans-serif);font-feature-settings:'cv11','ss01';border:1px solid var(--docs-rule,#272727);background:var(--docs-inset,#111);color:var(--docs-muted,#aaa);border-radius:var(--ifm-global-radius,4px);font-size:12px;line-height:1.8;padding:7px 10px;cursor:pointer;}.ds-search-close:hover{background:var(--docs-inset,#111);}.ds-search-close:focus-visible{outline:2px solid #0094d2;outline-offset:4px;}"
+    },
+    {
+      "name": "Labeled search field",
+      "kind": "input",
+      "refersTo": "search-input-dark",
+      "description": "The actual documentation-search label, input and placeholder. Theme ground inside a panel; no custom error or disabled visual state is established.",
+      "html": "<div class=\"ds-search-field\"><label for=\"ds-docs-search\">Guide, endpoint, configuration key, or error</label><input id=\"ds-docs-search\" type=\"search\" placeholder=\"Try get_actions or connections.json\" autocomplete=\"off\"/></div>",
+      "css": ".ds-search-field{font-family:var(--ifm-font-family-base,'Inter Variable',Inter,system-ui,sans-serif);font-feature-settings:'cv11','ss01';color:var(--ifm-font-color-base,#f0f0f0);}.ds-search-field label{display:block;color:var(--docs-muted,#aaa);font-size:12px;line-height:1.8;margin-bottom:8px;}.ds-search-field input{font-family:var(--ifm-font-family-base,'Inter Variable',Inter,system-ui,sans-serif);font-feature-settings:'cv11','ss01';font-size:15px;line-height:1.8;width:100%;border:1px solid var(--docs-rule,#272727);background:var(--ifm-background-color,#050505);color:var(--ifm-font-color-base,#f0f0f0);border-radius:var(--ifm-global-radius,4px);padding:12px 14px;caret-color:var(--docs-blue,#5cc3f0);}.ds-search-field input::placeholder{color:var(--docs-muted,#aaa);opacity:1;}.ds-search-field input:hover{border-color:var(--docs-rule,#272727);}.ds-search-field input:focus-visible{outline:2px solid #0094d2;outline-offset:4px;}"
+    },
+    {
+      "name": "Masthead navigation",
+      "kind": "nav",
+      "refersTo": "navbar-dark",
+      "description": "Existing SVG identity, compact section links and theme-bound active state. The responsive drawer behavior remains in Docusaurus.",
+      "html": "<nav class=\"ds-masthead\" aria-label=\"Documentation sections\"><a class=\"ds-brand\" href=\"/\" aria-label=\"Hyperion documentation\"><svg class=\"ds-mark\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-1 -1 48 69\" fill=\"none\" stroke=\"#0094d2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke-width=\"2.6\" d=\"M23 2.3 37.9 21.6 43.9 51.4 23 64.4 2.1 51.4 8.1 21.6Z\"/><path opacity=\".42\" d=\"M23 7.6 35.5 24.6 40.6 48.2 23.1 59.3 5.8 48.2 10.6 24.6Z\"/><path stroke-width=\"3\" d=\"M7.9 38h5.6L19 19.5 15.6 52 21 38h4l5.5-19.5L27.6 51 32 38h6.2\"/></svg><span>HYPERION</span></a><a href=\"/next/start/overview/\">Start</a><a href=\"/next/build/query-actions/\">Build</a><a class=\"ds-current\" aria-current=\"page\" href=\"/next/operate/overview/\">Operate</a></nav>",
+      "css": ".ds-masthead{font-family:var(--ifm-font-family-base,'Inter Variable',Inter,system-ui,sans-serif);font-feature-settings:'cv11','ss01';display:flex;align-items:center;position:relative;height:76px;padding:0 30px;background:var(--ifm-background-color,#050505);border-bottom:1px solid var(--docs-rule,#272727);}.ds-masthead:after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,#f59e0b,#14b8a6);opacity:.55;}.ds-masthead a{font-size:13px;font-weight:500;color:var(--ifm-font-color-base,#f0f0f0);padding:12px 11px;text-decoration:none;transition:color var(--ifm-transition-fast,200ms) var(--ifm-transition-timing-default,cubic-bezier(.08,.52,.52,1));}.ds-masthead .ds-brand{display:flex;align-items:center;gap:9px;margin-right:27px;padding:0;}.ds-brand span{font-size:14px;font-weight:800;letter-spacing:.11em;}.ds-mark{height:42px;width:30px;}.ds-masthead a:hover,.ds-masthead a.ds-current{color:var(--docs-blue,#5cc3f0);}.ds-masthead a:focus-visible{outline:2px solid #0094d2;outline-offset:4px;}@media(max-width:1200px){.ds-masthead{padding:0 20px;}.ds-masthead a{font-size:12px;padding-left:8px;padding-right:8px;}.ds-masthead .ds-brand{margin-right:15px;}}@media(prefers-reduced-motion:reduce){.ds-masthead a{transition:none!important;animation:none!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "Handbook sidebar links",
+      "kind": "nav",
+      "refersTo": "sidebar-link",
+      "description": "Quiet category label and leaf links with a theme-blue active row. The category is text in this preview; live disclosure behavior stays in Docusaurus.",
+      "html": "<nav class=\"ds-sidebar\" aria-label=\"Run Hyperion guides\"><div class=\"ds-sidebar-category\">Run Hyperion</div><a href=\"/next/operate/overview/\">Run Hyperion</a><a href=\"/next/operate/configure-chain/\" aria-current=\"page\">Configure a chain</a><a href=\"/next/operate/verify-indexing/\">Verify indexing and serving</a></nav>",
+      "css": ".ds-sidebar{font-family:var(--ifm-font-family-base,'Inter Variable',Inter,system-ui,sans-serif);font-feature-settings:'cv11','ss01';padding:16px 10px;font-size:13px;}.ds-sidebar-category{font-size:12px;font-weight:600;color:var(--docs-muted,#aaa);padding:8px 12px;margin-bottom:19px;}.ds-sidebar a{display:block;color:var(--ifm-menu-color,#dadde1);font-size:13px;font-weight:400;line-height:1.6;padding:8px 12px;border-radius:var(--ifm-global-radius,4px);margin-top:2px;text-decoration:none;transition:background var(--ifm-transition-fast,200ms) var(--ifm-transition-timing-default,cubic-bezier(.08,.52,.52,1));}.ds-sidebar a:hover{background:var(--ifm-menu-color-background-hover,#ffffff06);color:var(--ifm-menu-color,#dadde1);}.ds-sidebar a[aria-current=page]{font-weight:500;color:var(--docs-blue,#5cc3f0);background:var(--ifm-menu-color-background-active,#0094d219);}.ds-sidebar a[aria-current=page]:hover{color:var(--docs-blue,#5cc3f0);}.ds-sidebar a:focus-visible{outline:2px solid #0094d2;outline-offset:4px;}@media(prefers-reduced-motion:reduce){.ds-sidebar a{transition:none!important;animation:none!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "Task row",
+      "kind": "custom",
+      "refersTo": "task-row",
+      "description": "The homepage signature: full-width task link, open rule, title, short explanation and stroked arrow. Useful for task choices where this pattern already applies.",
+      "html": "<a class=\"ds-task\" href=\"/next/operate/overview/\"><div><h2>Run Hyperion</h2><p>Configure your chain and verify indexing, storage and API coverage before serving traffic.</p></div><svg class=\"ds-arrow\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h15m-5-5 5 5-5 5\"/></svg></a>",
+      "css": ".ds-task{font-family:var(--ifm-font-family-base,'Inter Variable',Inter,system-ui,sans-serif);font-feature-settings:'cv11','ss01';display:grid;grid-template-columns:1fr 26px;align-items:center;gap:26px;padding:21px 0;border-top:1px solid var(--docs-rule,#272727);color:var(--ifm-font-color-base,#f0f0f0);text-decoration:none;}.ds-task h2{font-size:22px;font-weight:500;line-height:1.4;letter-spacing:-.025em;margin:0 0 7px;text-wrap:balance;}.ds-task p{font-size:14px;line-height:1.8;color:var(--docs-muted,#aaa);margin:0;max-width:50ch;}.ds-task .ds-arrow{width:23px;height:23px;color:var(--docs-blue,#5cc3f0);transition:transform .18s ease;}.ds-task:hover h2{color:var(--docs-blue,#5cc3f0);}.ds-task:hover .ds-arrow{transform:translateX(3px);}.ds-task:focus-visible{outline:2px solid #0094d2;outline-offset:4px;}@media(max-width:996px){.ds-task h2{font-size:20px;}.ds-task p{font-size:13px;}}@media(max-width:700px){.ds-task{padding:17px 0;gap:17px;}.ds-task p{font-size:14px;}}@media(prefers-reduced-motion:reduce){.ds-task .ds-arrow{transition:none!important;animation:none!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "Tabbed example and copy control",
+      "kind": "custom",
+      "refersTo": "code-panel-dark",
+      "description": "Source-derived static appearance of the tabbed code pattern and inherited copy button. No tab switching or clipboard JavaScript is included. Code-token literals follow prism-themes.ts because those tokens live in JavaScript.",
+      "html": "<section class=\"ds-example\" aria-label=\"History query example\"><div class=\"ds-example-tabs\" role=\"tablist\" aria-label=\"Example language\"><button type=\"button\" role=\"tab\" aria-selected=\"true\" aria-controls=\"ds-code-panel\" id=\"ds-curl-tab\">cURL</button><button type=\"button\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\">JavaScript</button></div><div class=\"ds-code-panel\" id=\"ds-code-panel\" role=\"tabpanel\" aria-labelledby=\"ds-curl-tab\"><pre><code><span class=\"ds-code-comment\"># Set HYPERION_URL to your provider's base URL</span>\n<span class=\"ds-code-function\">curl</span> --fail-with-body --get <span class=\"ds-code-string\">\"$HYPERION_URL/v2/history/get_actions\"</span></code></pre><button class=\"ds-copy\" type=\"button\" aria-label=\"Copy code to clipboard\" title=\"Copy\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z\"/></svg></button></div></section>",
+      "css": ".ds-example{font-family:var(--ifm-font-family-base,'Inter Variable',Inter,system-ui,sans-serif);font-feature-settings:'cv11','ss01';border:1px solid var(--docs-rule,#272727);border-radius:var(--ifm-global-radius,4px);overflow:hidden;background:var(--docs-panel,#0c0c0c);color:var(--ifm-font-color-base,#f0f0f0);}.ds-example-tabs{display:flex;border-bottom:1px solid var(--docs-rule,#272727);overflow-x:auto;}.ds-example-tabs button{font-family:var(--ifm-font-family-base,'Inter Variable',Inter,system-ui,sans-serif);font-feature-settings:'cv11','ss01';background:transparent;color:inherit;border:0;border-bottom:2px solid transparent;border-radius:0;font-size:12px;font-weight:500;padding:11px 17px;cursor:pointer;transition:background-color var(--ifm-transition-fast,200ms) var(--ifm-transition-timing-default,cubic-bezier(.08,.52,.52,1));}.ds-example-tabs button[aria-selected=true]{border-bottom-color:var(--docs-blue,#5cc3f0);color:var(--docs-blue,#5cc3f0);}.ds-example-tabs button:hover{background:var(--ifm-hover-overlay,rgba(255,255,255,.05));}.ds-code-panel{position:relative;}.ds-code-panel pre{font-family:var(--ifm-font-family-monospace,'JetBrains Mono Variable','JetBrains Mono',monospace);font-size:11.5px;line-height:1.9;margin:0;padding:var(--ifm-pre-padding,1rem);overflow:auto;color:#dedede;background:var(--docs-panel,#0c0c0c);}.ds-code-panel code{font:inherit;white-space:pre;}.ds-code-comment{color:#9fa99a;}.ds-code-function{color:#d8ce9c;}.ds-code-string{color:#dfaa92;}.ds-copy{position:absolute;top:8px;right:8px;display:flex;align-items:center;border:1px solid var(--ifm-color-emphasis-300,#373737);border-radius:var(--ifm-global-radius,4px);padding:.4rem;line-height:0;background:var(--docs-panel,#0c0c0c);color:#dedede;opacity:0;cursor:pointer;transition:opacity var(--ifm-transition-fast,200ms) ease-in-out;}.ds-copy svg{width:1.125rem;height:1.125rem;}.ds-code-panel:hover .ds-copy{opacity:.4;}.ds-copy:hover,.ds-copy:focus-visible{opacity:1!important;}.ds-copy:focus-visible,.ds-example-tabs button:focus-visible{outline:2px solid #0094d2;outline-offset:4px;}:host-context([data-theme=light]) .ds-code-panel pre,:host-context([data-theme=light]) .ds-copy{color:#24292f;}:host-context([data-theme=light]) .ds-code-comment{color:#62625b;}:host-context([data-theme=light]) .ds-code-function{color:#6542a6;}:host-context([data-theme=light]) .ds-code-string{color:#a71d4f;}@media(prefers-reduced-motion:reduce){.ds-copy,.ds-example-tabs button{transition:none!important;animation:none!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "Release notice",
+      "kind": "custom",
+      "refersTo": "version-notice-dark",
+      "description": "Illustrative release note with released 4.5 wording and the canonical upgrade link. This is a note rather than a chip or urgency badge; the current site does not render a release-status banner.",
+      "html": "<div class=\"ds-version-note\" role=\"note\"><strong>Hyperion 4.5</strong> · Upgrading an existing installation? Read the <a href=\"/providers/update/\">upgrade guide</a>.</div>",
+      "css": ".ds-version-note{font-family:var(--ifm-font-family-base,'Inter Variable',Inter,system-ui,sans-serif);font-feature-settings:'cv11','ss01';border:1px solid var(--docs-rule,#272727);border-radius:var(--ifm-global-radius,4px);box-shadow:none;background:var(--docs-inset,#111);color:var(--docs-muted,#aaa);font-size:12px;line-height:1.8;padding:11px 15px;margin-bottom:25px;}.ds-version-note a{color:var(--docs-blue,#5cc3f0);text-decoration:none;text-underline-offset:.2em;}.ds-version-note a:hover{text-decoration:underline;}.ds-version-note a:focus-visible{outline:2px solid #0094d2;outline-offset:4px;}"
+    },
+    {
+      "name": "Article pagination card",
+      "kind": "card",
+      "refersTo": "pagination",
+      "description": "The canonical linked container: a quiet bordered page continuation with no shadow or lift.",
+      "html": "<a class=\"ds-pagination\" href=\"/next/operate/configure-chain/\"><div class=\"ds-pagination-sublabel\">Next</div><div class=\"ds-pagination-label\">Configure a chain »</div></a>",
+      "css": ".ds-pagination{font-family:var(--ifm-font-family-base,'Inter Variable',Inter,system-ui,sans-serif);font-feature-settings:'cv11','ss01';display:block;padding:17px 20px;border:1px solid var(--docs-rule,#272727);border-radius:var(--ifm-global-radius,4px);color:var(--docs-blue,#5cc3f0);text-decoration:none;text-align:right;line-height:1.25;transition:border-color var(--ifm-transition-fast,200ms) var(--ifm-transition-timing-default,cubic-bezier(.08,.52,.52,1));}.ds-pagination-sublabel{font-size:12px;color:var(--docs-muted,#aaa);}.ds-pagination-label{font-size:14px;font-weight:500;}.ds-pagination:hover{border-color:var(--docs-blue,#5cc3f0);text-decoration:none;}.ds-pagination:focus-visible{outline:2px solid #0094d2;outline-offset:4px;}@media(prefers-reduced-motion:reduce){.ds-pagination{transition:none!important;animation:none!important;scroll-behavior:auto!important;}}"
+    },
+    {
+      "name": "Search result",
+      "kind": "custom",
+      "refersTo": "search-result",
+      "description": "An actual result entry pattern: readable title, excerpt and mono destination, separated with a rule. Search behavior and live status remain in the application.",
+      "html": "<a class=\"ds-search-result\" href=\"/next/operate/configure-chain/\"><strong>Configure a chain</strong><p>Initialize dependency connections and create a chain configuration for an Antelope chain.</p><span>/next/operate/configure-chain/</span></a>",
+      "css": ".ds-search-result{font-family:var(--ifm-font-family-base,'Inter Variable',Inter,system-ui,sans-serif);font-feature-settings:'cv11','ss01';display:block;padding:16px 0;border-top:1px solid var(--docs-rule,#272727);text-decoration:none;line-height:1.8;}.ds-search-result strong{font-size:15px;font-weight:500;color:var(--docs-blue,#5cc3f0);}.ds-search-result p{color:var(--docs-muted,#aaa);font-size:12px;line-height:1.7;margin:7px 0;}.ds-search-result span{font-family:var(--ifm-font-family-monospace,'JetBrains Mono Variable','JetBrains Mono',monospace);font-size:11px;overflow-wrap:anywhere;color:var(--docs-muted,#aaa);}.ds-search-result:hover{text-decoration:none;}.ds-search-result:focus-visible{outline:2px solid #0094d2;outline-offset:4px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Hyperion handbook",
+    "overview": "This is descriptive shorthand for the implemented documentation world: functional, restrained and readable. The Hyperion blue and flat gem with heartbeat H lead within Rio Blocks neutral dark and light fields. Inter carries the reading hierarchy; JetBrains Mono distinguishes code, paths and release context. Hairlines, small corners and tonal changes provide structure without promotional imagery.\n\nThe system supports API developers and node operators with equal care. It keeps procedures, examples, navigation and qualification notes legible. The selected task homepage and handbook composition belong to the [surface brief](.impeccable/surfaces/website-src-pages-index-tsx.md); their arrangement is not a required template for every future surface. The checked-in mark is a static vector, not a rotating solid. No raster product assets are used.",
+    "keyCharacteristics": [
+      "Neutral grounds with restrained, theme-specific blue links.",
+      "Inter reading type paired with JetBrains Mono technical text.",
+      "Hairline boundaries, tonal depth and four-pixel surface corners.",
+      "Readable examples, visible keyboard focus and reachable search.",
+      "Release context presented as quiet, explicit documentation."
+    ],
+    "rules": [
+      {
+        "name": "The Readable Blue Rule",
+        "body": "Use the current theme's reading-blue token for text links and active navigation; preserve Hyperion blue for the mark and focus outline.",
+        "section": "colors"
+      },
+      {
+        "name": "The Technical Text Rule",
+        "body": "Keep executable examples and technical paths in the mono family; keep prose and navigational task labels in Inter.",
+        "section": "typography"
+      },
+      {
+        "name": "The Quiet Surface Rule",
+        "body": "Use tonal separation and hairlines for ordinary reading surfaces; retain the existing shadows for overlaid menus and search.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do retain the existing Hyperion SVG mark, Hyperion blue and Rio Blocks neutral dark/light fields.",
+      "Do use the theme's reading blue, rule, panel, muted text and inset variables so both themes remain coherent.",
+      "Do keep Inter for reading and navigation, and JetBrains Mono for code, paths and release labels.",
+      "Do preserve visible keyboard focus, semantic labels, copy feedback and the reduced-motion override.",
+      "Do keep code syntax opaque and verify it against the actual light and dark panels when changing the palette.",
+      "Do keep page-specific composition in its surface brief and document new reusable patterns only after implementation."
+    ],
+    "donts": [
+      "Don't replace the flat gem and heartbeat H with a rotating EOS-like solid.",
+      "Don't treat the old blue/orange Material theme as the current brand authority.",
+      "Don't introduce promotional imagery in place of useful documentation content.",
+      "Don't add card lift, broad shadows or large pill corners to ordinary reading surfaces.",
+      "Don't treat synthesized preview ramps as implemented theme tokens.",
+      "Don't present the syntax-contrast review or local design foundation as complete migration, release or deployment acceptance."
+    ]
+  }
+}

@@ -1,0 +1,562 @@
+{
+  "commit": "e1818923065d648a38009572d76badeab0684af1",
+  "sourceFiles": 53,
+  "routes": [
+    {
+      "route": "/v1/chain/abi_bin_to_json",
+      "family": "v1-chain",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-abi-bin-to-json.md",
+      "source": "src/api/routes/v1-chain/abi_bin_to_json/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/abi_json_to_bin",
+      "family": "v1-chain",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-abi-json-to-bin.md",
+      "source": "src/api/routes/v1-chain/abi_json_to_bin/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/get_abi",
+      "family": "v1-chain",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-get-abi.md",
+      "source": "src/api/routes/v1-chain/get_abi/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/get_account",
+      "family": "v1-chain",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-get-account.md",
+      "source": "src/api/routes/v1-chain/get_account/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/get_activated_protocol_features",
+      "family": "v1-chain",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-get-activated-protocol-features.md",
+      "source": "src/api/routes/v1-chain/get_activated_protocol_features/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/get_block",
+      "family": "v1-chain",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-get-block.md",
+      "source": "src/api/routes/v1-chain/get_block/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/get_block_header_state",
+      "family": "v1-chain",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-get-block-header-state.md",
+      "source": "src/api/routes/v1-chain/get_block_header_state/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/get_code",
+      "family": "v1-chain",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-get-code.md",
+      "source": "src/api/routes/v1-chain/get_code/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/get_currency_balance",
+      "family": "v1-chain",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-get-currency-balance.md",
+      "source": "src/api/routes/v1-chain/get_currency_balance/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/get_currency_stats",
+      "family": "v1-chain",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-get-currency-stats.md",
+      "source": "src/api/routes/v1-chain/get_currency_stats/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/get_info",
+      "family": "v1-chain",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-get-info.md",
+      "source": "src/api/routes/v1-chain/get_info/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/get_producers",
+      "family": "v1-chain",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-get-producers.md",
+      "source": "src/api/routes/v1-chain/get_producers/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/get_raw_abi",
+      "family": "v1-chain",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-get-raw-abi.md",
+      "source": "src/api/routes/v1-chain/get_raw_abi/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/get_raw_code_and_abi",
+      "family": "v1-chain",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-get-raw-code-and-abi.md",
+      "source": "src/api/routes/v1-chain/get_raw_code_and_abi/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/get_table_by_scope",
+      "family": "v1-chain",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-get-table-by-scope.md",
+      "source": "src/api/routes/v1-chain/get_table_by_scope/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/get_table_rows",
+      "family": "v1-chain",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-get-table-rows.md",
+      "source": "src/api/routes/v1-chain/get_table_rows/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/push_transaction",
+      "family": "v1-chain",
+      "methods": [
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-push-transaction.md",
+      "source": "src/api/routes/v1-chain/push_transaction/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/push_transactions",
+      "family": "v1-chain",
+      "methods": [
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-push-transactions.md",
+      "source": "src/api/routes/v1-chain/push_transactions/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/chain/send_transaction",
+      "family": "v1-chain",
+      "methods": [
+        "POST"
+      ],
+      "doc": "reference/generated/v1-chain-send-transaction.md",
+      "source": "src/api/routes/v1-chain/send_transaction/index.ts",
+      "upstream": true
+    },
+    {
+      "route": "/v1/history/get_actions",
+      "family": "v1-history",
+      "methods": [
+        "POST"
+      ],
+      "doc": "reference/generated/v1-history-get-actions.md",
+      "source": "src/api/routes/v1-history/get_actions/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v1/history/get_controlled_accounts",
+      "family": "v1-history",
+      "methods": [
+        "POST"
+      ],
+      "doc": "reference/generated/v1-history-get-controlled-accounts.md",
+      "source": "src/api/routes/v1-history/get_controlled_accounts/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v1/history/get_key_accounts",
+      "family": "v1-history",
+      "methods": [
+        "POST"
+      ],
+      "doc": "reference/generated/v1-history-get-key-accounts.md",
+      "source": "src/api/routes/v1-history/get_key_accounts/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v1/history/get_transaction",
+      "family": "v1-history",
+      "methods": [
+        "POST"
+      ],
+      "doc": "reference/generated/v1-history-get-transaction.md",
+      "source": "src/api/routes/v1-history/get_transaction/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v1/trace_api/get_block",
+      "family": "v1-trace",
+      "methods": [
+        "POST"
+      ],
+      "doc": "reference/generated/v1-trace-get-block.md",
+      "source": "src/api/routes/v1-trace/get_block/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/history/check_transaction",
+      "family": "v2-history",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-history-check-transaction.md",
+      "source": "src/api/routes/v2-history/check_transaction/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/history/get_abi_snapshot",
+      "family": "v2-history",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-history-get-abi-snapshot.md",
+      "source": "src/api/routes/v2-history/get_abi_snapshot/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/history/get_actions",
+      "family": "v2-history",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/get-actions.md",
+      "source": "src/api/routes/v2-history/get_actions/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/history/get_block",
+      "family": "v2-history",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-history-get-block.md",
+      "source": "src/api/routes/v2-history/get_block/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/history/get_blocks",
+      "family": "v2-history",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-history-get-blocks.md",
+      "source": "src/api/routes/v2-history/get_blocks/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/history/get_created_accounts",
+      "family": "v2-history",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-history-get-created-accounts.md",
+      "source": "src/api/routes/v2-history/get_created_accounts/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/history/get_creator",
+      "family": "v2-history",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-history-get-creator.md",
+      "source": "src/api/routes/v2-history/get_creator/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/history/get_deltas",
+      "family": "v2-history",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-history-get-deltas.md",
+      "source": "src/api/routes/v2-history/get_deltas/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/history/get_schedule",
+      "family": "v2-history",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-history-get-schedule.md",
+      "source": "src/api/routes/v2-history/get_schedule/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/history/get_table_state",
+      "family": "v2-history",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-history-get-table-state.md",
+      "source": "src/api/routes/v2-history/get_table_state/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/history/get_transaction",
+      "family": "v2-history",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/get-transaction.md",
+      "source": "src/api/routes/v2-history/get_transaction/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/state/get_account",
+      "family": "v2-state",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/get-account.md",
+      "source": "src/api/routes/v2-state/get_account/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/state/get_key_accounts",
+      "family": "v2-state",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "doc": "reference/generated/v2-state-get-key-accounts.md",
+      "source": "src/api/routes/v2-state/get_key_accounts/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/state/get_links",
+      "family": "v2-state",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-state-get-links.md",
+      "source": "src/api/routes/v2-state/get_links/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/state/get_proposals",
+      "family": "v2-state",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-state-get-proposals.md",
+      "source": "src/api/routes/v2-state/get_proposals/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/state/get_table_rows",
+      "family": "v2-state",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-state-get-table-rows.md",
+      "source": "src/api/routes/v2-state/get_table_rows/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/state/get_tokens",
+      "family": "v2-state",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-state-get-tokens.md",
+      "source": "src/api/routes/v2-state/get_tokens/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/state/get_top_holders",
+      "family": "v2-state",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-state-get-top-holders.md",
+      "source": "src/api/routes/v2-state/get_top_holders/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/state/get_voter_scopes",
+      "family": "v2-state",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-state-get-voter-scopes.md",
+      "source": "src/api/routes/v2-state/get_voter_scopes/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/state/get_voters",
+      "family": "v2-state",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-state-get-voters.md",
+      "source": "src/api/routes/v2-state/get_voters/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/stats/get_action_usage",
+      "family": "v2-stats",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-stats-get-action-usage.md",
+      "source": "src/api/routes/v2-stats/get_action_usage/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/stats/get_api_usage",
+      "family": "v2-stats",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-stats-get-api-usage.md",
+      "source": "src/api/routes/v2-stats/get_api_usage/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/stats/get_missed_blocks",
+      "family": "v2-stats",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-stats-get-missed-blocks.md",
+      "source": "src/api/routes/v2-stats/get_missed_blocks/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/stats/get_resource_usage",
+      "family": "v2-stats",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-stats-get-resource-usage.md",
+      "source": "src/api/routes/v2-stats/get_resource_usage/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/stats/get_trx_count",
+      "family": "v2-stats",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-stats-get-trx-count.md",
+      "source": "src/api/routes/v2-stats/get_trx_count/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/explorer_logo",
+      "family": "v2",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-explorer-logo.md",
+      "source": "src/api/routes/v2/explorer_logo/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/explorer_metadata",
+      "family": "v2",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-explorer-metadata.md",
+      "source": "src/api/routes/v2/explorer_metadata/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/get_filters",
+      "family": "v2",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-get-filters.md",
+      "source": "src/api/routes/v2/get_filters/index.ts",
+      "upstream": false
+    },
+    {
+      "route": "/v2/health",
+      "family": "v2",
+      "methods": [
+        "GET"
+      ],
+      "doc": "reference/generated/v2-health.md",
+      "source": "src/api/routes/v2/health/index.ts",
+      "upstream": false
+    }
+  ],
+  "registration": {
+    "file": "src/api/routes.ts",
+    "nodeDiscovery": "/v1/node/get_supported_apis",
+    "upstreamWildcard": "/v1/chain/*",
+    "excludedJavaScriptArtifacts": [
+      "v2-history/export_actions/index.js",
+      "v1-chain/get_scheduled_transaction/index.js"
+    ]
+  }
+}

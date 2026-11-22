@@ -1,0 +1,2629 @@
+{
+  "baseline": "3f6759653e2c2c3ccf5ed72ebe61cacde6d2b0d8",
+  "capturedAt": "2026-10-20T20:37:00.998Z",
+  "origin": "https://hyperion.docs.eosrio.io",
+  "pages": [
+    {
+      "path": "/",
+      "anchors": [
+        "homepage",
+        "hyperion-history-api",
+        "official-documentation",
+        "for-providers",
+        "for-developers",
+        "api-reference",
+        "official-plugins",
+        "1-overview",
+        "improved-data-structure",
+        "2-architecture",
+        "21-elasticsearch-cluster",
+        "22-hyperion-indexer",
+        "23-hyperion-api",
+        "24-rabbitmq",
+        "25-redis",
+        "26-leap-state-history",
+        "27-hyperion-stream-client-optional",
+        "28-hyperion-plugins-optional"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "hyperion-history-api",
+          "text": "Hyperion History API"
+        },
+        {
+          "level": 2,
+          "id": "official-documentation",
+          "text": "Official documentation"
+        },
+        {
+          "level": 3,
+          "id": "for-providers",
+          "text": "For Providers"
+        },
+        {
+          "level": 3,
+          "id": "for-developers",
+          "text": "For Developers"
+        },
+        {
+          "level": 3,
+          "id": "api-reference",
+          "text": "API Reference"
+        },
+        {
+          "level": 3,
+          "id": "official-plugins",
+          "text": "Official plugins:"
+        },
+        {
+          "level": 2,
+          "id": "1-overview",
+          "text": "1. Overview"
+        },
+        {
+          "level": 3,
+          "id": "improved-data-structure",
+          "text": "Improved Data Structure"
+        },
+        {
+          "level": 2,
+          "id": "2-architecture",
+          "text": "2. Architecture"
+        },
+        {
+          "level": 4,
+          "id": "21-elasticsearch-cluster",
+          "text": "2.1 Elasticsearch Cluster"
+        },
+        {
+          "level": 4,
+          "id": "22-hyperion-indexer",
+          "text": "2.2 Hyperion Indexer"
+        },
+        {
+          "level": 4,
+          "id": "23-hyperion-api",
+          "text": "2.3 Hyperion API"
+        },
+        {
+          "level": 4,
+          "id": "24-rabbitmq",
+          "text": "2.4 RabbitMQ"
+        },
+        {
+          "level": 4,
+          "id": "25-redis",
+          "text": "2.5 Redis"
+        },
+        {
+          "level": 4,
+          "id": "26-leap-state-history",
+          "text": "2.6 Leap State History"
+        },
+        {
+          "level": 4,
+          "id": "27-hyperion-stream-client-optional",
+          "text": "2.7 Hyperion Stream Client (optional)"
+        },
+        {
+          "level": 4,
+          "id": "28-hyperion-plugins-optional",
+          "text": "2.8 Hyperion Plugins (optional)"
+        }
+      ],
+      "sha256": "9e84eccf0a346d95deb035f9b0cde5a84bd23fbdd966aa887b6de0cdf50145b8"
+    },
+    {
+      "path": "/dev/howtouse/",
+      "anchors": [
+        "how-to-use",
+        "1-javascript-client-using-https",
+        "2-third-party-library"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "how-to-use",
+          "text": "How to use"
+        },
+        {
+          "level": 2,
+          "id": "1-javascript-client-using-https",
+          "text": "1. JavaScript client using https"
+        },
+        {
+          "level": 2,
+          "id": "2-third-party-library",
+          "text": "2. Third party library"
+        }
+      ],
+      "sha256": "ae4c86b232ab6db51bbf11ede26fc69dd5d00aff8c292c1a9bfe9777c4b98731"
+    },
+    {
+      "path": "/dev/stream_client/",
+      "anchors": [
+        "hyperion-stream-client",
+        "supported-environments",
+        "quick-start",
+        "installing-via-npm-package",
+        "importing-the-client",
+        "browser-library-served-from-public-hyperion-apis",
+        "1-connection",
+        "2-making-requests",
+        "21-action-stream-clientstreamactions",
+        "data-filters",
+        "211-act-data-filters",
+        "22-delta-stream-contract-rows-clientstreamdeltas",
+        "3-handling-data"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "hyperion-stream-client",
+          "text": "Hyperion Stream Client"
+        },
+        {
+          "level": 3,
+          "id": "supported-environments",
+          "text": "Supported Environments"
+        },
+        {
+          "level": 2,
+          "id": "quick-start",
+          "text": "Quick Start"
+        },
+        {
+          "level": 3,
+          "id": "installing-via-npm-package",
+          "text": "Installing via npm package"
+        },
+        {
+          "level": 4,
+          "id": "importing-the-client",
+          "text": "Importing the client"
+        },
+        {
+          "level": 3,
+          "id": "browser-library-served-from-public-hyperion-apis",
+          "text": "Browser library (served from public Hyperion APIs)"
+        },
+        {
+          "level": 3,
+          "id": "1-connection",
+          "text": "1. Connection"
+        },
+        {
+          "level": 3,
+          "id": "2-making-requests",
+          "text": "2. Making requests"
+        },
+        {
+          "level": 4,
+          "id": "21-action-stream-clientstreamactions",
+          "text": "2.1 Action Stream - client.streamActions"
+        },
+        {
+          "level": 4,
+          "id": "211-act-data-filters",
+          "text": "2.1.1 Act Data Filters"
+        },
+        {
+          "level": 4,
+          "id": "22-delta-stream-contract-rows-clientstreamdeltas",
+          "text": "2.2 Delta Stream (contract rows) - client.streamDeltas"
+        },
+        {
+          "level": 4,
+          "id": "3-handling-data",
+          "text": "3. Handling Data"
+        }
+      ],
+      "sha256": "01a2a13a175ca633ce2e82f2358b7bc2dc6259380e463161205d4fe82b645543"
+    },
+    {
+      "path": "/dev/endpoint/",
+      "anchors": [
+        "hyperion-open-history-endpoint-list",
+        "1-mainnets",
+        "eos",
+        "wax",
+        "telos",
+        "uos",
+        "instar",
+        "proton",
+        "fio",
+        "libre",
+        "aikonore",
+        "coffe",
+        "ux",
+        "2-testnets",
+        "kylin-eos-testnet",
+        "jungle-4-eos-testnet",
+        "wax-testnet",
+        "telos-testnet",
+        "uos-testnet",
+        "proton-testnet",
+        "fio-testnet",
+        "libre-testnet",
+        "ux-testnet"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "hyperion-open-history-endpoint-list",
+          "text": "Hyperion Open History Endpoint List"
+        },
+        {
+          "level": 2,
+          "id": "1-mainnets",
+          "text": "1. Mainnets:"
+        },
+        {
+          "level": 3,
+          "id": "eos",
+          "text": "EOS"
+        },
+        {
+          "level": 3,
+          "id": "wax",
+          "text": "WAX"
+        },
+        {
+          "level": 3,
+          "id": "telos",
+          "text": "TELOS"
+        },
+        {
+          "level": 3,
+          "id": "uos",
+          "text": "UOS"
+        },
+        {
+          "level": 3,
+          "id": "instar",
+          "text": "INSTAR"
+        },
+        {
+          "level": 3,
+          "id": "proton",
+          "text": "Proton"
+        },
+        {
+          "level": 3,
+          "id": "fio",
+          "text": "FIO"
+        },
+        {
+          "level": 3,
+          "id": "libre",
+          "text": "LIBRE"
+        },
+        {
+          "level": 3,
+          "id": "aikonore",
+          "text": "Aikon/ORE"
+        },
+        {
+          "level": 3,
+          "id": "coffe",
+          "text": "Coffe"
+        },
+        {
+          "level": 3,
+          "id": "ux",
+          "text": "UX"
+        },
+        {
+          "level": 2,
+          "id": "2-testnets",
+          "text": "2. Testnets:"
+        },
+        {
+          "level": 3,
+          "id": "kylin-eos-testnet",
+          "text": "Kylin EOS Testnet"
+        },
+        {
+          "level": 3,
+          "id": "jungle-4-eos-testnet",
+          "text": "Jungle 4 EOS Testnet"
+        },
+        {
+          "level": 3,
+          "id": "wax-testnet",
+          "text": "WAX Testnet"
+        },
+        {
+          "level": 3,
+          "id": "telos-testnet",
+          "text": "Telos Testnet"
+        },
+        {
+          "level": 3,
+          "id": "uos-testnet",
+          "text": "UOS Testnet"
+        },
+        {
+          "level": 3,
+          "id": "proton-testnet",
+          "text": "Proton Testnet"
+        },
+        {
+          "level": 3,
+          "id": "fio-testnet",
+          "text": "FIO Testnet"
+        },
+        {
+          "level": 3,
+          "id": "libre-testnet",
+          "text": "LIBRE Testnet"
+        },
+        {
+          "level": 3,
+          "id": "ux-testnet",
+          "text": "UX Testnet"
+        }
+      ],
+      "sha256": "1c680783dced3c3b05e58f50f6f7a03b360e86462c7a2074a40c46a939b5a7cf"
+    },
+    {
+      "path": "/api/v1/",
+      "anchors": [
+        "api-reference-v1",
+        "v1historyget_actions",
+        "post",
+        "summary",
+        "description",
+        "request-body",
+        "schema",
+        "responses",
+        "example",
+        "v1historyget_controlled_accounts",
+        "post_1",
+        "summary_1",
+        "description_1",
+        "request-body-required",
+        "schema_1",
+        "responses_1",
+        "example_1",
+        "v1historyget_key_accounts",
+        "post_2",
+        "summary_2",
+        "description_2",
+        "request-body-required_1",
+        "schema_2",
+        "responses_2",
+        "example_2",
+        "v1historyget_transaction",
+        "post_3",
+        "summary_3",
+        "description_3",
+        "request-body-required_2",
+        "schema_3",
+        "responses_3",
+        "example_3",
+        "v1chainget_block",
+        "post_4",
+        "summary_4",
+        "description_4",
+        "request-body_1",
+        "schema_4",
+        "responses_4",
+        "example_4",
+        "v1trace_apiget_block",
+        "post_5",
+        "summary_5",
+        "description_5",
+        "request-body_2",
+        "schema_5",
+        "responses_5",
+        "examples"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "api-reference-v1",
+          "text": "API Reference: v1"
+        },
+        {
+          "level": 3,
+          "id": "v1historyget_actions",
+          "text": "/v1/history/get_actions"
+        },
+        {
+          "level": 4,
+          "id": "post",
+          "text": "POST"
+        },
+        {
+          "level": 5,
+          "id": "summary",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "request-body",
+          "text": "Request Body"
+        },
+        {
+          "level": 5,
+          "id": "schema",
+          "text": "Schema"
+        },
+        {
+          "level": 5,
+          "id": "responses",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "example",
+          "text": "Example"
+        },
+        {
+          "level": 3,
+          "id": "v1historyget_controlled_accounts",
+          "text": "/v1/history/get_controlled_accounts"
+        },
+        {
+          "level": 4,
+          "id": "post_1",
+          "text": "POST"
+        },
+        {
+          "level": 5,
+          "id": "summary_1",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_1",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "request-body-required",
+          "text": "Request Body Required"
+        },
+        {
+          "level": 5,
+          "id": "schema_1",
+          "text": "Schema"
+        },
+        {
+          "level": 5,
+          "id": "responses_1",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "example_1",
+          "text": "Example"
+        },
+        {
+          "level": 3,
+          "id": "v1historyget_key_accounts",
+          "text": "/v1/history/get_key_accounts"
+        },
+        {
+          "level": 4,
+          "id": "post_2",
+          "text": "POST"
+        },
+        {
+          "level": 5,
+          "id": "summary_2",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_2",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "request-body-required_1",
+          "text": "Request Body Required"
+        },
+        {
+          "level": 5,
+          "id": "schema_2",
+          "text": "Schema"
+        },
+        {
+          "level": 5,
+          "id": "responses_2",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "example_2",
+          "text": "Example"
+        },
+        {
+          "level": 3,
+          "id": "v1historyget_transaction",
+          "text": "/v1/history/get_transaction"
+        },
+        {
+          "level": 4,
+          "id": "post_3",
+          "text": "POST"
+        },
+        {
+          "level": 5,
+          "id": "summary_3",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_3",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "request-body-required_2",
+          "text": "Request Body Required"
+        },
+        {
+          "level": 5,
+          "id": "schema_3",
+          "text": "Schema"
+        },
+        {
+          "level": 5,
+          "id": "responses_3",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "example_3",
+          "text": "Example"
+        },
+        {
+          "level": 3,
+          "id": "v1chainget_block",
+          "text": "/v1/chain/get_block"
+        },
+        {
+          "level": 4,
+          "id": "post_4",
+          "text": "POST"
+        },
+        {
+          "level": 5,
+          "id": "summary_4",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_4",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "request-body_1",
+          "text": "Request Body"
+        },
+        {
+          "level": 5,
+          "id": "schema_4",
+          "text": "Schema"
+        },
+        {
+          "level": 5,
+          "id": "responses_4",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "example_4",
+          "text": "Example"
+        },
+        {
+          "level": 3,
+          "id": "v1trace_apiget_block",
+          "text": "/v1/trace_api/get_block"
+        },
+        {
+          "level": 4,
+          "id": "post_5",
+          "text": "POST"
+        },
+        {
+          "level": 5,
+          "id": "summary_5",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_5",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "request-body_2",
+          "text": "Request Body"
+        },
+        {
+          "level": 5,
+          "id": "schema_5",
+          "text": "Schema"
+        },
+        {
+          "level": 5,
+          "id": "responses_5",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "examples",
+          "text": "Examples"
+        }
+      ],
+      "sha256": "5679a21b23ffe482a68b7f7dd5c31d97d86de4546038022a6a943302ea3c4b77"
+    },
+    {
+      "path": "/api/v2/",
+      "anchors": [
+        "api-reference-v2",
+        "v2historyget_abi_snapshot",
+        "get",
+        "summary",
+        "description",
+        "parameters",
+        "responses",
+        "examples",
+        "v2historyget_actions",
+        "get_1",
+        "summary_1",
+        "description_1",
+        "parameters_1",
+        "responses_1",
+        "examples_1",
+        "v2historyget_created_accounts",
+        "get_2",
+        "summary_2",
+        "description_2",
+        "parameters_2",
+        "responses_2",
+        "examples_2",
+        "v2historyget_creator",
+        "get_3",
+        "summary_3",
+        "description_3",
+        "parameters_3",
+        "responses_3",
+        "examples_3",
+        "v2historyget_deltas",
+        "get_4",
+        "summary_4",
+        "description_4",
+        "parameters_4",
+        "responses_4",
+        "examples_4",
+        "v2historyget_transacted_accounts",
+        "get_5",
+        "summary_5",
+        "description_5",
+        "parameters_5",
+        "responses_5",
+        "examples_5",
+        "v2historyget_transaction",
+        "get_6",
+        "summary_6",
+        "description_6",
+        "parameters_6",
+        "responses_6",
+        "examples_6",
+        "v2historyget_transfers",
+        "get_7",
+        "summary_7",
+        "description_7",
+        "parameters_7",
+        "responses_7",
+        "examples_7",
+        "v2stateget_account",
+        "get_8",
+        "summary_8",
+        "description_8",
+        "parameters_8",
+        "responses_8",
+        "examples_8",
+        "v2stateget_key_accounts",
+        "get_9",
+        "summary_9",
+        "description_9",
+        "parameters_9",
+        "responses_9",
+        "examples_9",
+        "v2stateget_key_accounts_1",
+        "post",
+        "summary_10",
+        "description_10",
+        "parameters_10",
+        "responses_10",
+        "examples_10",
+        "v2stateget_links",
+        "get_10",
+        "summary_11",
+        "description_11",
+        "parameters_11",
+        "responses_11",
+        "examples_11",
+        "v2stateget_proposals",
+        "get_11",
+        "summary_12",
+        "description_12",
+        "parameters_12",
+        "responses_12",
+        "examples_12",
+        "v2stateget_tokens",
+        "get_12",
+        "summary_13",
+        "description_13",
+        "parameters_13",
+        "responses_13",
+        "examples_13",
+        "v2stateget_voters",
+        "get_13",
+        "summary_14",
+        "description_14",
+        "parameters_14",
+        "responses_14",
+        "examples_14",
+        "v2health",
+        "get_14",
+        "summary_15",
+        "responses_15"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "api-reference-v2",
+          "text": "API Reference: v2"
+        },
+        {
+          "level": 3,
+          "id": "v2historyget_abi_snapshot",
+          "text": "/v2/history/get_abi_snapshot"
+        },
+        {
+          "level": 4,
+          "id": "get",
+          "text": "GET"
+        },
+        {
+          "level": 5,
+          "id": "summary",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "parameters",
+          "text": "Parameters"
+        },
+        {
+          "level": 5,
+          "id": "responses",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "examples",
+          "text": "Examples"
+        },
+        {
+          "level": 3,
+          "id": "v2historyget_actions",
+          "text": "/v2/history/get_actions"
+        },
+        {
+          "level": 4,
+          "id": "get_1",
+          "text": "GET"
+        },
+        {
+          "level": 5,
+          "id": "summary_1",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_1",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "parameters_1",
+          "text": "Parameters"
+        },
+        {
+          "level": 5,
+          "id": "responses_1",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "examples_1",
+          "text": "Examples"
+        },
+        {
+          "level": 3,
+          "id": "v2historyget_created_accounts",
+          "text": "/v2/history/get_created_accounts"
+        },
+        {
+          "level": 4,
+          "id": "get_2",
+          "text": "GET"
+        },
+        {
+          "level": 5,
+          "id": "summary_2",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_2",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "parameters_2",
+          "text": "Parameters"
+        },
+        {
+          "level": 5,
+          "id": "responses_2",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "examples_2",
+          "text": "Examples"
+        },
+        {
+          "level": 3,
+          "id": "v2historyget_creator",
+          "text": "/v2/history/get_creator"
+        },
+        {
+          "level": 4,
+          "id": "get_3",
+          "text": "GET"
+        },
+        {
+          "level": 5,
+          "id": "summary_3",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_3",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "parameters_3",
+          "text": "Parameters"
+        },
+        {
+          "level": 5,
+          "id": "responses_3",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "examples_3",
+          "text": "Examples"
+        },
+        {
+          "level": 3,
+          "id": "v2historyget_deltas",
+          "text": "/v2/history/get_deltas"
+        },
+        {
+          "level": 4,
+          "id": "get_4",
+          "text": "GET"
+        },
+        {
+          "level": 5,
+          "id": "summary_4",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_4",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "parameters_4",
+          "text": "Parameters"
+        },
+        {
+          "level": 5,
+          "id": "responses_4",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "examples_4",
+          "text": "Examples"
+        },
+        {
+          "level": 3,
+          "id": "v2historyget_transacted_accounts",
+          "text": "/v2/history/get_transacted_accounts"
+        },
+        {
+          "level": 4,
+          "id": "get_5",
+          "text": "GET"
+        },
+        {
+          "level": 5,
+          "id": "summary_5",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_5",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "parameters_5",
+          "text": "Parameters"
+        },
+        {
+          "level": 5,
+          "id": "responses_5",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "examples_5",
+          "text": "Examples"
+        },
+        {
+          "level": 3,
+          "id": "v2historyget_transaction",
+          "text": "/v2/history/get_transaction"
+        },
+        {
+          "level": 4,
+          "id": "get_6",
+          "text": "GET"
+        },
+        {
+          "level": 5,
+          "id": "summary_6",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_6",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "parameters_6",
+          "text": "Parameters"
+        },
+        {
+          "level": 5,
+          "id": "responses_6",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "examples_6",
+          "text": "Examples"
+        },
+        {
+          "level": 3,
+          "id": "v2historyget_transfers",
+          "text": "/v2/history/get_transfers"
+        },
+        {
+          "level": 4,
+          "id": "get_7",
+          "text": "GET"
+        },
+        {
+          "level": 5,
+          "id": "summary_7",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_7",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "parameters_7",
+          "text": "Parameters"
+        },
+        {
+          "level": 5,
+          "id": "responses_7",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "examples_7",
+          "text": "Examples"
+        },
+        {
+          "level": 3,
+          "id": "v2stateget_account",
+          "text": "/v2/state/get_account"
+        },
+        {
+          "level": 4,
+          "id": "get_8",
+          "text": "GET"
+        },
+        {
+          "level": 5,
+          "id": "summary_8",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_8",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "parameters_8",
+          "text": "Parameters"
+        },
+        {
+          "level": 5,
+          "id": "responses_8",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "examples_8",
+          "text": "Examples"
+        },
+        {
+          "level": 3,
+          "id": "v2stateget_key_accounts",
+          "text": "/v2/state/get_key_accounts"
+        },
+        {
+          "level": 4,
+          "id": "get_9",
+          "text": "GET"
+        },
+        {
+          "level": 5,
+          "id": "summary_9",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_9",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "parameters_9",
+          "text": "Parameters"
+        },
+        {
+          "level": 5,
+          "id": "responses_9",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "examples_9",
+          "text": "Examples"
+        },
+        {
+          "level": 3,
+          "id": "v2stateget_key_accounts_1",
+          "text": "/v2/state/get_key_accounts"
+        },
+        {
+          "level": 4,
+          "id": "post",
+          "text": "POST"
+        },
+        {
+          "level": 5,
+          "id": "summary_10",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_10",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "parameters_10",
+          "text": "Parameters"
+        },
+        {
+          "level": 5,
+          "id": "responses_10",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "examples_10",
+          "text": "Examples"
+        },
+        {
+          "level": 3,
+          "id": "v2stateget_links",
+          "text": "/v2/state/get_links"
+        },
+        {
+          "level": 4,
+          "id": "get_10",
+          "text": "GET"
+        },
+        {
+          "level": 5,
+          "id": "summary_11",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_11",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "parameters_11",
+          "text": "Parameters"
+        },
+        {
+          "level": 5,
+          "id": "responses_11",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "examples_11",
+          "text": "Examples"
+        },
+        {
+          "level": 3,
+          "id": "v2stateget_proposals",
+          "text": "/v2/state/get_proposals"
+        },
+        {
+          "level": 4,
+          "id": "get_11",
+          "text": "GET"
+        },
+        {
+          "level": 5,
+          "id": "summary_12",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_12",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "parameters_12",
+          "text": "Parameters"
+        },
+        {
+          "level": 5,
+          "id": "responses_12",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "examples_12",
+          "text": "Examples"
+        },
+        {
+          "level": 3,
+          "id": "v2stateget_tokens",
+          "text": "/v2/state/get_tokens"
+        },
+        {
+          "level": 4,
+          "id": "get_12",
+          "text": "GET"
+        },
+        {
+          "level": 5,
+          "id": "summary_13",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_13",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "parameters_13",
+          "text": "Parameters"
+        },
+        {
+          "level": 5,
+          "id": "responses_13",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "examples_13",
+          "text": "Examples"
+        },
+        {
+          "level": 3,
+          "id": "v2stateget_voters",
+          "text": "/v2/state/get_voters"
+        },
+        {
+          "level": 4,
+          "id": "get_13",
+          "text": "GET"
+        },
+        {
+          "level": 5,
+          "id": "summary_14",
+          "text": "Summary"
+        },
+        {
+          "level": 5,
+          "id": "description_14",
+          "text": "Description"
+        },
+        {
+          "level": 5,
+          "id": "parameters_14",
+          "text": "Parameters"
+        },
+        {
+          "level": 5,
+          "id": "responses_14",
+          "text": "Responses"
+        },
+        {
+          "level": 5,
+          "id": "examples_14",
+          "text": "Examples"
+        },
+        {
+          "level": 3,
+          "id": "v2health",
+          "text": "/v2/health"
+        },
+        {
+          "level": 4,
+          "id": "get_14",
+          "text": "GET"
+        },
+        {
+          "level": 5,
+          "id": "summary_15",
+          "text": "Summary:"
+        },
+        {
+          "level": 5,
+          "id": "responses_15",
+          "text": "Responses"
+        }
+      ],
+      "sha256": "073e6fd279f726089bf7f2b130fcd5db952b0a533521a911f733faafecd2271c"
+    },
+    {
+      "path": "/providers/get-started/",
+      "anchors": [
+        "providers-getting-started"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "providers-getting-started",
+          "text": "Providers - Getting Started"
+        }
+      ],
+      "sha256": "9ce66cfc9d832a743afb14c12eafae85a13caa9064c52dd98f1b59d02a9b084e"
+    },
+    {
+      "path": "/providers/install/manual_install/",
+      "anchors": [
+        "manual-installation",
+        "dependencies",
+        "elasticsearch",
+        "configuration",
+        "1-elasticsearch-configuration",
+        "2-heap-size-configuration",
+        "3-allow-memory-lock",
+        "4-start-elasticsearch",
+        "5-set-up-minimal-security",
+        "kibana",
+        "configuration_1",
+        "1-elasticsearch-security",
+        "2-start-kibana",
+        "rabbitmq",
+        "configuration_2",
+        "1-enable-the-webui",
+        "2-add-vhost",
+        "3-create-a-user-and-password",
+        "4-set-the-user-as-administrator",
+        "5-set-the-user-permissions-to-the-vhost",
+        "6-check-access-to-the-webui",
+        "redis",
+        "configuration_3",
+        "1-update-redis-supervision-method",
+        "2-restart-redis",
+        "mongodb",
+        "configuration_4",
+        "1-start-mongodb",
+        "2-verify-its-running",
+        "nodejs",
+        "pm2",
+        "configuration_5",
+        "1-configure-for-system-startup",
+        "antelope-node-eosio",
+        "leap-legacy",
+        "spring-savanna-consensus",
+        "configuration_6",
+        "hyperion",
+        "proceed-with-hyperion-configuration"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "manual-installation",
+          "text": "Manual Installation"
+        },
+        {
+          "level": 2,
+          "id": "dependencies",
+          "text": "Dependencies"
+        },
+        {
+          "level": 2,
+          "id": "elasticsearch",
+          "text": "Elasticsearch"
+        },
+        {
+          "level": 3,
+          "id": "configuration",
+          "text": "Configuration"
+        },
+        {
+          "level": 5,
+          "id": "1-elasticsearch-configuration",
+          "text": "1. Elasticsearch configuration"
+        },
+        {
+          "level": 5,
+          "id": "2-heap-size-configuration",
+          "text": "2. Heap size configuration"
+        },
+        {
+          "level": 5,
+          "id": "3-allow-memory-lock",
+          "text": "3. Allow memory lock"
+        },
+        {
+          "level": 5,
+          "id": "4-start-elasticsearch",
+          "text": "4. Start Elasticsearch"
+        },
+        {
+          "level": 5,
+          "id": "5-set-up-minimal-security",
+          "text": "5. Set up minimal security"
+        },
+        {
+          "level": 2,
+          "id": "kibana",
+          "text": "Kibana"
+        },
+        {
+          "level": 3,
+          "id": "configuration_1",
+          "text": "Configuration"
+        },
+        {
+          "level": 5,
+          "id": "1-elasticsearch-security",
+          "text": "1. Elasticsearch security"
+        },
+        {
+          "level": 5,
+          "id": "2-start-kibana",
+          "text": "2. Start Kibana"
+        },
+        {
+          "level": 2,
+          "id": "rabbitmq",
+          "text": "RabbitMQ"
+        },
+        {
+          "level": 3,
+          "id": "configuration_2",
+          "text": "Configuration"
+        },
+        {
+          "level": 5,
+          "id": "1-enable-the-webui",
+          "text": "1. Enable the WebUI"
+        },
+        {
+          "level": 5,
+          "id": "2-add-vhost",
+          "text": "2. Add vhost"
+        },
+        {
+          "level": 5,
+          "id": "3-create-a-user-and-password",
+          "text": "3. Create a user and password"
+        },
+        {
+          "level": 5,
+          "id": "4-set-the-user-as-administrator",
+          "text": "4. Set the user as administrator"
+        },
+        {
+          "level": 5,
+          "id": "5-set-the-user-permissions-to-the-vhost",
+          "text": "5. Set the user permissions to the vhost"
+        },
+        {
+          "level": 5,
+          "id": "6-check-access-to-the-webui",
+          "text": "6. Check access to the WebUI"
+        },
+        {
+          "level": 2,
+          "id": "redis",
+          "text": "Redis"
+        },
+        {
+          "level": 3,
+          "id": "configuration_3",
+          "text": "Configuration"
+        },
+        {
+          "level": 5,
+          "id": "1-update-redis-supervision-method",
+          "text": "1. Update Redis supervision method"
+        },
+        {
+          "level": 5,
+          "id": "2-restart-redis",
+          "text": "2. Restart Redis"
+        },
+        {
+          "level": 2,
+          "id": "mongodb",
+          "text": "MongoDB"
+        },
+        {
+          "level": 3,
+          "id": "configuration_4",
+          "text": "Configuration"
+        },
+        {
+          "level": 5,
+          "id": "1-start-mongodb",
+          "text": "1. Start MongoDB"
+        },
+        {
+          "level": 5,
+          "id": "2-verify-its-running",
+          "text": "2. Verify it's running"
+        },
+        {
+          "level": 2,
+          "id": "nodejs",
+          "text": "NodeJS"
+        },
+        {
+          "level": 2,
+          "id": "pm2",
+          "text": "PM2"
+        },
+        {
+          "level": 3,
+          "id": "configuration_5",
+          "text": "Configuration"
+        },
+        {
+          "level": 5,
+          "id": "1-configure-for-system-startup",
+          "text": "1. Configure for system startup"
+        },
+        {
+          "level": 2,
+          "id": "antelope-node-eosio",
+          "text": "Antelope Node (EOSIO)"
+        },
+        {
+          "level": 3,
+          "id": "leap-legacy",
+          "text": "Leap (legacy)"
+        },
+        {
+          "level": 3,
+          "id": "spring-savanna-consensus",
+          "text": "Spring (Savanna consensus)"
+        },
+        {
+          "level": 3,
+          "id": "configuration_6",
+          "text": "Configuration"
+        },
+        {
+          "level": 2,
+          "id": "hyperion",
+          "text": "Hyperion"
+        },
+        {
+          "level": 2,
+          "id": "proceed-with-hyperion-configuration",
+          "text": "Proceed with Hyperion Configuration"
+        }
+      ],
+      "sha256": "cbcc1e01b14b55c4f02cacf8adb06603a23eb5c44649ce858caf4ffa5c31157f"
+    },
+    {
+      "path": "/providers/install/auto_install/",
+      "anchors": [
+        "automated-installation-script",
+        "1-create-a-directory-for-the-installer-files",
+        "2-unpack-the-latest-installer",
+        "3-install-by-running",
+        "4-verify-installation",
+        "5-proceed-with-the-configuration"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "automated-installation-script",
+          "text": "Automated Installation Script"
+        },
+        {
+          "level": 3,
+          "id": "1-create-a-directory-for-the-installer-files",
+          "text": "1. Create a directory for the installer files"
+        },
+        {
+          "level": 3,
+          "id": "2-unpack-the-latest-installer",
+          "text": "2. Unpack the latest installer"
+        },
+        {
+          "level": 3,
+          "id": "3-install-by-running",
+          "text": "3. Install by running"
+        },
+        {
+          "level": 3,
+          "id": "4-verify-installation",
+          "text": "4. Verify installation"
+        },
+        {
+          "level": 3,
+          "id": "5-proceed-with-the-configuration",
+          "text": "5. Proceed with the configuration"
+        }
+      ],
+      "sha256": "7d7dba1ba286bb8133bda0da9a3bfb629148d7549766e64d15293ed8d867913a"
+    },
+    {
+      "path": "/providers/install/wsl2/",
+      "anchors": [
+        "wsl2-systemd",
+        "1-make-sure-wsl2-is-updated",
+        "2-install-and-launch-an-ubuntu-2204-instance",
+        "3-enable-systemd",
+        "4-restart-the-wsl2-engine",
+        "5-proceed-with-the-installation"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "wsl2-systemd",
+          "text": "WSL2 + systemd"
+        },
+        {
+          "level": 2,
+          "id": "1-make-sure-wsl2-is-updated",
+          "text": "1. Make sure WSL2 is updated"
+        },
+        {
+          "level": 2,
+          "id": "2-install-and-launch-an-ubuntu-2204-instance",
+          "text": "2. Install and launch an Ubuntu 22.04 instance"
+        },
+        {
+          "level": 2,
+          "id": "3-enable-systemd",
+          "text": "3. Enable systemd"
+        },
+        {
+          "level": 2,
+          "id": "4-restart-the-wsl2-engine",
+          "text": "4. Restart the WSL2 engine"
+        },
+        {
+          "level": 2,
+          "id": "5-proceed-with-the-installation",
+          "text": "5. Proceed with the installation"
+        }
+      ],
+      "sha256": "027c5c21c1b29d98ee4807e62ef2849119d5e8940ab566a6be9fc0939bceef05"
+    },
+    {
+      "path": "/providers/install/docker/",
+      "anchors": [
+        "hyperion-docker",
+        "architecture",
+        "layers",
+        "image-infrastructure",
+        "getting-started",
+        "prerequisites",
+        "infrastructure-layer",
+        "1-clone-the-repository",
+        "2-verify-docker-is-running",
+        "3-create-shared-network",
+        "4-create-the-microservices",
+        "profile",
+        "5-running-extra-tools",
+        "6-check-services",
+        "leap-nodeos-layer",
+        "hyperion-layer",
+        "troubleshooting",
+        "next-steps"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "hyperion-docker",
+          "text": "Hyperion Docker"
+        },
+        {
+          "level": 2,
+          "id": "architecture",
+          "text": "Architecture"
+        },
+        {
+          "level": 3,
+          "id": "layers",
+          "text": "Layers"
+        },
+        {
+          "level": 3,
+          "id": "image-infrastructure",
+          "text": "Image Infrastructure"
+        },
+        {
+          "level": 2,
+          "id": "getting-started",
+          "text": "Getting Started"
+        },
+        {
+          "level": 3,
+          "id": "prerequisites",
+          "text": "Prerequisites"
+        },
+        {
+          "level": 3,
+          "id": "infrastructure-layer",
+          "text": "Infrastructure Layer"
+        },
+        {
+          "level": 4,
+          "id": "1-clone-the-repository",
+          "text": "1. Clone the repository"
+        },
+        {
+          "level": 4,
+          "id": "2-verify-docker-is-running",
+          "text": "2. Verify Docker is running"
+        },
+        {
+          "level": 4,
+          "id": "3-create-shared-network",
+          "text": "3. Create shared network"
+        },
+        {
+          "level": 4,
+          "id": "4-create-the-microservices",
+          "text": "4. Create the microservices"
+        },
+        {
+          "level": 4,
+          "id": "5-running-extra-tools",
+          "text": "5. Running extra tools"
+        },
+        {
+          "level": 4,
+          "id": "6-check-services",
+          "text": "6. Check services"
+        },
+        {
+          "level": 3,
+          "id": "leap-nodeos-layer",
+          "text": "Leap (nodeos) Layer"
+        },
+        {
+          "level": 3,
+          "id": "hyperion-layer",
+          "text": "Hyperion Layer"
+        },
+        {
+          "level": 2,
+          "id": "troubleshooting",
+          "text": "Troubleshooting"
+        },
+        {
+          "level": 2,
+          "id": "next-steps",
+          "text": "Next steps"
+        }
+      ],
+      "sha256": "cd33633462296dc3f6ebe2ff6e2df7ff4449010b3bab7f13b5ec35999b3f8bbb"
+    },
+    {
+      "path": "/providers/install/lxd/",
+      "anchors": [
+        "configuring-hyperion-with-lxd",
+        "1-install-lxd",
+        "2-initialize-lxd",
+        "3-download-hyperion-image-and-configuration",
+        "4-import-the-hyperion-image",
+        "5-create-the-hyperion-container",
+        "6-accessing-the-container",
+        "elasticpass",
+        "7-accessing-the-services",
+        "next-steps",
+        "stopping-the-instance",
+        "deleting"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "configuring-hyperion-with-lxd",
+          "text": "Configuring Hyperion with LXD"
+        },
+        {
+          "level": 2,
+          "id": "1-install-lxd",
+          "text": "1. Install LXD"
+        },
+        {
+          "level": 2,
+          "id": "2-initialize-lxd",
+          "text": "2. Initialize LXD"
+        },
+        {
+          "level": 2,
+          "id": "3-download-hyperion-image-and-configuration",
+          "text": "3. Download Hyperion image and configuration"
+        },
+        {
+          "level": 2,
+          "id": "4-import-the-hyperion-image",
+          "text": "4. Import the Hyperion image"
+        },
+        {
+          "level": 2,
+          "id": "5-create-the-hyperion-container",
+          "text": "5. Create the Hyperion container"
+        },
+        {
+          "level": 2,
+          "id": "6-accessing-the-container",
+          "text": "6. Accessing the container"
+        },
+        {
+          "level": 2,
+          "id": "7-accessing-the-services",
+          "text": "7. Accessing the services"
+        },
+        {
+          "level": 2,
+          "id": "next-steps",
+          "text": "Next steps"
+        },
+        {
+          "level": 2,
+          "id": "stopping-the-instance",
+          "text": "Stopping the instance"
+        },
+        {
+          "level": 2,
+          "id": "deleting",
+          "text": "Deleting"
+        }
+      ],
+      "sha256": "a0383f41dbe30fd85635eb3a4986e2aaf94386a3a0f338313b46f72c7293be0a"
+    },
+    {
+      "path": "/providers/setup/hyperion_configuration/",
+      "anchors": [
+        "hyperion-configuration",
+        "initialize-connections",
+        "add-new-chain",
+        "check-your-chain-configuration",
+        "running-hyperion",
+        "starting",
+        "stopping",
+        "running-without-pm2-systemd",
+        "indexer",
+        "api",
+        "state-synchronization-mongodb",
+        "available-sync-commands",
+        "custom-contract-state-indexing",
+        "enabling-streaming",
+        "plugins-set-up"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "hyperion-configuration",
+          "text": "Hyperion Configuration"
+        },
+        {
+          "level": 3,
+          "id": "initialize-connections",
+          "text": "Initialize connections"
+        },
+        {
+          "level": 3,
+          "id": "add-new-chain",
+          "text": "Add new chain"
+        },
+        {
+          "level": 3,
+          "id": "check-your-chain-configuration",
+          "text": "Check your chain configuration"
+        },
+        {
+          "level": 2,
+          "id": "running-hyperion",
+          "text": "Running Hyperion"
+        },
+        {
+          "level": 3,
+          "id": "starting",
+          "text": "Starting"
+        },
+        {
+          "level": 3,
+          "id": "stopping",
+          "text": "Stopping"
+        },
+        {
+          "level": 3,
+          "id": "running-without-pm2-systemd",
+          "text": "Running without pm2 (systemd)"
+        },
+        {
+          "level": 2,
+          "id": "indexer",
+          "text": "Indexer"
+        },
+        {
+          "level": 2,
+          "id": "api",
+          "text": "API"
+        },
+        {
+          "level": 2,
+          "id": "state-synchronization-mongodb",
+          "text": "State Synchronization (MongoDB)"
+        },
+        {
+          "level": 3,
+          "id": "available-sync-commands",
+          "text": "Available Sync Commands"
+        },
+        {
+          "level": 3,
+          "id": "custom-contract-state-indexing",
+          "text": "Custom Contract State Indexing"
+        },
+        {
+          "level": 2,
+          "id": "enabling-streaming",
+          "text": "Enabling Streaming"
+        },
+        {
+          "level": 2,
+          "id": "plugins-set-up",
+          "text": "Plugins Set Up"
+        }
+      ],
+      "sha256": "e10accec98ba43b5a94bae3e1ec52fb9857f5711149b72027b027e4e5e2931ac"
+    },
+    {
+      "path": "/providers/setup/connections/",
+      "anchors": [
+        "connections-configuration-reference",
+        "rabbitmq-parameters",
+        "elasticsearch-parameters",
+        "redis-parameters",
+        "mongodb-parameters",
+        "chain-parameters",
+        "example"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "connections-configuration-reference",
+          "text": "Connections Configuration Reference"
+        },
+        {
+          "level": 3,
+          "id": "rabbitmq-parameters",
+          "text": "RabbitMQ parameters"
+        },
+        {
+          "level": 3,
+          "id": "elasticsearch-parameters",
+          "text": "Elasticsearch parameters"
+        },
+        {
+          "level": 3,
+          "id": "redis-parameters",
+          "text": "Redis parameters"
+        },
+        {
+          "level": 3,
+          "id": "mongodb-parameters",
+          "text": "MongoDB parameters"
+        },
+        {
+          "level": 3,
+          "id": "chain-parameters",
+          "text": "Chain Parameters"
+        },
+        {
+          "level": 2,
+          "id": "example",
+          "text": "Example"
+        }
+      ],
+      "sha256": "07364fce42984b388583182acc5b683e3c2be84978d9d8ac14113515c0830191"
+    },
+    {
+      "path": "/providers/setup/chain/",
+      "anchors": [
+        "chain-configuration-reference",
+        "1-api-configuration",
+        "2-settings",
+        "3-blacklists",
+        "4-whitelists",
+        "5-scaling-options",
+        "6-indexer-configuration",
+        "7-features",
+        "71-streaming",
+        "72-tables",
+        "8-prefetch",
+        "example"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "chain-configuration-reference",
+          "text": "Chain Configuration Reference"
+        },
+        {
+          "level": 3,
+          "id": "1-api-configuration",
+          "text": "1. API Configuration"
+        },
+        {
+          "level": 3,
+          "id": "2-settings",
+          "text": "2. Settings"
+        },
+        {
+          "level": 3,
+          "id": "3-blacklists",
+          "text": "3. Blacklists"
+        },
+        {
+          "level": 3,
+          "id": "4-whitelists",
+          "text": "4. Whitelists"
+        },
+        {
+          "level": 3,
+          "id": "5-scaling-options",
+          "text": "5. Scaling options"
+        },
+        {
+          "level": 3,
+          "id": "6-indexer-configuration",
+          "text": "6. Indexer configuration"
+        },
+        {
+          "level": 3,
+          "id": "7-features",
+          "text": "7. Features"
+        },
+        {
+          "level": 4,
+          "id": "71-streaming",
+          "text": "7.1 Streaming"
+        },
+        {
+          "level": 4,
+          "id": "72-tables",
+          "text": "7.2 Tables"
+        },
+        {
+          "level": 3,
+          "id": "8-prefetch",
+          "text": "8. Prefetch"
+        },
+        {
+          "level": 2,
+          "id": "example",
+          "text": "Example"
+        }
+      ],
+      "sha256": "42ce7c3726029fa051f83191db2e8fa071d7c4bd02a98dd87a8ead83415530bc"
+    },
+    {
+      "path": "/providers/setup/qry_connection/",
+      "anchors": [
+        "what-is-qry",
+        "qry-hub-hyperion-dashboard",
+        "register-and-connect-your-provider",
+        "detailed-steps",
+        "complete-your-provider-profile",
+        "add-your-service-instances",
+        "configure-hyperion",
+        "restart-the-hyperion-api",
+        "access-the-qry-hub",
+        "connect-to-the-qry-hub-bot"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "what-is-qry",
+          "text": "What is QRY"
+        },
+        {
+          "level": 3,
+          "id": "qry-hub-hyperion-dashboard",
+          "text": "QRY HUB Hyperion Dashboard"
+        },
+        {
+          "level": 4,
+          "id": "register-and-connect-your-provider",
+          "text": "Register and Connect Your Provider"
+        },
+        {
+          "level": 3,
+          "id": "detailed-steps",
+          "text": "Detailed Steps"
+        },
+        {
+          "level": 4,
+          "id": "complete-your-provider-profile",
+          "text": "Complete Your Provider Profile"
+        },
+        {
+          "level": 4,
+          "id": "add-your-service-instances",
+          "text": "Add Your Service Instances"
+        },
+        {
+          "level": 4,
+          "id": "configure-hyperion",
+          "text": "Configure Hyperion"
+        },
+        {
+          "level": 4,
+          "id": "restart-the-hyperion-api",
+          "text": "Restart the Hyperion API"
+        },
+        {
+          "level": 4,
+          "id": "access-the-qry-hub",
+          "text": "Access the QRY HUB"
+        },
+        {
+          "level": 4,
+          "id": "connect-to-the-qry-hub-bot",
+          "text": "Connect to the QRY HUB Bot"
+        }
+      ],
+      "sha256": "e1b444b374d4e0511bb72aa9c0383db7675cd820af6381db1abde8d090c4fd7d"
+    },
+    {
+      "path": "/providers/explorer/",
+      "anchors": [
+        "hyperion-explorer",
+        "features",
+        "requirements",
+        "installation",
+        "1-clone-the-repository",
+        "2-install-dependencies-and-build",
+        "3-start-the-ssr-server",
+        "__tabbed_1_1",
+        "__tabbed_1_2",
+        "configuration",
+        "hyperion-api-chain-config",
+        "environment-variables",
+        "architecture",
+        "custom-themes",
+        "creating-a-theme",
+        "available-themes",
+        "updating",
+        "troubleshooting",
+        "explorer-not-loading",
+        "ssrf-warning-angular-v21",
+        "missing-themes-directory"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "hyperion-explorer",
+          "text": "Hyperion Explorer"
+        },
+        {
+          "level": 2,
+          "id": "features",
+          "text": "Features"
+        },
+        {
+          "level": 2,
+          "id": "requirements",
+          "text": "Requirements"
+        },
+        {
+          "level": 2,
+          "id": "installation",
+          "text": "Installation"
+        },
+        {
+          "level": 3,
+          "id": "1-clone-the-repository",
+          "text": "1. Clone the repository"
+        },
+        {
+          "level": 3,
+          "id": "2-install-dependencies-and-build",
+          "text": "2. Install dependencies and build"
+        },
+        {
+          "level": 3,
+          "id": "3-start-the-ssr-server",
+          "text": "3. Start the SSR server"
+        },
+        {
+          "level": 2,
+          "id": "configuration",
+          "text": "Configuration"
+        },
+        {
+          "level": 3,
+          "id": "hyperion-api-chain-config",
+          "text": "Hyperion API — Chain Config"
+        },
+        {
+          "level": 3,
+          "id": "environment-variables",
+          "text": "Environment Variables"
+        },
+        {
+          "level": 2,
+          "id": "architecture",
+          "text": "Architecture"
+        },
+        {
+          "level": 2,
+          "id": "custom-themes",
+          "text": "Custom Themes"
+        },
+        {
+          "level": 3,
+          "id": "creating-a-theme",
+          "text": "Creating a theme"
+        },
+        {
+          "level": 3,
+          "id": "available-themes",
+          "text": "Available themes"
+        },
+        {
+          "level": 2,
+          "id": "updating",
+          "text": "Updating"
+        },
+        {
+          "level": 2,
+          "id": "troubleshooting",
+          "text": "Troubleshooting"
+        },
+        {
+          "level": 3,
+          "id": "explorer-not-loading",
+          "text": "Explorer not loading"
+        },
+        {
+          "level": 3,
+          "id": "ssrf-warning-angular-v21",
+          "text": "SSRF warning (Angular v21+)"
+        },
+        {
+          "level": 3,
+          "id": "missing-themes-directory",
+          "text": "Missing themes directory"
+        }
+      ],
+      "sha256": "4a9d1ce6a66127711fc91c540d54155652a9118d530602d364549204a64cd85a"
+    },
+    {
+      "path": "/providers/update/",
+      "anchors": [
+        "update-and-build"
+      ],
+      "headings": [
+        {
+          "level": 3,
+          "id": "update-and-build",
+          "text": "Update and Build"
+        }
+      ],
+      "sha256": "ffeb48315e97dd841c6c4e2c0998af26e43fdcc85552edc034c4ee7f76837f5e"
+    },
+    {
+      "path": "/providers/repair/",
+      "anchors": [
+        "repairing-indexed-data",
+        "forks-and-missed-blocks",
+        "1-test-the-connection",
+        "2-scan",
+        "3-verify-the-saved-scan-file",
+        "4-request",
+        "41-missing-blocks",
+        "42-forked-blocks"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "repairing-indexed-data",
+          "text": "Repairing Indexed Data"
+        },
+        {
+          "level": 2,
+          "id": "forks-and-missed-blocks",
+          "text": "Forks and Missed Blocks"
+        },
+        {
+          "level": 3,
+          "id": "1-test-the-connection",
+          "text": "1. Test the connection"
+        },
+        {
+          "level": 3,
+          "id": "2-scan",
+          "text": "2. Scan"
+        },
+        {
+          "level": 3,
+          "id": "3-verify-the-saved-scan-file",
+          "text": "3. Verify the saved scan file"
+        },
+        {
+          "level": 3,
+          "id": "4-request",
+          "text": "4. Request"
+        },
+        {
+          "level": 5,
+          "id": "41-missing-blocks",
+          "text": "4.1. Missing blocks"
+        },
+        {
+          "level": 5,
+          "id": "42-forked-blocks",
+          "text": "4.2. Forked blocks"
+        }
+      ],
+      "sha256": "b247d86c5ab53868365911f24526c6e3e24062130f9f61c77188ee18a9e922a8"
+    },
+    {
+      "path": "/providers/operations/index_management/",
+      "anchors": [
+        "index-lifecycle-management",
+        "index-partitioning",
+        "auto-pruning",
+        "configuration",
+        "how-it-works",
+        "monitoring",
+        "tiered-index-allocation",
+        "prerequisites",
+        "configuration_1",
+        "how-it-works_1",
+        "why-not-use-elasticsearch-ilm",
+        "configuration-reference"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "index-lifecycle-management",
+          "text": "Index Lifecycle Management"
+        },
+        {
+          "level": 2,
+          "id": "index-partitioning",
+          "text": "Index Partitioning"
+        },
+        {
+          "level": 2,
+          "id": "auto-pruning",
+          "text": "Auto Pruning"
+        },
+        {
+          "level": 3,
+          "id": "configuration",
+          "text": "Configuration"
+        },
+        {
+          "level": 3,
+          "id": "how-it-works",
+          "text": "How It Works"
+        },
+        {
+          "level": 3,
+          "id": "monitoring",
+          "text": "Monitoring"
+        },
+        {
+          "level": 2,
+          "id": "tiered-index-allocation",
+          "text": "Tiered Index Allocation"
+        },
+        {
+          "level": 3,
+          "id": "prerequisites",
+          "text": "Prerequisites"
+        },
+        {
+          "level": 3,
+          "id": "configuration_1",
+          "text": "Configuration"
+        },
+        {
+          "level": 3,
+          "id": "how-it-works_1",
+          "text": "How It Works"
+        },
+        {
+          "level": 2,
+          "id": "why-not-use-elasticsearch-ilm",
+          "text": "Why Not Use Elasticsearch ILM?"
+        },
+        {
+          "level": 2,
+          "id": "configuration-reference",
+          "text": "Configuration Reference"
+        }
+      ],
+      "sha256": "b7433c7153798ffefe9b36646645eaacf1ebac78545afadd55cd714f61866b52"
+    },
+    {
+      "path": "/providers/help/indexer/",
+      "anchors": [
+        "indexer-troubleshooting",
+        "amqp-connection-refused",
+        "mongodb-connection-failed",
+        "indexer-stuck-after-abi-scan",
+        "purge-queues-fails-on-startup"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "indexer-troubleshooting",
+          "text": "Indexer Troubleshooting"
+        },
+        {
+          "level": 2,
+          "id": "amqp-connection-refused",
+          "text": "AMQP Connection Refused"
+        },
+        {
+          "level": 2,
+          "id": "mongodb-connection-failed",
+          "text": "MongoDB Connection Failed"
+        },
+        {
+          "level": 2,
+          "id": "indexer-stuck-after-abi-scan",
+          "text": "Indexer Stuck After ABI Scan"
+        },
+        {
+          "level": 2,
+          "id": "purge-queues-fails-on-startup",
+          "text": "Purge Queues Fails on Startup"
+        }
+      ],
+      "sha256": "b54894bb84c690ecb0fed7c1d2a1039837c625d84030fc615e7657757ec34e39"
+    },
+    {
+      "path": "/providers/help/elasticsearch/",
+      "anchors": [
+        "elasticsearch-cluster-operations",
+        "cluster-health-check",
+        "rolling-upgrade-zero-downtime",
+        "prerequisites",
+        "step-1-add-the-elastic-apt-repository-if-not-present",
+        "step-2-disable-shard-allocation",
+        "step-3-upgrade-each-node",
+        "step-4-re-enable-shard-allocation",
+        "step-5-verify",
+        "troubleshooting",
+        "http-port-9200-not-listening",
+        "node-wont-restart-nodelock-error",
+        "preventing-automatic-es-restarts",
+        "cluster-red-after-node-restart"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "elasticsearch-cluster-operations",
+          "text": "Elasticsearch Cluster Operations"
+        },
+        {
+          "level": 2,
+          "id": "cluster-health-check",
+          "text": "Cluster Health Check"
+        },
+        {
+          "level": 2,
+          "id": "rolling-upgrade-zero-downtime",
+          "text": "Rolling Upgrade (Zero Downtime)"
+        },
+        {
+          "level": 3,
+          "id": "prerequisites",
+          "text": "Prerequisites"
+        },
+        {
+          "level": 3,
+          "id": "step-1-add-the-elastic-apt-repository-if-not-present",
+          "text": "Step 1: Add the Elastic APT Repository (if not present)"
+        },
+        {
+          "level": 3,
+          "id": "step-2-disable-shard-allocation",
+          "text": "Step 2: Disable Shard Allocation"
+        },
+        {
+          "level": 3,
+          "id": "step-3-upgrade-each-node",
+          "text": "Step 3: Upgrade Each Node"
+        },
+        {
+          "level": 3,
+          "id": "step-4-re-enable-shard-allocation",
+          "text": "Step 4: Re-enable Shard Allocation"
+        },
+        {
+          "level": 3,
+          "id": "step-5-verify",
+          "text": "Step 5: Verify"
+        },
+        {
+          "level": 2,
+          "id": "troubleshooting",
+          "text": "Troubleshooting"
+        },
+        {
+          "level": 3,
+          "id": "http-port-9200-not-listening",
+          "text": "HTTP Port 9200 Not Listening"
+        },
+        {
+          "level": 3,
+          "id": "node-wont-restart-nodelock-error",
+          "text": "Node Won't Restart (node.lock Error)"
+        },
+        {
+          "level": 3,
+          "id": "preventing-automatic-es-restarts",
+          "text": "Preventing Automatic ES Restarts"
+        },
+        {
+          "level": 3,
+          "id": "cluster-red-after-node-restart",
+          "text": "Cluster RED After Node Restart"
+        }
+      ],
+      "sha256": "a01e7b9e7119d8ae55174e52817738491b27c761396e1e291f67dd934c1722cd"
+    },
+    {
+      "path": "/providers/help/kibana/",
+      "anchors": [
+        "running-kibana-with-systemd",
+        "opening-kibana",
+        "creating-index-pattern"
+      ],
+      "headings": [
+        {
+          "level": 2,
+          "id": "running-kibana-with-systemd",
+          "text": "Running Kibana with systemd"
+        },
+        {
+          "level": 2,
+          "id": "opening-kibana",
+          "text": "Opening Kibana"
+        },
+        {
+          "level": 2,
+          "id": "creating-index-pattern",
+          "text": "Creating index pattern"
+        }
+      ],
+      "sha256": "def00288601dfaba38c454221d26d0309d3eb78d5ce90da849a6db2c160e0b06"
+    },
+    {
+      "path": "/providers/help/rabbit/",
+      "anchors": [
+        "rabbitmq",
+        "how-to-delete-all-the-queues-from-rabbitmq",
+        "1-using-policies-management-console",
+        "2-using-command-line"
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "id": "rabbitmq",
+          "text": "RabbitMQ"
+        },
+        {
+          "level": 2,
+          "id": "how-to-delete-all-the-queues-from-rabbitmq",
+          "text": "How to Delete all the queues from RabbitMQ?"
+        },
+        {
+          "level": 3,
+          "id": "1-using-policies-management-console",
+          "text": "1. Using Policies - Management Console"
+        },
+        {
+          "level": 3,
+          "id": "2-using-command-line",
+          "text": "2. Using command line"
+        }
+      ],
+      "sha256": "411d27ba582d230ead7a8d24fc20d7fdc3473dfd32c0b844dc3242eee878fd64"
+    }
+  ]
+}

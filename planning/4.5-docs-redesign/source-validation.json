@@ -1,0 +1,120 @@
+{
+  "commit": "e1818923065d648a38009572d76badeab0684af1",
+  "branch": "release/4.5",
+  "sourcePackageVersion": "4.0.7",
+  "kind": "immutable source review; not an executed installation acceptance",
+  "files": [
+    {
+      "file": "package.json",
+      "sha256": "ac33d14cfc5b133f6e4cc945c7cd23bc2b331de1987cc59919e6999af7658357"
+    },
+    {
+      "file": ".bun-version",
+      "sha256": "bd31e8d9cf8d14a1e9e3fdf3b9f6a524819aed0d1b14627523c6765767c7d8f1"
+    },
+    {
+      "file": ".github/workflows/build.yml",
+      "sha256": "0d1d8faeb4be05c71da3b0fd30703372f5bf1ed0bcef60fa8113cc68afed002c"
+    },
+    {
+      "file": "references/config.ref.json",
+      "sha256": "3f3d13025d5ca1693ad43f8ea66b1571a6306f912509eab75dbc1bfb1956b713"
+    },
+    {
+      "file": "references/connections.ref.json",
+      "sha256": "e600b48375d878109dfb4413b7c7c90a9b8d2a2434fb420e56661ff5596aa32b"
+    },
+    {
+      "file": "src/cli/hyp-config.ts",
+      "sha256": "91c5c63b7376a3f37893d76b589f93957e5a6c0fa8c9cd43dd1febb6d8a5867b"
+    },
+    {
+      "file": "src/cli/hyp-control.ts",
+      "sha256": "0fd65570785a8aaeceb28d9dcd209d0f5ecc80511042ddce156386f42f32b1fa"
+    },
+    {
+      "file": "src/cli/hyp-repair.ts",
+      "sha256": "117cb5ca5cab9295b27a612887d1aa3d0e6f6f0d3e3d2c5eae5e7366a0bc8326"
+    },
+    {
+      "file": "src/cli/hyp-es-config.ts",
+      "sha256": "51aff154bf17e4ee0d1aa2ddf54aaea8211876268452becf1aa693d9b26f3691"
+    },
+    {
+      "file": "src/indexer/modules/config.ts",
+      "sha256": "f000d83c89714e875ccd41f7a15eefb4828ea5a7050dbda25cf2583599370958"
+    },
+    {
+      "file": "src/indexer/modules/master.ts",
+      "sha256": "895bd0fbb243e51941e61b1c5e5a46df24baa1d5f6741bcff85b716754409a2d"
+    },
+    {
+      "file": "src/indexer/connections/manager.class.ts",
+      "sha256": "ff2bf2d67fb3ab38383e12c03047485569df6fff74dc5199e1339bdb80f28bac"
+    },
+    {
+      "file": "src/indexer/modules/lifecycleManager.ts",
+      "sha256": "ce73928239b9b205df8b5ae6f7c8037fbb712d483feb5f84056e894fcf0ba29f"
+    },
+    {
+      "file": "src/indexer/protocol/selection.ts",
+      "sha256": "9968f17f158214113bf13bf7d63d019c0d2e150652d16660e6f70c0650101e25"
+    },
+    {
+      "file": "src/api/routes.ts",
+      "sha256": "77124716ebd4838a3540288e835e262a417ea6279ab57f91e2de1768544b2ffc"
+    },
+    {
+      "file": "src/api/server.ts",
+      "sha256": "10ec66556a4b38f828747c08d94e60f094d780607b1ce2f7809959c29ffe53fc"
+    },
+    {
+      "file": "src/api/helpers/protocol-state-readiness.ts",
+      "sha256": "8d5d94351ef19cc17899c6f64e168a728ba7456691cce3447f5cdb4fbc88f07a"
+    },
+    {
+      "file": "src/api/helpers/protocol-action-query.ts",
+      "sha256": "9526131918b0f4a8dfe75d0c75f4c50d6f701e492bdc1774f3c6211c63b6ef8d"
+    },
+    {
+      "file": "src/api/routes/v2-history/get_actions/functions.ts",
+      "sha256": "1f84d72b67f273bddf62b080ed63bb84308d3e108a044a6ff7a26ae58ce89555"
+    },
+    {
+      "file": "src/api/routes/v1-history/get_actions/get_actions.ts",
+      "sha256": "9d3e8f5b51387a27718c8d3bd19367e7a5bf10a04aebfbd6e8dd505c599e1ff0"
+    },
+    {
+      "file": "src/interfaces/hyperionConfig.ts",
+      "sha256": "5fc005ee82128ebd40ce68b183cff1ffba81e060e41a22c091ec197f046f4acd"
+    },
+    {
+      "file": "pm2/ecosystem.config.cjs",
+      "sha256": "4f1f69cd19940f1382e62ff02d2dde43aefec1cd02f49da1c58548a015f750b1"
+    },
+    {
+      "file": "pm2/ecosystem_settings.cjs",
+      "sha256": "6fa2b64f1c66ac743af8bca5ca27afbdd6783cd5ba72ab375c8b92bae8356772"
+    },
+    {
+      "file": "systemd/README.md",
+      "sha256": "d8d743c9115db06a73011592a8cee308932a40abbe34d750b21c9cd0f6d2dc94"
+    },
+    {
+      "file": "docs/portable-projection.md",
+      "sha256": "15bc092cf4578445466f9ea32ee8cc142547463bffd4775afa2b5370f2e5d647"
+    },
+    {
+      "file": "docs/mongodb-write-retries.md",
+      "sha256": "f5b9d4a162a4180ccbfbfa649a837fee40b3d01beee7dfd2b7ab2eb21747882b"
+    },
+    {
+      "file": "docs/es955-qualification.md",
+      "sha256": "2553d87e53b846d1caa87f628c1f874234b3e8eae7900e59bf534e09dab25ce3"
+    }
+  ],
+  "companions": {
+    "streamClient": "99ad2cf1ee47ee7c8c5cf3ea7a4f35bfbdf4ff11",
+    "explorer": "1b00573025a3e8e0db42e99bd17663cc02cc9eb2"
+  }
+}

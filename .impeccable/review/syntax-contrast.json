@@ -1,0 +1,174 @@
+[
+  {
+    "theme": "light",
+    "background": "#ffffff",
+    "tokens": [
+      {
+        "types": [
+          "plain",
+          "unmatched"
+        ],
+        "color": "#24292f",
+        "ratio": 14.65
+      },
+      {
+        "types": [
+          "comment",
+          "prolog",
+          "doctype",
+          "cdata"
+        ],
+        "color": "#62625b",
+        "ratio": 6.14
+      },
+      {
+        "types": [
+          "keyword",
+          "atrule",
+          "builtin",
+          "tag",
+          "selector",
+          "changed"
+        ],
+        "color": "#005a89",
+        "ratio": 7.44
+      },
+      {
+        "types": [
+          "string",
+          "attr-value",
+          "char",
+          "template-punctuation"
+        ],
+        "color": "#a71d4f",
+        "ratio": 7.16
+      },
+      {
+        "types": [
+          "number",
+          "boolean",
+          "constant",
+          "symbol",
+          "regex",
+          "inserted"
+        ],
+        "color": "#6542a6",
+        "ratio": 7.28
+      },
+      {
+        "types": [
+          "property",
+          "attr-name",
+          "variable",
+          "entity",
+          "url"
+        ],
+        "color": "#066e69",
+        "ratio": 6.1
+      },
+      {
+        "types": [
+          "function",
+          "function-variable",
+          "class-name"
+        ],
+        "color": "#6542a6",
+        "ratio": 7.28
+      },
+      {
+        "types": [
+          "deleted",
+          "important"
+        ],
+        "color": "#9c2a35",
+        "ratio": 7.51
+      }
+    ]
+  },
+  {
+    "theme": "dark",
+    "background": "#0c0c0c",
+    "tokens": [
+      {
+        "types": [
+          "plain",
+          "unmatched"
+        ],
+        "color": "#dedede",
+        "ratio": 14.54
+      },
+      {
+        "types": [
+          "comment",
+          "prolog",
+          "doctype",
+          "cdata"
+        ],
+        "color": "#9fa99a",
+        "ratio": 8.03
+      },
+      {
+        "types": [
+          "keyword",
+          "atrule",
+          "builtin",
+          "tag",
+          "selector",
+          "changed"
+        ],
+        "color": "#7bcff4",
+        "ratio": 11.25
+      },
+      {
+        "types": [
+          "string",
+          "attr-value",
+          "char",
+          "template-punctuation"
+        ],
+        "color": "#dfaa92",
+        "ratio": 9.6
+      },
+      {
+        "types": [
+          "number",
+          "boolean",
+          "constant",
+          "symbol",
+          "regex",
+          "inserted"
+        ],
+        "color": "#c4b7e5",
+        "ratio": 10.48
+      },
+      {
+        "types": [
+          "property",
+          "attr-name",
+          "variable",
+          "entity",
+          "url"
+        ],
+        "color": "#8bcacc",
+        "ratio": 10.64
+      },
+      {
+        "types": [
+          "function",
+          "function-variable",
+          "class-name"
+        ],
+        "color": "#d8ce9c",
+        "ratio": 12.32
+      },
+      {
+        "types": [
+          "deleted",
+          "important"
+        ],
+        "color": "#ee9999",
+        "ratio": 8.99
+      }
+    ]
+  }
+]
